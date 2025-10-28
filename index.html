@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GlassCase — Making Law Visible</title>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      /* GlassCase Brand Colors */
+      --glass-blue: #4A9FD8;
+      --transparency-cyan: #3ABEF9;
+      --ice-blue: #E8F4F8;
+      --deep-navy: #1A1F2E;
+      --slate: #64748B;
+      --white: #FFFFFF;
+      --steel-blue: #5B7C99;
+      --gold-accent: #F4C430;
+      
+      /* Derived colors */
+      --bg-gradient-start: #1A1F2E;
+      --bg-gradient-mid: #0F1730;
+      --bg-gradient-end: #070b16;
+      --panel: rgba(26, 31, 46, 0.6);
+      --line: rgba(74, 159, 216, 0.25);
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+    
+    body {
+      font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, var(--bg-gradient-start), var(--bg-gradient-mid) 50%, var(--bg-gradient-end));
+      color: var(--white);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    
+    a {
+      color: var(--transparency-cyan);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    
+    a:hover {
+      color: var(--ice-blue);
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(26, 31, 46, 0.95);
+      backdrop-filter: saturate(130%) blur(10px);
+      -webkit-backdrop-filter: saturate(130%) blur(10px);
+      border-bottom: 1px solid var(--line);
+      z-index: 50;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .brand h1 {
+      font-family: 'Spectral', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.2px;
+    }
+    
+    .brand h1 .glass {
+      color: var(--ice-blue);
+    }
+    
+    .brand h1 .case {
+      color: var(--steel-blue);
+      font-weight: 800;
+    }
+    
+    .pill {
+      background: linear-gradient(135deg, var(--glass-blue), var(--transparency-cyan));
+      color: var(--white);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+    }
+    
+    /* Hero Section */
+    header.hero {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      padding: 64px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    
+    .title {
+      font-size: 56px;
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+    
+    .title i {
+      font-family: 'Spectral', serif;
+      font-style: italic;
+      font-weight: 700;
+      color: var(--transparency-cyan);
+    }
+    
+    .sub {
+      color: var(--slate);
+      font-size: 18px;
+      max-width: 760px;
+      line-height: 1.7;
+    }
+    
+    .glass {
+      background: radial-gradient(1200px 400px at 0% 0%, rgba(74, 159, 216, 0.15), transparent 60%),
+                  linear-gradient(180deg, rgba(26, 31, 46, 0.8), rgba(26, 31, 46, 0.4));
+      border: 1px solid rgba(74, 159, 216, 0.3);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+                  0 18px 60px rgba(0, 0, 0, 0.45);
+      border-radius: 16px;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.08) 0%, 
+        transparent 50%, 
+        rgba(255, 255, 255, 0.04) 100%);
+      pointer-events: none;
+    }
+    
+    .tagline {
+      font-size: 16px;
+      color: var(--transparency-cyan);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .glass p {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Prism Logo Visualization */
+    .kv {
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 16px;
+      background: linear-gradient(135deg, rgba(74, 159, 216, 0.15), rgba(58, 190, 249, 0.1));
+      border: 1px solid rgba(74, 159, 216, 0.2);
+    }
+    
+    .kv svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    
+    @keyframes prismGlow {
+      0%, 100% { filter: drop-shadow(0 0 8px rgba(74, 159, 216, 0.4)); }
+      50% { filter: drop-shadow(0 0 16px rgba(58, 190, 249, 0.8)); }
+    }
+    
+    .shimmer {
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    .prism-glow {
+      animation: prismGlow 4s ease-in-out infinite;
+    }
+    
+    /* Sections */
+    section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    
+    h2 {
+      font-family: 'Spectral', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--ice-blue);
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+    
+    p.lead {
+      color: var(--slate);
+      max-width: 880px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    
+    /* Grid Cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
+      margin-top: 24px;
+    }
+    
+    .card {
+      grid-column: span 6;
+      background: linear-gradient(180deg, rgba(26, 31, 46, 0.6), rgba(26, 31, 46, 0.3));
+      border: 1px solid rgba(74, 159, 216, 0.25);
+      border-radius: 14px;
+      padding: 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .card:hover {
+      border-color: var(--transparency-cyan);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(58, 190, 249, 0.15);
+    }
+    
+    .card h3 {
+      font-size: 18px;
+      margin-bottom: 8px;
+      color: var(--ice-blue);
+      font-weight: 700;
+    }
+    
+    .meta {
+      font-size: 12px;
+      color: var(--slate);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--transparency-cyan);
+      margin-right: 8px;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    /* Tools Grid */
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    
+    .tool {
+      background: rgba(26, 31, 46, 0.5);
+      border: 1px solid rgba(74, 159, 216, 0.25);
+      border-radius: 12px;
+      padding: 18px;
+      transition: all 0.3s ease;
+    }
+    
+    .tool:hover {
+      border-color: var(--glass-blue);
+      background: rgba(26, 31, 46, 0.7);
+      transform: translateY(-2px);
+    }
+    
+    .tool h4 {
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: var(--ice-blue);
+      font-weight: 700;
+    }
+    
+    .tool .who {
+      color: var(--transparency-cyan);
+      font-size: 12px;
+      margin: 6px 0;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    
+    .tool .value {
+      font-size: 14px;
+      color: var(--white);
+      line-height: 1.6;
+    }
+    
+    /* Roadmap */
+    .road {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+    
+    .step {
+      background: rgba(26, 31, 46, 0.6);
+      border: 1px dashed rgba(74, 159, 216, 0.4);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .step:hover {
+      border-color: var(--transparency-cyan);
+      border-style: solid;
+    }
+    
+    .step .when {
+      font-size: 12px;
+      color: var(--transparency-cyan);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    
+    .step p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    
+    .step b {
+      color: var(--ice-blue);
+    }
+    
+    /* Impact Badges */
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    
+    .badge {
+      background: linear-gradient(135deg, rgba(26, 31, 46, 0.8), rgba(26, 31, 46, 0.4));
+      border: 1px solid rgba(74, 159, 216, 0.3);
+      padding: 14px 16px;
+      border-radius: 10px;
+      min-width: 200px;
+      transition: all 0.3s ease;
+    }
+    
+    .badge:hover {
+      border-color: var(--glass-blue);
+      transform: translateY(-2px);
+    }
+    
+    .badge b {
+      display: block;
+      color: var(--transparency-cyan);
+      font-size: 24px;
+      margin-bottom: 4px;
+      font-weight: 800;
+    }
+    
+    /* Footer */
+    footer {
+      padding: 32px 0;
+      color: var(--slate);
+      font-size: 13px;
+      text-align: center;
+    }
+    
+    /* Responsive */
+    @media (max-width: 900px) {
+      header.hero {
+        grid-template-columns: 1fr;
+      }
+      
+      .title {
+        font-size: 40px;
+      }
+      
+      .card {
+        grid-column: span 12;
+      }
+      
+      .tools {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <div class="brand">
+        <!-- Glass Prism Logo -->
+        <svg width="32" height="32" viewBox="0 0 80 80" fill="none" aria-label="GlassCase Logo">
+          <defs>
+            <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9" />
+              <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7" />
+              <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9" />
+            </linearGradient>
+            <linearGradient id="lightBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+              <stop offset="100%" stop-color="#4A9FD8" stop-opacity="0.4" />
+            </linearGradient>
+          </defs>
+          
+          <!-- Depth layer (shadow) -->
+          <path d="M 28 22 L 42 40 L 28 58 Z" 
+                fill="rgba(74, 159, 216, 0.08)" 
+                stroke="rgba(74, 159, 216, 0.15)" 
+                stroke-width="0.5"
+                opacity="0.4"/>
+          
+          <!-- Light beam entering -->
+          <line x1="8" y1="40" x2="30" y2="40" 
+                stroke="url(#lightBeam)" 
+                stroke-width="2" 
+                opacity="0.6"
+                class="shimmer"/>
+          
+          <!-- Main prism -->
+          <path d="M 30 20 L 45 40 L 30 60 Z" 
+                fill="url(#prismGrad)" 
+                stroke="#4A9FD8" 
+                stroke-width="1"
+                class="prism-glow"/>
+          
+          <!-- Refraction highlight -->
+          <path d="M 32 28 L 42 40 L 32 52" 
+                fill="rgba(255, 255, 255, 0.3)"/>
+          
+          <!-- Spectrum rays (3 bands: blue, teal, gold) -->
+          <line x1="45" y1="40" x2="72" y2="28" 
+                stroke="#4A9FD8" 
+                stroke-width="2" 
+                opacity="0.85"
+                class="shimmer"/>
+          <line x1="45" y1="40" x2="72" y2="40" 
+                stroke="#3ABEF9" 
+                stroke-width="2.5" 
+                opacity="0.9"
+                class="shimmer"/>
+          <line x1="45" y1="40" x2="72" y2="52" 
+                stroke="#F4C430" 
+                stroke-width="2" 
+                opacity="0.85"
+                class="shimmer"/>
+        </svg>
+        
+        <h1><span class="glass">Glass</span><span class="case">Case</span></h1>
+      </div>
+      <div class="pill">Making law visible</div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header class="hero">
+      <div>
+        <div class="title">Turning hidden processes into <i>public understanding</i>. Making law visible.</div>
+        <p class="sub">GlassCase makes the operation of law and administration visible, measurable and teachable. We translate opaque legal and bureaucratic systems into interactive visualisations that reveal how law is applied, not just what it says.</p>
+      </div>
+      <div class="glass">
+        <div class="tagline">Mission</div>
+        <p>Make decisions and procedures legible to the public: show the path of a right, the points of discretion and delay, and what review looks like in practice.</p>
+        <div class="kv" aria-hidden="true">
+          <svg viewBox="0 0 320 160" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="kvPrism" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9" />
+                <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7" />
+                <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9" />
+              </linearGradient>
+              <linearGradient id="kvLight" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+                <stop offset="100%" stop-color="#4A9FD8" stop-opacity="0.4" />
+              </linearGradient>
+            </defs>
+            
+            <!-- Sub-prism depth layer -->
+            <path d="M 105 55 L 155 85 L 105 115 Z" 
+                  fill="rgba(74, 159, 216, 0.08)" 
+                  stroke="rgba(74, 159, 216, 0.15)" 
+                  stroke-width="1"
+                  opacity="0.4"/>
+            
+            <!-- Light ray entering -->
+            <line x1="20" y1="80" x2="110" y2="80" stroke="url(#kvLight)" stroke-width="8" opacity="0.6">
+              <animate attributeName="opacity" values="0.6;0.9;0.6" dur="3s" repeatCount="indefinite"/>
+            </line>
+            
+            <!-- Glass prism -->
+            <path d="M 110 50 L 160 80 L 110 110 Z" 
+                  fill="url(#kvPrism)" 
+                  stroke="#4A9FD8" 
+                  stroke-width="2"
+                  class="prism-glow"/>
+            
+            <!-- Glass refraction highlights -->
+            <path d="M 115 65 L 150 80 L 115 95" 
+                  fill="rgba(255, 255, 255, 0.3)" 
+                  class="shimmer"/>
+            
+            <!-- Compressed spectrum rays (blue, teal, gold) -->
+            <line class="shimmer" x1="160" y1="80" x2="290" y2="60" 
+                  stroke="#4A9FD8" stroke-width="7" opacity="0.85">
+              <animate attributeName="opacity" values="0.85;1;0.85" dur="3s" repeatCount="indefinite" begin="0.2s"/>
+            </line>
+            <line class="shimmer" x1="160" y1="80" x2="290" y2="80" 
+                  stroke="#3ABEF9" stroke-width="8" opacity="0.9">
+              <animate attributeName="opacity" values="0.9;1;0.9" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+            </line>
+            <line class="shimmer" x1="160" y1="80" x2="290" y2="100" 
+                  stroke="#F4C430" stroke-width="7" opacity="0.85">
+              <animate attributeName="opacity" values="0.85;1;0.85" dur="3s" repeatCount="indefinite" begin="0.8s"/>
+            </line>
+            
+            <!-- Labels -->
+            <text x="15" y="70" fill="#64748B" font-size="11" font-family="Manrope" font-weight="500">
+              Opaque
+            </text>
+            <text x="240" y="130" fill="#64748B" font-size="11" font-family="Manrope" font-weight="500">
+              Visible Truth
+            </text>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>Problem</h2>
+      <p class="lead">Citizens don't see what happens after lodging an FOI. Policymakers can't visualise where discretion lives. Students learn doctrine, not process. The result: low trust and slow reform.</p>
+      <div class="grid">
+        <div class="card">
+          <h3><span class="dot"></span>Fragmented systems</h3>
+          <div class="meta">Multiple laws, agencies and timelines</div>
+          <p>Rules live in Acts, policies and guidance spread across sites. No shared map, no shared language.</p>
+        </div>
+        <div class="card">
+          <h3><span class="dot"></span>Opaque pathways</h3>
+          <div class="meta">What actually happens after you click submit</div>
+          <p>Process steps, consultations and exemptions sit out of view, so people can't anticipate outcomes.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Solution</h2>
+      <p class="lead">Open, interactive tools that let people see, explore and learn real administrative pathways.</p>
+      <div class="tools">
+        <div class="tool">
+          <h4>FOI Process Visualiser</h4>
+          <div class="who">For the public and journalists</div>
+          <div class="value">Maps each step and delay point in an FOI request using real timelines from live matters.</div>
+        </div>
+        <div class="tool">
+          <h4>Policy‑Decision Heatmap</h4>
+          <div class="who">For education and justice departments</div>
+          <div class="value">Shows where discretion or inconsistency clusters so leaders can target reform.</div>
+        </div>
+        <div class="tool">
+          <h4>Procedural Fairness Simulator</h4>
+          <div class="who">For universities and VPS training</div>
+          <div class="value">Models how small rule changes affect outcomes. Teaches fairness as system design.</div>
+        </div>
+        <div class="tool">
+          <h4>Transparency Impact Tracker</h4>
+          <div class="who">For NGOs and policy units</div>
+          <div class="value">Scores draft policies for opacity risk using NLP, producing simple improvement prompts.</div>
+        </div>
+        <div class="tool">
+          <h4>Legal Decision Explorer</h4>
+          <div class="who">For students and researchers</div>
+          <div class="value">Converts rulings into visual narratives that link doctrine to procedure.</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Why now</h2>
+      <p class="lead">Trust in institutions is sliding while open data and AI finally make visual transparency feasible. Governments and universities need to demonstrate integrity, not just declare it.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Policy tailwind</h3>
+          <div class="meta">Data and Digital Government Strategy</div>
+          <p><em>Explicit support for civic‑tech partnerships that translate policy into accessible public insight.</em></p>
+        </div>
+        <div class="card">
+          <h3>Founder edge</h3>
+          <div class="meta">Live FOI case data + instructional design</div>
+          <p>Credibility to build tools that are accurate, teachable and publicly valuable.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Model</h2>
+      <p class="lead">Hybrid social enterprise: open-access civic tools sustained by consulting, research and education partnerships.</p>
+      <p class="lead">We operate as an open-lab incubated by Law &amp; Learning Pty Ltd, combining public insight with applied research.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>GlassCase.org.au</h3>
+          <div class="meta">Open tools</div>
+          <p>Free public visualisations and explainers.</p>
+        </div>
+        <div class="card">
+          <h3>Law & Learning Pty Ltd</h3>
+          <div class="meta">Incubation</div>
+          <p>Development, analytics consulting and educational licensing.</p>
+        </div>
+        <div class="card" style="grid-column: span 12">
+          <h3>Future: GlassCase Foundation</h3>
+          <div class="meta">Non‑profit ABN</div>
+          <p>Grant and donation intake, research collaborations and international scaling.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Roadmap</h2>
+      <div class="road">
+        <div class="step">
+          <div class="when">2025 Q1–Q2</div>
+          <p>Prototype FOI Visualiser using Springside dataset; launch <b>glasscase.org.au</b>.</p>
+        </div>
+        <div class="step">
+          <div class="when">2025 Q3–Q4</div>
+          <p>Partner with ANU Law/Data Science; pilot Procedural Fairness Simulator.</p>
+        </div>
+        <div class="step">
+          <div class="when">2026</div>
+          <p>Apply for ANU Innovation Seed Fund or Google.org Impact Challenge; form independent not‑for‑profit; release Transparency Impact Tracker beta.</p>
+        </div>
+        <div class="step">
+          <div class="when">2027–2028</div>
+          <p>Scale via open APIs and university integrations.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Impact goals</h2>
+      <div class="badges">
+        <div class="badge"><b>10,000+</b> users exploring live FOI pathways</div>
+        <div class="badge"><b>3 + 2</b> academic partnerships and government collaborations</div>
+        <div class="badge"><b>↑ comprehension</b> of FOI timelines and fairness indicators (annual survey)</div>
+      </div>
+    </section>
+
+    <section style="border-bottom: none;">
+      <h2>Future vision</h2>
+      <p class="lead">GlassCase becomes the visible conscience of public administration, an engine room for designing fairness as data. Where Law & Learning helps people study law, GlassCase helps society see it.</p>
+    </section>
+
+    <footer>
+      <div class="container" style="padding: 0">
+        © 2025 GlassCase · Civic‑legal data lab · <a href="https://glasscase.org.au">glasscase.org.au</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
