@@ -4,10 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GlassCase — Making Law Visible</title>
-  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="Open, interactive tools that map real administrative pathways in Australia. From PDFs to public maps." />
+  <link rel="canonical" href="https://glasscase.org/" />
+  <meta property="og:title" content="GlassCase — Making law visible" />
+  <meta property="og:description" content="Open, interactive tools that map real administrative pathways in Australia." />
+  <meta property="og:image" content="https://glasscase.org/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      /* GlassCase Brand Colors */
+      color-scheme: dark;
+      /* Glass/Case Brand Colors */
       --glass-blue: #4A9FD8;
       --transparency-cyan: #3ABEF9;
       --ice-blue: #E8F4F8;
@@ -57,6 +66,32 @@
       color: var(--ice-blue);
     }
     
+    p a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    
+    :focus-visible {
+      outline: 2px solid var(--transparency-cyan);
+      outline-offset: 2px;
+    }
+    
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 10px;
+      background: var(--deep-navy);
+      color: var(--white);
+      padding: 8px 16px;
+      border-radius: 0 0 4px 4px;
+      transition: top 0.3s ease;
+      z-index: 100;
+    }
+    
+    .skip-link:focus {
+      top: 0;
+    }
+    
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -68,11 +103,17 @@
       position: sticky;
       top: 0;
       background: rgba(26, 31, 46, 0.95);
-      backdrop-filter: saturate(130%) blur(10px);
-      -webkit-backdrop-filter: saturate(130%) blur(10px);
       border-bottom: 1px solid var(--line);
       z-index: 50;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      min-height: 64px;
+    }
+    
+    @supports (backdrop-filter: blur(10px)) {
+      nav {
+        -webkit-backdrop-filter: saturate(130%) blur(10px);
+        backdrop-filter: saturate(130%) blur(10px);
+      }
     }
     
     .nav-inner {
@@ -91,21 +132,74 @@
       gap: 12px;
     }
     
+    .brand-name {
+      font-family: 'Spectral', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25em;
+      margin: 0;
+    }
+    
     .brand h1 {
       font-family: 'Spectral', serif;
       font-style: italic;
       font-weight: 700;
       font-size: 20px;
-      letter-spacing: 0.2px;
+      letter-spacing: 0.15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25em;
     }
     
+    .brand-name .glass,
     .brand h1 .glass {
       color: var(--ice-blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, rgba(74, 159, 216, 0.18), rgba(58, 190, 249, 0.08));
+      border: 1px solid rgba(74, 159, 216, 0.5);
+      box-shadow: 0 6px 24px rgba(58, 190, 249, 0.18);
+      position: relative;
+      overflow: hidden;
     }
     
+    .brand-name .glass::after,
+    .brand h1 .glass::after {
+      content: '';
+      position: absolute;
+      inset: 2px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02));
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    
+    .brand-name .divider,
+    .brand h1 .divider {
+      color: rgba(166, 207, 242, 0.8);
+      font-weight: 600;
+      margin: 0 0.1em;
+      letter-spacing: -0.1em;
+      display: inline-flex;
+      transform: translateY(-1px);
+    }
+    
+    .brand-name .case,
     .brand h1 .case {
-      color: var(--steel-blue);
-      font-weight: 800;
+      font-family: 'JetBrains Mono', 'Fira Code', 'IBM Plex Mono', monospace;
+      color: rgba(164, 188, 211, 0.92);
+      font-weight: 600;
+      font-style: normal;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-shadow: 0 3px 12px rgba(10, 22, 38, 0.35);
     }
     
     .pill {
@@ -149,7 +243,7 @@
       line-height: 1.7;
     }
     
-    .glass {
+    .glass-panel {
       background: radial-gradient(1200px 400px at 0% 0%, rgba(74, 159, 216, 0.15), transparent 60%),
                   linear-gradient(180deg, rgba(26, 31, 46, 0.8), rgba(26, 31, 46, 0.4));
       border: 1px solid rgba(74, 159, 216, 0.3);
@@ -161,7 +255,7 @@
       overflow: hidden;
     }
     
-    .glass::before {
+    .glass-panel::before {
       content: '';
       position: absolute;
       top: 0;
@@ -186,7 +280,7 @@
       z-index: 1;
     }
     
-    .glass p {
+    .glass-panel p {
       position: relative;
       z-index: 1;
     }
@@ -395,9 +489,13 @@
       border-radius: 10px;
       min-width: 200px;
       transition: all 0.3s ease;
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
     
-    .badge:hover {
+    .badge:hover,
+    .badge:focus {
       border-color: var(--glass-blue);
       transform: translateY(-2px);
     }
@@ -439,11 +537,13 @@
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#content">Skip to content</a>
+  
   <nav>
     <div class="nav-inner">
       <div class="brand">
         <!-- Glass Prism Logo -->
-        <svg width="32" height="32" viewBox="0 0 80 80" fill="none" aria-label="GlassCase Logo">
+        <svg width="32" height="32" viewBox="0 0 80 80" fill="none" aria-hidden="true">
           <defs>
             <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9" />
@@ -499,21 +599,21 @@
                 class="shimmer"/>
         </svg>
         
-        <h1><span class="glass">Glass</span><span class="case">Case</span></h1>
+        <p class="brand-name"><span class="glass">Glass</span><span class="divider">/</span><span class="case">Case</span></p>
       </div>
-      <div class="pill">Making law visible</div>
+      <div class="pill">Making law visible · <a href="https://glasscase.org" style="color: inherit; text-decoration: none;">glasscase.org</a></div>
     </div>
   </nav>
 
-  <div class="container">
+  <main id="content" class="container">
     <header class="hero">
       <div>
-        <div class="title">Turning hidden Australian processes into <i>public understanding</i>. Making law visible.</div>
-        <p class="sub">GlassCase makes the operation of Australian law and administration visible, measurable and teachable. We translate opaque Commonwealth and state systems into interactive visualisations that reveal how law is applied in practice, not just what it says on paper.</p>
+        <h1 class="title">From PDFs to <i>public maps</i></h1>
+        <p class="sub">People shouldn't need a law degree to see how government decisions are made. GlassCase makes the operation of law and administration visible, measurable and teachable—turning hidden processes into public understanding. We turn opaque systems into interactive maps that reveal how law works in practice.</p>
       </div>
-      <div class="glass">
+      <div class="glass-panel">
         <div class="tagline">Mission</div>
-        <p>Make decisions and procedures legible to the public: show the path of a right, the points of discretion and delay, and what review looks like across Australian jurisdictions.</p>
+        <p>Make decisions and procedures visible to the public: <strong style="color: var(--ice-blue); font-weight: 700;">show the path of a right</strong>, the points of discretion and delay, and what review looks like across jurisdictions.</p>
         <div class="kv" aria-hidden="true">
           <svg viewBox="0 0 320 160" preserveAspectRatio="xMidYMid meet">
             <defs>
@@ -570,8 +670,11 @@
             <text x="15" y="70" fill="#64748B" font-size="11" font-family="Manrope" font-weight="500">
               Opaque
             </text>
-            <text x="240" y="130" fill="#64748B" font-size="11" font-family="Manrope" font-weight="500">
+            <text x="200" y="130" fill="#64748B" font-size="11" font-family="Manrope" font-weight="500">
               Visible Truth
+            </text>
+            <text x="200" y="145" fill="#5B7C99" font-size="9" font-family="Manrope" font-weight="400" font-style="italic">
+              The shift we're engineering
             </text>
           </svg>
         </div>
@@ -580,7 +683,7 @@
 
     <section>
       <h2>Problem</h2>
-      <p class="lead">Australians don't see what happens after lodging a Freedom of Information request with Canberra or state agencies. Policymakers across federal and state departments can't visualise where discretion lives. Law students learn doctrine, not process. The result: low trust and slow reform.</p>
+      <p class="lead">People don't see what happens after lodging a Freedom of Information request, applying for a visa review, or challenging an administrative decision. Policymakers can't visualise where discretion lives or where delays cluster. Law students learn doctrine, not the procedural realities that shape outcomes. The result: low trust and slow reform.</p>
       <div class="grid">
         <div class="card">
           <h3><span class="dot"></span>Fragmented systems</h3>
@@ -590,19 +693,19 @@
         <div class="card">
           <h3><span class="dot"></span>Opaque pathways</h3>
           <div class="meta">What actually happens after you click submit</div>
-          <p>Process steps, OAIC guidance and exemptions under the FOI Act 1982 sit out of view, so people can't anticipate outcomes.</p>
+          <p>Process steps, tribunal procedures, review timelines and exemption criteria sit out of view, so people can't anticipate outcomes or navigate systems confidently.</p>
         </div>
       </div>
     </section>
 
     <section>
       <h2>Solution</h2>
-      <p class="lead">Open, interactive tools that let people see, explore and learn real Australian administrative pathways.</p>
+      <p class="lead">Open, interactive tools that let people see, explore and learn real administrative pathways.</p>
       <div class="tools">
         <div class="tool">
           <h4>FOI Process Visualiser</h4>
           <div class="who">For the public and transparency journalists</div>
-          <div class="value">Maps each step and delay point in an FOI request using real timelines from Australian agencies and review bodies.</div>
+          <div class="value">Maps each step and delay point in an FOI request using aggregated timelines drawn from agencies and review bodies.</div>
         </div>
         <div class="tool">
           <h4>Policy‑Decision Heatmap</h4>
@@ -629,7 +732,7 @@
 
     <section>
       <h2>Why now</h2>
-      <p class="lead">Trust in institutions is sliding while open data, the National Anti-Corruption Commission and AI finally make visual transparency feasible. Australian governments and universities need to demonstrate integrity, not just declare it.</p>
+      <p class="lead">Trust in institutions is sliding while open data, the National Anti-Corruption Commission and AI finally make visual transparency feasible. Governments and universities need to demonstrate integrity, not just declare it.</p>
       <div class="grid">
         <div class="card">
           <h3>Policy tailwind</h3>
@@ -637,32 +740,32 @@
           <p><em>Explicit support for civic‑tech partnerships that translate policy into accessible public insight.</em></p>
         </div>
         <div class="card">
-          <h3>Founder edge</h3>
-          <div class="meta">Live Australian FOI case data + instructional design</div>
-          <p>Credibility to build tools that are accurate, teachable and publicly valuable for local communities.</p>
+          <h3>Our edge</h3>
+          <div class="meta">Live administrative case data + instructional design</div>
+          <p>Credibility to build tools that are accurate, teachable and publicly valuable across FOI, tribunals, and policy systems.</p>
         </div>
       </div>
     </section>
 
     <section>
       <h2>Model</h2>
-      <p class="lead">Hybrid social enterprise: open-access civic tools sustained by consulting, research and education partnerships within Australia.</p>
-      <p class="lead">We operate as an open-lab incubated by Law &amp; Learning, combining public insight with applied research anchored in Australian jurisdictions.</p>
+      <p class="lead">Hybrid social enterprise: open-access civic tools sustained by consulting, research and education partnerships.</p>
+      <p class="lead">Developed within Law &amp; Learning, GlassCase operates as an open civic-legal lab integrating research, data and public education.</p>
       <div class="grid">
         <div class="card">
-          <h3>GlassCase.org.au</h3>
+          <h3>GlassCase.org</h3>
           <div class="meta">Open tools</div>
           <p>Free public visualisations and explainers for Australian civic life.</p>
         </div>
         <div class="card">
           <h3>Law &amp; Learning</h3>
           <div class="meta">Incubation</div>
-          <p>Development, analytics consulting and educational licensing for Australian institutions.</p>
+          <p>Development, analytics consulting and educational licensing for institutions.</p>
         </div>
         <div class="card" style="grid-column: span 12">
           <h3>Future: GlassCase Foundation</h3>
           <div class="meta">Non‑profit ABN</div>
-          <p>Grant and donation intake, research collaborations and scaling projects that support Australian transparency.</p>
+          <p>Grant and donation intake, research collaborations and scaling projects that support transparency.</p>
         </div>
       </div>
     </section>
@@ -672,7 +775,7 @@
       <div class="road">
         <div class="step">
           <div class="when">2025 Q1–Q2</div>
-          <p>Prototype FOI Visualiser using aggregated Australian FOI timelines; launch <b>glasscase.org.au</b> with OAIC best-practice guidance summaries.</p>
+          <p>Prototype FOI Visualiser using aggregated timelines; launch <b>glasscase.org</b> with administrative process explainers and best-practice guidance.</p>
         </div>
         <div class="step">
           <div class="when">2025 Q3–Q4</div>
@@ -684,7 +787,7 @@
         </div>
         <div class="step">
           <div class="when">2027–2028</div>
-          <p>Scale via open APIs and university integrations across Australian states and territories.</p>
+          <p>Scale via open APIs and university integrations across states and territories.</p>
         </div>
       </div>
     </section>
@@ -692,22 +795,34 @@
     <section>
       <h2>Impact goals</h2>
       <div class="badges">
-        <div class="badge"><b>10,000+</b> Australians exploring live FOI pathways</div>
-        <div class="badge"><b>3 + 2</b> partnerships with Australian universities and government agencies</div>
-        <div class="badge"><b>↑ comprehension</b> of FOI timelines and fairness indicators (annual Australian survey)</div>
+        <div class="badge"><b>10,000+</b> people exploring live administrative pathways</div>
+        <div class="badge"><b>3 + 2</b> partnerships with universities and government agencies</div>
+        <div class="badge"><b>Measured improvement</b> in public understanding of process timelines and fairness indicators</div>
       </div>
+    </section>
+
+    <section>
+      <h2>Future vision</h2>
+      <p class="lead">GlassCase becomes the visible conscience of public administration, an engine room for designing fairness as data. Where Law &amp; Learning helps people study law, GlassCase helps them see it.</p>
     </section>
 
     <section style="border-bottom: none;">
-      <h2>Future vision</h2>
-      <p class="lead">GlassCase becomes the visible conscience of Australian public administration, an engine room for designing fairness as data. Where Law &amp; Learning helps people study law, GlassCase helps Australia see it.</p>
+      <h2>Get involved</h2>
+      <p class="lead" style="margin-bottom: 24px;">Ready to make law visible?</p>
+      <div class="badges">
+        <a href="#collaborate" class="badge"><b>Collaborate</b> Partner with us on research or policy projects</a>
+        <a href="#contribute" class="badge"><b>Contribute</b> Share data, code or design expertise</a>
+        <a href="#commission" class="badge"><b>Commission</b> Request custom visualisations or training</a>
+      </div>
     </section>
 
-    <footer>
-      <div class="container" style="padding: 0">
-        © 2025 GlassCase · Civic‑legal data lab · <a href="https://glasscase.org.au">glasscase.org.au</a> · Based in Australia
-      </div>
-    </footer>
-  </div>
+  </main>
+
+  <footer>
+    <div class="container" style="padding: 0">
+      © 2025 GlassCase · Civic‑legal data lab · <a href="https://glasscase.org">glasscase.org</a><br>
+      <em style="color: var(--slate); font-size: 12px; margin-top: 8px; display: block;">Built in Australia. Made for everyone who believes fairness should be visible.</em>
+    </div>
+  </footer>
 </body>
 </html>
