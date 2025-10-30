@@ -125,12 +125,15 @@
       padding: 14px 24px;
       max-width: 1200px;
       margin: 0 auto;
+      flex-wrap: wrap;
     }
     
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
+      flex: 1 1 auto;
+      min-width: 0;
     }
     
     .brand-name {
@@ -215,6 +218,13 @@
       align-items: center;
       gap: 6px;
       white-space: nowrap;
+      max-width: 100%;
+      line-height: 1;
+    }
+    .pill > span {
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .pill a {
@@ -229,6 +239,23 @@
       text-decoration: none;
     }
     
+    /* Mobile responsive pill */
+    @media (max-width: 640px) {
+      .nav-inner { gap: 8px; padding: 10px 12px; }
+      .pill {
+        padding: 6px 10px;
+        font-size: 13px;
+        max-width: 60vw;
+      }
+      .pill-short { display: inline !important; }
+      .pill-long { display: none !important; }
+      .brand-name { font-size: clamp(18px, 5vw, 20px); }
+    }
+    @media (min-width: 641px) {
+      .pill-short { display: none !important; }
+      .pill-long { display: inline !important; }
+    }
+    
     /* Hero Section */
     header.hero {
       display: grid;
@@ -239,11 +266,13 @@
     }
     
     .title {
-      font-size: 56px;
-      line-height: 1.05;
+      font-size: clamp(28px, 6vw, 56px);
+      line-height: 1.1;
       font-weight: 800;
       letter-spacing: -0.5px;
       margin-bottom: 16px;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
     }
     
     .title i {
@@ -255,8 +284,8 @@
     
     .sub {
       color: var(--slate);
-      font-size: 18px;
-      max-width: 760px;
+      font-size: clamp(16px, 3.8vw, 18px);
+      max-width: min(760px, 75ch);
       line-height: 1.7;
     }
     
@@ -618,7 +647,10 @@
         
         <p class="brand-name"><span class="glass">Glass</span><span class="divider">/</span><span class="case">Case</span></p>
       </div>
-      <div class="pill">Making law visible · <a href="https://glasscase.org">glasscase.org</a></div>
+      <div class="pill">
+        <span class="pill-short">Making Law Visible</span>
+        <span class="pill-long">Making Law Visible •<a href="https://glasscase.org">glasscase.org</a></span>
+      </div>
     </div>
   </nav>
 
@@ -626,7 +658,7 @@
     <header class="hero">
       <div>
         <h1 class="title">From PDFs to <i>public maps</i></h1>
-        <p class="sub">People shouldn't need a law degree to see how government decisions are made. GlassCase makes the operation of law and administration visible, measurable and teachable—turning hidden processes into public understanding. We turn opaque systems into interactive maps that reveal how law works in practice, in partnership with <a href="https://lawandlearning.com/" aria-label="Visit Law and Learning">Law &amp; Learning</a>. GlassCase.org is led by Jay Spudvilas (Jayden Spudvilas-Powell).</p>
+        <p class="sub">People shouldn't need a law degree to see how government decisions are made. GlassCase makes the operation of law and administration visible, measurable and teachable—turning hidden processes into public understanding. We turn opaque systems into interactive maps that reveal how law works in practice, in partnership with <a href="https://lawandlearning.com/" aria-label="Visit Law and Learning">Law &amp; Learning</a>. GlassCase.org is led by Jay Spudvilas.</p>
       </div>
       <div class="glass-panel">
         <div class="tagline">Mission</div>
@@ -838,7 +870,7 @@
   <footer>
     <div class="container" style="padding: 0">
       © 2025 GlassCase · Civic‑legal data lab · <a href="https://glasscase.org">glasscase.org</a><br>
-      <em style="color: var(--slate); font-size: 12px; margin-top: 8px; display: block;">Led by Jay Spudvilas. Built in Australia. Made for everyone who believes fairness should be visible.</em>
+      <em style="color: var(--slate); font-size: 12px; margin-top: 8px; display: block;">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</em>
     </div>
   </footer>
 </body>
