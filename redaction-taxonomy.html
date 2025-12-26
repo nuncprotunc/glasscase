@@ -549,31 +549,121 @@
         }
 
         footer {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
+            padding: 3rem 0 2rem;
             border-top: 1px solid var(--line);
             color: var(--slate);
+            font-size: 14px;
+        }
+        
+        .footer-top {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 2rem;
+            border-bottom: 1px solid var(--line);
+        }
+        
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-brand-name {
+            font-family: 'Spectral', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 18px;
+            color: var(--ice-blue);
+            margin-bottom: 0.25rem;
+        }
+        
+        .footer-tagline {
+            font-size: 0.875rem;
+            color: var(--slate);
+            line-height: 1.5;
+        }
+        
+        .footer-section h4 {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--ice-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .footer-links a {
+            color: var(--slate);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--ice-blue);
+        }
+        
+        .footer-cta {
+            background: var(--glass-blue);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            transition: opacity 0.2s;
+        }
+        
+        .footer-cta:hover {
+            opacity: 0.9;
+            color: white;
+        }
+        
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
             font-size: 0.875rem;
         }
-
-        footer a {
+        
+        .footer-bottom a {
             color: var(--transparency-cyan);
             text-decoration: none;
         }
-
-        footer a:hover {
+        
+        .footer-bottom a:hover {
             color: var(--ice-blue);
-            text-decoration: underline;
         }
-
-        .disclaimer {
-            margin-top: 1rem;
+        
+        .footer-disclaimer {
+            font-size: 0.8125rem;
             font-style: italic;
             color: var(--slate);
-            font-size: 0.8125rem;
+            margin-top: 1rem;
         }
 
+        @media (max-width: 768px) {
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
         @media (max-width: 640px) {
             h1 {
                 font-size: 1.75rem;
@@ -966,17 +1056,44 @@
     </main>
 
     <footer>
-        <p>© 2025 <a href="https://glasscase.org">GlassCase</a> · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></p>
-        <p style="margin-top: 0.5rem; font-size: 0.8125rem;">Version: v0.1 (December 2025)</p>
-        <p style="margin-top: 0.5rem; font-size: 0.8125rem; display: flex; align-items: center; gap: 0.5rem;">
-            <span>Licence:</span>
-            <a href="https://creativecommons.org/licenses/by/4.0/" style="display: inline-flex; align-items: center; gap: 0.25rem;">
-                <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" alt="CC BY 4.0" style="height: 1.25rem;">
-                CC BY 4.0
-            </a>
-        </p>
-        <p class="disclaimer">Not legal advice. Designed for comparative analysis and transparency auditing. This taxonomy is an analyst's tool, not a substitute for statutory interpretation. For authoritative guidance, see the <a href="https://www.oaic.gov.au/freedom-of-information/freedom-of-information-guidance-for-government-agencies/foi-guidelines">OAIC FOI Guidelines (Parts 5 to 6)</a>.</p>
-        <p style="margin-top: 1rem; font-style: italic; font-size: 0.8125rem;">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
+        <div class="footer-top">
+            <div class="footer-brand">
+                <div class="footer-brand-name">GlassCase</div>
+                <p class="footer-tagline">Making Integrity Visible</p>
+                <p class="footer-tagline">Evidence systems across education and civic-tech, designed for fairness.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Site</h4>
+                <div class="footer-links">
+                    <a href="/">Home</a>
+                    <a href="/#problem">Problem</a>
+                    <a href="/#solution">Solution</a>
+                    <a href="/#roadmap">Roadmap</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Projects</h4>
+                <div class="footer-links">
+                    <a href="/redaction-taxonomy.html">Redaction Taxonomy</a>
+                    <a href="https://lawandlearning.com" target="_blank" rel="noopener">Law & Learning</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Join the Community</h4>
+                <p style="font-size: 0.875rem; color: var(--slate); margin-bottom: 1rem; line-height: 1.5;">Updates on evidence systems, civic-tech and the ANU JD.</p>
+                <a href="https://linkedin.com/company/glasscase" target="_blank" rel="noopener" class="footer-cta">Follow on LinkedIn</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© 2025 <a href="https://glasscase.org">GlassCase</a> · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.8125rem;">Version: v0.1 (December 2025) · Licence: <a href="https://creativecommons.org/licenses/by/4.0/" style="display: inline-flex; align-items: center; gap: 0.25rem; vertical-align: middle;"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" alt="CC BY 4.0" style="height: 1.25rem; vertical-align: middle;"> CC BY 4.0</a></p>
+            <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
+            <p class="footer-disclaimer">Not legal advice. Designed for comparative analysis and transparency auditing. This taxonomy is an analyst's tool, not a substitute for statutory interpretation. For authoritative guidance, see the <a href="https://www.oaic.gov.au/freedom-of-information/freedom-of-information-guidance-for-government-agencies/foi-guidelines">OAIC FOI Guidelines (Parts 5 to 6)</a>.</p>
+        </div>
     </footer>
 </body>
 </html>
