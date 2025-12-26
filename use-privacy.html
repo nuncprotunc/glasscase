@@ -390,30 +390,78 @@
 </head>
 <body>
     <nav>
-        <div class="nav-inner">
-            <div class="brand">
-                <svg width="32" height="32" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-                    <defs>
-                        <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9" />
-                            <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7" />
-                            <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M 30 20 L 45 40 L 30 60 Z" fill="url(#prismGrad)" stroke="#4A9FD8" stroke-width="1" class="prism-glow"/>
-                    <line x1="45" y1="40" x2="72" y2="28" stroke="#4A9FD8" stroke-width="2" opacity="0.85" class="shimmer"/>
-                    <line x1="45" y1="40" x2="72" y2="40" stroke="#3ABEF9" stroke-width="2.5" opacity="0.9" class="shimmer"/>
-                    <line x1="45" y1="40" x2="72" y2="52" stroke="#F4C430" stroke-width="2" opacity="0.85" class="shimmer"/>
-                </svg>
-                <p class="brand-name"><span class="glass">Glass</span><span class="divider">/</span><span class="case">Case</span></p>
-            </div>
-            <div class="nav-links">
-                <a href="/">Home</a>
-                <a href="/redaction-taxonomy.html">Taxonomy</a>
-                <span class="pill">Making Integrity Visible</span>
-            </div>
+    <div class="nav-inner">
+      <div class="brand">
+        <!-- Glass Prism Logo -->
+        <svg width="32" height="32" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+          <defs>
+            <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9" />
+              <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7" />
+              <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9" />
+            </linearGradient>
+            <linearGradient id="lightBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8" />
+              <stop offset="100%" stop-color="#4A9FD8" stop-opacity="0.4" />
+            </linearGradient>
+          </defs>
+          
+          <!-- Depth layer (shadow) -->
+          <path d="M 28 22 L 42 40 L 28 58 Z" 
+                fill="rgba(74, 159, 216, 0.08)" 
+                stroke="rgba(74, 159, 216, 0.15)" 
+                stroke-width="0.5"
+                opacity="0.4"/>
+          
+          <!-- Light beam entering -->
+          <line x1="8" y1="40" x2="30" y2="40" 
+                stroke="url(#lightBeam)" 
+                stroke-width="2" 
+                opacity="0.6"
+                class="shimmer"/>
+          
+          <!-- Main prism -->
+          <path d="M 30 20 L 45 40 L 30 60 Z" 
+                fill="url(#prismGrad)" 
+                stroke="#4A9FD8" 
+                stroke-width="1"
+                class="prism-glow"/>
+          
+          <!-- Refraction highlight -->
+          <path d="M 32 28 L 42 40 L 32 52" 
+                fill="rgba(255, 255, 255, 0.3)"/>
+          
+          <!-- Spectrum rays (3 bands: blue, teal, gold) -->
+          <line x1="45" y1="40" x2="72" y2="28" 
+                stroke="#4A9FD8" 
+                stroke-width="2" 
+                opacity="0.85"
+                class="shimmer"/>
+          <line x1="45" y1="40" x2="72" y2="40" 
+                stroke="#3ABEF9" 
+                stroke-width="2.5" 
+                opacity="0.9"
+                class="shimmer"/>
+          <line x1="45" y1="40" x2="72" y2="52" 
+                stroke="#F4C430" 
+                stroke-width="2" 
+                opacity="0.85"
+                class="shimmer"/>
+        </svg>
+        
+        <p class="brand-name"><span class="glass">Glass</span><span class="divider">/</span><span class="case">Case</span></p>
+      </div>
+      <div style="display: flex; align-items: center; gap: 2rem;">
+        <nav style="display: flex; gap: 1.5rem; align-items: center;">
+          <a href="/" style="color: var(--slate); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s;">Home</a>
+          <a href="/redaction-taxonomy.html" style="color: var(--slate); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s;">Taxonomy</a>
+        </nav>
+        <div class="pill">
+          <span>Making Integrity Visible</span>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
     <main>
         <h1>Use, Privacy & Legal</h1>
