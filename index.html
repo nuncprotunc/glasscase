@@ -172,6 +172,11 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
     
+    /* Offset anchor scroll to account for sticky header */
+    section {
+      scroll-margin-top: 100px;
+    }
+    
     @supports (backdrop-filter: blur(10px)) {
       nav {
         -webkit-backdrop-filter: saturate(130%) blur(10px);
