@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT6N8DGQN9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZT6N8DGQN9');
+    </script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="5ak5S54IdTWG1s2khqZLcg" async></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redaction Taxonomy v0.1 | GlassCase</title>
+    <meta name="description" content="A practical coding scheme for analysing FOI redactions across Australian jurisdictions. Designed for comparative analysis of redaction patterns and decision quality.">
+    <meta name="keywords" content="FOI, freedom of information, redaction analysis, transparency, administrative law, GlassCase, Jay Spudvilas, Australia">
+    <meta name="author" content="Jay Spudvilas (Jayden Spudvilas-Powell)">
+    <link rel="canonical" href="https://glasscase.org/redaction-taxonomy.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Redaction Taxonomy v0.1 | GlassCase">
+    <meta property="og:description" content="Practical coding scheme for analysing FOI redactions across Australian jurisdictions.">
+    <meta property="og:site_name" content="GlassCase">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://glasscase.org/redaction-taxonomy.html">
+    <meta property="og:image" content="https://glasscase.org/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="GlassCase Redaction Taxonomy">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Redaction Taxonomy v0.1 | GlassCase">
+    <meta name="twitter:description" content="Practical coding scheme for analysing FOI redactions across Australian jurisdictions.">
+    <meta name="twitter:image" content="https://glasscase.org/og-image.png">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon-512.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: dark;
+            /* GlassCase Brand Colors */
+            --glass-blue: #4A9FD8;
+            --transparency-cyan: #3ABEF9;
+            --ice-blue: #E8F4F8;
+            --deep-navy: #1A1F2E;
+            --slate: #64748B;
+            --white: #FFFFFF;
+            --steel-blue: #5B7C99;
+            --gold-accent: #F4C430;
+            
+            /* Derived colors */
+            --bg-gradient-start: #1A1F2E;
+            --bg-gradient-mid: #0F1730;
+            --bg-gradient-end: #070b16;
+            --panel: rgba(26, 31, 46, 0.6);
+            --line: rgba(74, 159, 216, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(180deg, var(--bg-gradient-start), var(--bg-gradient-mid) 50%, var(--bg-gradient-end));
+            color: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(26, 31, 46, 0.95);
+            border-bottom: 1px solid var(--line);
+            z-index: 50;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+        
+        @supports (backdrop-filter: blur(10px)) {
+            nav {
+                -webkit-backdrop-filter: saturate(130%) blur(10px);
+                backdrop-filter: saturate(130%) blur(10px);
+            }
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 1.5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .brand-logo svg {
+            width: 32px;
+            height: 32px;
+        }
+
+        .brand-name {
+            font-family: 'Spectral', serif;
+            font-style: italic;
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: 0.15px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25em;
+            margin: 0;
+        }
+        
+        .brand-name .glass {
+            color: var(--ice-blue);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4px 12px;
+            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(74, 159, 216, 0.18), rgba(58, 190, 249, 0.08));
+            border: 1px solid rgba(74, 159, 216, 0.5);
+            box-shadow: 0 6px 24px rgba(58, 190, 249, 0.18);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .brand-name .glass::after {
+            content: '';
+            position: absolute;
+            inset: 2px;
+            border-radius: 10px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02));
+            opacity: 0.9;
+            pointer-events: none;
+        }
+        
+        .brand-name .divider {
+            color: rgba(166, 207, 242, 0.8);
+            font-weight: 600;
+            margin: 0 0.1em;
+            letter-spacing: -0.1em;
+        }
+        
+        .brand-name .case {
+            font-family: 'JetBrains Mono', monospace;
+            color: rgba(164, 188, 211, 0.92);
+            font-weight: 600;
+            font-style: normal;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+        
+        .brand-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--slate);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--ice-blue);
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .version-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--glass-blue);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--slate);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .intro {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .intro p {
+            margin-bottom: 0.75rem;
+        }
+
+        .intro p:last-child {
+            margin-bottom: 0;
+        }
+
+        .where-fits {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .where-fits-title {
+            color: var(--transparency-cyan);
+            font-weight: 600;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .where-fits p {
+            color: var(--white);
+            margin: 0;
+        }
+
+        .download-links {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .download-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            color: var(--transparency-cyan);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .download-link:hover {
+            background: var(--glass-blue);
+            color: white;
+            border-color: var(--glass-blue);
+        }
+
+        .download-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--line);
+            color: var(--transparency-cyan);
+        }
+
+        h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .category-block {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .category-code {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2rem;
+            height: 2rem;
+            background: var(--glass-blue);
+            color: white;
+            font-weight: 700;
+            font-size: 0.875rem;
+            border-radius: 6px;
+        }
+
+        .category-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .category-items {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .category-items li {
+            padding: 0.5rem 0;
+            padding-left: 1rem;
+            border-left: 2px solid var(--line);
+            margin-left: 0.875rem;
+            color: var(--slate);
+        }
+
+        .category-items li strong {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .pattern-flag {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .pattern-flag-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pattern-flag-code {
+            color: #f87171;
+            font-weight: 700;
+            font-size: 0.875rem;
+        }
+
+        .pattern-flag-title {
+            color: #fca5a5;
+            font-weight: 500;
+        }
+
+        .pattern-flag-example {
+            color: var(--slate);
+            font-size: 0.9375rem;
+            font-style: italic;
+        }
+
+        .mapping-note {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .mapping-note h3 {
+            color: var(--transparency-cyan);
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        .mapping-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9375rem;
+        }
+
+        .mapping-table th {
+            text-align: left;
+            padding: 0.75rem 1rem;
+            background: var(--panel);
+            border-bottom: 1px solid var(--line);
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .mapping-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--line);
+            color: var(--slate);
+        }
+
+        .mapping-table td:first-child {
+            color: var(--white);
+            font-weight: 500;
+        }
+
+        .mapping-table code {
+            background: var(--panel);
+            padding: 0.125rem 0.375rem;
+            border-radius: 4px;
+            font-size: 0.8125rem;
+            color: var(--transparency-cyan);
+        }
+
+        .worked-example {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .worked-example h3 {
+            margin-top: 0;
+            color: var(--transparency-cyan);
+        }
+
+        .example-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+
+        .example-table th {
+            text-align: left;
+            padding: 0.75rem;
+            background: var(--deep-navy);
+            border: 1px solid var(--line);
+            font-weight: 600;
+            font-size: 0.8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--slate);
+        }
+
+        .example-table td {
+            padding: 0.75rem;
+            border: 1px solid var(--line);
+            vertical-align: top;
+        }
+
+        .example-table .code-cell {
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--transparency-cyan);
+            font-weight: 600;
+        }
+
+        .example-table .flag-cell {
+            color: #f87171;
+            font-weight: 600;
+        }
+
+        .example-meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+            font-size: 0.875rem;
+            color: var(--slate);
+        }
+
+        .example-meta strong {
+            color: var(--white);
+        }
+
+        .use-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .use-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--glass-blue);
+            margin-bottom: 0.75rem;
+            color: var(--slate);
+        }
+
+        .use-list li strong {
+            color: var(--white);
+        }
+
+        .use-note {
+            font-size: 0.9375rem;
+            color: var(--slate);
+            margin-top: 1rem;
+        }
+
+        footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--line);
+            color: var(--slate);
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: var(--transparency-cyan);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--ice-blue);
+            text-decoration: underline;
+        }
+
+        .disclaimer {
+            margin-top: 1rem;
+            font-style: italic;
+            color: var(--slate);
+            font-size: 0.8125rem;
+        }
+
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .category-block,
+            .intro,
+            .worked-example {
+                padding: 1rem 1.25rem;
+            }
+
+            .example-table {
+                font-size: 0.75rem;
+            }
+
+            .example-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .download-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-inner">
+            <div class="brand">
+                <div class="brand-logo">
+                    <svg viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <circle cx="20" cy="40" r="10" fill="#4A9FD8"/>
+                        <circle cx="50" cy="40" r="12" fill="#3ABEF9"/>
+                        <circle cx="80" cy="40" r="14" fill="#F4C430"/>
+                        <line x1="30" y1="40" x2="38" y2="40" stroke="#4A9FD8" stroke-width="2.5" opacity="0.9"/>
+                        <line x1="62" y1="40" x2="66" y2="40" stroke="#3ABEF9" stroke-width="2.5" opacity="0.9"/>
+                    </svg>
+                </div>
+                <p class="brand-name"><a href="/"><span class="glass">Glass</span><span class="divider">/</span><span class="case">Case</span></a></p>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/redaction-taxonomy.html">Taxonomy</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <span class="version-tag">v0.1</span>
+        <h1>Redaction Taxonomy</h1>
+        <p class="subtitle">A practical coding scheme for FOI redaction analysis</p>
+
+        <div class="intro">
+            <p><strong>GlassCase Redaction Taxonomy v0.1</strong> is a practical coding scheme for analysing FOI releases across Australian jurisdictions. It is designed for comparative analysis of redaction patterns and decision quality, not as a substitute for statutory exemption categories.</p>
+            <p>Optional statutory mapping is provided for Commonwealth FOI to support jurisdiction-specific reporting (see <a href="#statutory-mapping" style="color: var(--transparency-cyan);">Statutory Mapping</a> below).</p>
+        </div>
+
+        <div class="where-fits">
+            <div class="where-fits-title">Where this fits</div>
+            <p>Use it to code FOI redactions, compare patterns across agencies, and flag decision-quality issues for review.</p>
+        </div>
+
+        <div class="download-links">
+            <a href="/glasscase-redaction-coding-sheet.csv" class="download-link" download>
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                Download coding sheet (CSV)
+            </a>
+        </div>
+
+        <div style="background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 0.75rem 1rem; margin-bottom: 1rem; font-size: 0.875rem;">
+            <strong style="color: var(--white);">How to cite:</strong> <span style="color: var(--slate);">GlassCase, <em>Redaction Taxonomy v0.1</em> (December 2025) <a href="https://glasscase.org/redaction-taxonomy.html" style="color: var(--transparency-cyan);">glasscase.org/redaction-taxonomy.html</a></span>
+        </div>
+
+        <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 3rem;">CSV coding sheet available: <a href="/glasscase-redaction-coding-sheet.csv" style="color: var(--transparency-cyan);">Download CSV</a></p>
+
+        <h2>Substantive Categories</h2>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="category-code">A</span>
+                <span class="category-title">Personal Privacy</span>
+            </div>
+            <ul class="category-items">
+                <li><strong>A1 Direct identifiers:</strong> name, address, phone, email, ID numbers</li>
+                <li><strong>A2 Indirect identifiers:</strong> role + small team context, unique events, rare attributes</li>
+                <li><strong>A3 Third-party spill:</strong> unrelated people caught in the record</li>
+            </ul>
+        </div>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="category-code">B</span>
+                <span class="category-title">Safety and Security</span>
+            </div>
+            <ul class="category-items">
+                <li><strong>B1 Physical safety:</strong> threats, location risks</li>
+                <li><strong>B2 System security:</strong> credentials, network details, security controls</li>
+                <li><strong>B3 Operational security:</strong> routines, response playbooks</li>
+            </ul>
+        </div>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="category-code">C</span>
+                <span class="category-title">Confidentiality and Relationships</span>
+            </div>
+            <ul class="category-items">
+                <li><strong>C1 Supplied in confidence:</strong> externally provided information</li>
+                <li><strong>C2 Business or commercial confidence:</strong> procurement, pricing, negotiations</li>
+                <li><strong>C3 Inter-agency confidentiality:</strong> referral pathways, sharing constraints</li>
+            </ul>
+        </div>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="category-code">D</span>
+                <span class="category-title">Decision-Process Protection</span>
+            </div>
+            <ul class="category-items">
+                <li><strong>D1 Drafting and iteration:</strong> working drafts, tracked changes</li>
+                <li><strong>D2 Deliberation material:</strong> options, advice, internal debate</li>
+                <li><strong>D3 Legal material:</strong> advice, privilege claims, litigation posture</li>
+            </ul>
+        </div>
+
+        <div class="category-block">
+            <div class="category-header">
+                <span class="category-code">E</span>
+                <span class="category-title">Enforcement and Compliance</span>
+            </div>
+            <ul class="category-items">
+                <li><strong>E1 Ongoing investigations:</strong> integrity bodies, HR processes, audits</li>
+                <li><strong>E2 Law enforcement overlap:</strong> offences, intelligence, methods</li>
+            </ul>
+        </div>
+
+        <h2>Pattern Flags</h2>
+        <p style="color: var(--slate); margin-bottom: 1.5rem;">These are not reasons for redaction—they're signals of potential decision quality issues worth tracking.</p>
+
+        <div class="pattern-flag">
+            <div class="pattern-flag-header">
+                <span class="pattern-flag-code">P1</span>
+                <span class="pattern-flag-title">Over-redaction</span>
+            </div>
+            <p class="pattern-flag-example">Job titles and dates removed even where identity risk is already eliminated.</p>
+        </div>
+
+        <div class="pattern-flag">
+            <div class="pattern-flag-header">
+                <span class="pattern-flag-code">P2</span>
+                <span class="pattern-flag-title">Inconsistency</span>
+            </div>
+            <p class="pattern-flag-example">The same person's role is disclosed in one email chain but redacted in another.</p>
+        </div>
+
+        <div class="pattern-flag">
+            <div class="pattern-flag-header">
+                <span class="pattern-flag-code">P3</span>
+                <span class="pattern-flag-title">Mosaic risk without explanation</span>
+            </div>
+            <p class="pattern-flag-example">"Could identify an individual" asserted with no description of what combination creates the risk.</p>
+        </div>
+
+        <div class="pattern-flag">
+            <div class="pattern-flag-header">
+                <span class="pattern-flag-code">P4</span>
+                <span class="pattern-flag-title">Category drift</span>
+            </div>
+            <p class="pattern-flag-example">Privacy invoked to remove operational embarrassment—e.g., redacting process errors that do not identify anyone.</p>
+        </div>
+
+        <div class="pattern-flag">
+            <div class="pattern-flag-header">
+                <span class="pattern-flag-code">P5</span>
+                <span class="pattern-flag-title">Blanket application</span>
+            </div>
+            <p class="pattern-flag-example">Entire paragraphs blacked out where only one sentence contains sensitive detail.</p>
+        </div>
+
+        <h2 id="statutory-mapping">Statutory Mapping (Commonwealth)</h2>
+
+        <div class="mapping-note">
+            <h3>FOI Act 1982 (Cth) — Section Reference</h3>
+            <p style="margin-bottom: 1rem; color: var(--slate); font-size: 0.9375rem;">This table maps taxonomy categories to the most commonly invoked exemption sections. The FOI Act distinguishes between absolute exemptions (Division 2, Part IV) and conditional exemptions (Division 3, Part IV). Conditional exemptions require a public interest test under <code>s 11A(5)</code> and <code>s 11B</code>.</p>
+            
+            <table class="mapping-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Typical FOI Act Section(s)</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A — Personal Privacy</td>
+                        <td><a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s47f.html" style="color: var(--transparency-cyan);"><code>s 47F</code></a></td>
+                        <td>Conditional; requires "unreasonable disclosure" test + public interest balance</td>
+                    </tr>
+                    <tr>
+                        <td>B — Safety & Security</td>
+                        <td><a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s33.html" style="color: var(--transparency-cyan);"><code>s 33</code></a>, <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s37.html" style="color: var(--transparency-cyan);"><code>s 37</code></a></td>
+                        <td>Absolute exemptions for national security (s 33) and law enforcement/public safety (s 37)</td>
+                    </tr>
+                    <tr>
+                        <td>C — Confidentiality</td>
+                        <td><a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s45.html" style="color: var(--transparency-cyan);"><code>s 45</code></a>, <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s47g.html" style="color: var(--transparency-cyan);"><code>s 47G</code></a></td>
+                        <td>Breach of confidence (s 45, absolute); business affairs (s 47G, conditional)</td>
+                    </tr>
+                    <tr>
+                        <td>D — Decision-process</td>
+                        <td><a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s47c.html" style="color: var(--transparency-cyan);"><code>s 47C</code></a>, <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s42.html" style="color: var(--transparency-cyan);"><code>s 42</code></a></td>
+                        <td>Deliberative processes (s 47C, conditional); legal professional privilege (s 42, absolute)</td>
+                    </tr>
+                    <tr>
+                        <td>E — Enforcement</td>
+                        <td><a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s37.html" style="color: var(--transparency-cyan);"><code>s 37</code></a>, <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s47e.html" style="color: var(--transparency-cyan);"><code>s 47E</code></a></td>
+                        <td>Law enforcement (s 37); operations of agencies (s 47E, conditional)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line);">
+                <p style="color: var(--white); font-weight: 500; margin-bottom: 0.5rem;">Key procedural sections</p>
+                <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 0.75rem; padding: 0.75rem; background: var(--panel); border-radius: 6px;">
+                    <strong style="color: var(--white);">Redaction logic in practice:</strong> apply an exemption (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/index.html#p4" style="color: var(--transparency-cyan);">Part IV</a>), apply the public interest test for conditional exemptions (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11a.html" style="color: var(--transparency-cyan);">s 11A(5)</a>, <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11b.html" style="color: var(--transparency-cyan);">s 11B</a>), then release an edited copy where reasonably practicable (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s22.html" style="color: var(--transparency-cyan);">s 22</a>), with reasons (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s26.html" style="color: var(--transparency-cyan);">s 26</a>).
+                </p>
+                <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                    <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s22.html" style="color: var(--transparency-cyan);"><code>s 22</code></a> — Access to edited copies with exempt matter deleted. Agencies must provide edited copies where reasonably practicable, with notice of grounds for deletion.
+                </p>
+                <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                    <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11a.html" style="color: var(--transparency-cyan);"><code>s 11A</code></a> — Mandatory access rule. Conditionally exempt documents must be released unless access would be "contrary to the public interest."
+                </p>
+                <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                    <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11b.html" style="color: var(--transparency-cyan);"><code>s 11B</code></a> — Public interest factors. Lists factors favouring access (e.g., oversight of expenditure, informing public debate) and irrelevant factors that must not be considered (e.g., embarrassment to government).
+                </p>
+                <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                    <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s26.html" style="color: var(--transparency-cyan);"><code>s 26</code></a> — Reasons for decision. Refusals must state findings on material questions of fact and reasons, including public interest factors for conditional exemptions.
+                </p>
+                <p style="color: var(--slate); font-size: 0.875rem;">
+                    <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s47.html" style="color: var(--transparency-cyan);"><code>s 47</code></a> — Trade secrets and commercially valuable information. Commonly invoked alongside s 47G for commercial matters; s 47 is an absolute exemption while s 47G is conditional.
+                </p>
+            </div>
+
+            <p style="margin-top: 1rem; color: var(--slate); font-size: 0.875rem;"><strong>Victoria mapping:</strong> State jurisdiction adapter coming in a future release.</p>
+        </div>
+
+        <h2>Version History</h2>
+        
+        <div class="category-block" style="margin-bottom: 1rem;">
+            <p style="margin: 0;"><strong>v0.1</strong> (December 2025): Initial release. Commonwealth FOI Act mapping only.</p>
+        </div>
+
+        <h2>Worked Example</h2>
+
+        <div class="worked-example">
+            <h3>Coding a release pack in 6 minutes</h3>
+            <p style="color: var(--slate); margin-bottom: 0.5rem;"><strong style="color: var(--white);">Illustrative example.</strong> Synthetic ministerial briefing package (12 pages, partial release) modelled on typical disclosure log material.</p>
+
+            <table class="example-table">
+                <thead>
+                    <tr>
+                        <th>Page</th>
+                        <th>Redaction</th>
+                        <th>Stated Reason</th>
+                        <th>Code</th>
+                        <th>Flag</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Drafter name, email</td>
+                        <td>s 47F personal privacy</td>
+                        <td class="code-cell">A1</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Entire recommendation paragraph</td>
+                        <td>s 47C deliberative</td>
+                        <td class="code-cell">D2</td>
+                        <td class="flag-cell">P5</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>"Senior policy officer" title</td>
+                        <td>s 47F personal privacy</td>
+                        <td class="code-cell">A2</td>
+                        <td class="flag-cell">P1</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Contractor pricing schedule</td>
+                        <td>s 47G business affairs</td>
+                        <td class="code-cell">C2</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>Drafter email (same as p.1)</td>
+                        <td>s 47F personal privacy</td>
+                        <td class="code-cell">A1</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Name disclosed in footer</td>
+                        <td>not stated</td>
+                        <td class="code-cell"></td>
+                        <td class="flag-cell">P2</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="example-meta">
+                <div><strong>Total redactions:</strong> 6</div>
+                <div><strong>Pattern flags:</strong> 3 (P1, P2, P5)</div>
+                <div><strong>Time to code:</strong> ~6 min</div>
+            </div>
+        </div>
+
+        <h2>How to Use This Taxonomy</h2>
+        
+        <ul class="use-list">
+            <li><strong>Audit:</strong> Code releases to compare patterns across agencies or time. Identify which categories cluster, which flags recur, and where practice diverges from OAIC guidance or s 26 decision-letter obligations.</li>
+            <li><strong>Review:</strong> Use flags to identify over-redaction or inconsistency for internal review requests or OAIC IC review preparation. Flag P3 (mosaic risk without explanation) and P4 (category drift) are particularly useful for challenging weak decisions.</li>
+        </ul>
+        
+        <p class="use-note">This taxonomy is also suitable for training FOI officers and law students—it provides a shared vocabulary for discussing redaction practice across jurisdictions.</p>
+
+    </main>
+
+    <footer>
+        <div style="max-width: 900px; margin: 0 auto;">
+            <p>© 2025 <a href="https://glasscase.org">GlassCase</a> · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></p>
+            <p style="margin-top: 0.5rem; font-size: 0.8125rem;">Version: v0.1 (December 2025) · Licence: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+            <p class="disclaimer">Not legal advice. Designed for comparative analysis and transparency auditing. This taxonomy is an analyst's tool, not a substitute for statutory interpretation. For authoritative guidance, see the <a href="https://www.oaic.gov.au/freedom-of-information/freedom-of-information-guidance-for-government-agencies/foi-guidelines">OAIC FOI Guidelines (Parts 5 to 6)</a>.</p>
+            <p style="margin-top: 1rem; font-style: italic; font-size: 0.8125rem;">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
+        </div>
+    </footer>
+</body>
+</html>

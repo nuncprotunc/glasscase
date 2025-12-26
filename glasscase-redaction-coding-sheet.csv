@@ -1,0 +1,24 @@
+Row Type,ID,Page,Redaction Description,Stated Reason,Stated Section,Typical Cth Section(s),Taxonomy Code,Pattern Flag(s),Doc Type,Notes
+CODE_DICT,A1,,Direct identifiers: name; address; phone; email; ID numbers,,,s 47F,,,,
+CODE_DICT,A2,,Indirect identifiers: role plus small team context; unique events; rare attributes,,,s 47F,,,,
+CODE_DICT,A3,,Third-party spill: unrelated people caught in the record,,,s 47F,,,,
+CODE_DICT,B1,,Physical safety: threats; location risks,,,s 37(1)(c),,,,
+CODE_DICT,B2,,System security: credentials; network details; security controls,,,s 33 / s 37,,,,
+CODE_DICT,B3,,Operational security: routines; response playbooks,,,s 37(2),,,,
+CODE_DICT,C1,,Supplied in confidence: externally provided information,,,s 45,,,,
+CODE_DICT,C2,,Business or commercial confidence: procurement; pricing; negotiations,,,s 47 / s 47G,,,,
+CODE_DICT,C3,,Inter-agency confidentiality: referral pathways; sharing constraints,,,s 47E / s 47C / s 47B (context-dependent),,,,
+CODE_DICT,D1,,Drafting and iteration: working drafts; tracked changes,,,s 47C,,,,
+CODE_DICT,D2,,Deliberation material: options; advice; internal debate,,,s 47C,,,,
+CODE_DICT,D3,,Legal material: advice; privilege claims; litigation posture,,,s 42,,,,
+CODE_DICT,E1,,Ongoing investigations: integrity bodies; HR processes; audits,,,s 47E,,,,
+CODE_DICT,E2,,Law enforcement overlap: offences; intelligence; methods,,,s 37,,,,
+FLAG_DICT,P1,,Over-redaction: job titles and dates removed even where identity risk is already eliminated,,,,,,,
+FLAG_DICT,P2,,Inconsistency: same fact redacted in one place but disclosed elsewhere,,,,,,,
+FLAG_DICT,P3,,Mosaic risk without explanation: could identify an individual asserted with no description of what combination creates the risk,,,,,,,
+FLAG_DICT,P4,,Category drift: privacy invoked to remove operational embarrassment e.g. redacting process errors that do not identify anyone,,,,,,,
+FLAG_DICT,P5,,Blanket application: entire paragraphs blacked out where only one sentence contains sensitive detail,,,,,,,
+LOG,FOI-2024-001,3,Entire recommendation paragraph,Deliberative processes,s 47C,,D2,P5,Brief,Blanket redaction: only one sentence arguably deliberative
+LOG,FOI-2024-001,4,Senior policy officer title,Personal privacy,s 47F,,A2,P1,Brief,Title alone does not identify individual in large agency
+LOG,FOI-2024-001,7,Contractor pricing schedule,Business affairs,s 47G,,C2,,Brief,
+LOG,FOI-2024-001,11,Name disclosed in footer,Inconsistent with p.1,not stated,,,P2,Brief,Same name redacted on p.1 but visible here
