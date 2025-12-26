@@ -464,6 +464,17 @@
             color: var(--transparency-cyan);
         }
 
+        .table-scroll {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border-radius: 12px;
+        }
+
+        .table-scroll table {
+            min-width: 560px;
+        }
+
         .worked-example {
             background: var(--panel);
             border: 1px solid var(--line);
@@ -667,23 +678,34 @@
             }
         }
         
-        @media (max-width: 640px) {
-            h1 {
-                font-size: 1.75rem;
+        @media (max-width: 768px) {
+            main {
+                padding: 2rem 1.5rem;
             }
 
             .subtitle {
                 font-size: 1rem;
             }
 
+            .example-table {
+                font-size: 0.75rem;
+            }
+
+            .table-scroll {
+                margin: 0 -0.5rem;
+                padding: 0 0.5rem;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.75rem;
+            }
+
             .category-block,
             .intro,
             .worked-example {
                 padding: 1rem 1.25rem;
-            }
-
-            .example-table {
-                font-size: 0.75rem;
             }
 
             .example-meta {
@@ -903,7 +925,8 @@
         <div class="mapping-note">
             <h3>FOI Act 1982 (Cth) — Section Reference</h3>
             <p style="margin-bottom: 1rem; color: var(--slate); font-size: 0.9375rem;">This table maps taxonomy categories to the most commonly invoked exemption sections. The FOI Act distinguishes between absolute exemptions (Division 2, Part IV) and conditional exemptions (Division 3, Part IV). Conditional exemptions require a public interest test under <code>s 11A(5)</code> and <code>s 11B</code>.</p>
-            
+
+            <div class="table-scroll">
             <table class="mapping-table">
                 <thead>
                     <tr>
@@ -940,6 +963,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
 
             <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line);">
                 <p style="color: var(--white); font-weight: 500; margin-bottom: 0.5rem;">Key procedural sections</p>
@@ -972,6 +996,7 @@
             <h3>Coding a release pack in 6 minutes</h3>
             <p style="color: var(--slate); margin-bottom: 0.5rem;"><strong style="color: var(--white);">Illustrative example.</strong> Synthetic ministerial briefing package (12 pages, partial release) modelled on typical disclosure log material.</p>
 
+            <div class="table-scroll">
             <table class="example-table">
                 <thead>
                     <tr>
@@ -1027,6 +1052,7 @@
                     </tr>
                 </tbody>
             </table>
+            </div>
 
             <div class="example-meta">
                 <div><strong>Total redactions:</strong> 6</div>
