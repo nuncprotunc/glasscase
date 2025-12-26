@@ -183,16 +183,31 @@
         .nav-links a:hover {
             color: var(--ice-blue);
         }
+        
+        .pill {
+            background: var(--glass-blue);
+            color: var(--white);
+            padding: 0.6em 1.25rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8125rem;
+            letter-spacing: 0.3px;
+            display: inline-block;
+            white-space: nowrap;
+            max-width: 100%;
+            line-height: 1.3;
+        }
+        
+        .pill > span {
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
         main {
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
-        }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
         }
 
         .version-tag {
@@ -662,7 +677,7 @@
         </div>
     </nav>
 
-    <main class="container">
+    <main>
         <span class="version-tag">v0.1</span>
         <h1>Redaction Taxonomy</h1>
         <p class="subtitle">A practical coding scheme for FOI redaction analysis</p>
