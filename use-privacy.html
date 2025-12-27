@@ -213,12 +213,21 @@
             display: inline-block;
             white-space: nowrap;
         }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
         
         /* Main content */
         main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 0;
+        }
+
+        .page-hero {
+            padding: 56px 0 40px;
+            border-bottom: 1px solid var(--line);
         }
         
         h1 {
@@ -239,18 +248,36 @@
         .content {
             max-width: 800px;
         }
+
+        .legal-sections {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            padding: 40px 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .legal-card {
+            background: linear-gradient(180deg, rgba(26, 31, 46, 0.6), rgba(26, 31, 46, 0.3));
+            border: 1px solid rgba(74, 159, 216, 0.25);
+            border-radius: 14px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .legal-card:hover {
+            border-color: var(--transparency-cyan);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(58, 190, 249, 0.12);
+        }
         
         h2 {
             font-family: 'Spectral', serif;
             font-size: 1.75rem;
             font-weight: 700;
             color: var(--ice-blue);
-            margin-top: 3rem;
             margin-bottom: 1rem;
-        }
-        
-        h2:first-of-type {
-            margin-top: 0;
         }
         
         main p {
@@ -404,6 +431,10 @@
             
             h1 {
                 font-size: 2rem;
+            }
+
+            .page-hero {
+                padding: 40px 0 28px;
             }
         }
         
@@ -740,40 +771,54 @@
   <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
 
   <main>
-        <h1>Use, Privacy & Legal</h1>
-        <p class="subtitle">Plain-English notes on how this site works. This page explains what the content is (and isn't), how analytics are used, and the basics on copyright, reuse and governing law.</p>
+        <div class="container">
+            <header class="page-hero">
+                <h1>Use, Privacy &amp; Legal</h1>
+                <p class="subtitle">Plain-English notes on how this site works. This page explains what the content is (and isn't), how analytics are used, and the basics on copyright, reuse and governing law.</p>
+            </header>
 
-        <div class="content">
-            <h2>1. Information only — not legal advice</h2>
-            <p>GlassCase.org is a civic-legal data lab. It publishes tools, taxonomies and guidance for analysing administrative processes, FOI redactions and transparency systems.</p>
-            <p>Nothing on this site is legal, financial or professional advice, and using this site does not create a solicitor-client or advisory relationship. This includes, but is not limited to, the Redaction Taxonomy, FOI Process Visualiser, and any future tools published on this site. If you need advice, you should seek independent advice from a qualified professional in your jurisdiction.</p>
-            <p>Future tools, including the FOI Process Visualiser and Procedural Fairness Simulator, are designed as educational resources, not professional advisory tools.</p>
-            <p>Unless clearly stated otherwise, all views are those of the project lead (Jay Spudvilas) and do not represent any current or past employer, agency or organisation.</p>
+            <div class="legal-sections">
+                <section class="legal-card">
+                    <h2>1. Information only — not legal advice</h2>
+                    <p>GlassCase.org is a civic-legal data lab. It publishes tools, taxonomies and guidance for analysing administrative processes, FOI redactions and transparency systems.</p>
+                    <p>Nothing on this site is legal, financial or professional advice, and using this site does not create a solicitor-client or advisory relationship. This includes, but is not limited to, the Redaction Taxonomy, FOI Process Visualiser, and any future tools published on this site. If you need advice, you should seek independent advice from a qualified professional in your jurisdiction.</p>
+                    <p>Future tools, including the FOI Process Visualiser and Procedural Fairness Simulator, are designed as educational resources, not professional advisory tools.</p>
+                    <p>Unless clearly stated otherwise, all views are those of the project lead (Jay Spudvilas) and do not represent any current or past employer, agency or organisation.</p>
+                </section>
 
-            <h2>2. Accuracy & liability</h2>
-            <p>We aim to keep information accurate and up to date, but we cannot guarantee completeness or that everything remains current over time.</p>
-            <p>Use of this site is at your discretion. To the extent permitted by law, GlassCase is not liable for any loss, damage or costs arising from your use of, or reliance on, this site or any linked resources.</p>
-            <p>Tools and taxonomies are designed for comparative analysis and transparency auditing. They are not substitutes for statutory interpretation or official guidance. Statutory mappings and exemption references are provided for educational context only. They may be incomplete, simplified, or superseded by legislative amendment. Always verify against current legislation.</p>
-            <p>Materials on this site are not intended for use as evidence in legal proceedings or as a basis for formal complaints to review bodies without independent professional advice. For authoritative FOI guidance, see the <a href="https://www.oaic.gov.au/freedom-of-information/freedom-of-information-guidance-for-government-agencies/foi-guidelines">OAIC FOI Guidelines</a>.</p>
+                <section class="legal-card">
+                    <h2>2. Accuracy &amp; liability</h2>
+                    <p>We aim to keep information accurate and up to date, but we cannot guarantee completeness or that everything remains current over time.</p>
+                    <p>Use of this site is at your discretion. To the extent permitted by law, GlassCase is not liable for any loss, damage or costs arising from your use of, or reliance on, this site or any linked resources.</p>
+                    <p>Tools and taxonomies are designed for comparative analysis and transparency auditing. They are not substitutes for statutory interpretation or official guidance. Statutory mappings and exemption references are provided for educational context only. They may be incomplete, simplified, or superseded by legislative amendment. Always verify against current legislation.</p>
+                    <p>Materials on this site are not intended for use as evidence in legal proceedings or as a basis for formal complaints to review bodies without independent professional advice. For authoritative FOI guidance, see the <a href="https://www.oaic.gov.au/freedom-of-information/freedom-of-information-guidance-for-government-agencies/foi-guidelines">OAIC FOI Guidelines</a>.</p>
+                </section>
 
-            <h2>3. Copyright & reuse</h2>
-            <p>Unless otherwise noted, content on this site is 2025 GlassCase (Jay Spudvilas / Jayden Spudvilas-Powell).</p>
-            <p>You are welcome to link to this site and to quote short excerpts with clear attribution. Please don't republish large sections of the content elsewhere without written permission, unless we have explicitly released that material under a different licence.</p>
-            <p>Where materials are released under open licences (such as the <a href="/redaction-taxonomy.html">Redaction Taxonomy</a> under CC BY 4.0), those licence terms apply. Code, data and other materials published on platforms such as GitHub are governed by the licences stated in those repositories.</p>
+                <section class="legal-card">
+                    <h2>3. Copyright &amp; reuse</h2>
+                    <p>Unless otherwise noted, content on this site is 2025 GlassCase (Jay Spudvilas / Jayden Spudvilas-Powell).</p>
+                    <p>You are welcome to link to this site and to quote short excerpts with clear attribution. Please don't republish large sections of the content elsewhere without written permission, unless we have explicitly released that material under a different licence.</p>
+                    <p>Where materials are released under open licences (such as the <a href="/redaction-taxonomy.html">Redaction Taxonomy</a> under CC BY 4.0), those licence terms apply. Code, data and other materials published on platforms such as GitHub are governed by the licences stated in those repositories.</p>
+                </section>
 
-            <h2>4. Privacy, analytics & cookies</h2>
-            <p>This site uses Google Analytics and Ahrefs Analytics to understand aggregate traffic and usage patterns. We do not use these tools for advertising or behavioural profiling.</p>
-            <p>These services use cookies and similar technologies to collect information such as page views, referrers, approximate location, device and browser information and IP addresses. We use this information in aggregate to understand how the site is used and to improve the content. We do not sell personal data, combine analytics data with other data to profile named individuals, or attempt to re-identify people from analytics data. The site works even if you block cookies or JavaScript in your browser.</p>
-            <p>If you contact us, we will take reasonable steps to delete or de-identify any logs we can associate with you, subject to technical limits and legal record-keeping requirements. These providers may process information on servers outside Australia (for example, in the United States or the European Union). You can learn more about these services in their own privacy materials:</p>
-            <ul>
-                <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
-                <li><a href="https://ahrefs.com/privacy">Ahrefs Privacy Policy</a></li>
-            </ul>
-            <p>By using this site you consent to the processing of data by these providers as described in their policies. You can manage or block cookies and tracking technologies through your browser settings and extensions.</p>
+                <section class="legal-card">
+                    <h2>4. Privacy, analytics &amp; cookies</h2>
+                    <p>This site uses Google Analytics and Ahrefs Analytics to understand aggregate traffic and usage patterns. We do not use these tools for advertising or behavioural profiling.</p>
+                    <p>These services use cookies and similar technologies to collect information such as page views, referrers, approximate location, device and browser information and IP addresses. We use this information in aggregate to understand how the site is used and to improve the content. We do not sell personal data, combine analytics data with other data to profile named individuals, or attempt to re-identify people from analytics data. The site works even if you block cookies or JavaScript in your browser.</p>
+                    <p>If you contact us, we will take reasonable steps to delete or de-identify any logs we can associate with you, subject to technical limits and legal record-keeping requirements. These providers may process information on servers outside Australia (for example, in the United States or the European Union). You can learn more about these services in their own privacy materials:</p>
+                    <ul>
+                        <li><a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+                        <li><a href="https://ahrefs.com/privacy">Ahrefs Privacy Policy</a></li>
+                    </ul>
+                    <p>By using this site you consent to the processing of data by these providers as described in their policies. You can manage or block cookies and tracking technologies through your browser settings and extensions.</p>
+                </section>
 
-            <h2>5. Governing law & contact</h2>
-            <p>This site is operated from Victoria, Australia. Victorian law governs any disputes or issues arising out of or in connection with this site.</p>
-            <p>If you have questions or concerns about this notice, you can contact us at <a href="mailto:jay@jayspudvilas.com">jay@jayspudvilas.com</a>.</p>
+                <section class="legal-card">
+                    <h2>5. Governing law &amp; contact</h2>
+                    <p>This site is operated from Victoria, Australia. Victorian law governs any disputes or issues arising out of or in connection with this site.</p>
+                    <p>If you have questions or concerns about this notice, you can contact us at <a href="mailto:jay@jayspudvilas.com">jay@jayspudvilas.com</a>.</p>
+                </section>
+            </div>
         </div>
     </main>
 
