@@ -284,7 +284,6 @@
       return (
         <div style={{
           background: 'linear-gradient(135deg, #0a1628 0%, #0f172a 50%, #1a2744 100%)',
-          minHeight: '100vh',
           padding: '32px',
           fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
           color: '#e2e8f0'
@@ -374,7 +373,7 @@
               </div>
 
               {/* Row 3: Three paths */}
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '8px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <Arrow direction="down" label="No exemption" color="#22c55e" />
                 </div>
@@ -387,8 +386,8 @@
               </div>
 
               {/* Row 4: Three branches */}
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '8px' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '180px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <StepBox step={steps.release} />
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -400,8 +399,8 @@
               </div>
 
               {/* Row 5: Arrows from Div2 and Div3 */}
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '8px' }}>
-                <div style={{ minWidth: '180px' }}></div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
+                <div></div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <Arrow direction="down" label="To s 22" color="#ef4444" />
                 </div>
@@ -411,19 +410,19 @@
               </div>
 
               {/* Row 6: Public Interest Test */}
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '8px' }}>
-                <div style={{ minWidth: '180px' }}></div>
-                <div style={{ minWidth: '180px' }}></div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
+                <div></div>
+                <div></div>
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <StepBox step={steps.publicInterest} />
                 </div>
               </div>
 
               {/* Row 7: PIT outcomes */}
-              <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '8px' }}>
-                <div style={{ minWidth: '180px' }}></div>
-                <div style={{ minWidth: '180px' }}></div>
-                <div style={{ display: 'flex', gap: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
+                <div></div>
+                <div></div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px', justifyItems: 'center' }}>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <Arrow direction="down" label="Favours access" color="#22c55e" />
                     <div style={{
@@ -440,6 +439,17 @@
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <Arrow direction="down" label="Contrary to access" color="#ef4444" />
+                    <div style={{
+                      padding: '8px 16px',
+                      background: 'rgba(239, 68, 68, 0.08)',
+                      border: '2px solid #ef4444',
+                      borderRadius: '8px',
+                      color: '#fca5a5',
+                      fontSize: '12px',
+                      fontWeight: 600
+                    }}>
+                      → s 22
+                    </div>
                   </div>
                 </div>
               </div>
