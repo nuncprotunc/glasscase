@@ -873,6 +873,9 @@
                 color: var(--ice-blue);
                 margin-bottom: 0.5rem;
                 text-shadow: 0 2px 8px rgba(58, 190, 249, 0.3);
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-top: 0;
             }
             
             .mobile-menu-subtitle {
@@ -893,7 +896,7 @@
                 text-decoration: none;
                 font-size: 1rem;
                 font-weight: 500;
-                padding: 1rem 1.25rem;
+                padding: 1rem 1.25rem 1rem 2.25rem;
                 border-radius: 12px;
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
                 position: relative;
@@ -928,10 +931,21 @@
             }
             
             .mobile-menu a.active {
-                background: rgba(74, 159, 216, 0.18);
+                background: transparent;
                 color: var(--transparency-cyan);
-                border-color: rgba(74, 159, 216, 0.4);
-                box-shadow: 0 2px 8px rgba(58, 190, 249, 0.15);
+                border-color: transparent;
+                box-shadow: none;
+            }
+
+            .mobile-menu a.active::after {
+                content: '▶';
+                position: absolute;
+                left: 0.9rem;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 0.75rem;
+                color: var(--transparency-cyan);
+                opacity: 0.9;
             }
             
             /* Overlay when menu is open */
@@ -1047,6 +1061,7 @@
                 <nav class="desktop-nav">
                     <a href="/">Home</a>
                     <a href="/redaction-taxonomy.html">Taxonomy</a>
+                    <a href="/use-privacy.html">Use &amp; Privacy</a>
                 </nav>
             </div>
         </div>
@@ -1061,6 +1076,7 @@
         <nav>
             <a href="/" onclick="closeMobileMenu()">Home</a>
             <a href="/redaction-taxonomy.html" onclick="closeMobileMenu()" class="active">Taxonomy</a>
+            <a href="/use-privacy.html" onclick="closeMobileMenu()">Use &amp; Privacy</a>
         </nav>
     </div>
     
