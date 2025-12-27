@@ -475,6 +475,19 @@
             min-width: 560px;
         }
 
+        .visualiser-embed {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .visualiser-frame {
+            width: 100%;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.6);
+        }
+
         .worked-example {
             background: var(--panel);
             border: 1px solid var(--line);
@@ -806,6 +819,17 @@
             <p>Use it to code FOI redactions, compare patterns across agencies, and flag decision-quality issues for review.</p>
         </div>
 
+        <div class="visualiser-embed">
+            <iframe
+                id="redaction-logic-visualiser"
+                class="visualiser-frame"
+                title="FOI Redaction Logic Visualiser"
+                loading="lazy"
+                src="/redaction-logic-visualiser.html"
+                style="height: 860px;"
+            ></iframe>
+        </div>
+
         <div class="download-links">
             <a href="glasscase-redaction-coding-sheet.csv" download class="download-link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
@@ -815,6 +839,25 @@
 
         <p style="margin-top: 1rem; color: var(--slate); font-size: 0.875rem;"><strong>How to cite (APA 7):</strong> GlassCase. (2025, December). <em>Redaction Taxonomy</em> (Version 0.1). https://glasscase.org/redaction-taxonomy.html</p>
         <p style="margin-top: 0.5rem; color: var(--slate); font-size: 0.875rem;"><strong>CSV coding sheet available:</strong> <a href="glasscase-redaction-coding-sheet.csv" download style="color: var(--transparency-cyan);">Download CSV</a></p>
+
+        <script>
+            (function() {
+                const iframe = document.getElementById('redaction-logic-visualiser');
+                if (!iframe) return;
+
+                function setHeight(h) {
+                    const px = Math.max(520, Math.min(2400, Number(h) || 0));
+                    if (px) iframe.style.height = px + 'px';
+                }
+
+                window.addEventListener('message', (event) => {
+                    if (!event || !event.data) return;
+                    if (event.data.type === 'visualiserHeight') {
+                        setHeight(event.data.height);
+                    }
+                });
+            })();
+        </script>
 
         <h2>Substantive Categories</h2>
 
