@@ -20,11 +20,29 @@
   <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
-    const { useState } = React;
+    const { useEffect, useState } = React;
 
     const RedactionFlowVisualizer = () => {
       const [activeStep, setActiveStep] = useState(null);
       const [activePath, setActivePath] = useState(null);
+
+      const [isMobile, setIsMobile] = useState(false);
+
+      useEffect(() => {
+        if (typeof window === 'undefined' || !window.matchMedia) return;
+
+        const mq = window.matchMedia('(max-width: 640px)');
+        const update = () => setIsMobile(!!mq.matches);
+        update();
+
+        if (mq.addEventListener) {
+          mq.addEventListener('change', update);
+          return () => mq.removeEventListener('change', update);
+        }
+
+        mq.addListener(update);
+        return () => mq.removeListener(update);
+      }, []);
 
       const steps = {
         start: {
@@ -355,140 +373,239 @@
               background: 'rgba(255,255,255,0.02)',
               border: '1px solid rgba(255,255,255,0.1)',
               borderRadius: '12px',
-              padding: '32px',
-              overflowX: 'auto'
+              padding: isMobile ? '20px' : '32px',
+              overflowX: isMobile ? 'hidden' : 'auto'
             }}>
-              {/* Row 1: Start */}
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
-                <StepBox step={steps.start} />
-              </div>
+              {isMobile ? (
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
+                    <StepBox step={steps.start} />
+                  </div>
 
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Arrow direction="down" color="#64748b" />
-              </div>
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Arrow direction="down" color="#64748b" />
+                  </div>
 
-              {/* Row 2: Exemption Test */}
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
-                <StepBox step={steps.exemption} />
-              </div>
+                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
+                    <StepBox step={steps.exemption} />
+                  </div>
 
-              {/* Row 3: Three paths */}
-              <div style={{ display: 'grid', width: '100%', minWidth: '720px', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <Arrow direction="down" label="No exemption" color="#22c55e" />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <Arrow direction="down" label="Absolute (Div 2)" color="#ef4444" />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <Arrow direction="down" label="Conditional (Div 3)" color="#f59e0b" />
-                </div>
-              </div>
+                  <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div style={{ padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.01)' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <Arrow direction="down" label="No exemption" color="#22c55e" />
+                        <StepBox step={steps.release} />
+                      </div>
+                    </div>
 
-              {/* Row 4: Three branches */}
-              <div style={{ display: 'grid', width: '100%', minWidth: '720px', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <StepBox step={steps.release} />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <StepBox step={steps.division2} />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <StepBox step={steps.division3} />
-                </div>
-              </div>
+                    <div style={{ padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.01)' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <Arrow direction="down" label="Absolute (Div 2)" color="#ef4444" />
+                        <StepBox step={steps.division2} />
+                        <Arrow direction="down" label="To s 22" color="#ef4444" />
+                      </div>
+                    </div>
 
-              {/* Row 5: Arrows from Div2 and Div3 */}
-              <div style={{ display: 'grid', width: '100%', minWidth: '720px', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
-                <div></div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <Arrow direction="down" label="To s 22" color="#ef4444" />
-                </div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <Arrow direction="down" label="To PIT" color="#f59e0b" />
-                </div>
-              </div>
+                    <div style={{ padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.01)' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <Arrow direction="down" label="Conditional (Div 3)" color="#f59e0b" />
+                        <StepBox step={steps.division3} />
+                        <Arrow direction="down" label="To PIT" color="#f59e0b" />
+                        <StepBox step={steps.publicInterest} />
 
-              {/* Row 6: Public Interest Test */}
-              <div style={{ display: 'grid', width: '100%', minWidth: '720px', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
-                <div></div>
-                <div></div>
-                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                  <StepBox step={steps.publicInterest} />
-                </div>
-              </div>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', width: '100%', marginTop: '8px', justifyItems: 'center' }}>
+                          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <Arrow direction="down" label="Favours access" color="#22c55e" />
+                            <div style={{
+                              padding: '8px 16px',
+                              background: 'rgba(34, 197, 94, 0.1)',
+                              border: '2px solid #22c55e',
+                              borderRadius: '8px',
+                              color: '#86efac',
+                              fontSize: '12px',
+                              fontWeight: 600
+                            }}>
+                              → Release
+                            </div>
+                          </div>
 
-              {/* Row 7: PIT outcomes */}
-              <div style={{ display: 'grid', width: '100%', minWidth: '720px', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
-                <div></div>
-                <div></div>
-                <div style={{ display: 'grid', width: '100%', minWidth: '420px', gridTemplateColumns: 'repeat(2, minmax(180px, 1fr))', gap: '24px', justifyItems: 'center' }}>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Arrow direction="down" label="Favours access" color="#22c55e" />
+                          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <Arrow direction="down" label="Contrary to access" color="#ef4444" />
+                            <div style={{
+                              padding: '8px 16px',
+                              background: 'rgba(239, 68, 68, 0.08)',
+                              border: '2px solid #ef4444',
+                              borderRadius: '8px',
+                              color: '#fca5a5',
+                              fontSize: '12px',
+                              fontWeight: 600
+                            }}>
+                              → s 22
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px', marginBottom: '8px' }}>
+                    <StepBox step={steps.editedCopy} />
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Arrow direction="down" label="Prepare notice" color="#60a5fa" />
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
+                    <StepBox step={steps.reasons} />
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Arrow direction="down" label="With redactions" color="#22c55e" />
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div style={{
-                      padding: '8px 16px',
-                      background: 'rgba(34, 197, 94, 0.1)',
+                      padding: '16px 24px',
+                      background: 'rgba(34, 197, 94, 0.15)',
                       border: '2px solid #22c55e',
                       borderRadius: '8px',
-                      color: '#86efac',
-                      fontSize: '12px',
-                      fontWeight: 600
+                      textAlign: 'center'
                     }}>
-                      → Release
+                      <div style={{ fontWeight: 700, color: '#86efac', fontSize: '16px' }}>
+                        Release edited copy
+                      </div>
+                      <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '4px' }}>
+                        s 11A(3), s 22
+                      </div>
                     </div>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-                    <Arrow direction="down" label="Contrary to access" color="#ef4444" />
+                </div>
+              ) : (
+                <>
+                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
+                    <StepBox step={steps.start} />
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Arrow direction="down" color="#64748b" />
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
+                    <StepBox step={steps.exemption} />
+                  </div>
+
+                  <div style={{ display: 'grid', width: '100%', minWidth: '720px', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <Arrow direction="down" label="No exemption" color="#22c55e" />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <Arrow direction="down" label="Absolute (Div 2)" color="#ef4444" />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <Arrow direction="down" label="Conditional (Div 3)" color="#f59e0b" />
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'grid', width: '100%', minWidth: '720px', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <StepBox step={steps.release} />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <StepBox step={steps.division2} />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <StepBox step={steps.division3} />
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'grid', width: '100%', minWidth: '720px', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
+                    <div></div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <Arrow direction="down" label="To s 22" color="#ef4444" />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <Arrow direction="down" label="To PIT" color="#f59e0b" />
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'grid', width: '100%', minWidth: '720px', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
+                    <div></div>
+                    <div></div>
+                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                      <StepBox step={steps.publicInterest} />
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'grid', width: '100%', minWidth: '720px', gridTemplateColumns: 'repeat(3, minmax(220px, 1fr))', gap: '24px', marginBottom: '8px', justifyItems: 'center' }}>
+                    <div></div>
+                    <div></div>
+                    <div style={{ display: 'grid', width: '100%', minWidth: '420px', gridTemplateColumns: 'repeat(2, minmax(180px, 1fr))', gap: '24px', justifyItems: 'center' }}>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <Arrow direction="down" label="Favours access" color="#22c55e" />
+                        <div style={{
+                          padding: '8px 16px',
+                          background: 'rgba(34, 197, 94, 0.1)',
+                          border: '2px solid #22c55e',
+                          borderRadius: '8px',
+                          color: '#86efac',
+                          fontSize: '12px',
+                          fontWeight: 600
+                        }}>
+                          → Release
+                        </div>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                        <Arrow direction="down" label="Contrary to access" color="#ef4444" />
+                        <div style={{
+                          padding: '8px 16px',
+                          background: 'rgba(239, 68, 68, 0.08)',
+                          border: '2px solid #ef4444',
+                          borderRadius: '8px',
+                          color: '#fca5a5',
+                          fontSize: '12px',
+                          fontWeight: 600
+                        }}>
+                          → s 22
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px', marginBottom: '8px' }}>
+                    <StepBox step={steps.editedCopy} />
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Arrow direction="down" label="Prepare notice" color="#60a5fa" />
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
+                    <StepBox step={steps.reasons} />
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
+                    <Arrow direction="down" label="With redactions" color="#22c55e" />
+                  </div>
+
+                  <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div style={{
-                      padding: '8px 16px',
-                      background: 'rgba(239, 68, 68, 0.08)',
-                      border: '2px solid #ef4444',
+                      padding: '16px 24px',
+                      background: 'rgba(34, 197, 94, 0.15)',
+                      border: '2px solid #22c55e',
                       borderRadius: '8px',
-                      color: '#fca5a5',
-                      fontSize: '12px',
-                      fontWeight: 600
+                      textAlign: 'center'
                     }}>
-                      → s 22
+                      <div style={{ fontWeight: 700, color: '#86efac', fontSize: '16px' }}>
+                        Release edited copy
+                      </div>
+                      <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '4px' }}>
+                        s 11A(3), s 22
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
-
-              {/* Row 8: Edited Copy (merge point) */}
-              <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px', marginBottom: '8px' }}>
-                <StepBox step={steps.editedCopy} />
-              </div>
-
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Arrow direction="down" label="Prepare notice" color="#60a5fa" />
-              </div>
-
-              {/* Row 9: Reasons */}
-              <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
-                <StepBox step={steps.reasons} />
-              </div>
-
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <Arrow direction="down" label="With redactions" color="#22c55e" />
-              </div>
-
-              {/* Row 10: Final Release */}
-              <div style={{ display: 'flex', justifyContent: 'center' }}>
-                <div style={{
-                  padding: '16px 24px',
-                  background: 'rgba(34, 197, 94, 0.15)',
-                  border: '2px solid #22c55e',
-                  borderRadius: '8px',
-                  textAlign: 'center'
-                }}>
-                  <div style={{ fontWeight: 700, color: '#86efac', fontSize: '16px' }}>
-                    Release edited copy
-                  </div>
-                  <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '4px' }}>
-                    s 11A(3), s 22
-                  </div>
-                </div>
-              </div>
+                </>
+              )}
             </div>
 
             {/* Footer note */}
