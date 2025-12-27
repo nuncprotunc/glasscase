@@ -104,14 +104,16 @@
           label: 'Release document',
           section: 's 11A(3)',
           description: 'Provide access in accordance with request.',
-          type: 'outcome-release'
+          type: 'outcome-release',
+          link: 'http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11a.html'
         },
         refuse: {
           id: 'refuse',
           label: 'Refuse access',
           section: 's 11A(4)',
           description: 'Document is exempt. Applicant has review rights.',
-          type: 'outcome-refuse'
+          type: 'outcome-refuse',
+          link: 'http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11a.html'
         }
       };
 
@@ -241,7 +243,11 @@
           style={{ ...getStepStyle(step), ...style }}
           onMouseEnter={() => setActiveStep(step.id)}
           onMouseLeave={() => setActiveStep(null)}
-          onClick={() => step.link && window.open(step.link, '_blank')}
+          onClick={() => {
+            if (!step.link) return;
+            const newWin = window.open(step.link, '_blank', 'noopener,noreferrer');
+            if (newWin) newWin.opener = null;
+          }}
         >
           <div style={{ fontWeight: 600, fontSize: '14px', marginBottom: '4px' }}>
             {step.label}
