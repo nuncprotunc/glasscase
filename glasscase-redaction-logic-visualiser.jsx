@@ -1,0 +1,495 @@
+import React, { useState } from 'react';
+
+const RedactionFlowVisualizer = () => {
+  const [activeStep, setActiveStep] = useState(null);
+  const [activePath, setActivePath] = useState(null);
+
+  const steps = {
+    start: {
+      id: 'start',
+      label: 'Document requested under FOI',
+      section: null,
+      type: 'start'
+    },
+    exemption: {
+      id: 'exemption',
+      label: 'Apply exemption test',
+      section: 'Part IV',
+      description: 'Does an exemption apply to the document or part of it?',
+      type: 'decision',
+      link: 'http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/index.html#p4'
+    },
+    division2: {
+      id: 'division2',
+      label: 'Division 2: Absolute exemption',
+      section: 'ss 33–47A',
+      description: 'National security, Cabinet, law enforcement, legal privilege, trade secrets, etc.',
+      type: 'exemption-absolute',
+      link: 'http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/index.html#p4-d2'
+    },
+    division3: {
+      id: 'division3',
+      label: 'Division 3: Conditional exemption',
+      section: 'ss 47B–47J',
+      description: 'Personal privacy, deliberative processes, business affairs, agency operations, etc.',
+      type: 'exemption-conditional',
+      link: 'http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/index.html#p4-d3'
+    },
+    publicInterest: {
+      id: 'publicInterest',
+      label: 'Apply public interest test',
+      section: 's 11A(5), s 11B',
+      description: 'Would access be contrary to public interest? Weigh factors for and against disclosure.',
+      type: 'decision',
+      link: 'http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11b.html'
+    },
+    editedCopy: {
+      id: 'editedCopy',
+      label: 'Prepare edited copy',
+      section: 's 22',
+      description: 'Delete exempt matter if reasonably practicable. Provide meaningful access to remainder.',
+      type: 'process',
+      link: 'http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s22.html'
+    },
+    reasons: {
+      id: 'reasons',
+      label: 'Provide reasons for decision',
+      section: 's 26',
+      description: 'State findings on material questions of fact, reasons for refusal, and public interest factors.',
+      type: 'process',
+      link: 'http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s26.html'
+    },
+    release: {
+      id: 'release',
+      label: 'Release document',
+      section: 's 11A(3)',
+      description: 'Provide access in accordance with request.',
+      type: 'outcome-release'
+    },
+    refuse: {
+      id: 'refuse',
+      label: 'Refuse access',
+      section: 's 11A(4)',
+      description: 'Document is exempt. Applicant has review rights.',
+      type: 'outcome-refuse'
+    }
+  };
+
+  const paths = {
+    noExemption: {
+      id: 'noExemption',
+      label: 'No exemption applies',
+      from: 'exemption',
+      to: 'release',
+      color: '#22c55e'
+    },
+    absolute: {
+      id: 'absolute',
+      label: 'Absolute exemption (Div 2)',
+      from: 'exemption',
+      to: 'division2',
+      color: '#ef4444'
+    },
+    conditional: {
+      id: 'conditional',
+      label: 'Conditional exemption (Div 3)',
+      from: 'exemption',
+      to: 'division3',
+      color: '#f59e0b'
+    },
+    absoluteToEdit: {
+      id: 'absoluteToEdit',
+      label: 'Exempt matter identified',
+      from: 'division2',
+      to: 'editedCopy',
+      color: '#ef4444'
+    },
+    conditionalToPIT: {
+      id: 'conditionalToPIT',
+      label: 'Proceed to PIT',
+      from: 'division3',
+      to: 'publicInterest',
+      color: '#f59e0b'
+    },
+    pitFavours: {
+      id: 'pitFavours',
+      label: 'PIT favours access',
+      from: 'publicInterest',
+      to: 'release',
+      color: '#22c55e'
+    },
+    pitAgainst: {
+      id: 'pitAgainst',
+      label: 'PIT contrary to access',
+      from: 'publicInterest',
+      to: 'editedCopy',
+      color: '#ef4444'
+    },
+    editToReasons: {
+      id: 'editToReasons',
+      label: 'Prepare notice',
+      from: 'editedCopy',
+      to: 'reasons',
+      color: '#60a5fa'
+    },
+    reasonsToRelease: {
+      id: 'reasonsToRelease',
+      label: 'Edited copy released',
+      from: 'reasons',
+      to: 'release',
+      color: '#22c55e'
+    }
+  };
+
+  const getStepStyle = (step) => {
+    const baseStyle = {
+      padding: '12px 16px',
+      borderRadius: '8px',
+      cursor: 'pointer',
+      transition: 'all 0.2s ease',
+      border: '2px solid',
+      textAlign: 'center',
+      minWidth: '180px'
+    };
+
+    const isActive = activeStep === step.id;
+    
+    const typeStyles = {
+      'start': {
+        background: isActive ? '#1e3a5f' : '#0f172a',
+        borderColor: '#3b82f6',
+        color: '#e2e8f0'
+      },
+      'decision': {
+        background: isActive ? '#1e3a5f' : 'rgba(59, 130, 246, 0.1)',
+        borderColor: '#3b82f6',
+        color: '#e2e8f0',
+        transform: 'rotate(0deg)'
+      },
+      'exemption-absolute': {
+        background: isActive ? '#7f1d1d' : 'rgba(239, 68, 68, 0.1)',
+        borderColor: '#ef4444',
+        color: '#fca5a5'
+      },
+      'exemption-conditional': {
+        background: isActive ? '#78350f' : 'rgba(245, 158, 11, 0.1)',
+        borderColor: '#f59e0b',
+        color: '#fcd34d'
+      },
+      'process': {
+        background: isActive ? '#1e3a5f' : 'rgba(96, 165, 250, 0.1)',
+        borderColor: '#60a5fa',
+        color: '#93c5fd'
+      },
+      'outcome-release': {
+        background: isActive ? '#14532d' : 'rgba(34, 197, 94, 0.1)',
+        borderColor: '#22c55e',
+        color: '#86efac'
+      },
+      'outcome-refuse': {
+        background: isActive ? '#7f1d1d' : 'rgba(239, 68, 68, 0.1)',
+        borderColor: '#ef4444',
+        color: '#fca5a5'
+      }
+    };
+
+    return { ...baseStyle, ...typeStyles[step.type] };
+  };
+
+  const StepBox = ({ step, style = {} }) => (
+    <div
+      style={{ ...getStepStyle(step), ...style }}
+      onMouseEnter={() => setActiveStep(step.id)}
+      onMouseLeave={() => setActiveStep(null)}
+      onClick={() => step.link && window.open(step.link, '_blank')}
+    >
+      <div style={{ fontWeight: 600, fontSize: '14px', marginBottom: '4px' }}>
+        {step.label}
+      </div>
+      {step.section && (
+        <div style={{ fontSize: '12px', opacity: 0.8, fontFamily: 'monospace' }}>
+          {step.section}
+        </div>
+      )}
+      {activeStep === step.id && step.description && (
+        <div style={{ 
+          fontSize: '11px', 
+          marginTop: '8px', 
+          padding: '8px',
+          background: 'rgba(0,0,0,0.3)',
+          borderRadius: '4px',
+          textAlign: 'left'
+        }}>
+          {step.description}
+        </div>
+      )}
+    </div>
+  );
+
+  const Arrow = ({ direction = 'down', label, color = '#64748b', style = {} }) => (
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: direction === 'down' ? 'column' : 'row',
+      alignItems: 'center', 
+      padding: '8px',
+      ...style 
+    }}>
+      {label && (
+        <span style={{ 
+          fontSize: '11px', 
+          color: color, 
+          marginBottom: direction === 'down' ? '4px' : 0,
+          marginRight: direction === 'right' ? '8px' : 0,
+          whiteSpace: 'nowrap'
+        }}>
+          {label}
+        </span>
+      )}
+      <svg 
+        width={direction === 'down' ? '24' : '40'} 
+        height={direction === 'down' ? '24' : '24'} 
+        viewBox={direction === 'down' ? '0 0 24 24' : '0 0 40 24'}
+      >
+        {direction === 'down' ? (
+          <path d="M12 4 L12 16 M8 12 L12 16 L16 12" stroke={color} strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+        ) : (
+          <path d="M4 12 L32 12 M28 8 L32 12 L28 16" stroke={color} strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+        )}
+      </svg>
+    </div>
+  );
+
+  return (
+    <div style={{
+      background: 'linear-gradient(135deg, #0a1628 0%, #0f172a 50%, #1a2744 100%)',
+      minHeight: '100vh',
+      padding: '32px',
+      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+      color: '#e2e8f0'
+    }}>
+      <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        {/* Header */}
+        <div style={{ marginBottom: '32px' }}>
+          <div style={{ 
+            display: 'inline-block',
+            padding: '4px 12px',
+            background: '#3b82f6',
+            borderRadius: '9999px',
+            fontSize: '12px',
+            fontWeight: 600,
+            marginBottom: '12px'
+          }}>
+            VISUALISER
+          </div>
+          <h1 style={{ 
+            fontSize: '28px', 
+            fontWeight: 700, 
+            marginBottom: '8px',
+            background: 'linear-gradient(135deg, #e2e8f0 0%, #60a5fa 100%)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
+            FOI Redaction Logic
+          </h1>
+          <p style={{ color: '#94a3b8', fontSize: '16px' }}>
+            The decision pathway from request to release under the FOI Act 1982 (Cth)
+          </p>
+        </div>
+
+        {/* Legend */}
+        <div style={{
+          display: 'flex',
+          gap: '16px',
+          marginBottom: '32px',
+          flexWrap: 'wrap',
+          padding: '16px',
+          background: 'rgba(255,255,255,0.03)',
+          borderRadius: '8px',
+          border: '1px solid rgba(255,255,255,0.1)'
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '12px', height: '12px', borderRadius: '2px', background: '#3b82f6' }}></div>
+            <span style={{ fontSize: '12px', color: '#94a3b8' }}>Decision point</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '12px', height: '12px', borderRadius: '2px', background: '#ef4444' }}></div>
+            <span style={{ fontSize: '12px', color: '#94a3b8' }}>Absolute exemption</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '12px', height: '12px', borderRadius: '2px', background: '#f59e0b' }}></div>
+            <span style={{ fontSize: '12px', color: '#94a3b8' }}>Conditional exemption</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '12px', height: '12px', borderRadius: '2px', background: '#60a5fa' }}></div>
+            <span style={{ fontSize: '12px', color: '#94a3b8' }}>Process step</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ width: '12px', height: '12px', borderRadius: '2px', background: '#22c55e' }}></div>
+            <span style={{ fontSize: '12px', color: '#94a3b8' }}>Release</span>
+          </div>
+        </div>
+
+        {/* Flowchart */}
+        <div style={{
+          background: 'rgba(255,255,255,0.02)',
+          border: '1px solid rgba(255,255,255,0.1)',
+          borderRadius: '12px',
+          padding: '32px',
+          overflowX: 'auto'
+        }}>
+          {/* Row 1: Start */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
+            <StepBox step={steps.start} />
+          </div>
+          
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Arrow direction="down" color="#64748b" />
+          </div>
+
+          {/* Row 2: Exemption Test */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
+            <StepBox step={steps.exemption} />
+          </div>
+
+          {/* Row 3: Three paths */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '8px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Arrow direction="down" label="No exemption" color="#22c55e" />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Arrow direction="down" label="Absolute (Div 2)" color="#ef4444" />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Arrow direction="down" label="Conditional (Div 3)" color="#f59e0b" />
+            </div>
+          </div>
+
+          {/* Row 4: Three branches */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '8px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '180px' }}>
+              <StepBox step={steps.release} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <StepBox step={steps.division2} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <StepBox step={steps.division3} />
+            </div>
+          </div>
+
+          {/* Row 5: Arrows from Div2 and Div3 */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '8px' }}>
+            <div style={{ minWidth: '180px' }}></div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Arrow direction="down" label="To s 22" color="#ef4444" />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Arrow direction="down" label="To PIT" color="#f59e0b" />
+            </div>
+          </div>
+
+          {/* Row 6: Public Interest Test */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '8px' }}>
+            <div style={{ minWidth: '180px' }}></div>
+            <div style={{ minWidth: '180px' }}></div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <StepBox step={steps.publicInterest} />
+            </div>
+          </div>
+
+          {/* Row 7: PIT outcomes */}
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginBottom: '8px' }}>
+            <div style={{ minWidth: '180px' }}></div>
+            <div style={{ minWidth: '180px' }}></div>
+            <div style={{ display: 'flex', gap: '16px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <Arrow direction="down" label="Favours access" color="#22c55e" />
+                <div style={{ 
+                  padding: '8px 16px', 
+                  background: 'rgba(34, 197, 94, 0.1)', 
+                  border: '2px solid #22c55e',
+                  borderRadius: '8px',
+                  color: '#86efac',
+                  fontSize: '12px',
+                  fontWeight: 600
+                }}>
+                  → Release
+                </div>
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <Arrow direction="down" label="Contrary to access" color="#ef4444" />
+              </div>
+            </div>
+          </div>
+
+          {/* Row 8: Edited Copy (merge point) */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '16px', marginBottom: '8px' }}>
+            <StepBox step={steps.editedCopy} />
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Arrow direction="down" label="Prepare notice" color="#60a5fa" />
+          </div>
+
+          {/* Row 9: Reasons */}
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
+            <StepBox step={steps.reasons} />
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <Arrow direction="down" label="With redactions" color="#22c55e" />
+          </div>
+
+          {/* Row 10: Final Release */}
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <div style={{
+              padding: '16px 24px',
+              background: 'rgba(34, 197, 94, 0.15)',
+              border: '2px solid #22c55e',
+              borderRadius: '8px',
+              textAlign: 'center'
+            }}>
+              <div style={{ fontWeight: 700, color: '#86efac', fontSize: '16px' }}>
+                Release edited copy
+              </div>
+              <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '4px' }}>
+                s 11A(3), s 22
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer note */}
+        <div style={{
+          marginTop: '24px',
+          padding: '16px',
+          background: 'rgba(59, 130, 246, 0.1)',
+          border: '1px solid rgba(59, 130, 246, 0.3)',
+          borderRadius: '8px',
+          fontSize: '13px',
+          color: '#94a3b8'
+        }}>
+          <strong style={{ color: '#60a5fa' }}>Note:</strong> Click any box to view the relevant section on AustLII. 
+          This visualiser shows the standard pathway; actual decisions may involve multiple exemptions, 
+          partial redactions, and iterative assessment of individual documents within a release pack.
+        </div>
+
+        {/* Attribution */}
+        <div style={{
+          marginTop: '24px',
+          paddingTop: '24px',
+          borderTop: '1px solid rgba(255,255,255,0.1)',
+          fontSize: '12px',
+          color: '#64748b'
+        }}>
+          <a href="https://glasscase.org" style={{ color: '#60a5fa', textDecoration: 'none' }}>GlassCase</a> · 
+          FOI Redaction Logic Visualiser · 
+          Part of the <a href="https://glasscase.org/taxonomy/redaction-taxonomy" style={{ color: '#60a5fa', textDecoration: 'none' }}>Redaction Taxonomy v0.2</a> · 
+          CC BY 4.0
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default RedactionFlowVisualizer;
