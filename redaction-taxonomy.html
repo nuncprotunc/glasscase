@@ -100,6 +100,32 @@
             padding: 1.5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        
+        /* Navigation right side */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .desktop-nav {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .desktop-nav a {
+            color: var(--slate);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .desktop-nav a:hover {
+            color: var(--transparency-cyan);
         }
 
         .brand {
@@ -795,14 +821,35 @@
                 
                 <p class="brand-name"><span class="glass">Glass</span><span class="divider">/</span><span class="case">Case</span></p>
             </div>
-            <div style="display: flex; align-items: center; gap: 2rem;">
-                <nav style="display: flex; gap: 1.5rem; align-items: center;">
-                    <a href="/" style="color: var(--slate); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s;">Home</a>
-                    <a href="/redaction-taxonomy.html" style="color: var(--slate); text-decoration: none; font-size: 0.875rem; font-weight: 500; transition: color 0.2s;">Taxonomy</a>
+            <div class="nav-right">
+                <!-- Mobile hamburger menu button -->
+                <button class="mobile-menu-button" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="desktop-nav">
+                    <a href="/">Home</a>
+                    <a href="/redaction-taxonomy.html">Taxonomy</a>
                 </nav>
             </div>
         </div>
     </nav>
+    
+    <!-- Mobile slide-in menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h2 class="mobile-menu-title">Glass/Case</h2>
+            <p class="mobile-menu-subtitle">Making Integrity Visible</p>
+        </div>
+        <nav>
+            <a href="/" onclick="closeMobileMenu()">Home</a>
+            <a href="/redaction-taxonomy.html" onclick="closeMobileMenu()" class="active">Taxonomy</a>
+        </nav>
+    </div>
+    
+    <!-- Mobile menu overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
 
     <main>
         <span class="version-tag">v0.2</span>
@@ -1183,5 +1230,42 @@
             <p class="footer-disclaimer">Not legal advice. Designed for comparative analysis and transparency auditing. This taxonomy is an analyst's tool, not a substitute for statutory interpretation. For authoritative guidance, see the <a href="https://www.oaic.gov.au/freedom-of-information/freedom-of-information-guidance-for-government-agencies/foi-guidelines">OAIC FOI Guidelines (Parts 5 to 6)</a>.</p>
         </div>
     </footer>
+    
+    <script>
+        /* Mobile menu JavaScript */
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const button = document.querySelector('.mobile-menu-button');
+            const isOpen = menu.classList.contains('active');
+            
+            if (isOpen) {
+                closeMobileMenu();
+            } else {
+                menu.classList.add('active');
+                overlay.classList.add('active');
+                button.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const overlay = document.getElementById('mobileMenuOverlay');
+            const button = document.querySelector('.mobile-menu-button');
+            
+            menu.classList.remove('active');
+            overlay.classList.remove('active');
+            button.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMobileMenu();
+            }
+        });
+    </script>
 </body>
 </html>
