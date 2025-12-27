@@ -1498,6 +1498,42 @@
                 closeMobileMenu();
             }
         });
+
+        (function() {
+            function makeOutboundLinksOpenInNewTab() {
+                const internalHosts = new Set([
+                    window.location.host,
+                    'glasscase.org',
+                    'www.glasscase.org'
+                ]);
+
+                document.querySelectorAll('a[href]').forEach((a) => {
+                    const href = a.getAttribute('href');
+                    if (!href) return;
+                    if (href.startsWith('#') || href.startsWith('/#')) return;
+                    if (href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+                    let url;
+                    try {
+                        url = new URL(href, window.location.href);
+                    } catch {
+                        return;
+                    }
+
+                    if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
+                    if (internalHosts.has(url.host)) return;
+
+                    a.target = '_blank';
+                    a.rel = 'noopener noreferrer';
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', makeOutboundLinksOpenInNewTab);
+            } else {
+                makeOutboundLinksOpenInNewTab();
+            }
+        })();
     </script>
 </body>
 </html>
