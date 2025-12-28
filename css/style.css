@@ -495,8 +495,8 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  gap: 0.35rem;
+  flex-wrap: nowrap;
   font-size: 0.8125rem;
   color: var(--slate);
 }
@@ -543,6 +543,7 @@ footer {
   font-style: normal;
   opacity: 0.85;
   white-space: nowrap;
+  display: block;
 }
 
 @media (max-width: 900px) {
