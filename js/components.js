@@ -58,62 +58,52 @@ const COMPONENTS = {
     <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
   `,
   footer: `
-    <footer>
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 0.5rem;">
-            <svg width="24" height="24" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-              <defs>
-                <linearGradient id="footerPrismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9" />
-                  <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7" />
-                  <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9" />
-                </linearGradient>
-              </defs>
-              <path d="M 30 20 L 45 40 L 30 60 Z" fill="url(#footerPrismGrad)" stroke="#4A9FD8" stroke-width="1" class="prism-glow"/>
-              <line x1="45" y1="40" x2="72" y2="28" stroke="#4A9FD8" stroke-width="2" opacity="0.85" class="shimmer"/>
-              <line x1="45" y1="40" x2="72" y2="40" stroke="#3ABEF9" stroke-width="2.5" opacity="0.9" class="shimmer"/>
-              <line x1="45" y1="40" x2="72" y2="52" stroke="#F4C430" stroke-width="2" opacity="0.85" class="shimmer"/>
-            </svg>
-            <div style="font-family: 'Spectral', serif; font-style: italic; font-weight: 700; font-size: 18px; display: inline-flex; align-items: center; gap: 0.25em;">
-              <span style="color: var(--ice-blue); display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 12px; background: linear-gradient(145deg, rgba(74, 159, 216, 0.18), rgba(58, 190, 249, 0.08)); border: 1px solid rgba(74, 159, 216, 0.5);">Glass</span><span style="color: rgba(166, 207, 242, 0.8); font-weight: 600; margin: 0 0.1em;">/</span><span style="font-family: 'JetBrains Mono', monospace; color: rgba(164, 188, 211, 0.92); font-weight: 600; font-style: normal; letter-spacing: 0.06em; text-transform: uppercase;">Case</span>
-            </div>
-          </div>
-          <p class="footer-tagline">Making Integrity Visible</p>
-          <p class="footer-tagline">Evidence systems across education and civic-tech, designed for fairness.</p>
-        </div>
-        <div class="footer-section">
-          <h4>Site</h4>
-          <div class="footer-links">
-            <a href="https://glasscase.org/">Home</a>
-            <a href="https://glasscase.org/#problem">Problem</a>
-            <a href="https://glasscase.org/#solution">Solution</a>
-            <a href="https://glasscase.org/#roadmap">Roadmap</a>
-            <a href="/use-privacy.html">Use &amp; Privacy</a>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 0.5rem;">
+          <svg width="24" height="24" viewBox="0 0 80 80" fill="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="footerPrismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9" />
+                <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7" />
+                <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9" />
+              </linearGradient>
+            </defs>
+            <path d="M 30 20 L 45 40 L 30 60 Z" fill="url(#footerPrismGrad)" stroke="#4A9FD8" stroke-width="1" class="prism-glow"/>
+            <line x1="45" y1="40" x2="72" y2="28" stroke="#4A9FD8" stroke-width="2" opacity="0.85" class="shimmer"/>
+            <line x1="45" y1="40" x2="72" y2="40" stroke="#3ABEF9" stroke-width="2.5" opacity="0.9" class="shimmer"/>
+            <line x1="45" y1="40" x2="72" y2="52" stroke="#F4C430" stroke-width="2" opacity="0.85" class="shimmer"/>
+          </svg>
+          <div style="font-family: 'Spectral', serif; font-style: italic; font-weight: 700; font-size: 18px; display: inline-flex; align-items: center; gap: 0.25em;">
+            <span style="color: var(--ice-blue); display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 12px; background: linear-gradient(145deg, rgba(74, 159, 216, 0.18), rgba(58, 190, 249, 0.08)); border: 1px solid rgba(74, 159, 216, 0.5);">Glass</span><span style="color: rgba(166, 207, 242, 0.8); font-weight: 600; margin: 0 0.1em;">/</span><span style="font-family: 'JetBrains Mono', monospace; color: rgba(164, 188, 211, 0.92); font-weight: 600; font-style: normal; letter-spacing: 0.06em; text-transform: uppercase;">Case</span>
           </div>
         </div>
-        <div class="footer-section">
-          <h4>Projects</h4>
-          <div class="footer-links">
-            <a href="/redaction-taxonomy.html">Redaction Taxonomy</a>
-            <a href="https://lawandlearning.com">Law &amp; Learning</a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h4>Join the Community</h4>
-          <p style="font-size: 0.875rem; color: var(--slate); margin-bottom: 1rem; line-height: 1.5;">Updates on evidence systems, civic-tech and the ANU JD.</p>
-          <a href="https://linkedin.com/company/glasscase-org" class="footer-cta">Follow on LinkedIn</a>
+        <p class="footer-tagline">Making Integrity Visible</p>
+        <p class="footer-tagline">Evidence systems across education and civic-tech, designed for fairness.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Site</h4>
+        <div class="footer-links">
+          <a href="https://glasscase.org/">Home</a>
+          <a href="https://glasscase.org/#problem">Problem</a>
+          <a href="https://glasscase.org/#solution">Solution</a>
+          <a href="https://glasscase.org/#roadmap">Roadmap</a>
+          <a href="/use-privacy.html">Use &amp; Privacy</a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2025 GlassCase · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></p>
-        <div id="page-specific-license"></div>
-        <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
-        <div id="page-specific-disclaimer">
-          <p class="footer-disclaimer">Information only, not legal advice.</p>
+      <div class="footer-section">
+        <h4>Projects</h4>
+        <div class="footer-links">
+          <a href="/redaction-taxonomy.html">Redaction Taxonomy</a>
+          <a href="https://lawandlearning.com">Law &amp; Learning</a>
         </div>
       </div>
-    </footer>
+      <div class="footer-section">
+        <h4>Join the Community</h4>
+        <p style="font-size: 0.875rem; color: var(--slate); margin-bottom: 1rem; line-height: 1.5;">Updates on evidence systems, civic-tech and the ANU JD.</p>
+        <a href="https://linkedin.com/company/glasscase-org" class="footer-cta">Follow on LinkedIn</a>
+      </div>
+    </div>
   `
 };
 
@@ -126,27 +116,13 @@ function injectComponents() {
   if (mobileMenuEl) mobileMenuEl.innerHTML = COMPONENTS.mobileMenu;
   if (footerEl) footerEl.innerHTML = COMPONENTS.footer;
 
-  // Handle page-specific overrides
-  const currentPath = window.location.pathname;
-  
-  if (currentPath.includes('redaction-taxonomy')) {
-    const licenseEl = document.getElementById('page-specific-license');
-    const disclaimerEl = document.getElementById('page-specific-disclaimer');
-    
-    if (licenseEl) {
-      licenseEl.innerHTML = `<p style="margin-top: 0.5rem; font-size: 0.8125rem;">Version: v0.2 (December 2025) · Licence: <a href="https://creativecommons.org/licenses/by/4.0/" style="display: inline-flex; align-items: center; gap: 0.25rem; vertical-align: middle;"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" alt="CC BY 4.0" style="height: 1.25rem; vertical-align: middle;"> CC BY 4.0</a></p>`;
-    }
-    if (disclaimerEl) {
-      disclaimerEl.innerHTML = `<p class="footer-disclaimer">Not legal advice. Designed for comparative analysis and transparency auditing. This taxonomy is an analyst's tool, not a substitute for statutory interpretation. For authoritative guidance, see the <a href="https://www.oaic.gov.au/freedom-of-information/freedom-of-information-guidance-for-government-agencies/foi-guidelines">OAIC FOI Guidelines (Parts 5 to 6)</a>.</p>`;
-    }
-  }
-
   // Initialize outbound links for the newly injected content
   if (typeof initOutboundLinks === 'function') {
     initOutboundLinks();
   }
 
   // Set active state for mobile menu
+  const currentPath = window.location.pathname;
   let activeNav = '';
   if (currentPath === '/' || currentPath === '/index.html') activeNav = 'home';
   else if (currentPath.includes('redaction-taxonomy')) activeNav = 'taxonomy';
