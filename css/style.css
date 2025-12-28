@@ -495,7 +495,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.25rem;
   flex-wrap: nowrap;
   font-size: 0.8125rem;
   color: var(--slate);
@@ -509,13 +509,13 @@ footer {
 .footer-license {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 3px 8px;
+  gap: 0.3rem;
+  padding: 2px 6px;
   background: rgba(74, 159, 216, 0.05);
   border: 1px solid rgba(74, 159, 216, 0.15);
   border-radius: 4px;
   transition: all 0.2s ease;
-  font-size: 0.75rem;
+  font-size: 0.725rem;
 }
 
 .footer-license:hover {
@@ -537,7 +537,7 @@ footer {
 }
 
 .footer-disclaimer {
-  font-size: 0.725rem;
+  font-size: 0.7rem;
   line-height: 1.6;
   color: var(--slate);
   font-style: normal;
@@ -546,7 +546,7 @@ footer {
   display: block;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .footer-disclaimer {
     white-space: normal;
   }
