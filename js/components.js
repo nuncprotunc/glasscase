@@ -107,8 +107,11 @@ const COMPONENTS = {
       </div>
       <div class="footer-bottom">
         <p>© 2025 GlassCase · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></p>
+        <div id="page-specific-license"></div>
         <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
-        <p class="footer-disclaimer">Information only, not legal advice.</p>
+        <div id="page-specific-disclaimer">
+          <p class="footer-disclaimer">Information only, not legal advice.</p>
+        </div>
       </div>
     </footer>
   `
@@ -123,8 +126,27 @@ function injectComponents() {
   if (mobileMenuEl) mobileMenuEl.innerHTML = COMPONENTS.mobileMenu;
   if (footerEl) footerEl.innerHTML = COMPONENTS.footer;
 
-  // Set active state for mobile menu
+  // Handle page-specific overrides
   const currentPath = window.location.pathname;
+  
+  if (currentPath.includes('redaction-taxonomy')) {
+    const licenseEl = document.getElementById('page-specific-license');
+    const disclaimerEl = document.getElementById('page-specific-disclaimer');
+    
+    if (licenseEl) {
+      licenseEl.innerHTML = `<p style="margin-top: 0.5rem; font-size: 0.8125rem;">Version: v0.2 (December 2025) · Licence: <a href="https://creativecommons.org/licenses/by/4.0/" style="display: inline-flex; align-items: center; gap: 0.25rem; vertical-align: middle;"><img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" alt="CC BY 4.0" style="height: 1.25rem; vertical-align: middle;"> CC BY 4.0</a></p>`;
+    }
+    if (disclaimerEl) {
+      disclaimerEl.innerHTML = `<p class="footer-disclaimer">Not legal advice. Designed for comparative analysis and transparency auditing. This taxonomy is an analyst's tool, not a substitute for statutory interpretation. For authoritative guidance, see the <a href="https://www.oaic.gov.au/freedom-of-information/freedom-of-information-guidance-for-government-agencies/foi-guidelines">OAIC FOI Guidelines (Parts 5 to 6)</a>.</p>`;
+    }
+  }
+
+  // Initialize outbound links for the newly injected content
+  if (typeof initOutboundLinks === 'function') {
+    initOutboundLinks();
+  }
+
+  // Set active state for mobile menu
   let activeNav = '';
   if (currentPath === '/' || currentPath === '/index.html') activeNav = 'home';
   else if (currentPath.includes('redaction-taxonomy')) activeNav = 'taxonomy';
