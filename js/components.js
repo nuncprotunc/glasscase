@@ -36,7 +36,7 @@ const COMPONENTS = {
           </button>
           <nav class="desktop-nav">
             <a href="https://glasscase.org/">Home</a>
-            <a href="/redaction-taxonomy.html">Taxonomy</a>
+            <a href="/redaction-taxonomy.html">Redaction Taxonomy</a>
             <a href="/consideration-matrix.html">Consideration Matrix</a>
             <a href="/use-privacy.html">Use &amp; Privacy</a>
           </nav>
@@ -52,7 +52,7 @@ const COMPONENTS = {
       </div>
       <nav>
         <a href="https://glasscase.org/" onclick="closeMobileMenu()" data-nav="home">Home</a>
-        <a href="/redaction-taxonomy.html" onclick="closeMobileMenu()" data-nav="taxonomy">Taxonomy</a>
+        <a href="/redaction-taxonomy.html" onclick="closeMobileMenu()" data-nav="taxonomy">Redaction Taxonomy</a>
         <a href="/consideration-matrix.html" onclick="closeMobileMenu()" data-nav="matrix">Consideration Matrix</a>
         <a href="/use-privacy.html" onclick="closeMobileMenu()" data-nav="privacy">Use &amp; Privacy</a>
       </nav>
