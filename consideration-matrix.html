@@ -284,6 +284,48 @@
             color: var(--white);
         }
 
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--line);
+            color: var(--transparency-cyan);
+        }
+
+        .use-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .use-list li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--glass-blue);
+            margin-bottom: 0.75rem;
+            color: var(--slate);
+        }
+
+        .use-list li strong {
+            color: var(--white);
+        }
+
+        .use-note {
+            font-size: 0.9375rem;
+            color: var(--slate);
+            margin-top: 1rem;
+        }
+
+        .category-block {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1.5rem;
+        }
+
         @media (max-width: 768px) {
             main {
                 padding: 2.5rem 1.5rem;
@@ -496,7 +538,23 @@
             </ul>
         </div>
 
-        <p class="meta-note"><strong>Part of the Discretion &amp; Reasons Framework.</strong> Cite as: GlassCase. (2025, December). <em>Consideration Matrix</em> (Version 0.1). https://glasscase.org/consideration-matrix.html</p>
+        <h2>How to Use This Matrix</h2>
+        
+        <ul class="use-list">
+            <li><strong>Audit decisions:</strong> Map considerations from reasons documents or decision records against the matrix to identify structural issues—mandatory matters not addressed, irrelevant matters relied upon, or weighting applied where none was permitted.</li>
+            <li><strong>Review preparation:</strong> Use the matrix to frame grounds for internal review or tribunal appeals. The bottom-left quadrant (jurisdictional error) identifies reviewable failures under ADJR Act s 5(1)(e) and s 5(2)(b).</li>
+            <li><strong>Training and education:</strong> Teach decision-makers and law students how to distinguish mandatory from discretionary considerations and recognise when silence in reasons may indicate jurisdictional error.</li>
+        </ul>
+        
+        <p class="use-note">This matrix is a diagnostic tool, not a substitute for reading the empowering statute or obtaining legal advice. It applies across administrative regimes wherever validity depends on proper consideration of specified matters.</p>
+
+        <h2>Version History</h2>
+        
+        <div class="category-block" style="margin-bottom: 1rem;">
+            <p style="margin: 0;"><strong>v0.1</strong> (December 2025): Initial release. Synthesises <em>Peko-Wallsend</em>, <em>Li</em>, and related authorities into a 2×2 diagnostic framework.</p>
+        </div>
+
+        <p class="meta-note" style="margin-top: 2rem;"><strong>Part of the Discretion &amp; Reasons Framework.</strong> Cite as: GlassCase. (2025, December). <em>Consideration Matrix</em> (Version 0.1). https://glasscase.org/consideration-matrix.html</p>
         <p class="meta-note" style="margin-top: 0.35rem;">Licence: <a href="https://creativecommons.org/licenses/by/4.0/" style="color: var(--transparency-cyan);">CC BY 4.0</a>. Not legal advice.</p>
     </main>
 
