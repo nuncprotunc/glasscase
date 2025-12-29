@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT6N8DGQN9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZT6N8DGQN9');
+    </script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="5ak5S54IdTWG1s2khqZLcg" async></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlassCase — Consideration Matrix v0.1</title>
+    <meta name="description" content="Diagnostic matrix for mapping mandatory considerations, discretionary weighting, and jurisdictional error. Part of the Discretion & Reasons Framework.">
+    <meta name="author" content="Jay Spudvilas (Jayden Spudvilas-Powell)">
+    <link rel="canonical" href="https://glasscase.org/consideration-matrix.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Consideration Matrix v0.1 | GlassCase">
+    <meta property="og:description" content="Diagnostic matrix for mapping what must be considered against what was actually considered.">
+    <meta property="og:site_name" content="GlassCase">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://glasscase.org/consideration-matrix.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Consideration Matrix v0.1 | GlassCase">
+    <meta name="twitter:description" content="Diagnostic matrix for mapping mandatory considerations, discretion, and jurisdictional error.">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon-512.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    
+    <style>
+        /* Page-specific styles for Consideration Matrix */
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .version-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--glass-blue);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.75rem;
+            color: var(--white);
+        }
+
+        .subtitle {
+            font-size: 1.125rem;
+            color: var(--slate);
+            margin-bottom: 2rem;
+            max-width: 900px;
+        }
+
+        .page-intro {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            margin-bottom: 1.5rem;
+            color: var(--slate);
+            line-height: 1.6;
+        }
+
+        .page-intro strong {
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .matrix-shell {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+        }
+
+        .matrix-container {
+            overflow-x: auto;
+            border-radius: 12px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.25rem;
+        }
+
+        .matrix-container svg {
+            display: block;
+            margin: 0 auto;
+            min-width: 540px;
+        }
+
+        .legend-card,
+        .example-card,
+        .limitations {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .legend-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            user-select: none;
+        }
+
+        .legend-header h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .legend-toggle {
+            font-size: 0.85rem;
+            color: var(--transparency-cyan);
+            font-weight: 600;
+        }
+
+        .legend-content {
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            border-top: none;
+            margin-top: -10px;
+            overflow: hidden;
+        }
+
+        .legend-content.collapsed {
+            display: none;
+        }
+
+        .legend-item {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid var(--line);
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 1rem;
+            font-size: 0.95rem;
+            color: var(--slate);
+        }
+
+        .legend-item:last-child {
+            border-bottom: none;
+        }
+
+        .quadrant-label {
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .quadrant-label.green { color: #34d399; }
+        .quadrant-label.blue { color: var(--transparency-cyan); }
+        .quadrant-label.red { color: #f87171; }
+        .quadrant-label.muted { color: var(--slate); }
+
+        .legend-item .authority em {
+            color: var(--white);
+            font-style: italic;
+        }
+
+        .example-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--white);
+        }
+
+        .example-context {
+            font-size: 0.95rem;
+            color: var(--slate);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .example-items {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .example-item {
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 0.75rem;
+            align-items: center;
+            font-size: 0.95rem;
+            padding: 0.5rem 0.75rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            border: 1px solid var(--line);
+        }
+
+        .example-item .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .example-item .dot.green { background: #22c55e; }
+        .example-item .dot.blue { background: var(--transparency-cyan); }
+        .example-item .dot.red { background: #ef4444; }
+        .example-item .dot.muted { background: var(--slate); }
+
+        .example-item .description {
+            color: var(--white);
+            line-height: 1.5;
+        }
+
+        .example-item .quadrant {
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .example-item .quadrant.green { background: rgba(34,197,94,0.18); color: #22c55e; }
+        .example-item .quadrant.blue { background: rgba(58,190,249,0.18); color: var(--transparency-cyan); }
+        .example-item .quadrant.red { background: rgba(239,68,68,0.18); color: #ef4444; }
+        .example-item .quadrant.muted { background: rgba(148,163,184,0.15); color: var(--slate); }
+
+        .limitations h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+        }
+
+        .limitations ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            color: var(--slate);
+        }
+
+        .limitations li {
+            padding: 0.4rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+        }
+
+        .limitations li::before {
+            content: "×";
+            position: absolute;
+            left: 0;
+            color: var(--slate);
+            font-weight: 700;
+        }
+
+        .meta-note {
+            color: var(--slate);
+            font-size: 0.9375rem;
+            margin-top: 0.5rem;
+        }
+
+        .meta-note strong {
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 2.5rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.85rem;
+            }
+
+            .legend-item {
+                grid-template-columns: 1fr;
+            }
+
+            .example-item {
+                grid-template-columns: auto 1fr;
+                grid-template-areas:
+                    "dot desc"
+                    "tag tag";
+            }
+
+            .example-item .description { grid-area: desc; }
+            .example-item .dot { grid-area: dot; }
+            .example-item .quadrant { grid-area: tag; justify-self: flex-start; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <div id="shared-header"></div>
+    <div id="shared-mobile-menu"></div>
+
+    <main id="content">
+        <span class="version-tag">v0.1</span>
+        <h1>Consideration Matrix</h1>
+        <p class="subtitle">Mapping what must be considered against what was actually considered</p>
+
+        <div class="page-intro">
+            <strong>Diagnostic tool for administrative law.</strong> Synthesises established principles on mandatory considerations, discretionary weighting, and jurisdictional error. Applies wherever validity depends on consideration of specified matters (FOI, migration, licensing, disciplinary regimes). Placement reflects legal characterisation, not subjective belief.
+        </div>
+
+        <div class="matrix-shell">
+            <div class="matrix-container">
+                <svg width="560" height="440" viewBox="0 0 560 440" aria-labelledby="matrix-title">
+                    <title id="matrix-title">Consideration Matrix</title>
+                    <!-- Grid structure -->
+                    <line x1="180" y1="60" x2="180" y2="400" stroke="#334155" stroke-width="2"/>
+                    <line x1="60" y1="230" x2="500" y2="230" stroke="#334155" stroke-width="2"/>
+                    
+                    <!-- Quadrant backgrounds -->
+                    <rect x="60" y="60" width="120" height="170" fill="rgba(34,197,94,0.12)"/>
+                    <rect x="180" y="60" width="320" height="170" fill="rgba(58,190,249,0.12)"/>
+                    <rect x="60" y="230" width="120" height="170" fill="rgba(239,68,68,0.15)"/>
+                    <rect x="180" y="230" width="320" height="170" fill="rgba(148,163,184,0.12)"/>
+                    
+                    <!-- Axis labels -->
+                    <text x="340" y="40" text-anchor="middle" fill="#e2e8f0" font-size="12" font-weight="600">CONSIDERATION TYPE</text>
+                    <text x="120" y="52" text-anchor="middle" fill="#94a3b8" font-size="10">MANDATORY</text>
+                    <text x="340" y="52" text-anchor="middle" fill="#94a3b8" font-size="10">PERMISSIBLE / DISCRETIONARY</text>
+                    
+                    <!-- Y-axis labels -->
+                    <text x="35" y="145" fill="#22c55e" font-size="10" writing-mode="vertical-rl" text-anchor="middle" font-weight="500">CONSIDERED</text>
+                    <text x="35" y="315" fill="#ef4444" font-size="10" writing-mode="vertical-rl" text-anchor="middle" font-weight="500">NOT CONSIDERED</text>
+                    
+                    <!-- Quadrant labels and descriptions -->
+                    <text x="120" y="88" text-anchor="middle" fill="#22c55e" font-size="11" font-weight="600">LAWFUL</text>
+                    <text x="120" y="102" text-anchor="middle" fill="#22c55e" font-size="11" font-weight="600">COMPLIANCE</text>
+                    <text x="120" y="120" text-anchor="middle" fill="#4ade80" font-size="8">Statutory requirements met</text>
+                    
+                    <text x="340" y="88" text-anchor="middle" fill="#3b82f6" font-size="11" font-weight="600">LAWFUL</text>
+                    <text x="340" y="102" text-anchor="middle" fill="#3b82f6" font-size="11" font-weight="600">DISCRETION</text>
+                    <text x="340" y="120" text-anchor="middle" fill="#60a5fa" font-size="8">Weighting and balancing space</text>
+                    
+                    <text x="120" y="258" text-anchor="middle" fill="#ef4444" font-size="11" font-weight="600">JURISDICTIONAL</text>
+                    <text x="120" y="272" text-anchor="middle" fill="#ef4444" font-size="11" font-weight="600">ERROR</text>
+                    <text x="120" y="290" text-anchor="middle" fill="#f87171" font-size="8">Failure to consider</text>
+                    <text x="120" y="302" text-anchor="middle" fill="#f87171" font-size="8">mandatory relevant matter</text>
+                    
+                    <text x="340" y="258" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="600">NO DUTY TO</text>
+                    <text x="340" y="272" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="600">CONSIDER</text>
+                    <text x="340" y="302" text-anchor="middle" fill="#cbd5e1" font-size="8">Permissible omission</text>
+                    <text x="340" y="314" text-anchor="middle" fill="#cbd5e1" font-size="8">or irrelevant matter</text>
+                    
+                    <!-- Example items in each quadrant -->
+                    <circle cx="85" cy="145" r="4" fill="#22c55e"/>
+                    <text x="95" y="148" fill="#86efac" font-size="9">Statutory criteria</text>
+                    <circle cx="85" cy="165" r="4" fill="#22c55e"/>
+                    <text x="95" y="168" fill="#86efac" font-size="9">Natural justice</text>
+                    <circle cx="85" cy="185" r="4" fill="#22c55e"/>
+                    <text x="95" y="188" fill="#86efac" font-size="9">Jurisdictional facts</text>
+                    <circle cx="85" cy="205" r="4" fill="#22c55e"/>
+                    <text x="95" y="208" fill="#86efac" font-size="9">Applicant submissions</text>
+                    
+                    <circle cx="210" cy="145" r="4" fill="#3b82f6"/>
+                    <text x="220" y="148" fill="#93c5fd" font-size="9">Policy guidance</text>
+                    <circle cx="210" cy="165" r="4" fill="#3b82f6"/>
+                    <text x="220" y="168" fill="#93c5fd" font-size="9">Mitigating circumstances</text>
+                    <circle cx="210" cy="185" r="4" fill="#3b82f6"/>
+                    <text x="220" y="188" fill="#93c5fd" font-size="9">Public interest factors</text>
+                    <circle cx="370" cy="145" r="4" fill="#3b82f6"/>
+                    <text x="380" y="148" fill="#93c5fd" font-size="9">Comparable decisions</text>
+                    <circle cx="370" cy="165" r="4" fill="#3b82f6"/>
+                    <text x="380" y="168" fill="#93c5fd" font-size="9">Proportionality</text>
+                    <circle cx="370" cy="185" r="4" fill="#3b82f6"/>
+                    <text x="380" y="188" fill="#93c5fd" font-size="9">Aggravating factors</text>
+                    
+                    <circle cx="85" cy="330" r="4" fill="#ef4444"/>
+                    <text x="95" y="333" fill="#fca5a5" font-size="9">Ignored submission</text>
+                    <circle cx="85" cy="350" r="4" fill="#ef4444"/>
+                    <text x="95" y="353" fill="#fca5a5" font-size="9">Skipped s 11B factors</text>
+                    <circle cx="85" cy="370" r="4" fill="#ef4444"/>
+                    <text x="95" y="373" fill="#fca5a5" font-size="9">Missing detriment</text>
+                    
+                    <circle cx="210" cy="330" r="4" fill="#64748b"/>
+                    <text x="220" y="333" fill="#94a3b8" font-size="9">Irrelevant material</text>
+                    <circle cx="210" cy="350" r="4" fill="#64748b"/>
+                    <text x="220" y="353" fill="#94a3b8" font-size="9">Prohibited considerations</text>
+                    <circle cx="370" cy="330" r="4" fill="#64748b"/>
+                    <text x="380" y="333" fill="#94a3b8" font-size="9">Embarrassment to govt</text>
+                    <circle cx="370" cy="350" r="4" fill="#64748b"/>
+                    <text x="380" y="353" fill="#94a3b8" font-size="9">Unrelated precedent</text>
+                    
+                    <rect x="62" y="232" width="116" height="166" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="5,3" rx="2"/>
+                    <text x="120" y="418" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="500">↑ Reviewable under ADJR s 5(1)(e), s 5(2)(b)</text>
+                </svg>
+            </div>
+        </div>
+
+        <div class="legend-card">
+            <div class="legend-header" onclick="toggleLegend()">
+                <h3>Doctrinal basis (non-exhaustive)</h3>
+                <span class="legend-toggle" id="toggleText">Show ▼</span>
+            </div>
+            <div class="legend-content collapsed" id="legendContent">
+                <div class="legend-item">
+                    <div class="quadrant-label green">Lawful Compliance</div>
+                    <div class="authority">
+                        Statutory criteria; jurisdictional facts; procedural fairness requirements. <em>Minister for Aboriginal Affairs v Peko-Wallsend Ltd</em> (1986) 162 CLR 24 (mandatory relevant considerations identified from statute's subject matter, scope and purpose).
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="quadrant-label blue">Lawful Discretion</div>
+                    <div class="authority">
+                        Weighting and proportionality within bounds of legal reasonableness. <em>Minister for Immigration and Citizenship v Li</em> (2013) 249 CLR 332 (discretion must have “evident and intelligible justification”; decision within bounds cannot be impugned on weight alone).
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="quadrant-label red">Jurisdictional Error</div>
+                    <div class="authority">
+                        Failure to take into account a consideration the decision-maker was bound to consider. ADJR Act s 5(1)(e), s 5(2)(b); <em>Peko-Wallsend</em> at CLR 39–40 (Mason J). Materiality may be required: a failure is not jurisdictional if “so insignificant that failure to consider it could not have materially affected the decision.”
+                    </div>
+                </div>
+                <div class="legend-item">
+                    <div class="quadrant-label muted">No Duty to Consider</div>
+                    <div class="authority">
+                        No general common law duty to consider irrelevant matters or give reasons for not considering them. <em>Public Service Board (NSW) v Osmond</em> (1986) 159 CLR 656 (no duty to give reasons absent statutory requirement or exceptional circumstances); <em>Wingfoot Australia Partners Pty Ltd v Kocak</em> (2013) 252 CLR 480 (standard of reasons depends on statutory context). Prohibited considerations under s 11B(4) FOI Act must not be taken into account.
+                    </div>
+                </div>
+                <div class="legend-item" style="background: rgba(148,163,184,0.08);">
+                    <div class="quadrant-label muted">Note: Inferred consideration</div>
+                    <div class="authority">
+                        Consideration may be inferred from context even where reasons do not explicitly address a matter. Silence in reasons may still reveal failure to consider a relevant matter: <em>Minister for Immigration and Multicultural Affairs v Yusuf</em> (2001) 206 CLR 323 at [69], [82]–[91] (McHugh, Gummow and Hayne JJ). The question is whether the matter was in fact considered, not merely mentioned.
+                    </div>
+                </div>
+                <div class="legend-item" style="border-top: 1px solid var(--line);">
+                    <div class="quadrant-label muted" style="font-size: 0.9rem;">Further reading</div>
+                    <div class="authority" style="font-size: 0.9rem;">
+                        M Aronson, M Groves &amp; G Weeks, <em>Judicial Review of Administrative Action and Government Liability</em> (7th ed, 2021) ch 5; L McDonald, K Rundle &amp; E Hammond, <em>Principles of Administrative Law</em> (4th ed, 2023).
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="example-card">
+            <h3>Worked example: Licensing decision</h3>
+            <div class="example-context">
+                A statute requires the decision-maker to consider an applicant's criminal history before granting a licence. The decision-maker approves the application without referencing the history in reasons.
+            </div>
+            <div class="example-items">
+                <div class="example-item">
+                    <span class="dot red"></span>
+                    <span class="description">Criminal history (statutory requirement) — not mentioned in reasons</span>
+                    <span class="quadrant red">Jurisdictional error</span>
+                </div>
+                <div class="example-item">
+                    <span class="dot green"></span>
+                    <span class="description">Application fee paid (mandatory procedural step) — verified</span>
+                    <span class="quadrant green">Lawful compliance</span>
+                </div>
+                <div class="example-item">
+                    <span class="dot blue"></span>
+                    <span class="description">Weight given to minor 10-year-old offence — low weight assigned</span>
+                    <span class="quadrant blue">Lawful discretion</span>
+                </div>
+                <div class="example-item">
+                    <span class="dot muted"></span>
+                    <span class="description">Applicant's political donations — not considered</span>
+                    <span class="quadrant muted">No duty</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="limitations">
+            <h4>What this matrix does not do</h4>
+            <ul>
+                <li>Determine the merits of a decision</li>
+                <li>Assess whether the weight given was correct</li>
+                <li>Replace statutory interpretation or legal advice</li>
+                <li>Identify all considerations (that requires reading the empowering statute)</li>
+            </ul>
+        </div>
+
+        <p class="meta-note"><strong>Part of the Discretion &amp; Reasons Framework.</strong> Cite as: GlassCase. (2025, December). <em>Consideration Matrix</em> (Version 0.1). https://glasscase.org/consideration-matrix.html</p>
+        <p class="meta-note" style="margin-top: 0.35rem;">Licence: <a href="https://creativecommons.org/licenses/by/4.0/" style="color: var(--transparency-cyan);">CC BY 4.0</a>. Not legal advice.</p>
+    </main>
+
+    <footer>
+        <div id="shared-footer"></div>
+
+        <div class="footer-bottom">
+            <div class="footer-legal-row">
+                <span class="footer-copyright">© 2025 GlassCase · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></span>
+                <a href="https://creativecommons.org/licenses/by/4.0/" class="footer-license">
+                    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" alt="CC BY 4.0">
+                    <span>CC BY 4.0</span>
+                </a>
+            </div>
+            <div class="footer-disclaimer-group">
+                <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
+                <p class="footer-disclaimer">Information only, not legal advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLegend() {
+            const content = document.getElementById('legendContent');
+            const toggleText = document.getElementById('toggleText');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                toggleText.textContent = 'Hide ▲';
+            } else {
+                content.classList.add('collapsed');
+                toggleText.textContent = 'Show ▼';
+            }
+        }
+    </script>
+    <script src="/js/main.js"></script>
+    <script src="/js/components.js"></script>
+</body>
+</html>

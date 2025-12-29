@@ -37,6 +37,7 @@ const COMPONENTS = {
           <nav class="desktop-nav">
             <a href="https://glasscase.org/">Home</a>
             <a href="/redaction-taxonomy.html">Taxonomy</a>
+            <a href="/consideration-matrix.html">Consideration Matrix</a>
             <a href="/use-privacy.html">Use &amp; Privacy</a>
           </nav>
         </div>
@@ -52,6 +53,7 @@ const COMPONENTS = {
       <nav>
         <a href="https://glasscase.org/" onclick="closeMobileMenu()" data-nav="home">Home</a>
         <a href="/redaction-taxonomy.html" onclick="closeMobileMenu()" data-nav="taxonomy">Taxonomy</a>
+        <a href="/consideration-matrix.html" onclick="closeMobileMenu()" data-nav="matrix">Consideration Matrix</a>
         <a href="/use-privacy.html" onclick="closeMobileMenu()" data-nav="privacy">Use &amp; Privacy</a>
       </nav>
     </div>
@@ -88,6 +90,7 @@ const COMPONENTS = {
           <a href="https://glasscase.org/#problem">Problem</a>
           <a href="https://glasscase.org/#solution">Solution</a>
           <a href="https://glasscase.org/#roadmap">Roadmap</a>
+          <a href="/consideration-matrix.html">Consideration Matrix</a>
           <a href="/use-privacy.html">Use &amp; Privacy</a>
         </div>
       </div>
@@ -126,6 +129,7 @@ function injectComponents() {
   let activeNav = '';
   if (currentPath === '/' || currentPath === '/index.html') activeNav = 'home';
   else if (currentPath.includes('redaction-taxonomy')) activeNav = 'taxonomy';
+  else if (currentPath.includes('consideration-matrix')) activeNav = 'matrix';
   else if (currentPath.includes('use-privacy')) activeNav = 'privacy';
 
   if (activeNav) {
