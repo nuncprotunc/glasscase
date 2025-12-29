@@ -90,13 +90,13 @@ const COMPONENTS = {
           <a href="https://glasscase.org/#problem">Problem</a>
           <a href="https://glasscase.org/#solution">Solution</a>
           <a href="https://glasscase.org/#roadmap">Roadmap</a>
-          <a href="/consideration-matrix.html">Consideration Matrix</a>
           <a href="/use-privacy.html">Use &amp; Privacy</a>
         </div>
       </div>
       <div class="footer-section">
         <h4>Projects</h4>
         <div class="footer-links">
+          <a href="/consideration-matrix.html">Consideration Matrix</a>
           <a href="/redaction-taxonomy.html">Redaction Taxonomy</a>
           <a href="https://lawandlearning.com">Law &amp; Learning</a>
         </div>
