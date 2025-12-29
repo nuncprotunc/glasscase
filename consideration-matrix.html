@@ -73,6 +73,42 @@
             max-width: 900px;
         }
 
+        .cta-row {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .pill-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            padding: 0.45rem 1.25rem;
+            background: #3b82f6;
+            color: #fff;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.35);
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+        }
+
+        .pill-button:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.45);
+            background: #4a90ff;
+        }
+
+        .pill-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
         .page-intro {
             background: var(--panel);
             border: 1px solid var(--line);
@@ -435,6 +471,10 @@
         <h1>Consideration Matrix</h1>
         <p class="subtitle">Mapping what must be considered against what was actually considered</p>
 
+        <div class="cta-row">
+            <a class="pill-button" href="#matrix-visual">2×2 Matrix</a>
+        </div>
+
         <div class="page-intro">
             <strong>GlassCase Consideration Matrix v0.1 is a diagnostic tool for administrative law.</strong> It synthesises established principles on mandatory considerations, discretionary weighting, and jurisdictional error. The matrix applies wherever validity depends on consideration of specified matters (FOI, migration, licensing, disciplinary regimes). Placement reflects legal characterisation, not subjective belief.
         </div>
@@ -444,7 +484,7 @@
             <p>Use it to map mandatory versus discretionary considerations, diagnose jurisdictional error (failure to consider mandatory matters), and structure review grounds for internal review or tribunal appeals.</p>
         </div>
 
-        <div class="matrix-shell">
+        <div class="matrix-shell" id="matrix-visual">
             <div class="matrix-key">
                 <div class="matrix-key-item">
                     <span class="matrix-key-dot green"></span>
@@ -649,8 +689,10 @@
             <p style="margin: 0;"><strong>v0.1</strong> (December 2025): Initial release. Synthesises <em>Peko-Wallsend</em>, <em>Li</em>, and related authorities into a 2×2 diagnostic framework.</p>
         </div>
 
+        <div style="height: 1rem;"></div>
         <p style="margin-top: 1rem; color: var(--slate); font-size: 0.875rem;"><strong>How to cite (APA 7):</strong> GlassCase. (2025, December). <em>Consideration Matrix</em> (Version 0.1). https://glasscase.org/consideration-matrix.html</p>
         <p style="margin-top: 0.5rem; color: var(--slate); font-size: 0.875rem;"><strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/" style="color: var(--transparency-cyan);">CC BY 4.0</a>. Not legal advice.</p>
+
     </main>
 
     <footer>
