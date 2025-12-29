@@ -330,6 +330,8 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    padding-bottom: 0;
+    border-bottom: none;
   }
   
   .mobile-menu a {
