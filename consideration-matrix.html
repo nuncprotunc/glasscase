@@ -120,6 +120,48 @@
             overflow: hidden;
         }
 
+        .matrix-key {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            margin-bottom: 1.25rem;
+            font-size: 0.875rem;
+        }
+
+        .matrix-key-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--slate);
+        }
+
+        .matrix-key-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .matrix-key-dot.green {
+            background: #22c55e;
+        }
+
+        .matrix-key-dot.blue {
+            background: #3abef9;
+        }
+
+        .matrix-key-dot.red {
+            background: #ef4444;
+        }
+
+        .matrix-key-dot.grey {
+            background: #64748b;
+        }
+
         .matrix-container {
             overflow-x: auto;
             border-radius: 12px;
@@ -403,6 +445,24 @@
         </div>
 
         <div class="matrix-shell">
+            <div class="matrix-key">
+                <div class="matrix-key-item">
+                    <span class="matrix-key-dot green"></span>
+                    <span>Mandatory consideration</span>
+                </div>
+                <div class="matrix-key-item">
+                    <span class="matrix-key-dot blue"></span>
+                    <span>Discretionary consideration</span>
+                </div>
+                <div class="matrix-key-item">
+                    <span class="matrix-key-dot red"></span>
+                    <span>Jurisdictional error</span>
+                </div>
+                <div class="matrix-key-item">
+                    <span class="matrix-key-dot grey"></span>
+                    <span>No duty to consider</span>
+                </div>
+            </div>
             <div class="matrix-container">
                 <svg width="560" height="440" viewBox="0 0 560 440" aria-labelledby="matrix-title">
                     <title id="matrix-title">Consideration Matrix</title>
