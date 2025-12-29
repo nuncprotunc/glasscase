@@ -158,13 +158,14 @@
         }
 
         .legend-item {
-            padding: 1rem 1.25rem;
+            padding: 1.25rem 1.5rem;
             border-bottom: 1px solid var(--line);
             display: grid;
             grid-template-columns: 180px 1fr;
-            gap: 1rem;
+            gap: 1.25rem;
             font-size: 0.95rem;
             color: var(--slate);
+            align-items: start;
         }
 
         .legend-item:last-child {
@@ -174,6 +175,7 @@
         .quadrant-label {
             font-weight: 700;
             color: var(--white);
+            padding-top: 0.15rem;
         }
 
         .quadrant-label.green { color: #34d399; }
@@ -181,9 +183,14 @@
         .quadrant-label.red { color: #f87171; }
         .quadrant-label.muted { color: var(--slate); }
 
+        .legend-item .authority {
+            line-height: 1.6;
+        }
+
         .legend-item .authority em {
             color: var(--white);
-            font-style: italic;
+            font-style: normal;
+            font-weight: 600;
         }
 
         .example-card h3 {
