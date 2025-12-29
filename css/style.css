@@ -268,7 +268,7 @@ nav {
     left: -320px;
     width: 300px;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(26, 31, 46, 0.98), rgba(15, 23, 48, 0.98));
+    background: linear-gradient(180deg, rgb(26, 31, 46), rgb(15, 23, 48));
     border-right: 1px solid var(--line);
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
