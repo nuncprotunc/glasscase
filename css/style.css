@@ -268,7 +268,7 @@ nav {
     left: -320px;
     width: 300px;
     height: 100vh;
-    background: linear-gradient(180deg, rgb(26, 31, 46), rgb(15, 23, 48));
+    background: #0f172a !important;
     border-right: 1px solid var(--line);
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -317,6 +317,9 @@ nav {
     color: var(--ice-blue);
     margin-bottom: 0.5rem;
     text-shadow: 0 2px 8px rgba(58, 190, 249, 0.3);
+    border: none !important;
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
   }
   
   .mobile-menu-subtitle {
@@ -324,6 +327,11 @@ nav {
     color: var(--slate);
     font-weight: 500;
     letter-spacing: 0.5px;
+    border: none !important;
+    border-top: none !important;
+    border-bottom: none !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
   
   .mobile-menu nav {
