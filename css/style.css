@@ -306,7 +306,7 @@ nav {
   .mobile-menu-header {
     margin-bottom: 2rem;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(74, 159, 216, 0.2);
+    border-bottom: none !important;
     text-align: center;
   }
   
