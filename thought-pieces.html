@@ -99,24 +99,66 @@
             line-height: 1.6;
         }
 
-        .coming-soon {
-            background: rgba(58, 190, 249, 0.08);
-            border: 1px solid rgba(58, 190, 249, 0.2);
-            border-radius: 8px;
-            padding: 2rem;
-            margin: 2rem 0;
-            text-align: center;
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .coming-soon h2 {
+        .article-card {
+            background: rgba(58, 190, 249, 0.04);
+            border: 1px solid rgba(58, 190, 249, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
+        }
+
+        .article-card:hover {
+            background: rgba(58, 190, 249, 0.08);
+            border-color: rgba(58, 190, 249, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .article-card h2 {
             color: var(--ice-blue);
             font-size: 1.5rem;
-            margin-bottom: 0.5rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.3;
         }
 
-        .coming-soon p {
+        .article-card h2 a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .article-card h2 a:hover {
+            text-decoration: underline;
+        }
+
+        .article-meta {
             color: var(--slate);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .article-excerpt {
+            color: var(--slate);
+            line-height: 1.6;
             margin: 0;
+        }
+
+        .read-more {
+            display: inline-block;
+            margin-top: 0.75rem;
+            color: var(--ice-blue);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -129,14 +171,23 @@
 
     <main id="content">
         <h1>Thought Pieces</h1>
-        <p class="subtitle">Essays, reflections, and analysis on administrative law, transparency, and civic technology.</p>
+        <p class="subtitle">Essays and analysis on administrative law, transparency, and civic technology.</p>
         
-        <div class="coming-soon">
-            <h2>Coming Soon</h2>
-            <p>This section is under construction. Check back soon for essays and analysis on FOI practice, administrative law, and civic technology.</p>
-        </div>
+        <div class="article-list">
+            <article class="article-card">
+                <h2><a href="/articles/admin-decisions-fail.html">Why Administrative Decisions Fail When the Logic Was Right There</a></h2>
+                <div class="article-meta">December 30, 2025 · 5 min read</div>
+                <p class="article-excerpt">Many administrative decisions fail review not because the decision-maker misunderstood the law, but because a legally required consideration never appears in the reasons. A map of what must be considered.</p>
+                <a href="/articles/admin-decisions-fail.html" class="read-more">Read more →</a>
+            </article>
 
-        <!-- Future content will go here -->
+            <article class="article-card">
+                <h2><a href="/articles/redactions-chaotic.html">Why Redactions Look Chaotic When They're Not</a></h2>
+                <div class="article-meta">December 28, 2025 · 5 min read</div>
+                <p class="article-excerpt">Most Freedom of Information decisions look inconsistent because we never see the logic underneath them. A simple map of FOI logic and how the Redaction Taxonomy surfaces hidden decision pathways.</p>
+                <a href="/articles/redactions-chaotic.html" class="read-more">Read more →</a>
+            </article>
+        </div>
     </main>
 
     <footer>

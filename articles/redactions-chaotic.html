@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT6N8DGQN9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZT6N8DGQN9');
+    </script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="5ak5S54IdTWG1s2khqZLcg" async></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why Redactions Look Chaotic When They're Not: A Simple Map of FOI Logic | GlassCase</title>
+    <meta name="description" content="Most Freedom of Information decisions look inconsistent because we never see the logic underneath them. A simple map of FOI logic.">
+    <meta name="author" content="Jay Spudvilas (Jayden Spudvilas-Powell)">
+    <link rel="canonical" href="https://glasscase.org/articles/redactions-chaotic.html">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Why Redactions Look Chaotic When They're Not">
+    <meta property="og:description" content="A simple map of FOI logic and how the Redaction Taxonomy surfaces hidden decision pathways.">
+    <meta property="og:site_name" content="GlassCase">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://glasscase.org/articles/redactions-chaotic.html">
+    <meta property="og:image" content="https://glasscase.org/og-image.png">
+    <meta property="article:published_time" content="2025-12-28">
+    <meta property="article:author" content="Jay Spudvilas">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Redactions Look Chaotic When They're Not">
+    <meta name="twitter:description" content="A simple map of FOI logic and how the Redaction Taxonomy surfaces hidden decision pathways.">
+    <meta name="twitter:image" content="https://glasscase.org/og-image.png">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Why Redactions Look Chaotic When They're Not: A Simple Map of FOI Logic",
+      "description": "Most Freedom of Information decisions look inconsistent because we never see the logic underneath them. A simple map of FOI logic.",
+      "author": {
+        "@type": "Person",
+        "name": "Jay Spudvilas",
+        "alternateName": "Jayden Spudvilas-Powell",
+        "url": "https://jayspudvilas.com/",
+        "sameAs": [
+          "https://linkedin.com/in/jayspudvilas",
+          "https://orcid.org/0009-0000-0945-0380",
+          "https://github.com/nuncprotunc",
+          "https://substack.com/@glasscase"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GlassCase",
+        "url": "https://glasscase.org/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://glasscase.org/favicon-512.svg"
+        }
+      },
+      "datePublished": "2025-12-28",
+      "dateModified": "2025-12-28",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://glasscase.org/articles/redactions-chaotic.html"
+      },
+      "image": "https://glasscase.org/og-image.png",
+      "inLanguage": "en-AU",
+      "keywords": "FOI, freedom of information, redaction analysis, transparency, administrative law, Australia"
+    }
+    </script>
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon-512.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="/css/style.css?v=2025-12-29-3">
+    
+    <style>
+        /* Article-specific styles */
+        main {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        article {
+            font-family: 'Spectral', serif;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--ice-blue);
+        }
+
+        .article-meta {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 0.875rem;
+            color: var(--slate);
+            margin-bottom: 2rem;
+        }
+
+        .article-content {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--text);
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .article-content strong {
+            font-weight: 700;
+            color: var(--ice-blue);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        .article-content a {
+            color: var(--ice-blue);
+            text-decoration: underline;
+        }
+
+        .article-content a:hover {
+            text-decoration: none;
+        }
+
+        .cta-box {
+            background: rgba(58, 190, 249, 0.08);
+            border: 1px solid rgba(58, 190, 249, 0.2);
+            border-radius: 8px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .cta-box a {
+            display: inline-block;
+            background: var(--ice-blue);
+            color: var(--bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .cta-box a:hover {
+            background: rgba(58, 190, 249, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            color: var(--slate);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--ice-blue);
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <!-- These placeholders are automatically filled by /js/components.js -->
+    <div id="shared-header"></div>
+    <div id="shared-mobile-menu"></div>
+
+    <main id="content">
+        <article>
+            <header class="article-header">
+                <h1>Why Redactions Look Chaotic When They're Not: A Simple Map of FOI Logic</h1>
+                <div class="article-meta">
+                    <time datetime="2025-12-28">December 28, 2025</time> · Jay Spudvilas · 5 min read
+                </div>
+            </header>
+
+            <div class="article-content">
+                <p>Most Freedom of Information (FOI) decisions look inconsistent because we never see the logic underneath them. A black box on a page feels personal. Like the officer improvised. Like the agency had something to hide. The argument starts there, in the absence of a map.</p>
+
+                <p>I kept noticing this across Australian FOI matters (Freedom of Information Act 1982 (Cth) and the state equivalents). Different agencies, similar exemptions, but the outcomes never lined up. Sometimes s 47F swallowed whole paragraphs. Sometimes the same clause barely touched a document. It took a while to realise the mess wasn't random. It was structural.</p>
+
+                <p>FOI law has a shape. You just rarely get to see it.</p>
+
+                <p>At its core, every redaction turns on a few questions: what exemption is being relied on, what harm is being claimed, whether a public interest test applies, and how that test is actually applied in practice. None of this is visible when you're staring at black ink on a PDF.</p>
+
+                <p>So I built the Redaction Taxonomy as a way to surface the hidden logic and give practitioners, researchers and students a shared language for describing redaction patterns.</p>
+
+                <p>The taxonomy groups redactions into categories people already recognise, then adds labels for the failure modes that matter most: over-extension, mechanical invocation of exemptions, harm tests asserted without reasons, and decisions that lean on risk language without articulating the risk.</p>
+
+                <p>Version 0.2 adds something I wish I'd had sooner: a statute-aligned decision-logic visualiser that turns the FOI pathway into an explicit map. You can trace the route from trigger to exemption to any public interest step, and see where discretion sits. It also makes it obvious how two agencies can read the same words and still land in different places.</p>
+
+                <div class="cta-box">
+                    <a href="/redaction-taxonomy.html">Read the Redaction Taxonomy</a>
+                </div>
+
+                <p>This is not a reform proposal. It's infrastructure.</p>
+
+                <p>When the logic is visible, the arguments change. You stop debating personalities. You start debating tests, thresholds and evidence.</p>
+
+                <p>If you want to read it, it's on <a href="https://glasscase.org">glasscase.org</a>.</p>
+            </div>
+
+            <a href="/thought-pieces.html" class="back-link">← Back to Thought Pieces</a>
+        </article>
+    </main>
+
+    <footer>
+        <div id="shared-footer"></div>
+
+        <div class="footer-bottom">
+            <div class="footer-legal-row">
+                <span class="footer-copyright">© 2025 GlassCase · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></span>
+            </div>
+            <div class="footer-disclaimer-group">
+                <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
+                <p class="footer-disclaimer">Information only, not legal advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Logic -->
+    <script src="/js/main.js?v=2025-12-30"></script>
+    <script src="/js/components.js?v=2025-12-30"></script>
+</body>
+</html>
