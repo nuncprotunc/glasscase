@@ -152,6 +152,35 @@
             max-width: 900px;
         }
 
+        .thought-piece-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 0.9rem;
+            margin: 0.5rem 0 1.5rem;
+            background: rgba(58, 190, 249, 0.06);
+            border: 1px solid rgba(58, 190, 249, 0.22);
+            border-radius: 9999px;
+            color: var(--ice-blue);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+        }
+
+        .thought-piece-cta:hover {
+            background: rgba(58, 190, 249, 0.12);
+            border-color: rgba(58, 190, 249, 0.35);
+            transform: translateY(-1px);
+        }
+
+        .thought-piece-cta svg {
+            width: 16px;
+            height: 16px;
+            opacity: 0.9;
+        }
+
         .matrix-pill {
             display: inline-block;
             padding: 4px 12px;
@@ -532,6 +561,15 @@
         <span class="version-tag">v0.1</span>
         <h1>Consideration Matrix</h1>
         <p class="subtitle">Mapping what must be considered against what was actually considered</p>
+
+        <a class="thought-piece-cta" href="/articles/admin-decisions-fail.html">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path d="M6 4h9l3 3v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M15 4v4h4" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M8 12h8M8 16h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            Read the Thought Piece
+        </a>
 
         <div class="page-intro">
             <p><strong>GlassCase Consideration Matrix v0.1</strong> is a diagnostic tool for Australian administrative law. It synthesises established principles on mandatory considerations, discretionary weighting, and jurisdictional error. The matrix applies wherever validity depends on consideration of specified matters (FOI, migration, licensing, disciplinary regimes). Placement reflects legal characterisation, not subjective belief.</p>
