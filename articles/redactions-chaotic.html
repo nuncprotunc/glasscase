@@ -116,14 +116,40 @@
             margin-bottom: 2rem;
         }
 
+        .hero {
+            margin: 0 0 2.25rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(58, 190, 249, 0.18);
+            background: rgba(58, 190, 249, 0.06);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .hero figcaption {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 0.875rem;
+            color: rgba(232, 244, 248, 0.75);
+            padding: 0.85rem 1rem;
+            background: rgba(26, 31, 46, 0.65);
+            border-top: 1px solid rgba(58, 190, 249, 0.14);
+        }
+
         .article-content {
             font-size: 1.125rem;
             line-height: 1.8;
-            color: var(--text);
+            color: rgba(232, 244, 248, 0.92);
+            font-weight: 400;
         }
 
         .article-content p {
             margin-bottom: 1.5rem;
+            font-weight: 400;
         }
 
         .article-content strong {
@@ -156,7 +182,7 @@
         .cta-box a {
             display: inline-block;
             background: var(--ice-blue);
-            color: var(--bg);
+            color: var(--deep-navy);
             padding: 0.75rem 1.5rem;
             border-radius: 6px;
             text-decoration: none;
@@ -167,7 +193,23 @@
 
         .cta-box a:hover {
             background: rgba(58, 190, 249, 0.9);
+            color: var(--deep-navy);
             transform: translateY(-2px);
+        }
+
+        .comments {
+            margin-top: 3rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(58, 190, 249, 0.18);
+        }
+
+        .comments h2 {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.2px;
+            color: var(--ice-blue);
+            margin-bottom: 1rem;
         }
 
         .back-link {
@@ -199,6 +241,11 @@
                 </div>
             </header>
 
+            <figure class="hero">
+                <img src="/og-image.png" alt="GlassCase" loading="lazy">
+                <figcaption>GlassCase thought pieces — essays and analysis on FOI logic.</figcaption>
+            </figure>
+
             <div class="article-content">
                 <p>Most Freedom of Information (FOI) decisions look inconsistent because we never see the logic underneath them. A black box on a page feels personal. Like the officer improvised. Like the agency had something to hide. The argument starts there, in the absence of a map.</p>
 
@@ -224,6 +271,25 @@
 
                 <p>If you want to read it, it's on <a href="https://glasscase.org">glasscase.org</a>.</p>
             </div>
+
+            <section class="comments" aria-label="Comments">
+                <h2>Comments</h2>
+                <script src="https://giscus.app/client.js"
+                    data-repo="nuncprotunc/glasscase"
+                    data-repo-id="R_kgDOQKqshg"
+                    data-category="General"
+                    data-category-id="DIC_kwDOQKqshs4C0Y7d"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="preferred_color_scheme"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+                </script>
+            </section>
 
             <a href="/thought-pieces.html" class="back-link">← Back to Thought Pieces</a>
         </article>
