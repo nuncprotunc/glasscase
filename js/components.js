@@ -90,7 +90,7 @@ const COMPONENTS = {
         <div class="footer-links">
           <a href="https://glasscase.org/">Home</a>
           <a href="https://glasscase.org/#problem">Problem</a>
-          <a href="https://glasscase.org/#solution">Solution</a>
+          <a href="https://glasscase.org/#available-now">Available Now</a>
           <a href="https://glasscase.org/#roadmap">Roadmap</a>
           <a href="/use-privacy.html">Use &amp; Privacy</a>
         </div>

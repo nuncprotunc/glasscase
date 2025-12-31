@@ -353,6 +353,20 @@
       font-size: 14px;
       line-height: 1.6;
     }
+
+    .step ul,
+    .card ul {
+      margin: 8px 0 0;
+      padding-left: 18px;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--white);
+    }
+
+    .step li,
+    .card li {
+      margin: 6px 0;
+    }
     
     .step b {
       color: var(--ice-blue);
@@ -511,9 +525,30 @@
       </div>
     </section>
 
-    <section id="solution">
-      <h2>Solution</h2>
-      <p class="lead">Open, interactive tools that let people explore and learn real administrative pathways.</p>
+    <section id="available-now">
+      <h2>Available Now</h2>
+      <div class="tools">
+        <div class="tool">
+          <h4>Consideration Matrix (v0.1)</h4>
+          <div class="value">Diagnostic tool for mapping mandatory and discretionary considerations in administrative decisions. Built from Peko-Wallsend and Li.</div>
+          <a href="/consideration-matrix.html">View tool →</a>
+        </div>
+        <div class="tool">
+          <h4>Redaction Taxonomy (v0.2)</h4>
+          <div class="value">Practical coding scheme for analysing FOI redactions and decision quality. Includes FOI Redaction Logic Visualiser.</div>
+          <a href="/redaction-taxonomy.html">View tool →</a>
+        </div>
+        <div class="tool">
+          <h4>Findings</h4>
+          <div class="value">Essays and analysis on administrative law, transparency, and civic technology.</div>
+          <a href="/findings.html">Read findings →</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="in-development">
+      <h2>In Development</h2>
+      <p class="lead">Tools we're building next:</p>
       <div class="tools">
         <div class="tool">
           <h4>FOI Process Visualiser</h4>
@@ -554,7 +589,7 @@
         </div>
         <div class="card">
           <h3>Our edge</h3>
-          <div class="meta">Live administrative case data + instructional design</div>
+          <div class="meta">Practitioner experience + instructional design</div>
           <p>Credibility to build tools that are accurate and publicly valuable across FOI, tribunals and policy systems.</p>
         </div>
       </div>
@@ -585,7 +620,7 @@
 
     <section>
       <h2>Founder</h2>
-      <p class="lead" style="margin-bottom: 20px;">Jay Spudvilas is an education leader and administrative process researcher preparing for the Juris Doctor at ANU (2026). His work draws on twelve years in public education governance: implementing statutory frameworks, building audit-ready evidence systems, navigating administrative compliance, designing data systems that survive external review.
+      <p class="lead" style="margin-bottom: 20px;">Jay Spudvilas is an education leader and administrative process researcher preparing for the Juris Doctor at ANU (2026). His work draws on twelve years in public education governance: implementing statutory frameworks (OHS Act 2004 (Vic), Disability Standards for Education 2005 (Cth)), building audit-ready evidence systems, navigating administrative compliance, designing data systems that survive external review.
         <span style="display: block; margin-top: 8px; font-size: 14px; color: var(--slate);">
           Research identity: <a href="https://orcid.org/0009-0000-0945-0380" target="_blank" rel="noopener">ORCID 0009-0000-0945-0380</a>
         </span>
@@ -597,9 +632,11 @@
           <p>Submission to the Senate Legal and Constitutional Affairs Committee on the <a href="https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/FOIAmendment2025/Submissions" target="_blank" rel="noopener">Freedom of Information Amendment (Reform) Bill 2025</a>.</p>
         </div>
         <div class="card">
-          <h3>Zenodo Publication</h3>
-          <div class="meta">2025</div>
-          <p><a href="https://doi.org/10.5281/zenodo.14629566" target="_blank" rel="noopener">Automated Hypothetical Generator for the Law of Obligations</a>: open research tool for legal education. Record registered on Zenodo; underlying files are currently under embargo.</p>
+          <h3>Zenodo Publications (2025)</h3>
+          <ul>
+            <li>GlassCase Consideration Matrix (v0.1) — <a href="https://doi.org/10.5281/zenodo.18087523" target="_blank" rel="noopener">DOI 10.5281/zenodo.18087523</a></li>
+            <li>GlassCase FOI Redaction Taxonomy (v0.2) — <a href="https://doi.org/10.5281/zenodo.18062442" target="_blank" rel="noopener">DOI 10.5281/zenodo.18062442</a></li>
+          </ul>
         </div>
         <div class="card">
           <h3>ANU Juris Doctor</h3>
@@ -618,20 +655,41 @@
       <h2>Roadmap</h2>
       <div class="road">
         <div class="step">
+          <div class="when">✓ December 2025 (Complete)</div>
+          <ul>
+            <li>Launched glasscase.org</li>
+            <li>Published Consideration Matrix (v0.1)</li>
+            <li>Published Redaction Taxonomy (v0.2) with FOI Redaction Logic Visualiser</li>
+            <li>Senate submission on FOI Amendment (Reform) Bill 2025</li>
+          </ul>
+        </div>
+        <div class="step">
           <div class="when">2026 Q1–Q2</div>
-          <p>Prototype FOI Visualiser using aggregated timelines; launch <b>glasscase.org</b> with administrative process explainers and best-practice guidance.</p>
+          <ul>
+            <li>Expand FOI Process Visualiser with aggregated timelines</li>
+            <li>Administrative process explainers and best-practice guidance</li>
+          </ul>
         </div>
         <div class="step">
           <div class="when">2026 Q3–Q4</div>
-          <p>Partner with ANU Law/Data Science and a Victorian department; pilot Procedural Fairness Simulator.</p>
+          <ul>
+            <li>Partner with ANU Law/Data Science and a Victorian department</li>
+            <li>Pilot Procedural Fairness Simulator</li>
+          </ul>
         </div>
         <div class="step">
           <div class="when">2027</div>
-          <p>Apply for ANU Innovation Seed Fund or Impact Investing Australia; form independent not‑for‑profit entity; release Transparency Impact Tracker beta.</p>
+          <ul>
+            <li>Apply for ANU Innovation Seed Fund or Impact Investing Australia</li>
+            <li>Form independent not‑for‑profit entity</li>
+            <li>Release Transparency Impact Tracker beta</li>
+          </ul>
         </div>
         <div class="step">
           <div class="when">2028–2029</div>
-          <p>Scale via open APIs and university integrations across states and territories.</p>
+          <ul>
+            <li>Scale via open APIs and university integrations across states and territories</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -639,8 +697,8 @@
     <section>
       <h2>Impact goals</h2>
       <div class="badges">
-        <div class="badge"><b>10,000+</b> people exploring live administrative pathways</div>
-        <div class="badge"><b>3 + 2</b> partnerships with universities and government agencies</div>
+        <div class="badge"><b>10,000+</b> people using GlassCase tools and explainers</div>
+        <div class="badge"><b>3+</b> partnerships with universities and government agencies</div>
         <div class="badge"><b>Measured improvement</b> in public understanding of process timelines and fairness indicators</div>
       </div>
     </section>
