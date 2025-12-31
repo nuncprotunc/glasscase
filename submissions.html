@@ -13,29 +13,29 @@
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Findings | GlassCase</title>
-    <meta name="description" content="Essays, analysis, and policy contributions on administrative law, transparency, and civic technology from the GlassCase team.">
+    <title>Submissions | GlassCase</title>
+    <meta name="description" content="Policy submissions to parliamentary inquiries and government consultations on transparency, administrative law, and FOI reform.">
     <meta name="author" content="Jay Spudvilas (Jayden Spudvilas-Powell)">
-    <link rel="canonical" href="https://glasscase.org/findings.html">
+    <link rel="canonical" href="https://glasscase.org/submissions.html">
     <link rel="me" href="https://substack.com/@glasscase" />
     <link rel="me" href="https://glasscase.substack.com/" />
     
     <!-- Open Graph -->
-    <meta property="og:title" content="Findings | GlassCase">
-    <meta property="og:description" content="Essays, analysis, and policy contributions on administrative law, transparency, and civic technology.">
+    <meta property="og:title" content="Submissions | GlassCase">
+    <meta property="og:description" content="Policy submissions to parliamentary inquiries and government consultations on transparency, administrative law, and FOI reform.">
     <meta property="og:site_name" content="GlassCase">
     <meta property="og:locale" content="en_AU">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://glasscase.org/findings.html">
+    <meta property="og:url" content="https://glasscase.org/submissions.html">
     <meta property="og:image" content="https://glasscase.org/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="GlassCase Findings">
+    <meta property="og:image:alt" content="GlassCase Submissions">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Findings | GlassCase">
-    <meta name="twitter:description" content="Essays, analysis, and policy contributions on administrative law, transparency, and civic technology.">
+    <meta name="twitter:title" content="Submissions | GlassCase">
+    <meta name="twitter:description" content="Policy submissions to parliamentary inquiries and government consultations on transparency, administrative law, and FOI reform.">
     <meta name="twitter:image" content="https://glasscase.org/og-image.png">
     
     <!-- Schema.org JSON-LD -->
@@ -43,10 +43,10 @@
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "@id": "https://glasscase.org/findings.html",
-      "url": "https://glasscase.org/findings.html",
-      "name": "Findings | GlassCase",
-      "description": "Essays, analysis, and policy contributions on administrative law, transparency, and civic technology from the GlassCase team.",
+      "@id": "https://glasscase.org/submissions.html",
+      "url": "https://glasscase.org/submissions.html",
+      "name": "Submissions | GlassCase",
+      "description": "Policy submissions to parliamentary inquiries and government consultations on transparency, administrative law, and FOI reform.",
       "inLanguage": "en-AU",
       "author": {
         "@type": "Person",
@@ -102,14 +102,14 @@
             line-height: 1.6;
         }
 
-        .article-list {
+        .submission-list {
             display: flex;
             flex-direction: column;
             gap: 2rem;
             margin-top: 2rem;
         }
 
-        .article-card {
+        .submission-card {
             background: rgba(58, 190, 249, 0.04);
             border: 1px solid rgba(58, 190, 249, 0.15);
             border-radius: 8px;
@@ -117,13 +117,13 @@
             transition: all 0.2s ease;
         }
 
-        .article-card:hover {
+        .submission-card:hover {
             background: rgba(58, 190, 249, 0.08);
             border-color: rgba(58, 190, 249, 0.3);
             transform: translateY(-2px);
         }
 
-        .article-card h2 {
+        .submission-card h2 {
             color: var(--ice-blue);
             font-size: 1.5rem;
             font-weight: 700;
@@ -131,53 +131,42 @@
             line-height: 1.3;
         }
 
-        .article-card h2 a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .article-card h2 a:hover {
-            text-decoration: underline;
-        }
-
-        .article-meta {
+        .submission-meta {
             color: var(--slate);
             font-size: 0.875rem;
             margin-bottom: 0.75rem;
         }
 
-        .article-excerpt {
+        .submission-excerpt {
             color: var(--slate);
             line-height: 1.6;
             margin: 0;
         }
 
-        .read-more {
-            display: inline-block;
-            margin-top: 0.75rem;
+        .submission-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .submission-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
             color: var(--ice-blue);
             font-weight: 600;
             text-decoration: none;
+            font-size: 0.9375rem;
         }
 
-        .read-more:hover {
+        .submission-link:hover {
             text-decoration: underline;
         }
 
-        .section-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.2px;
-            margin-top: 3.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--ice-blue);
-        }
-
-        .section-lede {
-            color: var(--slate);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-            max-width: 70ch;
+        .submission-link.secondary {
+            color: var(--transparency-cyan);
+            font-weight: 500;
         }
     </style>
 </head>
@@ -189,38 +178,20 @@
     <div id="shared-mobile-menu"></div>
 
     <main id="content">
-        <h1>Findings</h1>
-        <p class="subtitle">Essays, analysis, and policy contributions on administrative law, transparency, and civic technology.</p>
+        <h1>Submissions</h1>
+        <p class="subtitle">Policy submissions to parliamentary inquiries and government consultations on transparency, administrative law, and FOI reform.</p>
         
-        <div class="article-list">
-            <article class="article-card">
-                <h2><a href="/articles/admin-decisions-fail.html">Why Administrative Decisions Fail When the Logic Was Right There</a></h2>
-                <div class="article-meta">December 30, 2025 · 5 min read</div>
-                <p class="article-excerpt">Many administrative decisions fail review not because the decision-maker misunderstood the law, but because a legally required consideration never appears in the reasons. A map of what must be considered.</p>
-                <a href="/articles/admin-decisions-fail.html" class="read-more">Read more →</a>
-            </article>
-
-            <article class="article-card">
-                <h2><a href="/articles/redactions-chaotic.html">Why Redactions Look Chaotic When They're Not</a></h2>
-                <div class="article-meta">December 28, 2025 · 5 min read</div>
-                <p class="article-excerpt">Most Freedom of Information decisions look inconsistent because we never see the logic underneath them. A simple map of FOI logic and how the Redaction Taxonomy surfaces hidden decision pathways.</p>
-                <a href="/articles/redactions-chaotic.html" class="read-more">Read more →</a>
+        <div class="submission-list">
+            <article class="submission-card">
+                <h2>Senate Submission 38: FOI Amendment (Reform) Bill 2025</h2>
+                <div class="submission-meta">December 2025 · Senate Legal and Constitutional Affairs Committee</div>
+                <p class="submission-excerpt">Submission addressing timeliness obligations, deemed refusal provisions, and systemic delay in FOI administration. Proposes structured reforms to improve processing transparency and reduce administrative backlogs.</p>
+                <div class="submission-links">
+                    <a href="https://www.aph.gov.au/DocumentStore.ashx?id=bb93ef31-9131-47f1-96aa-e798de149b53&subId=778608" class="submission-link" target="_blank" rel="noopener">Read on APH →</a>
+                    <a href="/foi-amendment-bill-2025-submission-38.pdf" class="submission-link secondary" target="_blank" rel="noopener">Download PDF</a>
+                </div>
             </article>
         </div>
-
-        <section id="policy-submissions">
-            <h2 class="section-title">Submissions</h2>
-            <p class="section-lede">Policy submissions to parliamentary inquiries and consultations, published as part of GlassCase's transparency work.</p>
-
-            <div class="article-list">
-                <article class="article-card">
-                    <h2><a href="/submissions.html">Senate Submission 38: FOI Amendment (Reform) Bill 2025</a></h2>
-                    <div class="article-meta">December 2025</div>
-                    <p class="article-excerpt">Submission to the Senate Legal and Constitutional Affairs Committee addressing timeliness obligations, deemed refusal provisions, and systemic delay in FOI administration.</p>
-                    <a href="/submissions.html" class="read-more">View submission →</a>
-                </article>
-            </div>
-        </section>
     </main>
 
     <footer>

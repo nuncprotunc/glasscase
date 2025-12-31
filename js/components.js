@@ -39,6 +39,7 @@ const COMPONENTS = {
             <a href="/consideration-matrix.html">Consideration Matrix</a>
             <a href="/redaction-taxonomy.html">Redaction Taxonomy</a>
             <a href="/findings.html">Findings</a>
+            <a href="/submissions.html">Submissions</a>
             <a href="/use-privacy.html">Use &amp; Privacy</a>
           </nav>
         </div>
@@ -56,6 +57,7 @@ const COMPONENTS = {
         <a href="/consideration-matrix.html" onclick="closeMobileMenu()" data-nav="matrix">Consideration Matrix</a>
         <a href="/redaction-taxonomy.html" onclick="closeMobileMenu()" data-nav="taxonomy">Redaction Taxonomy</a>
         <a href="/findings.html" onclick="closeMobileMenu()" data-nav="findings">Findings</a>
+        <a href="/submissions.html" onclick="closeMobileMenu()" data-nav="submissions">Submissions</a>
         <a href="/use-privacy.html" onclick="closeMobileMenu()" data-nav="privacy">Use &amp; Privacy</a>
       </nav>
     </div>
@@ -92,6 +94,7 @@ const COMPONENTS = {
           <a href="https://glasscase.org/#problem">Problem</a>
           <a href="https://glasscase.org/#available-now">Available Now</a>
           <a href="https://glasscase.org/#roadmap">Roadmap</a>
+          <a href="/submissions.html">Submissions</a>
           <a href="/use-privacy.html">Use &amp; Privacy</a>
         </div>
       </div>
@@ -101,6 +104,7 @@ const COMPONENTS = {
           <a href="/consideration-matrix.html">Consideration Matrix</a>
           <a href="/redaction-taxonomy.html">Redaction Taxonomy</a>
           <a href="/findings.html">Findings</a>
+          <a href="/submissions.html">Submissions</a>
           <a href="https://lawandlearning.com">Law &amp; Learning</a>
         </div>
       </div>
@@ -134,6 +138,7 @@ function injectComponents() {
   else if (currentPath.includes('redaction-taxonomy')) activeNav = 'taxonomy';
   else if (currentPath.includes('consideration-matrix')) activeNav = 'matrix';
   else if (currentPath.includes('findings')) activeNav = 'findings';
+  else if (currentPath.includes('submissions')) activeNav = 'submissions';
   else if (currentPath.includes('use-privacy')) activeNav = 'privacy';
 
   if (activeNav) {
