@@ -61,8 +61,33 @@ function initOutboundLinks() {
     });
 }
 
+function initScrollReveal() {
+    const reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion) {
+        document.querySelectorAll('.gc-reveal').forEach((el) => el.classList.add('is-visible'));
+        return;
+    }
+
+    const elements = Array.from(document.querySelectorAll('.gc-reveal'));
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+            });
+        },
+        { threshold: 0.2, rootMargin: '0px 0px -10% 0px' }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     initOutboundLinks();
+    initScrollReveal();
     
     // Close menu on escape key
     document.addEventListener('keydown', (e) => {
