@@ -230,15 +230,15 @@
     .founder-intro {
       display: flex;
       gap: 24px;
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: 20px;
     }
 
     .founder-portrait {
       flex: 0 0 auto;
       width: clamp(120px, 18vw, 160px);
-      aspect-ratio: 3 / 4;
-      border-radius: 999px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
       overflow: hidden;
       border: 1px solid rgba(74, 159, 216, 0.35);
       background: rgba(26, 31, 46, 0.5);
@@ -277,6 +277,7 @@
       .founder-intro {
         flex-direction: column;
         gap: 16px;
+        align-items: flex-start;
       }
 
       .founder-portrait {
