@@ -36,11 +36,11 @@ const COMPONENTS = {
           </button>
           <nav class="desktop-nav">
             <a href="https://glasscase.org/">Home</a>
-            <a href="/consideration-matrix.html">Consideration Matrix</a>
-            <a href="/redaction-taxonomy.html">Redaction Taxonomy</a>
-            <a href="/findings.html">Findings</a>
-            <a href="/submissions.html">Submissions</a>
-            <a href="/use-privacy.html">Use &amp; Privacy</a>
+            <a href="/consideration-matrix">Consideration Matrix</a>
+            <a href="/redaction-taxonomy">Redaction Taxonomy</a>
+            <a href="/findings">Findings</a>
+            <a href="/submissions">Submissions</a>
+            <a href="/legal">Use &amp; Privacy</a>
           </nav>
         </div>
       </div>
@@ -54,11 +54,11 @@ const COMPONENTS = {
       </div>
       <nav>
         <a href="https://glasscase.org/" onclick="closeMobileMenu()" data-nav="home">Home</a>
-        <a href="/consideration-matrix.html" onclick="closeMobileMenu()" data-nav="matrix">Consideration Matrix</a>
-        <a href="/redaction-taxonomy.html" onclick="closeMobileMenu()" data-nav="taxonomy">Redaction Taxonomy</a>
-        <a href="/findings.html" onclick="closeMobileMenu()" data-nav="findings">Findings</a>
-        <a href="/submissions.html" onclick="closeMobileMenu()" data-nav="submissions">Submissions</a>
-        <a href="/use-privacy.html" onclick="closeMobileMenu()" data-nav="privacy">Use &amp; Privacy</a>
+        <a href="/consideration-matrix" onclick="closeMobileMenu()" data-nav="matrix">Consideration Matrix</a>
+        <a href="/redaction-taxonomy" onclick="closeMobileMenu()" data-nav="taxonomy">Redaction Taxonomy</a>
+        <a href="/findings" onclick="closeMobileMenu()" data-nav="findings">Findings</a>
+        <a href="/submissions" onclick="closeMobileMenu()" data-nav="submissions">Submissions</a>
+        <a href="/legal" onclick="closeMobileMenu()" data-nav="legal">Use &amp; Privacy</a>
       </nav>
     </div>
     <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
@@ -94,16 +94,16 @@ const COMPONENTS = {
           <a href="https://glasscase.org/#problem">Problem</a>
           <a href="https://glasscase.org/#available-now">Available Now</a>
           <a href="https://glasscase.org/#roadmap">Roadmap</a>
-          <a href="/use-privacy.html">Use &amp; Privacy</a>
+          <a href="/legal">Use &amp; Privacy</a>
         </div>
       </div>
       <div class="footer-section">
         <h4>Projects</h4>
         <div class="footer-links">
-          <a href="/consideration-matrix.html">Consideration Matrix</a>
-          <a href="/redaction-taxonomy.html">Redaction Taxonomy</a>
-          <a href="/findings.html">Findings</a>
-          <a href="/submissions.html">Submissions</a>
+          <a href="/consideration-matrix">Consideration Matrix</a>
+          <a href="/redaction-taxonomy">Redaction Taxonomy</a>
+          <a href="/findings">Findings</a>
+          <a href="/submissions">Submissions</a>
           <a href="https://lawandlearning.com">Law &amp; Learning</a>
         </div>
       </div>
@@ -138,7 +138,7 @@ function injectComponents() {
   else if (currentPath.includes('consideration-matrix')) activeNav = 'matrix';
   else if (currentPath.includes('findings')) activeNav = 'findings';
   else if (currentPath.includes('submissions')) activeNav = 'submissions';
-  else if (currentPath.includes('use-privacy')) activeNav = 'privacy';
+  else if (currentPath.includes('legal')) activeNav = 'legal';
 
   if (activeNav) {
     const activeLink = document.querySelector(".mobile-menu [data-nav='" + activeNav + "']");
