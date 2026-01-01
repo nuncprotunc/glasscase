@@ -94,7 +94,6 @@ const COMPONENTS = {
           <a href="https://glasscase.org/#problem">Problem</a>
           <a href="https://glasscase.org/#available-now">Available Now</a>
           <a href="https://glasscase.org/#roadmap">Roadmap</a>
-          <a href="/submissions.html">Submissions</a>
           <a href="/use-privacy.html">Use &amp; Privacy</a>
         </div>
       </div>
