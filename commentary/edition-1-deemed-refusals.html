@@ -134,41 +134,44 @@
         }
 
         .linkedin-cta {
-            background: linear-gradient(180deg, rgba(26, 31, 46, 0.6), rgba(26, 31, 46, 0.3));
-            border: 1px solid rgba(58, 190, 249, 0.3);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin: 2rem 0;
+            margin: 2.5rem 0;
             text-align: center;
         }
 
         .linkedin-cta p {
             margin: 0 0 1rem 0;
             color: var(--slate);
-            font-size: 0.875rem;
+            font-size: 0.9rem;
         }
 
         .linkedin-cta a {
-            display: inline-block;
-            background: rgba(58, 190, 249, 0.15);
-            border: 1px solid var(--transparency-cyan);
-            color: var(--ice-blue);
-            padding: 0.75rem 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--transparency-cyan);
+            color: #0c1120;
+            padding: 0.85rem 1.75rem;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            letter-spacing: 0.01em;
+            border: none;
+            box-shadow: 0 4px 14px rgba(58, 190, 249, 0.25);
+            transition: all 0.2s ease;
         }
 
         .linkedin-cta a:hover {
-            background: rgba(58, 190, 249, 0.25);
-            transform: translateY(-1px);
+            background: var(--ice-blue);
+            color: var(--deep-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(58, 190, 249, 0.35);
         }
 
         .article-content {
             font-size: 1rem;
             line-height: 1.75;
-            color: var(--white);
+            color: rgba(232, 244, 248, 0.92);
+            font-weight: 400;
         }
 
         .article-content h2 {
@@ -189,7 +192,7 @@
         }
 
         .article-content p {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1.5rem;
         }
 
         .article-content ul {
@@ -199,19 +202,16 @@
 
         .article-content li {
             margin-bottom: 0.75rem;
-            color: var(--white);
+            color: rgba(232, 244, 248, 0.85);
         }
 
         .article-content a {
-            color: var(--transparency-cyan);
+            color: var(--ice-blue);
             text-decoration: underline;
-            text-decoration-color: rgba(58, 190, 249, 0.3);
-            text-underline-offset: 2px;
-            transition: all 0.2s ease;
         }
 
         .article-content a:hover {
-            text-decoration-color: var(--transparency-cyan);
+            text-decoration: none;
         }
 
         .article-content strong {
@@ -221,7 +221,54 @@
 
         .article-content em {
             font-style: italic;
-            color: rgba(232, 244, 248, 0.9);
+        }
+
+        .comments {
+            margin-top: 3rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(58, 190, 249, 0.18);
+        }
+
+        .comments h2 {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.2px;
+            color: var(--ice-blue);
+            margin-bottom: 1rem;
+        }
+
+        .subscribe-cta {
+            margin-top: 2.5rem;
+            padding: 1.25rem 1.5rem;
+            border-radius: 10px;
+            background: rgba(58, 190, 249, 0.06);
+            border: 1px solid rgba(58, 190, 249, 0.18);
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            color: rgba(232, 244, 248, 0.88);
+        }
+
+        .subscribe-cta a {
+            color: var(--transparency-cyan);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 700;
+        }
+
+        .subscribe-cta a:hover {
+            color: var(--ice-blue);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            color: var(--slate);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--ice-blue);
         }
 
         .infographic {
@@ -304,12 +351,12 @@
             <div class="article-header">
                 <div class="newsletter-badge">Governance by Design</div>
                 <h1>Edition 1: Deemed Refusals</h1>
-                <div class="article-meta">January 21, 2026 · Jay Spudvilas</div>
+                <div class="article-meta"><time datetime="2026-01-21">January 21, 2026</time> · Jay Spudvilas</div>
             </div>
 
             <div class="linkedin-cta">
-                <p>This edition was originally published on LinkedIn</p>
-                <a href="https://www.linkedin.com/pulse/edition-1-foi-deemed-refusals-jayden-spudvilas-gxvse" target="_blank" rel="noopener">Read on LinkedIn →</a>
+                <p>This edition was originally published on LinkedIn.</p>
+                <a href="https://www.linkedin.com/pulse/edition-1-deemed-refusals-jayden-spudvilas-tmaqc/" target="_blank" rel="noopener">Read on LinkedIn →</a>
             </div>
 
             <div class="article-content">
@@ -351,7 +398,7 @@
                 <p>A deemed refusal doesn't end the process. It shifts it to review.</p>
 
                 <figure class="infographic">
-                    <img src="/newsletter/edition-1-deemed-refusals-infographic.svg" alt="The Deemed Refusal Trigger timeline showing request received, 30 working days processing window, and deemed refusal at day 31+">
+                    <img src="/commentary/edition-1-deemed-refusals.png" alt="Timeline chart showing the deemed refusal trigger once the FOI processing window lapses">
                     <figcaption>If the Amendment Bill passes: 30 working days (currently 30 calendar days). The Bill passed the House in November 2025 but has not yet become law.</figcaption>
                 </figure>
 
@@ -398,15 +445,40 @@
                 <div class="sources">
                     <h3>Sources:</h3>
                     <ul>
-                        <li><em>Attorney-General (Cth) v Patrick</em> [2024] FCAFC 126</li>
-                        <li>Freedom of Information Act 1982 (Cth)</li>
-                        <li>Freedom of Information Amendment Bill 2025 (Cth)</li>
-                        <li>OAIC, <a href="https://www.oaic.gov.au/freedom-of-information/foi-resources/freedom-of-information-fact-sheets/foi-fact-sheet-for-freedom-of-information-practitioners" target="_blank" rel="noopener">Fact sheet for freedom of information practitioners</a></li>
-                        <li>Royal Commission into the Robodebt Scheme, Report (2023)</li>
-                        <li>Senate Legal and Constitutional Affairs References Committee, <em>The operation of Commonwealth Freedom of Information (FOI) laws</em> (December 2023)</li>
+                        <li><a href="https://upload.wikimedia.org/wikisource/en/b/b4/Attorney-General_%28Cth%29_v_Patrick_%282024%2C_FCAFC%29.pdf" target="_blank" rel="noopener"><em>Attorney-General (Cth) v Patrick</em> [2024] FCAFC 126</a></li>
+                        <li><a href="https://www.austlii.edu.au/cgi-bin/viewdb/au/legis/cth/consol_act/foia1982222/" target="_blank" rel="noopener">Freedom of Information Act 1982 (Cth)</a></li>
+                        <li><a href="https://www.aph.gov.au/Parliamentary_Business/Bills_Legislation/Bills_Search_Results/Result?bId=r7371" target="_blank" rel="noopener">Freedom of Information Amendment Bill 2025 (Cth)</a></li>
+                        <li><a href="https://www.oaic.gov.au/freedom-of-information/freedom-of-information-guidance-for-government-agencies/guidance-on-handling-a-freedom-of-information-request/checklists,-handouts-and-templates/fact-sheet-for-freedom-of-information-practitioners-to-give-to-staff" target="_blank" rel="noopener">OAIC, Fact sheet for freedom of information practitioners</a></li>
+                        <li><a href="https://robodebt.royalcommission.gov.au/" target="_blank" rel="noopener">Royal Commission into the Robodebt Scheme, Report (2023)</a></li>
+                        <li><a href="https://www.aph.gov.au/Parliamentary_Business/Committees/Senate/Legal_and_Constitutional_Affairs/CommonwealthFOI2023" target="_blank" rel="noopener">Senate Legal and Constitutional Affairs References Committee, <em>The operation of Commonwealth Freedom of Information (FOI) laws</em> (December 2023)</a></li>
                     </ul>
                 </div>
             </div>
+
+            <div class="subscribe-cta">
+                Follow Governance by Design on LinkedIn for new editions: <a href="https://www.linkedin.com/in/jayspudvilas/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+            </div>
+
+            <section class="comments" aria-label="Comments">
+                <h2>Comments</h2>
+                <script src="https://giscus.app/client.js"
+                    data-repo="nuncprotunc/glasscase"
+                    data-repo-id="R_kgDOQKqshg"
+                    data-category="General"
+                    data-category-id="DIC_kwDOQKqshs4C0Y7d"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="preferred_color_scheme"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+                </script>
+            </section>
+
+            <a href="/commentary" class="back-link">← Back to Commentary</a>
         </article>
     </main>
 
