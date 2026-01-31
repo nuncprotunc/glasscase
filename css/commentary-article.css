@@ -18,6 +18,7 @@ article {
 
 .newsletter-badge {
     display: inline-block;
+    width: fit-content;
     padding: 0.3rem 0.95rem;
     background: #4b9fd8;
     color: #fff;
@@ -45,38 +46,16 @@ h1 {
     color: var(--slate);
 }
 
-.linkedin-cta {
+.inline-banner {
     margin: 2.5rem 0;
-    text-align: center;
+    border-radius: 6px;
+    overflow: hidden;
 }
 
-.linkedin-cta p {
-    margin: 0 0 1rem 0;
-    color: var(--slate);
-    font-size: 0.9rem;
-}
-
-.linkedin-cta a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--transparency-cyan);
-    color: #0c1120;
-    padding: 0.85rem 1.75rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    border: none;
-    box-shadow: 0 4px 14px rgba(58, 190, 249, 0.25);
-    transition: all 0.2s ease;
-}
-
-.linkedin-cta a:hover {
-    background: var(--ice-blue);
-    color: var(--deep-navy);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(58, 190, 249, 0.35);
+.inline-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 .article-content {
