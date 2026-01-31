@@ -36,9 +36,9 @@ const COMPONENTS = {
           </button>
           <nav class="desktop-nav">
             <a href="https://glasscase.org/">Home</a>
-            <a href="/consideration-matrix">Consideration Matrix</a>
-            <a href="/redaction-taxonomy">Redaction Taxonomy</a>
+            <a href="/tools">Tools</a>
             <a href="/findings">Findings</a>
+            <a href="/commentary">Commentary</a>
             <a href="/submissions">Submissions</a>
             <a href="/legal">Use &amp; Privacy</a>
           </nav>
@@ -54,9 +54,9 @@ const COMPONENTS = {
       </div>
       <nav>
         <a href="https://glasscase.org/" onclick="closeMobileMenu()" data-nav="home">Home</a>
-        <a href="/consideration-matrix" onclick="closeMobileMenu()" data-nav="matrix">Consideration Matrix</a>
-        <a href="/redaction-taxonomy" onclick="closeMobileMenu()" data-nav="taxonomy">Redaction Taxonomy</a>
+        <a href="/tools" onclick="closeMobileMenu()" data-nav="tools">Tools</a>
         <a href="/findings" onclick="closeMobileMenu()" data-nav="findings">Findings</a>
+        <a href="/commentary" onclick="closeMobileMenu()" data-nav="commentary">Commentary</a>
         <a href="/submissions" onclick="closeMobileMenu()" data-nav="submissions">Submissions</a>
         <a href="/legal" onclick="closeMobileMenu()" data-nav="legal">Use &amp; Privacy</a>
       </nav>
@@ -134,9 +134,9 @@ function injectComponents() {
   const currentPath = window.location.pathname;
   let activeNav = '';
   if (currentPath === '/' || currentPath === '/index.html') activeNav = 'home';
-  else if (currentPath.includes('redaction-taxonomy')) activeNav = 'taxonomy';
-  else if (currentPath.includes('consideration-matrix')) activeNav = 'matrix';
+  else if (currentPath.includes('tools') || currentPath.includes('consideration-matrix') || currentPath.includes('redaction-taxonomy')) activeNav = 'tools';
   else if (currentPath.includes('findings')) activeNav = 'findings';
+  else if (currentPath.includes('commentary')) activeNav = 'commentary';
   else if (currentPath.includes('submissions')) activeNav = 'submissions';
   else if (currentPath.includes('legal')) activeNav = 'legal';
 
