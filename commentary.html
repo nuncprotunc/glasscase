@@ -111,11 +111,11 @@
 
         .commentary-card {
             grid-column: span 6;
-            background: linear-gradient(180deg, rgba(26, 31, 46, 0.6), rgba(26, 31, 46, 0.3));
-            border: 1px solid rgba(74, 159, 216, 0.25);
-            border-radius: 14px;
-            padding: 20px;
-            transition: all 0.3s ease;
+            background: rgba(58, 190, 249, 0.04);
+            border: 1px solid rgba(58, 190, 249, 0.15);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.2s ease;
             display: block;
             text-decoration: none;
             color: inherit;
@@ -123,16 +123,17 @@
 
         .commentary-card:hover,
         .commentary-card:focus {
-            border-color: var(--transparency-cyan);
+            background: rgba(58, 190, 249, 0.08);
+            border-color: rgba(58, 190, 249, 0.3);
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(58, 190, 249, 0.15);
         }
 
         .commentary-card h2 {
-            font-size: 1.25rem;
-            margin: 0 0 0.75rem 0;
+            font-size: 1.5rem;
+            margin: 0 0 0.5rem 0;
             color: var(--ice-blue);
             font-weight: 700;
+            line-height: 1.3;
         }
 
         .commentary-edition {
