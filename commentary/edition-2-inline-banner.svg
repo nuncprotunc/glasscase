@@ -27,7 +27,7 @@
   <text x="40" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="#f8fafc">Reasons for Decisions</text>
   
   <!-- Subtitle -->
-  <text x="40" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#94a3b8">The YF Decision Anatomy</text>
+  <text x="40" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#94a3b8">When reasons stop being decisions</text>
   
   <!-- Accent line -->
   <rect x="40" y="168" width="120" height="2" fill="url(#lineGrad)" opacity="0.5"/>
