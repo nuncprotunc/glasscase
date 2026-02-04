@@ -1,0 +1,18 @@
+<svg width="1200" height="200" viewBox="0 0 1200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="200" fill="#0A0E27"/>
+  
+  <!-- Title -->
+  <text x="600" y="80" font-family="'JetBrains Mono', monospace" font-size="16" font-weight="600" fill="#7B8BA3" text-anchor="middle" letter-spacing="4">
+    EDITION 2
+  </text>
+  
+  <!-- Main heading -->
+  <text x="600" y="130" font-family="'Manrope', sans-serif" font-size="42" font-weight="800" fill="#3ABEF9" text-anchor="middle" letter-spacing="-1">
+    Reasons for Decisions
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="600" y="165" font-family="'Spectral', serif" font-size="18" font-style="italic" fill="#7B8BA3" text-anchor="middle">
+    The YF Decision Anatomy
+  </text>
+</svg>
