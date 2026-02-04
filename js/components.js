@@ -101,8 +101,8 @@ const COMPONENTS = {
         <h4>Projects</h4>
         <div class="footer-links">
           <a href="/tools">Tools</a>
-          <a href="/commentary">Commentary</a>
           <a href="/findings">Findings</a>
+          <a href="/commentary">Commentary</a>
           <a href="/submissions">Submissions</a>
           <a href="https://lawandlearning.com">Law &amp; Learning</a>
         </div>
