@@ -114,6 +114,26 @@ h1 {
     font-style: italic;
 }
 
+.article-content blockquote {
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    border-left: 4px solid #4A9FD8;
+    background: rgba(58, 190, 249, 0.04);
+    padding: 1rem 1.5rem;
+    border-radius: 4px;
+}
+
+.article-content blockquote p {
+    margin-bottom: 0.75rem;
+    color: rgba(232, 244, 248, 0.88);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.article-content blockquote p:last-child {
+    margin-bottom: 0;
+}
+
 .comments {
     margin-top: 3rem;
     padding-top: 2.5rem;
