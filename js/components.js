@@ -100,8 +100,8 @@ const COMPONENTS = {
       <div class="footer-section">
         <h4>Projects</h4>
         <div class="footer-links">
-          <a href="/consideration-matrix">Consideration Matrix</a>
-          <a href="/redaction-taxonomy">Redaction Taxonomy</a>
+          <a href="/tools">Tools</a>
+          <a href="/commentary">Commentary</a>
           <a href="/findings">Findings</a>
           <a href="/submissions">Submissions</a>
           <a href="https://lawandlearning.com">Law &amp; Learning</a>
