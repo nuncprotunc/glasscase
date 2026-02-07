@@ -287,7 +287,7 @@
                 <tr>
                     <td><strong>Organisational Climate</strong></td>
                     <td>Morale indicators, grievances, cultural signals, survey data</td>
-                    <td>Climate captures the human experience of institutional stress that quantitative metrics miss</td>
+                    <td>Climate captures the human experience of institutional stress that quantitative metrics miss. This is the least externally verifiable subsystem — scoring is more susceptible to user bias and less defensible from public data alone. It is included because it matters, but users should weight their confidence in Climate scores accordingly</td>
                 </tr>
                 <tr>
                     <td><strong>External Scrutiny</strong></td>
@@ -338,7 +338,7 @@
 
         <p>This is an <strong>ordinal scale</strong>, not interval or ratio. A score of 2 does not mean "twice as stressed" as 1. The bands represent qualitative states, not quantities. The scale is deliberately coarse — designed for triage-level pattern detection, not granular measurement.</p>
 
-        <p>At Acute (2) and Chronic (3) levels, the tool prompts the user to record a justification note explaining what observable signal supports the rating. This is a methodological guardrail: high scores without documented reasoning are analytically weak and should be treated with caution.</p>
+        <p>At Acute (2) and Chronic (3) levels, the tool encourages the user to record a justification note explaining what observable signal supports the rating. This is advisory, not enforced — users can score without providing a note. However, high scores without documented reasoning are analytically weak and should be treated with caution by anyone reviewing the output.</p>
 
         <h2>5. Composite index and weighting</h2>
         <p>Individual subsystem scores are combined into a single <strong>Stress Index</strong> (0–10 scale) using a weighted arithmetic mean, normalised to the 0–10 range.</p>
@@ -385,7 +385,7 @@
         </table>
 
         <div class="note-box">
-            <strong>Sensitivity.</strong> These weights are provisional expert estimates reflecting relative signal observability and reliability. We tested whether reasonable alternative weights (including equal weighting) materially change trend shape; they generally do not, which suggests observed patterns are not weight-driven. The weighting range is deliberately narrow (1.0–1.3) to prevent any single subsystem from dominating the composite.
+            <strong>Sensitivity.</strong> These weights are provisional expert estimates reflecting relative signal observability and reliability. The weighting range is deliberately narrow (1.0–1.3) to limit sensitivity to individual subsystem dominance. Sensitivity testing was qualitative and design-oriented, not a formal statistical robustness analysis: under reasonable alternative weighting scenarios (including equal weighting), the rank-order of periods and overall trend shape are generally preserved, which suggests observed patterns are not weight-driven.
         </div>
 
         <h3>Severity bands</h3>
@@ -410,8 +410,12 @@
             <li>Weights are provisional. They reflect design judgement informed by the literature, not empirical calibration against outcome data.</li>
             <li>The tool does not establish causation, intent, motive, or wrongdoing.</li>
             <li>Output is not suitable for use as evidence in legal, regulatory, or administrative proceedings without independent professional verification.</li>
-            <li>Narrative timelines (demonstration only) carry legal, ethical, and reputational risk. The exemplar included in the tool is entirely fictional.</li>
+            <li>If two users independently score the same institution for the same period, they may produce different results. This is expected. The tool structures judgement; it does not standardise it. Reasonable disagreement between scorers is informative, not a defect — it highlights where observable signals are ambiguous or contested.</li>
         </ul>
+
+        <h3>Narrative timelines</h3>
+        <p>The narrative event timeline included in the tool is a <strong>demonstration only</strong>. The scenario is entirely fictional and does not represent any real institution. The sequence, timing, and event types are deliberately compressed to demonstrate pattern logic rather than realistic case progression. Any resemblance to actual events is coincidental.</p>
+        <p>Narrative timelines carry concentrated legal, ethical, and reputational risk. They are the component most likely to be read as allegation rather than analysis. The demonstration exemplar is constrained by a structural guardrail: events appear on the timeline only where they coincide with or precipitate observable stress signals across at least one other subsystem. This prevents narrative-only entries and ensures the timeline reflects systemic patterns, not isolated anecdotes. The narrative panel is not currently user-editable by design.</p>
 
         <h2>8. Citation anchors</h2>
         <p>The following works inform the tool's design. They are not claimed as endorsements.</p>
