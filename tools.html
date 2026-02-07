@@ -102,43 +102,152 @@
             line-height: 1.6;
         }
 
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 16px;
-            margin-top: 24px;
+        .tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .tool-card {
-            background: rgba(26, 31, 46, 0.5);
-            border: 1px solid rgba(74, 159, 216, 0.25);
-            border-radius: 12px;
-            padding: 18px;
+            display: grid;
+            grid-template-columns: 80px 1fr auto;
+            gap: 24px;
+            align-items: start;
+            background: linear-gradient(135deg, rgba(26, 31, 46, 0.6), rgba(26, 31, 46, 0.3));
+            border: 1px solid rgba(74, 159, 216, 0.2);
+            border-radius: 14px;
+            padding: 24px;
             transition: all 0.3s ease;
             text-decoration: none;
             color: inherit;
-            display: block;
         }
 
         .tool-card:hover,
         .tool-card:focus {
             border-color: var(--glass-blue);
-            background: rgba(26, 31, 46, 0.7);
+            background: linear-gradient(135deg, rgba(26, 31, 46, 0.8), rgba(26, 31, 46, 0.5));
             transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(58, 190, 249, 0.1);
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            background: rgba(74, 159, 216, 0.08);
+            border: 1px solid rgba(74, 159, 216, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .tool-icon svg {
+            width: 40px;
+            height: 40px;
+            opacity: 0.7;
+        }
+
+        .tool-card:hover .tool-icon {
+            border-color: rgba(74, 159, 216, 0.35);
+            background: rgba(74, 159, 216, 0.12);
+        }
+
+        .tool-card:hover .tool-icon svg {
+            opacity: 1;
+        }
+
+        .tool-body {
+            min-width: 0;
+        }
+
+        .tool-meta-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tool-version {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: var(--glass-blue);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tool-category {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--transparency-cyan);
+            font-weight: 600;
         }
 
         .tool-card h2 {
-            font-size: 16px;
-            margin-bottom: 6px;
+            font-size: 1.25rem;
+            margin-bottom: 8px;
             color: var(--ice-blue);
             font-weight: 700;
+            line-height: 1.3;
         }
 
-        .tool-card .value {
-            font-size: 14px;
-            color: var(--white);
-            line-height: 1.6;
-            margin: 0;
+        .tool-desc {
+            font-size: 0.95rem;
+            color: var(--slate);
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        .tool-updated {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.25);
+            letter-spacing: 0.05em;
+        }
+
+        .tool-cta {
+            align-self: center;
+            flex-shrink: 0;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--transparency-cyan);
+            white-space: nowrap;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .tool-card:hover .tool-cta {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .tool-card {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .tool-icon {
+                width: 56px;
+                height: 56px;
+            }
+
+            .tool-icon svg {
+                width: 28px;
+                height: 28px;
+            }
+
+            .tool-cta {
+                justify-self: start;
+            }
         }
     </style>
 </head>
@@ -153,18 +262,65 @@
         <h1>Tools</h1>
         <p class="subtitle">Open tools that map administrative law and transparency systems.</p>
         
-        <div class="tools-grid">
+        <div class="tools-list">
             <a class="tool-card" href="/consideration-matrix">
-                <h2>Consideration Matrix (v0.1)</h2>
-                <p class="value">Diagnostic tool for mapping mandatory and discretionary considerations in administrative decisions. Built from Peko-Wallsend and Li.</p>
+                <div class="tool-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--transparency-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1"/>
+                    </svg>
+                </div>
+                <div class="tool-body">
+                    <div class="tool-meta-row">
+                        <span class="tool-version">v0.1</span>
+                        <span class="tool-category">Administrative Law</span>
+                    </div>
+                    <h2>Consideration Matrix</h2>
+                    <p class="tool-desc">Diagnostic tool for mapping mandatory and discretionary considerations in administrative decisions. Built from <em>Peko-Wallsend</em> and <em>Li</em>. Maps what must be considered against what was actually considered.</p>
+                    <span class="tool-updated">Last updated: 31 December 2025</span>
+                </div>
+                <span class="tool-cta">View tool →</span>
             </a>
+
             <a class="tool-card" href="/redaction-taxonomy">
-                <h2>Redaction Taxonomy (v0.2)</h2>
-                <p class="value">Practical coding scheme for analysing FOI redactions and decision quality. Includes FOI Redaction Logic Visualiser.</p>
+                <div class="tool-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--transparency-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="8" y1="13" x2="16" y2="13"/>
+                        <line x1="8" y1="17" x2="12" y2="17"/>
+                    </svg>
+                </div>
+                <div class="tool-body">
+                    <div class="tool-meta-row">
+                        <span class="tool-version">v0.2</span>
+                        <span class="tool-category">FOI &amp; Transparency</span>
+                    </div>
+                    <h2>Redaction Taxonomy</h2>
+                    <p class="tool-desc">Practical coding scheme for analysing FOI redactions and decision quality. Includes the FOI Redaction Logic Visualiser for mapping exemption pathways and redaction patterns.</p>
+                    <span class="tool-updated">Last updated: 31 December 2025</span>
+                </div>
+                <span class="tool-cta">View tool →</span>
             </a>
+
             <a class="tool-card" href="/stress-mapper">
-                <h2>Institutional Stress Mapper (v0.1)</h2>
-                <p class="value">Diagnostic tool for mapping institutional stress signals over time. Score subsystems, detect patterns, identify where deeper inquiry may be warranted.</p>
+                <div class="tool-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--transparency-cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                    </svg>
+                </div>
+                <div class="tool-body">
+                    <div class="tool-meta-row">
+                        <span class="tool-version">v0.1</span>
+                        <span class="tool-category">Institutional Diagnostics</span>
+                    </div>
+                    <h2>Institutional Stress Mapper</h2>
+                    <p class="tool-desc">Diagnostic tool for mapping institutional stress signals over time using observable data. Score subsystems, detect patterns, identify where deeper inquiry may be warranted. Two input tools, one derived view, two reference demonstrations.</p>
+                    <span class="tool-updated">Last updated: 8 February 2026</span>
+                </div>
+                <span class="tool-cta">View tool →</span>
             </a>
         </div>
     </main>
