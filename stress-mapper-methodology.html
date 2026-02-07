@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT6N8DGQN9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZT6N8DGQN9');
+    </script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="5ak5S54IdTWG1s2khqZLcg" async></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Mapper Methodology v0.1 | GlassCase</title>
+    <meta name="description" content="Methodology note for the GlassCase Institutional Stress Mapper. Covers construct design, scoring logic, weighting rationale, limitations, and citation anchors.">
+    <meta name="author" content="Jay Spudvilas (Jayden Spudvilas-Powell)">
+    <link rel="canonical" href="https://glasscase.org/stress-mapper-methodology">
+    <link rel="me" href="https://substack.com/@glasscase" />
+    <link rel="me" href="https://glasscase.substack.com/" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Stress Mapper Methodology v0.1 | GlassCase">
+    <meta property="og:description" content="Methodology note for the GlassCase Institutional Stress Mapper.">
+    <meta property="og:site_name" content="GlassCase">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://glasscase.org/stress-mapper-methodology">
+    <meta property="og:image" content="https://glasscase.org/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="GlassCase Stress Mapper Methodology">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Stress Mapper Methodology v0.1 | GlassCase">
+    <meta name="twitter:description" content="Methodology note for the GlassCase Institutional Stress Mapper.">
+    <meta name="twitter:image" content="https://glasscase.org/og-image.png">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://glasscase.org/stress-mapper-methodology.html",
+          "url": "https://glasscase.org/stress-mapper-methodology.html",
+          "name": "Stress Mapper Methodology v0.1",
+          "description": "Methodology note for the GlassCase Institutional Stress Mapper. Covers construct design, scoring logic, weighting rationale, limitations, and citation anchors.",
+          "inLanguage": "en-AU",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://glasscase.org/#website",
+            "name": "GlassCase",
+            "url": "https://glasscase.org/"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Jay Spudvilas",
+            "alternateName": "Jayden Spudvilas-Powell",
+            "url": "https://jayspudvilas.com/",
+            "sameAs": [
+              "https://linkedin.com/in/jayspudvilas",
+              "https://orcid.org/0009-0000-0945-0380",
+              "https://github.com/nuncprotunc",
+              "https://substack.com/@glasscase",
+              "https://glasscase.substack.com/"
+            ]
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "GlassCase",
+            "url": "https://glasscase.org/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://glasscase.org/favicon-512.svg"
+            }
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon-512.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css?v=2025-12-29-3">
+    
+    <style>
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .version-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--glass-blue);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--slate);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--transparency-cyan);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        h2 {
+            font-family: 'Spectral', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--transparency-cyan);
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ice-blue);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        main p {
+            color: var(--white);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        main ul, main ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+            line-height: 1.8;
+        }
+
+        main li {
+            margin-bottom: 0.5rem;
+        }
+
+        .method-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+        }
+
+        .method-table th {
+            text-align: left;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--slate);
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .method-table td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            color: var(--white);
+            vertical-align: top;
+        }
+
+        .method-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .cite {
+            font-size: 0.85rem;
+            color: var(--slate);
+            line-height: 1.7;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--glass-blue);
+            margin-bottom: 1rem;
+        }
+
+        .note-box {
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 1.25rem 1.5rem;
+            margin: 1.5rem 0;
+            font-size: 0.9rem;
+            color: var(--slate);
+            line-height: 1.7;
+        }
+
+        .note-box strong {
+            color: var(--white);
+        }
+
+        .updated {
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.25);
+            letter-spacing: 0.05em;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="shared-header"></div>
+    <div id="shared-mobile-menu"></div>
+
+    <main>
+        <a href="/stress-mapper" class="back-link">← Back to Stress Mapper</a>
+        <span class="version-tag">v0.1</span>
+        <h1>Stress Mapper Methodology</h1>
+        <p class="subtitle">Technical note on construct design, scoring logic, weighting rationale, and limitations for the GlassCase Institutional Stress Mapper.</p>
+
+        <h2>1. Purpose and scope</h2>
+        <p>The Institutional Stress Mapper is a <strong>structured triage tool</strong> for detecting patterns of institutional stress over time. It supports comparative pattern detection and prioritisation. It does not establish factual findings, legal conclusions, or diagnoses.</p>
+        <p>The tool is designed for use by oversight practitioners, researchers, educators, and anyone seeking to structure their interpretation of observable institutional signals. It sits in the tradition of risk-based regulatory triage — identifying where deeper inquiry may be warranted, not determining what happened or why.</p>
+
+        <div class="note-box">
+            <strong>What this tool is not.</strong> It is not an audit. It is not an assessment. It does not claim measurement precision. Scores represent user judgement based on observable proxy indicators, not validated findings. Output is not suitable for use as evidence in legal, regulatory, or administrative proceedings without independent professional verification.
+        </div>
+
+        <h2>2. Constructs and subsystems</h2>
+        <p>The tool decomposes institutional health into five subsystems. These are not exhaustive; they represent the most commonly observable and externally verifiable dimensions of institutional stress in public-sector and education contexts.</p>
+
+        <table class="method-table">
+            <thead>
+                <tr>
+                    <th>Subsystem</th>
+                    <th>Observable proxies</th>
+                    <th>Why included</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Leadership &amp; Governance</strong></td>
+                    <td>Decision quality, turnover, structural changes, acting appointments</td>
+                    <td>Leadership instability is a leading indicator of systemic stress across all other dimensions</td>
+                </tr>
+                <tr>
+                    <td><strong>Workforce Stability</strong></td>
+                    <td>Staff churn, vacancies, secondments, LOA spikes</td>
+                    <td>Workforce disruption both signals and amplifies institutional strain</td>
+                </tr>
+                <tr>
+                    <td><strong>Transparency &amp; Compliance</strong></td>
+                    <td>FOI volume, refusal rates, processing times, deemed refusals</td>
+                    <td>FOI and compliance data are the most publicly verifiable signals of governance health</td>
+                </tr>
+                <tr>
+                    <td><strong>Organisational Climate</strong></td>
+                    <td>Morale indicators, grievances, cultural signals, survey data</td>
+                    <td>Climate captures the human experience of institutional stress that quantitative metrics miss</td>
+                </tr>
+                <tr>
+                    <td><strong>External Scrutiny</strong></td>
+                    <td>Audits, OVIC, WorkSafe, Ombudsman, media</td>
+                    <td>External engagement reflects both the severity and visibility of institutional problems</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>These five subsystems are informed by organisational failure literature (Reason, Vaughan), safety culture frameworks (Westrum), regulatory craft (Sparrow), and responsive regulation theory (Braithwaite). They are not derived from a single model but represent a synthesis of dimensions that recur across these traditions.</p>
+
+        <h2>3. Scoring scale</h2>
+        <p>Each subsystem is scored on a <strong>0–3 ordinal scale</strong> per time period:</p>
+
+        <table class="method-table">
+            <thead>
+                <tr>
+                    <th>Score</th>
+                    <th>Band</th>
+                    <th>Meaning</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>0</strong></td>
+                    <td>Baseline</td>
+                    <td>No observable stress signals beyond normal operational variation</td>
+                </tr>
+                <tr>
+                    <td><strong>1</strong></td>
+                    <td>Elevated</td>
+                    <td>Early or isolated signals that may warrant monitoring</td>
+                </tr>
+                <tr>
+                    <td><strong>2</strong></td>
+                    <td>Acute</td>
+                    <td>Clear stress signals across multiple indicators; active concern</td>
+                </tr>
+                <tr>
+                    <td><strong>3</strong></td>
+                    <td>Chronic</td>
+                    <td>Sustained, cross-subsystem stress with no recovery trajectory</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p>This is an <strong>ordinal scale</strong>, not interval or ratio. A score of 2 does not mean "twice as stressed" as 1. The bands represent qualitative states, not quantities. The scale is deliberately coarse — designed for triage-level pattern detection, not granular measurement.</p>
+
+        <p>At Acute (2) and Chronic (3) levels, the tool prompts the user to record a justification note explaining what observable signal supports the rating. This is a methodological guardrail: high scores without documented reasoning are analytically weak and should be treated with caution.</p>
+
+        <h2>4. Composite index and weighting</h2>
+        <p>Individual subsystem scores are combined into a single <strong>Stress Index</strong> (0–10 scale) using a weighted arithmetic mean, normalised to the 0–10 range.</p>
+
+        <h3>Why weights exist</h3>
+        <p>Equal weighting is not neutral — it is an implicit value judgement that all subsystems contribute equally to institutional stress. Differential weighting allows the tool to reflect that some signals are more externally verifiable, more reliably observable, or more strongly predictive of systemic problems.</p>
+
+        <h3>Current weights</h3>
+        <table class="method-table">
+            <thead>
+                <tr>
+                    <th>Subsystem</th>
+                    <th>Weight</th>
+                    <th>Rationale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Leadership &amp; Governance</td>
+                    <td>×1.2</td>
+                    <td>Leadership instability is a strong leading indicator with downstream effects across all subsystems</td>
+                </tr>
+                <tr>
+                    <td>Workforce Stability</td>
+                    <td>×1.0</td>
+                    <td>Standard baseline weight</td>
+                </tr>
+                <tr>
+                    <td>Transparency &amp; Compliance</td>
+                    <td>×1.3</td>
+                    <td>FOI and compliance data are the most publicly verifiable signals; repeated statutory non-compliance is a strong proxy for systemic governance stress</td>
+                </tr>
+                <tr>
+                    <td>Organisational Climate</td>
+                    <td>×1.0</td>
+                    <td>Standard baseline weight</td>
+                </tr>
+                <tr>
+                    <td>External Scrutiny</td>
+                    <td>×1.1</td>
+                    <td>External oversight engagement reflects severity and public visibility of institutional problems</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="note-box">
+            <strong>Sensitivity.</strong> These weights are provisional expert estimates reflecting relative signal observability and reliability. We tested whether reasonable alternative weights (including equal weighting) materially change trend shape; they generally do not, which suggests observed patterns are not weight-driven. The weighting range is deliberately narrow (1.0–1.3) to prevent any single subsystem from dominating the composite.
+        </div>
+
+        <h3>Severity bands</h3>
+        <p>The 0–10 Stress Index is mapped to four severity bands:</p>
+        <ul>
+            <li><strong>Baseline</strong> (0–2.5) — Normal operational range</li>
+            <li><strong>Elevated</strong> (2.5–5) — Detectable strain; monitoring warranted</li>
+            <li><strong>Acute</strong> (5–7.5) — Active stress; intervention may be warranted</li>
+            <li><strong>Chronic</strong> (7.5–10) — Sustained systemic stress</li>
+        </ul>
+        <p>These bands are evenly distributed across the 0–10 scale. They represent communicative scaffolding for legibility, not empirically validated cutpoints.</p>
+
+        <h2>5. Data handling</h2>
+        <p>All data entered into the Stress Mapper is stored locally in the user's browser (<code>localStorage</code>). No data is transmitted to GlassCase servers. Data persists across browser sessions on the same device until the user clears it or resets the tool.</p>
+        <p>Users can export their data as a structured JSON file. The export includes all scores, justification notes, computed indices, and full metadata (tool version, methodology reference, disclaimer). Justification notes are user commentary — they are included in exports but are not published or shared unless the user chooses to distribute the file.</p>
+
+        <h2>6. Limitations and non-claims</h2>
+        <ul>
+            <li>This tool does not measure institutional health. It structures user interpretation of observable signals.</li>
+            <li>Scores are ordinal, not interval. Arithmetic operations on ordinal data (including the weighted mean) are a pragmatic approximation, not a statistical claim.</li>
+            <li>The five subsystems are not exhaustive. They represent commonly observable dimensions, not a complete model of institutional function.</li>
+            <li>Weights are provisional. They reflect design judgement informed by the literature, not empirical calibration against outcome data.</li>
+            <li>The tool does not establish causation, intent, motive, or wrongdoing.</li>
+            <li>Output is not suitable for use as evidence in legal, regulatory, or administrative proceedings without independent professional verification.</li>
+            <li>Narrative timelines (demonstration only) carry legal, ethical, and reputational risk. The exemplar included in the tool is entirely fictional.</li>
+        </ul>
+
+        <h2>7. Citation anchors</h2>
+        <p>The following works inform the tool's design. They are not claimed as endorsements.</p>
+
+        <p class="cite">OECD/JRC. <em>Handbook on Constructing Composite Indicators: Methodology and User Guide.</em> OECD Publishing, 2008. — Framework for composite indicator construction, weighting, normalisation, and robustness testing.</p>
+
+        <p class="cite">OECD. <em>OECD Public Integrity Indicators.</em> OECD Publishing, 2024. — Dimensional precedent for decomposing institutional integrity into observable subsystems.</p>
+
+        <p class="cite">Sparrow, M.K. <em>The Regulatory Craft: Controlling Risks, Solving Problems, and Managing Compliance.</em> Brookings Institution Press, 2000. — Risk-based triage logic and the distinction between pattern detection and determination.</p>
+
+        <p class="cite">Reason, J. <em>Managing the Risks of Organizational Accidents.</em> Ashgate, 1997. — Organisational accident theory and the concept of latent conditions producing systemic failure.</p>
+
+        <p class="cite">Vaughan, D. <em>The Challenger Launch Decision: Risky Technology, Culture, and Deviance at NASA.</em> University of Chicago Press, 1996. — Normalisation of deviance and how institutional signals are missed or reinterpreted.</p>
+
+        <p class="cite">Westrum, R. "A Typology of Organisational Cultures." <em>BMJ Quality &amp; Safety</em>, 13(suppl 2), ii22–ii27, 2004. — Organisational culture typology (pathological, bureaucratic, generative) as a framework for interpreting climate signals.</p>
+
+        <p class="cite">Braithwaite, J. <em>Restorative Justice and Responsive Regulation.</em> Oxford University Press, 2002. — Responsive regulation theory and the escalation logic that informs severity band design.</p>
+
+        <p class="updated">Last updated: 8 February 2026</p>
+    </main>
+
+    <footer>
+        <div id="shared-footer"></div>
+        <div class="footer-bottom">
+            <div class="footer-legal-row">
+                <span class="footer-copyright">© 2025–2026 GlassCase · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></span>
+                <a href="https://creativecommons.org/licenses/by/4.0/" class="footer-license">
+                    <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" alt="CC BY 4.0">
+                    <span>CC BY 4.0</span>
+                </a>
+            </div>
+            <div class="footer-disclaimer-group">
+                <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
+                <p class="footer-disclaimer"><strong>Notice:</strong> This is a diagnostic tool, not a substitute for professional assessment or legal advice. Scores reflect user-entered assessments, not validated findings.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js?v=2025-12-31"></script>
+    <script src="/js/components.js?v=2026-01-31"></script>
+</body>
+</html>
