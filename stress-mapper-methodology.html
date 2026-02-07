@@ -246,17 +246,17 @@
         <p class="subtitle">Technical note on construct design, scoring logic, weighting rationale, and limitations for the GlassCase Institutional Stress Mapper.</p>
 
         <h2>1. Purpose and scope</h2>
-        <p>The Institutional Stress Mapper is a <strong>structured triage tool</strong>. We built it to detect patterns of institutional stress over time, not to produce findings or conclusions. It sits in the tradition of risk-based regulatory triage (Sparrow, 2000): the goal is to identify where deeper inquiry may be warranted, not to determine what happened or why.</p>
+        <p>The Institutional Stress Mapper is a <strong>structured triage tool</strong>. We built it to detect patterns of institutional stress over time. It does not produce findings or conclusions. It sits in the tradition of risk-based regulatory triage (Sparrow, 2000): identifying where deeper inquiry may be warranted, without claiming to determine what happened or why.</p>
         <p>The intended audience is broad: oversight practitioners, researchers, educators, anyone trying to make sense of observable institutional signals in a structured way.</p>
 
         <div class="note-box">
-            <strong>What this tool is not.</strong> Not an audit. Not an assessment. Not a measurement instrument. Scores represent user judgement based on observable proxy indicators, not validated findings. Output should not be used as evidence in legal, regulatory, or administrative proceedings without independent professional verification.
+            <strong>What this tool is not.</strong> Not an audit. Not an assessment. Not a measurement instrument. Scores represent user judgement based on observable proxy indicators. They are not validated findings. Output should not be used as evidence in legal, regulatory, or administrative proceedings without independent professional verification.
         </div>
 
-        <h2>2. Stress, not trauma</h2>
-        <p>We measure <strong>stress</strong>, not trauma. The difference matters more than it looks.</p>
+        <h2>2. Why "stress" and not "trauma"</h2>
+        <p>We measure <strong>stress</strong>. The word choice matters more than it looks.</p>
         <p>Stress is a load condition. Every organisation carries some. It is observable, it varies over time, and it can be scored without implying that something has gone wrong. Trauma is what happens when stress exceeds capacity for long enough. Vivian and Hormann (2013) developed a framework for understanding how trauma enters and moves through organisations. Their model treats trauma as the object of study. We treat stress as the measured variable and reference trauma only as a potential downstream consequence.</p>
-        <p>This is a posture choice, not a semantic one. "Stress" keeps the tool diagnostic and forward-looking. "Trauma" would make it retrospective and potentially accusatory. We want to show where load is accumulating. We are not diagnosing what that load has done.</p>
+        <p>This is a posture choice. "Stress" keeps the tool diagnostic and forward-looking. "Trauma" would make it retrospective and potentially accusatory. We want to show where load is accumulating. We are not diagnosing what that load has done.</p>
 
         <h2>3. Constructs and subsystems</h2>
         <p>We decompose institutional health into five subsystems. These are not exhaustive. They are the dimensions we found to be most commonly observable and externally verifiable in public-sector and education contexts.</p>
@@ -299,8 +299,8 @@
         </table>
 
         <p>These five draw on organisational failure literature (Reason, Vaughan, Perrow), institutional crisis theory (Boin &amp; 't Hart), safety culture frameworks (Westrum), regulatory craft (Sparrow), and responsive regulation theory (Braithwaite). No single model produced this list. It is a synthesis of dimensions that keep recurring across those traditions.</p>
-        <p>The subsystem decomposition follows Reason's model: latent failures accumulate across organisational layers before surfacing as active failures. The temporal dimension, scoring across multiple time periods, draws on Perrow's argument that cascading failures in tightly coupled systems are inherent properties of the system, not aberrations. Vaughan's normalisation of deviance explains why the timeline view matters. Each tolerated deviation resets the baseline. Trigger incidents compound rather than resolve.</p>
-        <p>We weight Transparency &amp; Compliance highest (×1.3) because FOI data provides the strongest publicly verifiable signal. OAIC quarterly statistics show refusal rates as a measurable, longitudinal indicator of governance health. Rising refusal rates and FOI volume surges have been documented as stress signals on institutions themselves, not just on applicants.</p>
+        <p>The subsystem decomposition follows Reason's model: latent failures accumulate across organisational layers before surfacing as active failures. The temporal dimension, scoring across multiple time periods, draws on Perrow's argument that cascading failures in tightly coupled systems are inherent properties of the system rather than aberrations. Vaughan's normalisation of deviance explains why the timeline view matters. Each tolerated deviation resets the baseline. Trigger incidents compound rather than resolve.</p>
+        <p>We weight Transparency &amp; Compliance highest (×1.3) because FOI data provides the strongest publicly verifiable signal. OAIC quarterly statistics show refusal rates as a measurable, longitudinal indicator of governance health. Rising refusal rates and FOI volume surges have been documented as stress signals on the institutions themselves, beyond just the impact on applicants.</p>
 
         <h2>4. Scoring scale</h2>
         <p>Each subsystem is scored on a <strong>0–3 ordinal scale</strong> per time period:</p>
@@ -337,8 +337,8 @@
             </tbody>
         </table>
 
-        <p>This is an <strong>ordinal scale</strong>, not interval or ratio. A score of 2 does not mean "twice as stressed" as 1. The bands are qualitative states. The scale is deliberately coarse because we are building a triage tool, not a measurement instrument.</p>
-        <p>At Acute and Chronic levels, the tool encourages users to record a justification note explaining what observable signal supports the rating. This is advisory, not enforced. Users can score without writing a note. But high scores without documented reasoning are analytically weak, and anyone reviewing the output should treat them accordingly.</p>
+        <p>This is an <strong>ordinal scale</strong>. It is not interval or ratio. A score of 2 does not mean "twice as stressed" as 1. The bands are qualitative states. The scale is deliberately coarse because we are building a triage tool.</p>
+        <p>At Acute and Chronic levels, the tool encourages users to record a justification note explaining what observable signal supports the rating. This is advisory. Users can score without writing a note. But high scores without documented reasoning are analytically weak, and anyone reviewing the output should treat them accordingly.</p>
 
         <h2>5. Composite index and weighting</h2>
         <p>Individual subsystem scores are combined into a single <strong>Stress Index</strong> (0–10 scale) using a weighted arithmetic mean, normalised to the 0–10 range.</p>
@@ -385,7 +385,7 @@
         </table>
 
         <div class="note-box">
-            <strong>Sensitivity.</strong> These weights are provisional. We kept the range narrow (1.0–1.3) so that no single subsystem can dominate the composite. Our sensitivity testing was qualitative and design-oriented, not a formal statistical robustness analysis. Under reasonable alternative weighting scenarios, including equal weighting, the rank-order of periods and overall trend shape are generally preserved. That suggests the patterns the tool surfaces are not artefacts of the weighting choices.
+            <strong>Sensitivity.</strong> These weights are provisional. We kept the range narrow (1.0–1.3) so that no single subsystem can dominate the composite. Our sensitivity testing was qualitative and design-oriented. It was not a formal statistical robustness analysis. Under reasonable alternative weighting scenarios, including equal weighting, the rank-order of periods and overall trend shape are generally preserved. That suggests the patterns the tool surfaces are not artefacts of the weighting choices.
         </div>
 
         <h3>Severity bands</h3>
@@ -396,7 +396,7 @@
             <li><strong>Acute</strong> (5–7.5) — Active stress; intervention may be warranted</li>
             <li><strong>Chronic</strong> (7.5–10) — Sustained systemic stress</li>
         </ul>
-        <p>These bands are evenly distributed across the 0–10 scale. They are communicative scaffolding, not empirically validated cutpoints. The graduated escalation borrows from Ayres and Braithwaite's responsive regulation framework (1992), essentially the enforcement pyramid turned sideways into a diagnostic scale. Each band implies a different posture: monitor, pay active attention, consider intervention, or recognise sustained systemic concern.</p>
+        <p>These bands are evenly distributed across the 0–10 scale. They are communicative scaffolding. We have not empirically validated the cutpoints. The graduated escalation borrows from Ayres and Braithwaite's responsive regulation framework (1992), essentially the enforcement pyramid turned sideways into a diagnostic scale. Each band implies a different posture: monitor, pay active attention, consider intervention, or recognise sustained systemic concern.</p>
 
         <h2>6. Data handling</h2>
         <p>Everything stays in the browser. All data is stored locally via <code>localStorage</code>. Nothing is transmitted to GlassCase servers. Data persists across sessions on the same device until the user clears it or resets the tool.</p>
@@ -405,17 +405,17 @@
         <h2>7. Limitations and non-claims</h2>
         <ul>
             <li>This tool does not measure institutional health. It structures how a user interprets observable signals.</li>
-            <li>Scores are ordinal, not interval. We use a weighted mean on ordinal data, which is a pragmatic approximation, not a statistical claim. We are aware of the limitation and made the design choice deliberately.</li>
-            <li>Five subsystems is not exhaustive. These are commonly observable dimensions, not a complete model of how institutions work.</li>
-            <li>Weights are provisional. They reflect our design judgement informed by the literature, not empirical calibration against outcome data.</li>
+            <li>Scores are ordinal. We use a weighted mean on ordinal data, which is a pragmatic approximation. We are aware of the limitation and made the design choice deliberately.</li>
+            <li>Five subsystems is not exhaustive. We chose commonly observable dimensions. This is not a complete model of how institutions work.</li>
+            <li>Weights are provisional. They reflect our design judgement informed by the literature. We have not calibrated them empirically against outcome data.</li>
             <li>The tool does not establish causation, intent, motive, or wrongdoing.</li>
             <li>Output should not be used as evidence in legal, regulatory, or administrative proceedings without independent professional verification.</li>
-            <li>Two users scoring the same institution for the same period may produce different results. That is expected. The tool structures judgement; it does not standardise it. Disagreement between scorers is informative, not a defect. It highlights where signals are ambiguous or contested.</li>
+            <li>Two users scoring the same institution for the same period may produce different results. That is expected. The tool structures judgement without standardising it. Disagreement between scorers is informative. It highlights where signals are ambiguous or contested.</li>
         </ul>
 
         <h3>Narrative timelines</h3>
-        <p>The narrative event timeline in the tool is a <strong>demonstration only</strong>. The scenario is entirely fictional. The sequence, timing, and event types are deliberately compressed to show how pattern logic works, not to simulate a realistic case. Any resemblance to actual events is coincidental.</p>
-        <p>Narrative is where the risk concentrates. It is the component most likely to be read as allegation rather than analysis. We constrain the demonstration with a structural guardrail: events only appear on the timeline where they coincide with or precipitate observable stress signals in at least one other subsystem. No narrative-only entries. The panel is not user-editable by design.</p>
+        <p>The narrative event timeline in the tool is a <strong>demonstration only</strong>. The scenario is entirely fictional. The sequence, timing, and event types are deliberately compressed to show how pattern logic works rather than to simulate a realistic case. Any resemblance to actual events is coincidental.</p>
+        <p>Narrative is where the risk concentrates. It is the component most likely to be read as allegation. We constrain the demonstration with a structural guardrail: events only appear on the timeline where they coincide with or precipitate observable stress signals in at least one other subsystem. No narrative-only entries. The panel is not user-editable by design.</p>
 
         <h2>8. Citation anchors</h2>
         <p>The following works informed our design choices. Inclusion here does not imply endorsement by the authors.</p>
@@ -459,7 +459,7 @@
             </div>
             <div class="footer-disclaimer-group">
                 <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
-                <p class="footer-disclaimer"><strong>Notice:</strong> This is a diagnostic tool, not a substitute for professional assessment or legal advice. Scores reflect user-entered assessments, not validated findings.</p>
+                <p class="footer-disclaimer"><strong>Notice:</strong> This is a diagnostic tool. It is not a substitute for professional assessment or legal advice. Scores reflect user-entered assessments.</p>
             </div>
         </div>
     </footer>
