@@ -253,7 +253,11 @@
             <strong>What this tool is not.</strong> It is not an audit. It is not an assessment. It does not claim measurement precision. Scores represent user judgement based on observable proxy indicators, not validated findings. Output is not suitable for use as evidence in legal, regulatory, or administrative proceedings without independent professional verification.
         </div>
 
-        <h2>2. Constructs and subsystems</h2>
+        <h2>2. Stress, not trauma</h2>
+        <p>The tool deliberately measures <strong>stress</strong>, not trauma. This distinction matters. Stress is a load condition — observable, measurable, and present in all organisations at varying levels. Trauma is a downstream consequence that occurs when stress exceeds institutional capacity over time. The literature supports this framing: Vivian and Hormann's work on organisational trauma (2013) developed a phenomenological framework for understanding how trauma enters and moves through organisations, identifying distinct entry points for trauma and entry points for healing. Their model treats trauma as the object of study — the outcome. This tool treats stress as the measured variable and references trauma only as a potential downstream consequence.</p>
+        <p>This is not a semantic choice. It is a posture choice. Measuring "stress" positions the tool as diagnostic and forward-looking. Measuring "trauma" would position it as retrospective and potentially accusatory. The tool identifies where load is accumulating; it does not diagnose what that load has done to the organisation or its people.</p>
+
+        <h2>3. Constructs and subsystems</h2>
         <p>The tool decomposes institutional health into five subsystems. These are not exhaustive; they represent the most commonly observable and externally verifiable dimensions of institutional stress in public-sector and education contexts.</p>
 
         <table class="method-table">
@@ -293,9 +297,11 @@
             </tbody>
         </table>
 
-        <p>These five subsystems are informed by organisational failure literature (Reason, Vaughan), safety culture frameworks (Westrum), regulatory craft (Sparrow), and responsive regulation theory (Braithwaite). They are not derived from a single model but represent a synthesis of dimensions that recur across these traditions.</p>
+        <p>These five subsystems are informed by organisational failure literature (Reason, Vaughan, Perrow), institutional crisis theory (Boin &amp; 't Hart), safety culture frameworks (Westrum), regulatory craft (Sparrow), and responsive regulation theory (Braithwaite). They are not derived from a single model but represent a synthesis of dimensions that recur across these traditions.</p>
+        <p>The subsystem decomposition reflects Reason's model of latent failures accumulating across organisational layers before surfacing as active failures. The temporal dimension — scoring across multiple time periods — draws on Perrow's thesis that in complex, tightly coupled systems, cascading failures are inherent properties of the system rather than aberrations. Vaughan's concept of normalisation of deviance explains why the timeline view matters: each tolerated deviation resets the institutional baseline, so trigger incidents compound rather than resolve.</p>
+        <p>The Transparency &amp; Compliance subsystem is weighted highest (×1.3) in part because FOI data provides the strongest publicly verifiable signal. OAIC quarterly statistics show FOI refusal rates as a measurable, longitudinal indicator of governance health. Surges in FOI volume and rising refusal rates have been documented as stress signals on institutions themselves, not just on applicants.</p>
 
-        <h2>3. Scoring scale</h2>
+        <h2>4. Scoring scale</h2>
         <p>Each subsystem is scored on a <strong>0–3 ordinal scale</strong> per time period:</p>
 
         <table class="method-table">
@@ -334,7 +340,7 @@
 
         <p>At Acute (2) and Chronic (3) levels, the tool prompts the user to record a justification note explaining what observable signal supports the rating. This is a methodological guardrail: high scores without documented reasoning are analytically weak and should be treated with caution.</p>
 
-        <h2>4. Composite index and weighting</h2>
+        <h2>5. Composite index and weighting</h2>
         <p>Individual subsystem scores are combined into a single <strong>Stress Index</strong> (0–10 scale) using a weighted arithmetic mean, normalised to the 0–10 range.</p>
 
         <h3>Why weights exist</h3>
@@ -390,13 +396,13 @@
             <li><strong>Acute</strong> (5–7.5) — Active stress; intervention may be warranted</li>
             <li><strong>Chronic</strong> (7.5–10) — Sustained systemic stress</li>
         </ul>
-        <p>These bands are evenly distributed across the 0–10 scale. They represent communicative scaffolding for legibility, not empirically validated cutpoints.</p>
+        <p>These bands are evenly distributed across the 0–10 scale. They represent communicative scaffolding for legibility, not empirically validated cutpoints. The graduated escalation logic draws on Ayres and Braithwaite's responsive regulation framework (1992) — the enforcement pyramid turned sideways into a diagnostic scale. Each band implies a different posture: monitoring, active attention, intervention consideration, and sustained systemic concern.</p>
 
-        <h2>5. Data handling</h2>
+        <h2>6. Data handling</h2>
         <p>All data entered into the Stress Mapper is stored locally in the user's browser (<code>localStorage</code>). No data is transmitted to GlassCase servers. Data persists across browser sessions on the same device until the user clears it or resets the tool.</p>
         <p>Users can export their data as a structured JSON file. The export includes all scores, justification notes, computed indices, and full metadata (tool version, methodology reference, disclaimer). Justification notes are user commentary — they are included in exports but are not published or shared unless the user chooses to distribute the file.</p>
 
-        <h2>6. Limitations and non-claims</h2>
+        <h2>7. Limitations and non-claims</h2>
         <ul>
             <li>This tool does not measure institutional health. It structures user interpretation of observable signals.</li>
             <li>Scores are ordinal, not interval. Arithmetic operations on ordinal data (including the weighted mean) are a pragmatic approximation, not a statistical claim.</li>
@@ -407,7 +413,7 @@
             <li>Narrative timelines (demonstration only) carry legal, ethical, and reputational risk. The exemplar included in the tool is entirely fictional.</li>
         </ul>
 
-        <h2>7. Citation anchors</h2>
+        <h2>8. Citation anchors</h2>
         <p>The following works inform the tool's design. They are not claimed as endorsements.</p>
 
         <p class="cite">OECD/JRC. <em>Handbook on Constructing Composite Indicators: Methodology and User Guide.</em> OECD Publishing, 2008. — Framework for composite indicator construction, weighting, normalisation, and robustness testing.</p>
@@ -423,6 +429,16 @@
         <p class="cite">Westrum, R. "A Typology of Organisational Cultures." <em>BMJ Quality &amp; Safety</em>, 13(suppl 2), ii22–ii27, 2004. — Organisational culture typology (pathological, bureaucratic, generative) as a framework for interpreting climate signals.</p>
 
         <p class="cite">Braithwaite, J. <em>Restorative Justice and Responsive Regulation.</em> Oxford University Press, 2002. — Responsive regulation theory and the escalation logic that informs severity band design.</p>
+
+        <p class="cite">Perrow, C. <em>Normal Accidents: Living with High-Risk Technologies.</em> Basic Books, 1984. — Cascading failure in complex, tightly coupled systems as an inherent property rather than an aberration. Theoretical basis for the timeline heat bar and escalation patterns.</p>
+
+        <p class="cite">Boin, A. &amp; 't Hart, P. "Institutional crises in policy sectors." In Wagenaar, H. (ed.) <em>Government Institutions: Effects, Changes and Normative Foundations.</em> Kluwer, 2000. See also: Boin, A., 't Hart, P., Stern, E. &amp; Sundelius, B. <em>The Politics of Crisis Management: Public Leadership Under Pressure.</em> Cambridge University Press, 2005. — Institutional crisis as a systemic concept distinct from individual incidents.</p>
+
+        <p class="cite">Ayres, I. &amp; Braithwaite, J. <em>Responsive Regulation: Transcending the Deregulation Debate.</em> Oxford University Press, 1992. — The enforcement pyramid and graduated regulatory response based on signals. Precedent for the severity band escalation logic.</p>
+
+        <p class="cite">Vivian, P. &amp; Hormann, S. <em>Organizational Trauma and Healing.</em> CreateSpace, 2013. See also: Hormann, S. "The Strengths and Shadows Model." <em>Humanistic Management Journal</em>, 3(1), 91–104, 2018. — Foundational work on organisational trauma as a systemic concept. Informs the stress-vs-trauma framing distinction: stress is the load condition; trauma is the outcome when stress exceeds capacity over time.</p>
+
+        <p class="cite">OAIC. <em>FOI Statistics.</em> Published quarterly. oaic.gov.au. — Raw data source for FOI volume, refusal rates, and processing times as longitudinal institutional health indicators.</p>
 
         <p class="updated">Last updated: 8 February 2026</p>
     </main>
