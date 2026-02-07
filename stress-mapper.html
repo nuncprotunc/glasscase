@@ -1,0 +1,1989 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT6N8DGQN9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZT6N8DGQN9');
+    </script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="5ak5S54IdTWG1s2khqZLcg" async></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institutional Stress Mapper v0.1 | GlassCase</title>
+    <meta name="description" content="Diagnostic tool for mapping institutional stress signals over time. Score subsystems, detect patterns, identify where deeper inquiry may be warranted.">
+    <meta name="keywords" content="institutional stress, organisational health, diagnostic tool, composite indicators, GlassCase, Jay Spudvilas, Australia">
+    <meta name="author" content="Jay Spudvilas (Jayden Spudvilas-Powell)">
+    <link rel="canonical" href="https://glasscase.org/stress-mapper">
+    <link rel="me" href="https://substack.com/@glasscase" />
+    <link rel="me" href="https://glasscase.substack.com/" />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Institutional Stress Mapper v0.1 | GlassCase">
+    <meta property="og:description" content="Diagnostic tool for mapping institutional stress signals over time.">
+    <meta property="og:site_name" content="GlassCase">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://glasscase.org/stress-mapper">
+    <meta property="og:image" content="https://glasscase.org/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="GlassCase Institutional Stress Mapper">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Institutional Stress Mapper v0.1 | GlassCase">
+    <meta name="twitter:description" content="Diagnostic tool for mapping institutional stress signals over time.">
+    <meta name="twitter:image" content="https://glasscase.org/og-image.png">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://glasscase.org/stress-mapper.html",
+          "url": "https://glasscase.org/stress-mapper.html",
+          "name": "Institutional Stress Mapper v0.1",
+          "description": "Diagnostic tool for mapping institutional stress signals over time. Score subsystems, detect patterns, identify where deeper inquiry may be warranted.",
+          "inLanguage": "en-AU",
+          "isPartOf": {
+            "@type": "WebSite",
+            "@id": "https://glasscase.org/#website",
+            "name": "GlassCase",
+            "url": "https://glasscase.org/"
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://glasscase.org/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Stress Mapper",
+                "item": "https://glasscase.org/stress-mapper.html"
+              }
+            ]
+          },
+          "about": {
+            "@type": "CreativeWork",
+            "name": "GlassCase Institutional Stress Mapper v0.1",
+            "description": "A diagnostic tool for mapping institutional stress signals over time using observable data and composite indicators.",
+            "version": "0.1",
+            "datePublished": "2026-02-07",
+            "dateModified": "2026-02-08",
+            "inLanguage": "en-AU",
+            "keywords": "institutional stress, organisational health, composite indicators, diagnostic visualisation, OECD, regulatory craft",
+            "author": {
+              "@type": "Person",
+              "name": "Jay Spudvilas",
+              "alternateName": "Jayden Spudvilas-Powell",
+              "url": "https://jayspudvilas.com/",
+              "sameAs": [
+                "https://linkedin.com/in/jayspudvilas",
+                "https://orcid.org/0009-0000-0945-0380",
+                "https://github.com/nuncprotunc",
+                "https://substack.com/@glasscase",
+                "https://glasscase.substack.com/"
+              ]
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "GlassCase",
+              "url": "https://glasscase.org/",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://glasscase.org/favicon-512.svg"
+              }
+            }
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon-512.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css?v=2025-12-29-3">
+    <style>
+/* ═══ STRESS MAPPER PAGE-SPECIFIC VARIABLES ═══ */
+:root {
+  --font-display: 'Spectral', serif;
+  --font-body: 'Manrope', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --baseline: #3a7d5c;
+  --elevated: #c49a3c;
+  --acute: #c45a3c;
+  --chronic: #8b2e2e;
+}
+
+/* ═══ VERSION TAG ═══ */
+.version-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: var(--glass-blue);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 1rem;
+}
+
+/* ═══ MAIN CONTAINER ═══ */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+/* ═══ STRESS MAPPER CONTENT HEADER ═══ */
+.app-header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.app-header h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.app-header .intro {
+  font-size: 1.25rem;
+  color: var(--slate);
+  max-width: 900px;
+  line-height: 1.7;
+}
+
+.app-header .meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+  flex-wrap: wrap;
+}
+
+/* ═══ UNIT HEADER ═══ */
+.unit-bar {
+  margin: 2rem 0 0;
+}
+
+.unit-bar-inner {
+  display: flex;
+  gap: 1rem;
+  align-items: end;
+  flex-wrap: wrap;
+  padding: 1.5rem;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.unit-field {
+  flex: 1;
+  min-width: 200px;
+}
+
+.unit-field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 0.4rem;
+}
+
+.unit-field input, .unit-field select {
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  padding: 0.55rem 0.75rem;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.unit-field input:focus, .unit-field select:focus {
+  border-color: var(--glass-blue);
+}
+
+.unit-field input::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+
+.unit-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* ═══ BUTTONS ═══ */
+.btn {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.btn-accent {
+  border-color: var(--glass-blue);
+  color: var(--glass-blue);
+}
+
+.btn-accent:hover {
+  background: rgba(74,159,216,0.1);
+}
+
+.btn-small {
+  font-size: 0.6rem;
+  padding: 0.3rem 0.6rem;
+}
+
+.btn-danger {
+  border-color: var(--chronic);
+  color: var(--chronic);
+}
+
+.btn-danger:hover {
+  background: rgba(139,46,46,0.1);
+}
+
+/* ═══ TAB NAVIGATION ═══ */
+.tab-nav {
+  margin: 2rem 0 0;
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+}
+
+.tab-btn {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  background: transparent;
+  border: none;
+  color: var(--slate);
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  position: relative;
+}
+
+.tab-btn:hover {
+  color: var(--white);
+}
+
+.tab-btn.active {
+  color: var(--white);
+  border-bottom-color: var(--glass-blue);
+}
+
+.tab-btn .tab-badge {
+  font-size: 0.52rem;
+  padding: 0.1rem 0.35rem;
+  border-radius: 1px;
+  margin-left: 0.4rem;
+  vertical-align: middle;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.tab-badge-tool {
+  background: rgba(74,159,216,0.15);
+  color: var(--glass-blue);
+  border: 1px solid rgba(74,159,216,0.3);
+}
+
+.tab-badge-derived {
+  background: rgba(58,125,92,0.15);
+  color: var(--baseline);
+  border: 1px solid rgba(58,125,92,0.3);
+}
+
+.tab-badge-demo {
+  background: rgba(255,255,255,0.05);
+  color: var(--slate);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* ═══ TAB PANELS ═══ */
+.tab-panels {
+  padding: 2rem 0;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ TOOL 1: SCORER ═══ */
+.scorer-periods {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.period-chip {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 0.4rem 0.8rem;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--slate);
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+
+.period-chip:hover { border-color: rgba(255,255,255,0.25); }
+
+.period-chip.active {
+  border-color: var(--glass-blue);
+  color: var(--glass-blue);
+  background: rgba(74,159,216,0.08);
+}
+
+.period-chip .chip-remove {
+  margin-left: 0.4rem;
+  opacity: 0.4;
+  cursor: pointer;
+}
+
+.period-chip .chip-remove:hover { opacity: 1; }
+
+.scorer-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+}
+
+@media (max-width: 700px) {
+  .scorer-form { grid-template-columns: 1fr; }
+}
+
+.signal-input {
+  padding: 1rem 1.2rem;
+  background: rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  transition: border-color 0.2s;
+}
+
+.signal-input:hover {
+  border-color: rgba(255,255,255,0.12);
+}
+
+.signal-input .sig-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.2rem;
+}
+
+.signal-input .sig-sublabel {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+}
+
+.signal-input .sig-score-row {
+  display: flex;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.score-btn {
+  flex: 1;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.5rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--slate);
+  cursor: pointer;
+  transition: all 0.15s;
+  border-radius: 2px;
+  text-align: center;
+}
+
+.score-btn:hover {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.score-btn.selected {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.score-btn.selected[data-score="0"] { background: rgba(58,125,92,0.2); border-color: var(--baseline); }
+.score-btn.selected[data-score="1"] { background: rgba(196,154,60,0.2); border-color: var(--elevated); }
+.score-btn.selected[data-score="2"] { background: rgba(196,90,60,0.2); border-color: var(--acute); }
+.score-btn.selected[data-score="3"] { background: rgba(139,46,46,0.25); border-color: var(--chronic); }
+
+.score-labels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.04em;
+}
+
+/* ═══ SCORER RESULT ═══ */
+.scorer-output {
+  margin-top: 2rem;
+  padding: 1.8rem;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.scorer-gauge {
+  text-align: center;
+  min-width: 140px;
+}
+
+.scorer-gauge .gauge-val {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.scorer-gauge .gauge-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+.scorer-gauge .gauge-band {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  border-radius: 1px;
+}
+
+.scorer-breakdown {
+  flex: 1;
+  min-width: 200px;
+}
+
+.scorer-breakdown h4 {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 0.8rem;
+}
+
+.breakdown-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+.breakdown-row .br-label {
+  font-size: 0.75rem;
+  color: var(--slate);
+  min-width: 140px;
+  flex-shrink: 0;
+}
+
+.breakdown-row .br-bar-track {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.breakdown-row .br-bar-fill {
+  height: 100%;
+  border-radius: 1px;
+  transition: width 0.3s, background 0.3s;
+}
+
+.breakdown-row .br-val {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  min-width: 24px;
+  text-align: right;
+}
+
+.scorer-method {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: 1rem;
+}
+
+/* ═══ TOOL 3: SUBSYSTEM GRID ═══ */
+.grid-controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.grid-controls .period-add-group {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.grid-controls input {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.4rem 0.6rem;
+  width: 100px;
+  border-radius: 2px;
+  outline: none;
+}
+
+.grid-controls input:focus {
+  border-color: var(--glass-blue);
+}
+
+.grid-controls input::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+
+.grid-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1.5rem;
+}
+
+.stress-grid {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stress-grid th {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  padding: 0.6rem 0.5rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  white-space: nowrap;
+}
+
+.stress-grid th:first-child {
+  text-align: left;
+  min-width: 160px;
+}
+
+.stress-grid th .th-remove {
+  opacity: 0;
+  cursor: pointer;
+  margin-left: 0.3rem;
+  color: var(--chronic);
+  font-size: 0.7rem;
+  transition: opacity 0.2s;
+}
+
+.stress-grid th:hover .th-remove {
+  opacity: 0.7;
+}
+
+.stress-grid th .th-remove:hover {
+  opacity: 1;
+}
+
+.stress-grid td {
+  padding: 0.4rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.stress-grid td:first-child {
+  text-align: left;
+  font-size: 0.78rem;
+  color: var(--white);
+  font-weight: 400;
+  padding-left: 0.6rem;
+}
+
+.stress-grid td:first-child .sub-detail {
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.3);
+  font-weight: 300;
+}
+
+.grid-cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.15s;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.8);
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.grid-cell:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.15);
+}
+
+.grid-cell.has-note::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--white);
+  opacity: 0.5;
+}
+
+/* ═══ JUSTIFICATION MODAL ═══ */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal {
+  background: var(--deep-navy);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.8rem;
+  max-width: 480px;
+  width: 100%;
+  animation: fadeIn 0.2s ease;
+}
+
+.modal h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 0.4rem;
+}
+
+.modal .modal-sub {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--slate);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.2rem;
+}
+
+.modal textarea {
+  width: 100%;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 0.75rem;
+  border-radius: 2px;
+  resize: vertical;
+  min-height: 100px;
+  outline: none;
+  line-height: 1.6;
+}
+
+.modal textarea:focus {
+  border-color: var(--glass-blue);
+}
+
+.modal textarea::placeholder {
+  color: rgba(255,255,255,0.2);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  justify-content: flex-end;
+}
+
+/* ═══ TOOL 2: HEAT BAR (DERIVED) ═══ */
+.derived-notice {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  padding: 1rem 1.2rem;
+  background: rgba(58,125,92,0.06);
+  border: 1px solid rgba(58,125,92,0.15);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.derived-notice strong {
+  color: var(--baseline);
+  font-weight: 500;
+}
+
+.heat-timeline {
+  display: flex;
+  gap: 3px;
+  align-items: end;
+  height: 160px;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+.heat-cell {
+  flex: 1;
+  min-width: 60px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  cursor: default;
+  transition: transform 0.15s;
+}
+
+.heat-cell:hover { transform: translateY(-2px); }
+
+.heat-cell .bar {
+  width: 100%;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.5s ease, background 0.5s ease;
+  min-height: 4px;
+}
+
+.heat-cell .h-label {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--slate);
+  position: absolute;
+  bottom: -1.6rem;
+  white-space: nowrap;
+}
+
+.heat-cell .h-tip {
+  position: absolute;
+  top: -2.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--white);
+  opacity: 0;
+  transition: opacity 0.2s;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.heat-cell:hover .h-tip { opacity: 1; }
+
+.heat-legend {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.heat-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--slate);
+}
+
+.heat-legend-item .swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 1px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--slate);
+}
+
+.empty-state .empty-icon {
+  font-size: 2rem;
+  margin-bottom: 0.8rem;
+  opacity: 0.3;
+}
+
+.empty-state p {
+  font-size: 0.85rem;
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ═══ DEMO PANELS ═══ */
+.demo-notice {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  padding: 1rem 1.2rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.demo-notice strong {
+  color: var(--slate);
+  font-weight: 500;
+}
+
+/* ═══ NARRATIVE TIMELINE ═══ */
+.narrative-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.narrative-timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--baseline), var(--elevated), var(--acute), var(--chronic));
+}
+
+.nt-event {
+  position: relative;
+  margin-bottom: 1.5rem;
+  padding: 1rem 1.2rem;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+}
+
+.nt-event::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 1.2rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid;
+  background: var(--deep-navy);
+  transform: translateX(-1px);
+}
+
+.nt-event .ev-date {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.nt-event .ev-title {
+  font-weight: 500;
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.nt-event .ev-desc {
+  font-size: 0.78rem;
+  color: var(--slate);
+  line-height: 1.6;
+}
+
+.nt-event .ev-subs {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 0.3rem;
+}
+
+.nt-event .ev-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+  padding: 0.12rem 0.45rem;
+  border: 1px solid;
+  margin-top: 0.4rem;
+  border-radius: 1px;
+}
+
+.nt-guardrail {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.35);
+  margin-top: 1.5rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  font-style: italic;
+}
+
+/* ═══ DASHBOARD ═══ */
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 700px) {
+  .dash-grid { grid-template-columns: 1fr; }
+}
+
+.dash-panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  padding: 1.2rem;
+  border-radius: 12px;
+}
+
+.dash-panel h4 {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 0.8rem;
+}
+
+.dash-sparkline {
+  display: flex;
+  align-items: end;
+  gap: 3px;
+  height: 45px;
+}
+
+.dash-sparkline .spark {
+  flex: 1;
+  border-radius: 1px 1px 0 0;
+  transition: height 0.4s;
+}
+
+.dash-stat {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.78rem;
+}
+
+.dash-stat:last-child { border: none; }
+.dash-stat .sl { color: var(--slate); }
+.dash-stat .sv { font-family: var(--font-mono); font-weight: 500; }
+
+/* ═══ EXPORT ═══ */
+.export-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap;
+}
+
+/* ═══ DISCLAIMER BANNER ═══ */
+.disclaimer-banner {
+  background: rgba(74,159,216,0.08);
+  border-bottom: 1px solid rgba(74,159,216,0.2);
+  padding: 0.7rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.disclaimer-banner strong {
+  color: var(--glass-blue);
+  font-weight: 500;
+}
+
+.disclaimer-banner .dismiss-btn {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.4);
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  border-radius: 2px;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.disclaimer-banner .dismiss-btn:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.7);
+}
+
+
+/* ═══ PRINT STYLESHEET ═══ */
+@media print {
+  /* Hide everything except dashboard content */
+  .disclaimer-banner, .app-header, .unit-bar, .tab-nav,
+  .app-footer, .modal-overlay, .demo-notice,
+  #shared-header, #shared-mobile-menu, #shared-footer,
+  footer .footer-bottom, nav,
+  #panel-scorer, #panel-grid, #panel-heatbar, #panel-narrative { display: none !important; }
+
+  body {
+    background: #fff !important;
+    color: #111 !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .tab-panels {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tab-panel { display: none !important; }
+  #panel-dashboard { display: block !important; }
+
+  /* Print header — disclaimer + unit info */
+  #panel-dashboard::before {
+    content: 'GlassCase.org · Institutional Stress Mapper v0.1 · DIAGNOSTIC TOOL\A Scores reflect user-entered assessments, not validated findings. Not suitable for use as evidence in legal, regulatory, or administrative proceedings.';
+    display: block;
+    white-space: pre-line;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8pt;
+    color: #666;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Print footer — disclaimer repeated */
+  #panel-dashboard::after {
+    content: 'GlassCase.org · Diagnostic tool · Not legal advice · Scores reflect user-entered assessments, not validated findings.\A Informed by OECD/JRC composite indicator principles · Led by Jay Spudvilas (Jayden Spudvilas-Powell)';
+    display: block;
+    white-space: pre-line;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7pt;
+    color: #999;
+    border-top: 1px solid #ccc;
+    padding-top: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Dashboard grid styling for print */
+  .dash-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0.8rem;
+  }
+
+  .dash-panel {
+    background: #fff !important;
+    border: 1px solid #ddd !important;
+    padding: 1rem;
+    break-inside: avoid;
+  }
+
+  .dash-panel h4 {
+    color: #555 !important;
+  }
+
+  .dash-sparkline .spark {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .dash-stat {
+    border-bottom-color: #eee !important;
+  }
+
+  /* Hide the print button itself when printing */
+  .print-btn-wrap { display: none !important; }
+
+  /* Force colour printing for severity indicators */
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+</style>
+</head>
+<body>
+    <div id="shared-header"></div>
+    <div id="shared-mobile-menu"></div>
+
+<!-- ═══ DISCLAIMER BANNER ═══ -->
+<div class="disclaimer-banner" id="disclaimer-banner">
+  <span><strong>Diagnostic tool.</strong> Scores reflect user-entered assessments, not validated findings. This tool identifies where deeper inquiry may be warranted — it does not produce evidence, findings, or conclusions.</span>
+  <button class="dismiss-btn" onclick="dismissBanner()">Understood</button>
+</div>
+
+<main>
+<!-- ═══ TOOL HEADER ═══ -->
+<header class="app-header">
+  <span class="version-tag">v0.1</span>
+  <h1>Institutional Stress Mapper</h1>
+  <p class="intro">Map institutional stress signals over time using observable data. Score subsystems, detect patterns, identify where deeper inquiry may be warranted. Two input tools, one derived view, two reference demonstrations.</p>
+  <div class="meta">
+    <span>Methodology: OECD/JRC composite indicators · Informed by Reason, Vaughan, Westrum, Sparrow, Braithwaite</span>
+    <span>Diagnostic, not prosecutorial</span>
+  </div>
+</header>
+
+<!-- ═══ UNIT BAR ═══ -->
+<section class="unit-bar">
+  <div class="unit-bar-inner">
+    <div class="unit-field" style="flex:2">
+      <label>Unit / Organisation Name</label>
+      <input type="text" id="unit-name" placeholder="e.g. Northside Primary School" oninput="onUnitChange()">
+    </div>
+    <div class="unit-field" style="flex:1">
+      <label>Sector</label>
+      <select id="unit-sector" title="Select sector" onchange="onUnitChange()">
+        <option value="">Select…</option>
+        <option value="education">Education</option>
+        <option value="health">Health</option>
+        <option value="justice">Justice</option>
+        <option value="regulation">Regulation</option>
+        <option value="local-gov">Local Government</option>
+        <option value="state-gov">State Government</option>
+        <option value="cth-gov">Commonwealth</option>
+        <option value="ngo">NGO / Not-for-profit</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <div class="unit-actions">
+      <button class="btn btn-small" onclick="resetAll()" title="Clear all data">Reset</button>
+      <button class="btn btn-small btn-accent" onclick="exportJSON()" title="Export data as JSON">Export ↓</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TABS ═══ -->
+<nav class="tab-nav">
+  <button class="tab-btn active" onclick="switchTab('scorer')">01 Scorer <span class="tab-badge tab-badge-tool">Tool</span></button>
+  <button class="tab-btn" onclick="switchTab('grid')">02 Stress Grid <span class="tab-badge tab-badge-tool">Tool</span></button>
+  <button class="tab-btn" onclick="switchTab('heatbar')">03 Heat Bar <span class="tab-badge tab-badge-derived">Derived</span></button>
+  <button class="tab-btn" onclick="switchTab('narrative')">04 Narrative <span class="tab-badge tab-badge-demo">Demo</span></button>
+  <button class="tab-btn" onclick="switchTab('dashboard')">05 Dashboard <span class="tab-badge tab-badge-demo">Demo</span></button>
+</nav>
+
+<!-- ═══ TAB PANELS ═══ -->
+<main class="tab-panels">
+
+  <!-- ── PANEL 1: SCORER ── -->
+  <section class="tab-panel active" id="panel-scorer">
+    <div class="scorer-periods" id="scorer-periods"></div>
+    <div class="scorer-form" id="scorer-form"></div>
+    <div id="scorer-output-area"></div>
+  </section>
+
+  <!-- ── PANEL 2: GRID ── -->
+  <section class="tab-panel" id="panel-grid">
+    <div class="grid-controls">
+      <div class="period-add-group">
+        <input type="text" id="grid-period-input" placeholder="e.g. 2023" onkeydown="if(event.key==='Enter')addPeriodFromGrid()">
+        <button class="btn btn-small btn-accent" onclick="addPeriodFromGrid()">+ Period</button>
+      </div>
+      <span style="font-size:0.68rem; color:var(--slate); margin-left:0.5rem">Click cells to cycle 0→1→2→3. Right-click to add a note.</span>
+    </div>
+    <div class="grid-wrapper">
+      <table class="stress-grid" id="stress-grid"></table>
+    </div>
+    <div id="grid-note-display"></div>
+  </section>
+
+  <!-- ── PANEL 3: HEAT BAR ── -->
+  <section class="tab-panel" id="panel-heatbar">
+    <div class="derived-notice">
+      <strong>Derived view.</strong> This visualisation auto-generates from Stress Index scores entered in the Scorer. Add periods and score subsystems to see the timeline populate.
+    </div>
+    <div id="heatbar-content"></div>
+  </section>
+
+  <!-- ── PANEL 4: NARRATIVE ── -->
+  <section class="tab-panel" id="panel-narrative">
+    <div class="demo-notice">
+      <strong>Demonstration only.</strong> The scenario below is entirely fictional and does not represent any real institution. Any resemblance to actual events is coincidental. Narrative timelines carry legal, ethical, and reputational risk. This exemplar shows how narrative events can be disciplined — appearing only where they coincide with observable stress signals in other subsystems. Not currently editable by design.
+    </div>
+    <div id="narrative-content"></div>
+  </section>
+
+  <!-- ── PANEL 5: DASHBOARD ── -->
+  <section class="tab-panel" id="panel-dashboard">
+    <div class="demo-notice">
+      <strong>Demonstration / read-only synthesis.</strong> This dashboard auto-generates a snapshot from scored data. It is a presentation layer for briefing, oversight, or publication — not an input surface.
+    </div>
+    <div id="dashboard-content"></div>
+  </section>
+
+</main>
+
+<!-- ═══ JUSTIFICATION MODAL ═══ -->
+<div class="modal-overlay" id="note-modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <h3 id="modal-title">Justification Note</h3>
+    <div class="modal-sub" id="modal-sub"></div>
+    <textarea id="modal-textarea" placeholder="Why did you score this? What observable signal supports this rating?"></textarea>
+    <div class="modal-actions">
+      <button class="btn btn-small" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-small btn-accent" onclick="saveNote()">Save</button>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+    <div id="shared-footer"></div>
+
+    <div class="footer-bottom">
+        <div class="footer-legal-row">
+            <span class="footer-copyright">© 2025–2026 GlassCase · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></span>
+            <a href="https://creativecommons.org/licenses/by/4.0/" class="footer-license">
+                <img src="https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg" alt="CC BY 4.0">
+                <span>CC BY 4.0</span>
+            </a>
+        </div>
+        <div class="footer-disclaimer-group">
+            <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
+            <p class="footer-disclaimer"><strong>Notice:</strong> This is a diagnostic tool, not a substitute for professional assessment or legal advice. Scores reflect user-entered assessments, not validated findings.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════
+// DATA STORE
+// All tools read from and write to this store.
+// ═══════════════════════════════════════════
+const SUBSYSTEMS = [
+  { id: 'governance', name: 'Leadership & Governance', detail: 'Decision quality · turnover · structural changes · acting appointments' },
+  { id: 'workforce', name: 'Workforce Stability', detail: 'Staff churn · vacancies · secondments · LOA spikes' },
+  { id: 'transparency', name: 'Transparency & Compliance', detail: 'FOI volume · refusal rates · processing times · deemed refusals' },
+  { id: 'climate', name: 'Organisational Climate', detail: 'Morale indicators · grievances · cultural signals · survey data' },
+  { id: 'external', name: 'External Scrutiny', detail: 'Audits · OVIC · WorkSafe · IBAC · Ombudsman · media' },
+];
+
+const WEIGHTS = { governance: 1.2, workforce: 1.0, transparency: 1.3, climate: 1.0, external: 1.1 };
+
+const BANDS = [
+  { name: 'Baseline', max: 2.5, color: '#3a7d5c' },
+  { name: 'Elevated', max: 5, color: '#c49a3c' },
+  { name: 'Acute', max: 7.5, color: '#c45a3c' },
+  { name: 'Chronic', max: 10, color: '#8b2e2e' },
+];
+
+const BAND_NAMES_BY_SCORE = ['Baseline', 'Elevated', 'Acute', 'Chronic'];
+const BAND_COLORS_BY_SCORE = ['#3a7d5c', '#c49a3c', '#c45a3c', '#8b2e2e'];
+
+function getBand(score) {
+  for (const b of BANDS) if (score <= b.max) return b;
+  return BANDS[3];
+}
+
+function esc(str) {
+  return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+}
+
+// Central data store
+let store = {
+  unitName: '',
+  sector: '',
+  periods: [],           // ['2019', '2020', ...]
+  activePeriod: null,     // currently selected period for scorer
+  scores: {},             // { '2019': { governance: 2, workforce: 1, ... }, ... }
+  notes: {},              // { '2019:governance': 'text', ... }
+};
+
+function getStressIndex(period) {
+  const s = store.scores[period];
+  if (!s) return 0;
+  let weighted = 0, totalWeight = 0;
+  for (const sub of SUBSYSTEMS) {
+    const val = s[sub.id] ?? 0;
+    weighted += val * WEIGHTS[sub.id];
+    totalWeight += 3 * WEIGHTS[sub.id];
+  }
+  if (totalWeight === 0) return 0;
+  return Math.round((weighted / totalWeight) * 10 * 10) / 10;
+}
+
+// ═══════════════════════════════════════════
+// TAB SWITCHING
+// ═══════════════════════════════════════════
+function switchTab(id) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  
+  const tabMap = { scorer: 0, grid: 1, heatbar: 2, narrative: 3, dashboard: 4 };
+  document.querySelectorAll('.tab-btn')[tabMap[id]].classList.add('active');
+  document.getElementById(`panel-${id}`).classList.add('active');
+  
+  if (id === 'heatbar') renderHeatBar();
+  if (id === 'narrative') renderNarrative();
+  if (id === 'dashboard') renderDashboard();
+}
+
+// ═══════════════════════════════════════════
+// UNIT BAR
+// ═══════════════════════════════════════════
+function onUnitChange() {
+  store.unitName = document.getElementById('unit-name').value;
+  store.sector = document.getElementById('unit-sector').value;
+  saveStore();
+}
+
+function resetAll() {
+  if (!confirm('Clear all data? This cannot be undone.')) return;
+  store = { unitName: '', sector: '', periods: [], activePeriod: null, scores: {}, notes: {} };
+  document.getElementById('unit-name').value = '';
+  document.getElementById('unit-sector').value = '';
+  saveStore();
+  renderScorer();
+  renderGrid();
+}
+
+// ═══════════════════════════════════════════
+// PERIOD MANAGEMENT
+// ═══════════════════════════════════════════
+function addPeriod(label) {
+  label = label.trim();
+  if (!label || store.periods.includes(label)) return;
+  store.periods.push(label);
+  store.periods.sort((a, b) => a.localeCompare(b, undefined, { numeric: true, sensitivity: 'base' }));
+  store.scores[label] = {};
+  SUBSYSTEMS.forEach(s => store.scores[label][s.id] = 0);
+  if (!store.activePeriod) store.activePeriod = label;
+  saveStore();
+  renderScorer();
+  renderGrid();
+}
+
+function removePeriod(label) {
+  store.periods = store.periods.filter(p => p !== label);
+  delete store.scores[label];
+  Object.keys(store.notes).forEach(k => { if (k.startsWith(label + ':')) delete store.notes[k]; });
+  if (store.activePeriod === label) store.activePeriod = store.periods[0] || null;
+  saveStore();
+  renderScorer();
+  renderGrid();
+}
+
+function selectPeriod(label) {
+  store.activePeriod = label;
+  saveStore();
+  renderScorer();
+}
+
+function addPeriodFromGrid() {
+  const input = document.getElementById('grid-period-input');
+  addPeriod(input.value);
+  input.value = '';
+}
+
+// ═══════════════════════════════════════════
+// TOOL 1: SCORER
+// ═══════════════════════════════════════════
+function renderScorer() {
+  // Period chips
+  const chipContainer = document.getElementById('scorer-periods');
+  let chipHTML = '';
+  store.periods.forEach(p => {
+    const active = p === store.activePeriod ? 'active' : '';
+    chipHTML += `<div class="period-chip ${active}" onclick="selectPeriod('${esc(p)}')">
+      ${p} <span class="chip-remove" onclick="event.stopPropagation(); removePeriod('${esc(p)}')" title="Remove period">×</span>
+    </div>`;
+  });
+  chipHTML += `<button class="btn btn-small btn-accent" onclick="promptAddPeriod()">+ Add period</button>`;
+  chipContainer.innerHTML = chipHTML;
+  
+  // Form
+  const form = document.getElementById('scorer-form');
+  if (!store.activePeriod) {
+    form.innerHTML = `<div class="empty-state" style="grid-column:1/-1">
+      <div class="empty-icon">□</div>
+      <p>Add a time period to begin scoring. Click "+ Add period" above and enter a label like "2023" or "Q1 2024".</p>
+    </div>`;
+    document.getElementById('scorer-output-area').innerHTML = '';
+    return;
+  }
+  
+  const period = store.activePeriod;
+  const scores = store.scores[period] || {};
+  
+  let formHTML = '';
+  SUBSYSTEMS.forEach(sub => {
+    const val = scores[sub.id] ?? 0;
+    const noteKey = `${period}:${sub.id}`;
+    const noteText = store.notes[noteKey] || '';
+    const noteColor = BAND_COLORS_BY_SCORE[val];
+    formHTML += `<div class="signal-input">
+      <div class="sig-label">${sub.name} <span style="opacity:0.35; font-weight:400">×${WEIGHTS[sub.id]}</span></div>
+      <div class="sig-sublabel">${sub.detail}</div>
+      <div class="sig-score-row">
+        ${[0,1,2,3].map(s => `<button class="score-btn ${val === s ? 'selected' : ''}" data-score="${s}" onclick="setScore('${esc(period)}','${sub.id}',${s})">${s}</button>`).join('')}
+      </div>
+      <div class="score-labels"><span>Baseline</span><span>Elevated</span><span>Acute</span><span>Chronic</span></div>
+      ${noteText ? `<div style="margin-top:0.6rem; padding:0.5rem 0.7rem; border-left:3px solid ${noteColor}; background:rgba(255,255,255,0.02); border-radius:0 6px 6px 0; cursor:pointer; font-size:0.75rem; color:rgba(255,255,255,0.5); line-height:1.5" onclick="openNote('${esc(period)}','${sub.id}')">📝 ${noteText}</div>` : `<div style="margin-top:0.4rem"><button class="btn btn-small" style="font-size:0.55rem; opacity:0.4" onclick="openNote('${esc(period)}','${sub.id}')">+ Add note</button></div>`}
+    </div>`;
+  });
+  form.innerHTML = formHTML;
+  
+  renderScorerOutput(period);
+}
+
+function setScore(period, subId, score) {
+  if (!store.scores[period]) store.scores[period] = {};
+  store.scores[period][subId] = score;
+  saveStore();
+  renderScorer();
+  renderGrid();
+  // G: Auto-prompt justification at Acute or Chronic
+  if (score >= 2) {
+    const noteKey = `${period}:${subId}`;
+    if (!store.notes[noteKey]) {
+      openNote(period, subId);
+    }
+  }
+}
+
+function renderScorerOutput(period) {
+  const container = document.getElementById('scorer-output-area');
+  const index = getStressIndex(period);
+  const band = getBand(index);
+  const scores = store.scores[period] || {};
+  
+  let breakdownHTML = '';
+  SUBSYSTEMS.forEach(sub => {
+    const val = scores[sub.id] ?? 0;
+    const pct = (val / 3) * 100;
+    const color = BAND_COLORS_BY_SCORE[val];
+    breakdownHTML += `<div class="breakdown-row">
+      <span class="br-label">${sub.name}</span>
+      <div class="br-bar-track"><div class="br-bar-fill" style="width:${pct}%; background:${color}"></div></div>
+      <span class="br-val" style="color:${color}">${val}</span>
+    </div>`;
+  });
+  
+  container.innerHTML = `<div class="scorer-output">
+    <div class="scorer-gauge">
+      <div class="gauge-val" style="color:${band.color}">${index.toFixed(1)}</div>
+      <div class="gauge-label">Stress Index</div>
+      <div class="gauge-band" style="background:${band.color}22; color:${band.color}; border:1px solid ${band.color}55">${band.name}</div>
+    </div>
+    <div class="scorer-breakdown">
+      <h4>Subsystem Breakdown — ${period}</h4>
+      ${breakdownHTML}
+    </div>
+  </div>
+  <div class="scorer-method">Informed by OECD/JRC composite indicator principles · ${SUBSYSTEMS.length} subsystems · 0–3 input → 0–10 index · Band thresholds: Baseline 0–2.5 · Elevated 2.5–5 · Acute 5–7.5 · Chronic 7.5–10<br>Weights are provisional expert estimates reflecting relative signal observability and reliability. Transparency &amp; Compliance is weighted highest (1.3) because FOI data is the most publicly verifiable signal. No weighting scheme is normatively neutral; equal weighting represents an implicit value judgement as much as differential weighting.<br>Severity bands are evenly distributed across the 0–10 scale. They represent communicative scaffolding for legibility, not empirically validated cutpoints. The 0–3 input scale is deliberately coarse — designed for triage-level pattern detection, not granular measurement.</div>`;
+}
+
+function promptAddPeriod() {
+  const label = prompt('Enter period label (e.g. "2023", "Q1 2024", "Term 3"):');
+  if (label) addPeriod(label);
+}
+
+// ═══════════════════════════════════════════
+// TOOL 2: SUBSYSTEM STRESS GRID
+// ═══════════════════════════════════════════
+function renderGrid() {
+  const table = document.getElementById('stress-grid');
+  
+  if (store.periods.length === 0) {
+    table.innerHTML = '';
+    document.getElementById('grid-note-display').innerHTML = `<div class="empty-state">
+      <div class="empty-icon">⊞</div>
+      <p>Add time periods above to build the stress grid. Each cell can be scored 0–3 by clicking, and annotated by right-clicking.</p>
+    </div>`;
+    return;
+  }
+  
+  document.getElementById('grid-note-display').innerHTML = '';
+  
+  // Header
+  let html = `<thead><tr><th>Subsystem</th>`;
+  store.periods.forEach(p => {
+    html += `<th>${p} <span class="th-remove" onclick="removePeriod('${esc(p)}')" title="Remove ${p}">×</span></th>`;
+  });
+  html += `</tr></thead><tbody>`;
+  
+  // Rows
+  SUBSYSTEMS.forEach(sub => {
+    html += `<tr><td>${sub.name}<br><span class="sub-detail">${sub.detail}</span></td>`;
+    store.periods.forEach(p => {
+      const val = (store.scores[p] && store.scores[p][sub.id]) ?? 0;
+      const color = BAND_COLORS_BY_SCORE[val];
+      const noteKey = `${p}:${sub.id}`;
+      const hasNote = store.notes[noteKey] ? 'has-note' : '';
+      html += `<td><div class="grid-cell ${hasNote}" style="background:${color}" 
+        onclick="cycleGridCell('${esc(p)}','${sub.id}')" 
+        oncontextmenu="event.preventDefault(); openNote('${esc(p)}','${sub.id}')"
+        title="Score: ${val} (${BAND_NAMES_BY_SCORE[val]})${store.notes[noteKey] ? '\n📝 ' + store.notes[noteKey].substring(0,60) : ''}">${val}</div></td>`;
+    });
+    html += `</tr>`;
+  });
+  
+  html += `</tbody>`;
+  table.innerHTML = html;
+  
+  // Display saved notes below grid
+  const noteDisplay = document.getElementById('grid-note-display');
+  const noteEntries = Object.entries(store.notes).filter(([key]) => {
+    const [period] = key.split(':');
+    return store.periods.includes(period);
+  });
+  if (noteEntries.length > 0) {
+    let noteHtml = `<div style="margin-top:1.5rem"><div style="font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate); margin-bottom:0.8rem">Justification Notes</div>`;
+    noteEntries.forEach(([key, text]) => {
+      const [period, subId] = key.split(':');
+      const sub = SUBSYSTEMS.find(s => s.id === subId);
+      const score = (store.scores[period] && store.scores[period][subId]) ?? 0;
+      const color = BAND_COLORS_BY_SCORE[score];
+      noteHtml += `<div style="padding:0.6rem 0.8rem; margin-bottom:0.5rem; border-left:3px solid ${color}; background:rgba(255,255,255,0.02); border-radius:0 6px 6px 0; cursor:pointer" onclick="openNote('${esc(period)}','${subId}')">
+        <div style="font-family:var(--font-mono); font-size:0.62rem; color:${color}; margin-bottom:0.2rem">${sub ? sub.name : subId} · ${period} · ${BAND_NAMES_BY_SCORE[score]}</div>
+        <div style="font-size:0.78rem; color:rgba(255,255,255,0.6); line-height:1.5">${text}</div>
+      </div>`;
+    });
+    noteHtml += `</div>`;
+    noteDisplay.innerHTML = noteHtml;
+  } else {
+    noteDisplay.innerHTML = '';
+  }
+}
+
+function cycleGridCell(period, subId) {
+  if (!store.scores[period]) store.scores[period] = {};
+  const current = store.scores[period][subId] ?? 0;
+  const next = (current + 1) % 4;
+  store.scores[period][subId] = next;
+  saveStore();
+  renderGrid();
+  if (period === store.activePeriod) renderScorer();
+  // G: Auto-prompt justification at Acute or Chronic
+  if (next >= 2) {
+    const noteKey = `${period}:${subId}`;
+    if (!store.notes[noteKey]) {
+      openNote(period, subId);
+    }
+  }
+}
+
+// ═══════════════════════════════════════════
+// JUSTIFICATION NOTES
+// ═══════════════════════════════════════════
+let currentNoteKey = null;
+
+function openNote(period, subId) {
+  currentNoteKey = `${period}:${subId}`;
+  const sub = SUBSYSTEMS.find(s => s.id === subId);
+  const score = (store.scores[period] && store.scores[period][subId]) ?? 0;
+  
+  document.getElementById('modal-title').textContent = `${sub.name} — ${period}`;
+  document.getElementById('modal-sub').textContent = `Score: ${score}/3 (${BAND_NAMES_BY_SCORE[score]}) · Why this rating?`;
+  document.getElementById('modal-textarea').value = store.notes[currentNoteKey] || '';
+  document.getElementById('note-modal').classList.add('open');
+  
+  setTimeout(() => document.getElementById('modal-textarea').focus(), 100);
+}
+
+function saveNote() {
+  const text = document.getElementById('modal-textarea').value.trim();
+  if (text) {
+    store.notes[currentNoteKey] = text;
+  } else {
+    delete store.notes[currentNoteKey];
+  }
+  saveStore();
+  closeModal();
+  renderGrid();
+  renderScorer();
+}
+
+function closeModal() {
+  document.getElementById('note-modal').classList.remove('open');
+  currentNoteKey = null;
+}
+
+// ═══════════════════════════════════════════
+// TOOL 3: HEAT BAR (DERIVED)
+// ═══════════════════════════════════════════
+function renderHeatBar() {
+  const container = document.getElementById('heatbar-content');
+  
+  if (store.periods.length === 0) {
+    container.innerHTML = `<div class="empty-state">
+      <div class="empty-icon">▥</div>
+      <p>No periods scored yet. Go to the Scorer tab, add time periods, and score subsystems. The timeline will auto-generate from your data.</p>
+    </div>`;
+    return;
+  }
+  
+  let html = '<div class="heat-timeline">';
+  store.periods.forEach(p => {
+    const index = getStressIndex(p);
+    const band = getBand(index);
+    const pct = (index / 10) * 100;
+    html += `<div class="heat-cell">
+      <div class="h-tip">${index.toFixed(1)} · ${band.name}</div>
+      <div class="bar" style="height:${Math.max(4, pct)}%; background:${band.color}"></div>
+      <span class="h-label">${p}</span>
+    </div>`;
+  });
+  html += '</div>';
+  
+  // Legend
+  html += '<div class="heat-legend">';
+  BANDS.forEach(b => {
+    html += `<div class="heat-legend-item"><div class="swatch" style="background:${b.color}"></div>${b.name} (0–${b.max})</div>`;
+  });
+  html += '</div>';
+  
+  container.innerHTML = html;
+}
+
+// ═══════════════════════════════════════════
+// DEMO: NARRATIVE TIMELINE
+// ═══════════════════════════════════════════
+function renderNarrative() {
+  const container = document.getElementById('narrative-content');
+  if (container.children.length > 1) return; // Already rendered
+  
+  const events = [
+    { date: 'Q1 2020', title: 'Isolated parent complaint escalation', desc: 'Single formal complaint resolved at unit level. No systemic impact detected.', band: 0, tag: 'Org. Climate', subs: 'Climate' },
+    { date: 'Q3 2021', title: 'Deputy principal exits; acting role unfilled for 2 terms', desc: 'First leadership gap. Workload redistribution produces early strain signals in workforce stability.', band: 1, tag: 'Leadership & Gov.', subs: 'Governance ↔ Workforce' },
+    { date: 'Q1 2022', title: 'WorkSafe visit following staff OHS report', desc: 'External intervention triggered by psychosocial hazard report. Improvement notice issued.', band: 1, tag: 'External Scrutiny', subs: 'External ↔ Workforce ↔ Climate' },
+    { date: 'Q3 2022', title: 'FOI request lodged re governance documents', desc: 'First FOI request signals loss of internal trust. Deemed refusal after 30 days.', band: 2, tag: 'Transparency', subs: 'Transparency ↔ Governance' },
+    { date: 'Q1 2023', title: 'Principal placed on leave; investigation opened', desc: 'Major investigation triggers organisation-wide disruption. Staff surveys at historic low.', band: 2, tag: 'Leadership & Gov.', subs: 'Governance ↔ Climate ↔ Workforce ↔ External' },
+    { date: 'Q3 2023', title: 'Second FOI request + OVIC complaint', desc: 'Repeat FOI traffic on same issue. Recurring refusal pattern suggests systemic processing failure rather than isolated decision.', band: 3, tag: 'Transparency', subs: 'Transparency ↔ Governance ↔ External' },
+    { date: 'Q1 2024', title: 'Third principal in 18 months; retention below 60%', desc: 'Chronic churn established. No recovery phase between leadership transitions.', band: 3, tag: 'Workforce', subs: 'Governance ↔ Workforce ↔ Climate' },
+    { date: 'Q3 2024', title: 'IBAC referral; ongoing psychosocial audit', desc: 'Multiple external oversight bodies engaged simultaneously. Sustained stress across all subsystems.', band: 3, tag: 'External Scrutiny', subs: 'All subsystems' },
+  ];
+  
+  let html = '<div class="narrative-timeline">';
+  events.forEach(ev => {
+    const band = BANDS[ev.band];
+    html += `<div class="nt-event" style="border-left-color:${band.color}33">
+      <div class="ev-date" style="color:${band.color}">${ev.date}</div>
+      <div class="ev-title">${ev.title}</div>
+      <div class="ev-desc">${ev.desc}</div>
+      <div class="ev-subs">Affected subsystems: ${ev.subs}</div>
+      <span class="ev-tag" style="color:${band.color}; border-color:${band.color}55">${ev.tag} · ${band.name}</span>
+    </div>`;
+  });
+  html += '</div>';
+  html += `<div class="nt-guardrail">Guardrail: Events appear on this timeline only where they coincide with or precipitate observable stress signals across at least one other subsystem. This prevents narrative-only entries and ensures the timeline reflects systemic patterns, not isolated anecdotes.</div>`;
+  
+  container.innerHTML = html;
+  
+  // Apply dot colors
+  const style = document.createElement('style');
+  style.textContent = events.map((ev, i) => 
+    `.narrative-timeline .nt-event:nth-child(${i+1})::before { border-color: ${BANDS[ev.band].color}; }`
+  ).join('\n');
+  document.head.appendChild(style);
+}
+
+// ═══════════════════════════════════════════
+// DEMO: COMPOSITE DASHBOARD
+// Renders from live data if available,
+// otherwise shows exemplar data
+// ═══════════════════════════════════════════
+function renderDashboard() {
+  const container = document.getElementById('dashboard-content');
+  
+  const hasData = store.periods.length > 0;
+  const periods = hasData ? store.periods : ['2019','2020','2021','2022','2023','2024','2025'];
+  
+  const exemplarScores = {
+    '2019': { governance: 0, workforce: 0, transparency: 0, climate: 1, external: 0 },
+    '2020': { governance: 1, workforce: 1, transparency: 0, climate: 1, external: 0 },
+    '2021': { governance: 1, workforce: 1, transparency: 1, climate: 2, external: 0 },
+    '2022': { governance: 2, workforce: 2, transparency: 2, climate: 2, external: 1 },
+    '2023': { governance: 3, workforce: 2, transparency: 2, climate: 3, external: 2 },
+    '2024': { governance: 3, workforce: 3, transparency: 3, climate: 3, external: 3 },
+    '2025': { governance: 3, workforce: 3, transparency: 3, climate: 3, external: 3 },
+  };
+  
+  function getDashScores(p) {
+    return hasData ? (store.scores[p] || {}) : (exemplarScores[p] || {});
+  }
+  
+  function getDashIndex(p) {
+    const s = getDashScores(p);
+    let weighted = 0, totalWeight = 0;
+    for (const sub of SUBSYSTEMS) {
+      weighted += (s[sub.id] ?? 0) * WEIGHTS[sub.id];
+      totalWeight += 3 * WEIGHTS[sub.id];
+    }
+    return totalWeight === 0 ? 0 : Math.round((weighted / totalWeight) * 10 * 10) / 10;
+  }
+  
+  const latestPeriod = periods[periods.length - 1];
+  const latestIndex = getDashIndex(latestPeriod);
+  const latestBand = getBand(latestIndex);
+  const unitLabel = store.unitName || 'Exemplar Unit';
+  
+  let html = `<div class="dash-grid">`;
+  
+  // Panel 1: Current index
+  html += `<div class="dash-panel">
+    <h4>Current Stress Index${hasData ? '' : ' (Exemplar — fictional data)'}</h4>
+    <div style="text-align:center; padding:0.5rem 0">
+      <div style="font-family:var(--font-display); font-size:3rem; color:${latestBand.color}; line-height:1">${latestIndex.toFixed(1)}</div>
+      <div style="font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.1em; color:${latestBand.color}; text-transform:uppercase; margin-top:0.3rem">${latestBand.name}</div>
+      <div style="font-size:0.72rem; color:var(--slate); margin-top:0.5rem">${unitLabel} · ${latestPeriod}</div>
+      <div style="font-size:0.6rem; color:rgba(255,255,255,0.25); margin-top:0.3rem">Informed by OECD/JRC composite indicator principles · ${SUBSYSTEMS.length} subsystems</div>
+    </div>
+  </div>`;
+  
+  // Panel 2: Sparklines
+  html += `<div class="dash-panel"><h4>Subsystem Trends (${periods[0]}–${periods[periods.length-1]})</h4>`;
+  SUBSYSTEMS.forEach(sub => {
+    html += `<div style="margin-bottom:0.7rem"><div style="font-size:0.7rem; color:var(--slate); margin-bottom:0.25rem">${sub.name}</div><div class="dash-sparkline">`;
+    periods.forEach(p => {
+      const val = (getDashScores(p)[sub.id]) ?? 0;
+      const pct = Math.max(12, (val / 3) * 100);
+      html += `<div class="spark" style="height:${pct}%; background:${BAND_COLORS_BY_SCORE[val]}"></div>`;
+    });
+    html += '</div></div>';
+  });
+  html += '</div>';
+  
+  // Panel 3: Trajectory
+  const indices = periods.map(p => getDashIndex(p));
+  const trend = indices.length >= 2 ? (indices[indices.length-1] - indices[indices.length-2]) : 0;
+  const trendLabel = trend > 0.5 ? 'Escalating' : trend < -0.5 ? 'Improving' : 'Stable';
+  const trendIcon = trend > 0.5 ? '↗' : trend < -0.5 ? '↘' : '→';
+  
+  html += `<div class="dash-panel">
+    <h4>Trajectory</h4>
+    <div style="text-align:center; padding:0.5rem 0">
+      <div style="font-size:2.5rem; line-height:1; opacity:0.6">${trendIcon}</div>
+      <div style="font-family:var(--font-mono); font-size:0.72rem; color:${latestBand.color}; letter-spacing:0.08em; text-transform:uppercase; margin-top:0.4rem">${trendLabel}</div>
+      <div style="font-size:0.78rem; color:var(--slate); margin-top:0.6rem; line-height:1.6">
+        ${latestIndex >= 7.5 ? 'Pattern consistent with sustained multi-subsystem stress. Multiple signal domains affected simultaneously.' :
+          latestIndex >= 5 ? 'Active stress signals detected across subsystems. Pattern suggests compounding rather than isolated strain.' :
+          latestIndex >= 2.5 ? 'Detectable strain in some subsystems. No evidence of cross-subsystem spread at this stage.' :
+          'Operating within baseline parameters.'}
+      </div>
+      <div style="font-size:0.58rem; color:rgba(255,255,255,0.2); margin-top:0.6rem; font-style:italic">
+        This is a diagnostic signal, not a finding. It identifies where deeper inquiry may be warranted.
+      </div>
+    </div>
+  </div>`;
+  
+  // Panel 4: Period-by-period summary
+  html += `<div class="dash-panel"><h4>Period Summary</h4>`;
+  periods.forEach(p => {
+    const idx = getDashIndex(p);
+    const b = getBand(idx);
+    html += `<div class="dash-stat"><span class="sl">${p}</span><span class="sv" style="color:${b.color}">${idx.toFixed(1)} · ${b.name}</span></div>`;
+  });
+  html += '</div>';
+  
+  html += '</div>';
+
+  // Print / PDF button
+  html += `<div class="print-btn-wrap" style="margin-top:1.5rem; text-align:right">
+    <button class="btn btn-small" onclick="printDashboard()" title="Print or save as PDF">⎙ Print / Save as PDF</button>
+  </div>`;
+  
+  container.innerHTML = html;
+}
+
+function printDashboard() {
+  // Ensure dashboard is rendered before printing
+  renderDashboard();
+  // Switch to dashboard tab visually
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn')[4].classList.add('active');
+  document.getElementById('panel-dashboard').classList.add('active');
+  // Trigger browser print
+  setTimeout(() => window.print(), 200);
+}
+
+// ═══════════════════════════════════════════
+// EXPORT
+// ═══════════════════════════════════════════
+function exportJSON() {
+  const exportData = {
+    _meta: {
+      tool: 'GlassCase Institutional Stress Mapper',
+      version: '0.1',
+      exported: new Date().toISOString(),
+      methodology: 'Informed by OECD/JRC composite indicator principles',
+      disclaimer: 'Diagnostic tool. Scores reflect user-entered assessments, not validated findings. Not suitable for use as evidence in legal, regulatory, or administrative proceedings.',
+      subsystems: SUBSYSTEMS.map(s => ({ id: s.id, name: s.name, weight: WEIGHTS[s.id] })),
+      bands: BANDS.map(b => ({ name: b.name, max: b.max })),
+    },
+    unit: { name: store.unitName, sector: store.sector },
+    periods: store.periods,
+    scores: store.scores,
+    notes: store.notes,
+    indices: {},
+  };
+  
+  store.periods.forEach(p => {
+    const idx = getStressIndex(p);
+    exportData.indices[p] = { score: idx, band: getBand(idx).name };
+  });
+  
+  const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `stress-mapper-${(store.unitName || 'export').replace(/\s+/g, '-').toLowerCase()}-${new Date().toISOString().slice(0,10)}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ═══════════════════════════════════════════
+// LOCALSTORAGE PERSISTENCE
+// ═══════════════════════════════════════════
+const STORAGE_KEY = 'glasscase-stress-mapper';
+const BANNER_KEY = 'glasscase-stress-mapper-banner-dismissed';
+
+function saveStore() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+  } catch (e) {
+    // localStorage unavailable or full — fail silently
+  }
+}
+
+function loadStore() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      store.unitName = parsed.unitName || '';
+      store.sector = parsed.sector || '';
+      store.periods = parsed.periods || [];
+      store.activePeriod = parsed.activePeriod || (store.periods[0] || null);
+      store.scores = parsed.scores || {};
+      store.notes = parsed.notes || {};
+      // Restore UI fields
+      document.getElementById('unit-name').value = store.unitName;
+      document.getElementById('unit-sector').value = store.sector;
+    }
+  } catch (e) {
+    // Corrupted or unavailable — start fresh
+  }
+}
+
+// ═══════════════════════════════════════════
+// DISCLAIMER BANNER
+// ═══════════════════════════════════════════
+function dismissBanner() {
+  const banner = document.getElementById('disclaimer-banner');
+  if (banner) banner.style.display = 'none';
+  try {
+    localStorage.setItem(BANNER_KEY, 'true');
+  } catch (e) {}
+}
+
+function checkBanner() {
+  try {
+    if (localStorage.getItem(BANNER_KEY) === 'true') {
+      const banner = document.getElementById('disclaimer-banner');
+      if (banner) banner.style.display = 'none';
+    }
+  } catch (e) {}
+}
+
+// ═══════════════════════════════════════════
+// INITIAL RENDER
+// ═══════════════════════════════════════════
+checkBanner();
+loadStore();
+renderScorer();
+renderGrid();
+</script>
+
+<script src="/js/main.js?v=2025-12-31"></script>
+<script src="/js/components.js?v=2026-01-31"></script>
+</body>
+</html>

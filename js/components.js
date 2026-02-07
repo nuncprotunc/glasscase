@@ -134,7 +134,7 @@ function injectComponents() {
   const currentPath = window.location.pathname;
   let activeNav = '';
   if (currentPath === '/' || currentPath === '/index.html') activeNav = 'home';
-  else if (currentPath.includes('tools') || currentPath.includes('consideration-matrix') || currentPath.includes('redaction-taxonomy')) activeNav = 'tools';
+  else if (currentPath.includes('tools') || currentPath.includes('consideration-matrix') || currentPath.includes('redaction-taxonomy') || currentPath.includes('stress-mapper')) activeNav = 'tools';
   else if (currentPath.includes('findings')) activeNav = 'findings';
   else if (currentPath.includes('commentary')) activeNav = 'commentary';
   else if (currentPath.includes('submissions')) activeNav = 'submissions';
