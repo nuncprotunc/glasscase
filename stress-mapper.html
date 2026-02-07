@@ -1342,7 +1342,7 @@ const SUBSYSTEMS = [
   { id: 'workforce', name: 'Workforce Stability', detail: 'Staff churn · vacancies · secondments · LOA spikes' },
   { id: 'transparency', name: 'Transparency & Compliance', detail: 'FOI volume · refusal rates · processing times · deemed refusals' },
   { id: 'climate', name: 'Organisational Climate', detail: 'Morale indicators · grievances · cultural signals · survey data' },
-  { id: 'external', name: 'External Scrutiny', detail: 'Audits · OVIC · WorkSafe · IBAC · Ombudsman · media' },
+  { id: 'external', name: 'External Scrutiny', detail: 'Audits · OVIC · WorkSafe · Ombudsman · media' },
 ];
 
 const WEIGHTS = { governance: 1.2, workforce: 1.0, transparency: 1.3, climate: 1.0, external: 1.1 };
@@ -1738,7 +1738,7 @@ function renderNarrative() {
     { date: 'Q1 2023', title: 'Principal placed on leave; investigation opened', desc: 'Major investigation triggers organisation-wide disruption. Staff surveys at historic low.', band: 2, tag: 'Leadership & Gov.', subs: 'Governance ↔ Climate ↔ Workforce ↔ External' },
     { date: 'Q3 2023', title: 'Second FOI request + OVIC complaint', desc: 'Repeat FOI traffic on same issue. Recurring refusal pattern suggests systemic processing failure rather than isolated decision.', band: 3, tag: 'Transparency', subs: 'Transparency ↔ Governance ↔ External' },
     { date: 'Q1 2024', title: 'Third principal in 18 months; retention below 60%', desc: 'Chronic churn established. No recovery phase between leadership transitions.', band: 3, tag: 'Workforce', subs: 'Governance ↔ Workforce ↔ Climate' },
-    { date: 'Q3 2024', title: 'IBAC referral; ongoing psychosocial audit', desc: 'Multiple external oversight bodies engaged simultaneously. Sustained stress across all subsystems.', band: 3, tag: 'External Scrutiny', subs: 'All subsystems' },
+    { date: 'Q3 2024', title: 'Ombudsman complaint; ongoing psychosocial audit', desc: 'Multiple external oversight bodies engaged simultaneously. Sustained stress across all subsystems.', band: 3, tag: 'External Scrutiny', subs: 'All subsystems' },
   ];
   
   let html = '<div class="narrative-timeline">';
