@@ -52,8 +52,7 @@ a:hover {
 }
 
 p a {
-  text-decoration: underline;
-  text-underline-offset: 2px;
+  text-decoration: none;
 }
 
 :focus-visible {
