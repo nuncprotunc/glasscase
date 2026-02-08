@@ -1139,7 +1139,7 @@ main {
 
   /* Print header — disclaimer + unit info */
   #panel-dashboard::before {
-    content: 'GlassCase.org · Institutional Stress Mapper v0.1 · DIAGNOSTIC TOOL\A Scores reflect user-entered assessments, not validated findings. Not suitable for use as evidence in legal, regulatory, or administrative proceedings.';
+    content: 'GlassCase.org · Institutional Stress Mapper v0.1 · DIAGNOSTIC TOOL\A Scores reflect user-entered assessments. They are not validated findings. Output is not suitable for use as evidence in legal, regulatory or administrative proceedings.';
     display: block;
     white-space: pre-line;
     font-family: 'JetBrains Mono', monospace;
@@ -1152,7 +1152,7 @@ main {
 
   /* Print footer — disclaimer repeated */
   #panel-dashboard::after {
-    content: 'GlassCase.org · Diagnostic tool · Not legal advice · Scores reflect user-entered assessments, not validated findings.\A Informed by OECD/JRC composite indicator principles · Led by Jay Spudvilas (Jayden Spudvilas-Powell)';
+    content: 'GlassCase.org · Diagnostic tool · Scores reflect user-entered assessments.\A Informed by OECD/JRC composite indicator principles · Led by Jay Spudvilas (Jayden Spudvilas-Powell)';
     display: block;
     white-space: pre-line;
     font-family: 'JetBrains Mono', monospace;
@@ -1206,7 +1206,7 @@ main {
 
 <!-- ═══ DISCLAIMER BANNER ═══ -->
 <div class="disclaimer-banner" id="disclaimer-banner">
-  <span><strong>Diagnostic tool.</strong> Scores reflect user-entered assessments, not validated findings. This tool identifies where deeper inquiry may be warranted — it does not produce evidence, findings, or conclusions.</span>
+  <span><strong>Diagnostic tool.</strong> Scores reflect user-entered assessments. This tool identifies where deeper inquiry may be warranted. It does not produce evidence, findings or conclusions.</span>
   <button class="dismiss-btn" onclick="dismissBanner()">Understood</button>
 </div>
 
@@ -1218,7 +1218,7 @@ main {
   <p class="intro">Map institutional stress signals over time using observable data. Score subsystems, detect patterns, identify where deeper inquiry may be warranted. Two input tools, one derived view, two reference demonstrations.</p>
   <div class="meta">
     <span>Methodology: OECD/JRC composite indicators · Informed by Reason, Vaughan, Westrum, Sparrow, Braithwaite · <a href="/stress-mapper-methodology" style="color:var(--transparency-cyan)">Read methodology note</a></span>
-    <span>Diagnostic, not prosecutorial</span>
+    <span>Diagnostic. Forward-looking.</span>
   </div>
 </header>
 
@@ -1296,7 +1296,7 @@ main {
   <!-- ── PANEL 4: NARRATIVE ── -->
   <section class="tab-panel" id="panel-narrative">
     <div class="demo-notice">
-      <strong>Demonstration only.</strong> The scenario below is entirely fictional and does not represent any real institution. This exemplar is not derived from, inspired by, or modelled on any specific real institution, dispute, investigation, or set of events, including any matter involving the author. Any resemblance to actual events is coincidental. The sequence, timing, and event types are deliberately compressed to demonstrate pattern logic rather than realistic case progression. Narrative timelines carry legal, ethical, and reputational risk. This exemplar shows how narrative events can be disciplined — appearing only where they coincide with observable stress signals in other subsystems. Event descriptions are schematic placeholders, not factual claims. They are generated solely to illustrate how narrative elements are constrained by concurrent subsystem signals. Not currently editable by design.
+      <strong>Demonstration only.</strong> The scenario below is entirely fictional and does not represent any real institution. This exemplar is not derived from, inspired by, or modelled on any specific real institution, dispute, investigation, or set of events, including any matter involving the author. Any resemblance to actual events is coincidental. The sequence, timing, and event types are deliberately compressed to demonstrate pattern logic rather than realistic case progression. Narrative timelines carry legal, ethical, and reputational risk. This exemplar shows how narrative events can be disciplined — appearing only where they coincide with observable stress signals in other subsystems. Event descriptions are schematic placeholders. They are generated solely to illustrate how narrative elements are constrained by concurrent subsystem signals. Not currently editable by design.
     </div>
     <div id="narrative-content"></div>
   </section>
@@ -1361,7 +1361,7 @@ main {
         </div>
         <div class="footer-disclaimer-group">
             <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
-            <p class="footer-disclaimer"><strong>Notice:</strong> This is a diagnostic tool, not a substitute for professional assessment or legal advice. Scores reflect user-entered assessments, not validated findings.</p>
+            <p class="footer-disclaimer"><strong>Notice:</strong> This is a diagnostic tool. It is not a substitute for professional assessment or legal advice. Scores reflect user-entered assessments.</p>
         </div>
     </div>
 </footer>
@@ -1792,7 +1792,7 @@ function renderNarrative() {
     </div>`;
   });
   html += '</div>';
-  html += `<div class="nt-guardrail">Guardrail: Events appear on this timeline only where they coincide with or precipitate observable stress signals across at least one other subsystem. This prevents narrative-only entries and ensures the timeline reflects systemic patterns, not isolated anecdotes.</div>`;
+  html += `<div class="nt-guardrail">Guardrail: Events appear on this timeline only where they coincide with or precipitate observable stress signals across at least one other subsystem. This prevents narrative-only entries and ensures the timeline reflects systemic patterns rather than isolated anecdotes.</div>`;
   
   container.innerHTML = html;
   
@@ -1888,7 +1888,7 @@ function renderDashboard() {
           'Operating within baseline parameters.'}
       </div>
       <div style="font-size:0.58rem; color:rgba(255,255,255,0.2); margin-top:0.6rem; font-style:italic">
-        This is a diagnostic signal, not a finding. It identifies where deeper inquiry may be warranted.
+        This is a diagnostic signal. It identifies where deeper inquiry may be warranted.
       </div>
     </div>
   </div>`;
@@ -1934,7 +1934,7 @@ function exportJSON() {
       version: '0.1',
       exported: new Date().toISOString(),
       methodology: 'Informed by OECD/JRC composite indicator principles',
-      disclaimer: 'Diagnostic tool. Scores reflect user-entered assessments, not validated findings. Not suitable for use as evidence in legal, regulatory, or administrative proceedings.',
+      disclaimer: 'Diagnostic tool. Scores reflect user-entered assessments. Output is not suitable for use as evidence in legal, regulatory or administrative proceedings.',
       subsystems: SUBSYSTEMS.map(s => ({ id: s.id, name: s.name, weight: WEIGHTS[s.id] })),
       bands: BANDS.map(b => ({ name: b.name, max: b.max })),
     },
