@@ -1296,7 +1296,7 @@ main {
   <!-- ── PANEL 4: NARRATIVE ── -->
   <section class="tab-panel" id="panel-narrative">
     <div class="demo-notice">
-      <strong>Demonstration only.</strong> The scenario below is entirely fictional and does not represent any real institution. Any resemblance to actual events is coincidental. The sequence, timing, and event types in this exemplar are deliberately compressed to demonstrate pattern logic rather than realistic case progression. Narrative timelines carry legal, ethical, and reputational risk. This exemplar shows how narrative events can be disciplined — appearing only where they coincide with observable stress signals in other subsystems. Not currently editable by design.
+      <strong>Demonstration only.</strong> The scenario below is entirely fictional and does not represent any real institution. This exemplar is not derived from, inspired by, or modelled on any specific real institution, dispute, investigation, or set of events, including any matter involving the author. Any resemblance to actual events is coincidental. The sequence, timing, and event types are deliberately compressed to demonstrate pattern logic rather than realistic case progression. Narrative timelines carry legal, ethical, and reputational risk. This exemplar shows how narrative events can be disciplined — appearing only where they coincide with observable stress signals in other subsystems. Event descriptions are schematic placeholders, not factual claims. They are generated solely to illustrate how narrative elements are constrained by concurrent subsystem signals. Not currently editable by design.
     </div>
     <div id="narrative-content"></div>
   </section>
@@ -1314,10 +1314,10 @@ main {
     <h2 style="font-size:1.5rem; font-weight:700; color:var(--transparency-cyan); margin-bottom:1.5rem; padding-bottom:0.5rem; border-bottom:1px solid var(--line);">Related Tools</h2>
     <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:1.5rem 2rem; margin-bottom:2rem;">
       <p style="margin:0; line-height:1.6;">
-        <strong><a href="/consideration-matrix" style="color:var(--transparency-cyan);">Consideration Matrix</a></strong> — 2×2 diagnostic framework for administrative law decision-making.<br>
-        <strong><a href="/redaction-taxonomy" style="color:var(--transparency-cyan);">FOI Redaction Taxonomy</a></strong> — Practical coding scheme for analysing FOI redactions across Australian jurisdictions.<br>
-        <strong><a href="/stress-mapper-methodology" style="color:var(--transparency-cyan);">Stress Mapper Methodology</a></strong> — Technical note on construct design, scoring logic, weighting rationale and limitations.<br>
-        <strong><a href="/legal" style="color:var(--transparency-cyan);">Use &amp; Privacy</a></strong> — How GlassCase works, data practices and legal information.
+        <strong><a href="/consideration-matrix">Consideration Matrix</a></strong> — 2×2 diagnostic framework for administrative law decision-making.<br>
+        <strong><a href="/redaction-taxonomy">FOI Redaction Taxonomy</a></strong> — Practical coding scheme for analysing FOI redactions across Australian jurisdictions.<br>
+        <strong><a href="/stress-mapper-methodology">Stress Mapper Methodology</a></strong> — Technical note on construct design, scoring logic, weighting rationale and limitations.<br>
+        <strong><a href="/legal">Use &amp; Privacy</a></strong> — How GlassCase works, data practices and legal information.
       </p>
     </div>
 
@@ -1328,7 +1328,7 @@ main {
 
     <div style="height:1.5rem;"></div>
     <p style="margin-top:1rem; color:var(--slate); font-size:0.875rem;"><strong>How to cite (APA 7):</strong> GlassCase. (2026, February). <em>Institutional Stress Mapper</em> (Version 0.1). https://glasscase.org/stress-mapper.html</p>
-    <p style="margin-top:0.5rem; color:var(--slate); font-size:0.875rem;"><strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/" style="color:var(--transparency-cyan);">CC BY 4.0</a>. Not legal advice.</p>
+    <p style="margin-top:0.5rem; color:var(--slate); font-size:0.875rem;"><strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Not legal advice.</p>
   </div>
 
 </main>
@@ -1771,12 +1771,12 @@ function renderNarrative() {
   
   const events = [
     { date: 'Q1 2020', title: 'Isolated parent complaint escalation', desc: 'Single formal complaint resolved at unit level. No systemic impact detected.', band: 0, tag: 'Org. Climate', subs: 'Climate' },
-    { date: 'Q3 2021', title: 'Deputy principal exits; acting role unfilled for 2 terms', desc: 'First leadership gap. Workload redistribution produces early strain signals in workforce stability.', band: 1, tag: 'Leadership & Gov.', subs: 'Governance ↔ Workforce' },
+    { date: 'Q3 2021', title: 'Deputy executive exits; acting role unfilled for two cycles', desc: 'First leadership gap. Workload redistribution produces early strain signals in workforce stability.', band: 1, tag: 'Leadership & Gov.', subs: 'Governance ↔ Workforce' },
     { date: 'Q1 2022', title: 'WorkSafe visit following staff OHS report', desc: 'External intervention triggered by psychosocial hazard report. Improvement notice issued.', band: 1, tag: 'External Scrutiny', subs: 'External ↔ Workforce ↔ Climate' },
     { date: 'Q3 2022', title: 'FOI request lodged re governance documents', desc: 'First FOI request signals loss of internal trust. Statutory deadline exceeded without decision.', band: 2, tag: 'Transparency', subs: 'Transparency ↔ Governance' },
-    { date: 'Q1 2023', title: 'Principal placed on leave; investigation opened', desc: 'Major investigation triggers organisation-wide disruption. Staff surveys at historic low.', band: 2, tag: 'Leadership & Gov.', subs: 'Governance ↔ Climate ↔ Workforce ↔ External' },
+    { date: 'Q1 2023', title: 'Senior executive placed on leave; formal inquiry initiated', desc: 'Major inquiry triggers organisation-wide disruption. Staff surveys at historic low.', band: 2, tag: 'Leadership & Gov.', subs: 'Governance ↔ Climate ↔ Workforce ↔ External' },
     { date: 'Q3 2023', title: 'Second FOI request + OVIC complaint', desc: 'Repeat FOI traffic on same issue. Recurring refusal pattern suggests systemic processing failure rather than isolated decision.', band: 3, tag: 'Transparency', subs: 'Transparency ↔ Governance ↔ External' },
-    { date: 'Q1 2024', title: 'Third principal in 18 months; retention below 60%', desc: 'Chronic churn established. No recovery phase between leadership transitions.', band: 3, tag: 'Workforce', subs: 'Governance ↔ Workforce ↔ Climate' },
+    { date: 'Q1 2024', title: 'Repeated executive turnover within short succession; retention below 60%', desc: 'Chronic churn established. No recovery phase between leadership transitions.', band: 3, tag: 'Workforce', subs: 'Governance ↔ Workforce ↔ Climate' },
     { date: 'Q3 2024', title: 'Ombudsman complaint; ongoing psychosocial audit', desc: 'Multiple external oversight bodies engaged simultaneously. Sustained stress across all subsystems.', band: 3, tag: 'External Scrutiny', subs: 'All subsystems' },
   ];
   
