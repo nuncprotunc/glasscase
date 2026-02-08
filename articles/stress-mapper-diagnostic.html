@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZT6N8DGQN9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZT6N8DGQN9');
+    </script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="5ak5S54IdTWG1s2khqZLcg" async></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When Institutions Are Under Stress, the Signals Are Already There | GlassCase</title>
+    <meta name="description" content="Institutional stress leaves observable traces — FOI refusal spikes, leadership churn, workforce instability. A structured triage tool for reading those signals.">
+    <meta name="author" content="Jay Spudvilas (Jayden Spudvilas-Powell)">
+    <link rel="canonical" href="https://glasscase.org/articles/stress-mapper-diagnostic">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="When Institutions Are Under Stress, the Signals Are Already There">
+    <meta property="og:description" content="A structured triage tool for reading institutional stress signals.">
+    <meta property="og:site_name" content="GlassCase">
+    <meta property="og:locale" content="en_AU">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://glasscase.org/articles/stress-mapper-diagnostic">
+    <meta property="og:image" content="https://glasscase.org/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="When Institutions Are Under Stress, the Signals Are Already There">
+    <meta property="article:published_time" content="2026-02-08">
+    <meta property="article:author" content="Jay Spudvilas">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="When Institutions Are Under Stress, the Signals Are Already There">
+    <meta name="twitter:description" content="A structured triage tool for reading institutional stress signals.">
+    <meta name="twitter:image" content="https://glasscase.org/og-image.png">
+    <meta name="twitter:image:alt" content="When Institutions Are Under Stress, the Signals Are Already There">
+    
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "When Institutions Are Under Stress, the Signals Are Already There",
+      "description": "Institutional stress leaves observable traces — FOI refusal spikes, leadership churn, workforce instability. A structured triage tool for reading those signals.",
+      "author": {
+        "@type": "Person",
+        "name": "Jay Spudvilas",
+        "alternateName": "Jayden Spudvilas-Powell",
+        "url": "https://jayspudvilas.com/",
+        "sameAs": [
+          "https://linkedin.com/in/jayspudvilas",
+          "https://orcid.org/0009-0000-0945-0380",
+          "https://github.com/nuncprotunc",
+          "https://substack.com/@glasscase",
+          "https://glasscase.substack.com/"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "GlassCase",
+        "url": "https://glasscase.org/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://glasscase.org/favicon-512.svg"
+        }
+      },
+      "datePublished": "2026-02-08",
+      "dateModified": "2026-02-08",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://glasscase.org/articles/stress-mapper-diagnostic"
+      },
+      "image": "https://glasscase.org/og-image.png",
+      "inLanguage": "en-AU",
+      "keywords": "institutional stress, diagnostic tool, composite indicators, transparency, FOI, organisational health, triage, GlassCase, Australia"
+    }
+    </script>
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon-512.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="/css/style.css?v=2026-02-08">
+    
+    <style>
+        /* Article-specific styles */
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        article {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+        }
+
+        .article-header {
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--ice-blue);
+        }
+
+        .article-meta {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 0.875rem;
+            color: var(--slate);
+            margin-bottom: 2rem;
+        }
+
+        .hero {
+            margin: 0 0 2.25rem 0;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(58, 190, 249, 0.18);
+            background: rgba(58, 190, 249, 0.06);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .hero img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .hero figcaption {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 0.875rem;
+            color: rgba(232, 244, 248, 0.75);
+            padding: 0.85rem 1rem;
+            background: rgba(26, 31, 46, 0.65);
+            border-top: 1px solid rgba(58, 190, 249, 0.14);
+        }
+
+        .article-content {
+            font-size: 1rem;
+            line-height: 1.75;
+            color: rgba(232, 244, 248, 0.92);
+            font-weight: 400;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .article-content strong {
+            font-weight: 700;
+            color: var(--ice-blue);
+        }
+
+        .article-content em {
+            font-style: italic;
+        }
+
+        .article-content a {
+            color: var(--ice-blue);
+            text-decoration: underline;
+        }
+
+        .article-content a:hover {
+            text-decoration: none;
+        }
+
+        .cta-box {
+            margin: 2.5rem 0;
+            text-align: center;
+        }
+
+        .cta-box a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--transparency-cyan);
+            color: #fff;
+            padding: 0.85rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            border: none;
+            box-shadow: 0 4px 14px rgba(58, 190, 249, 0.25);
+            transition: all 0.2s ease;
+        }
+
+        .cta-box a:hover {
+            background: var(--ice-blue);
+            color: var(--deep-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(58, 190, 249, 0.35);
+        }
+
+        .comments {
+            margin-top: 3rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(58, 190, 249, 0.18);
+        }
+
+        .comments h2 {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 1.25rem;
+            font-weight: 800;
+            letter-spacing: -0.2px;
+            color: var(--ice-blue);
+            margin-bottom: 1rem;
+        }
+
+        .subscribe-cta {
+            margin-top: 2rem;
+            padding: 1.25rem 1.5rem;
+            border-radius: 10px;
+            background: rgba(58, 190, 249, 0.06);
+            border: 1px solid rgba(58, 190, 249, 0.18);
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            color: rgba(232, 244, 248, 0.88);
+        }
+
+        .subscribe-cta a {
+            color: var(--transparency-cyan);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-weight: 700;
+        }
+
+        .subscribe-cta a:hover {
+            color: var(--ice-blue);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 3rem;
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            color: var(--slate);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            color: var(--ice-blue);
+        }
+    </style>
+</head>
+<body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <!-- These placeholders are automatically filled by /js/components.js -->
+    <div id="shared-header"></div>
+    <div id="shared-mobile-menu"></div>
+
+    <main id="content">
+        <article>
+            <header class="article-header">
+                <h1>When Institutions Are Under Stress, the Signals Are Already There</h1>
+                <div class="article-meta">
+                    <time datetime="2026-02-08">February 8, 2026</time> · Jay Spudvilas · 4 min read
+                </div>
+            </header>
+
+            <figure class="hero">
+                <img src="/og-image.png" alt="GlassCase" loading="lazy">
+                <figcaption>GlassCase findings — institutional stress leaves traces before anyone calls it a crisis.</figcaption>
+            </figure>
+
+            <div class="article-content">
+                <p>Before an institution enters crisis, it leaks signals. FOI refusal rates climb. Leadership turns over. Staff retention drops. Grievances accumulate. External oversight bodies start showing up more often. None of these signals are hidden. They sit in quarterly statistics, workforce reports, compliance records. The problem is that nobody maps them together.</p>
+
+                <p>Each signal, in isolation, looks manageable. A principal leaves — that happens. A FOI request gets refused — agencies have discretion. A WorkSafe visit follows an OHS report — the system is working. But when you lay these signals across time and across subsystems, a pattern emerges that no single data point reveals on its own.</p>
+
+                <p>I kept running into this. Institutions under genuine stress where every individual indicator had a plausible explanation, but the aggregate picture was unmistakable. The question was always the same: <strong>how do you structure that observation so it is legible, defensible and useful?</strong></p>
+
+                <p>That is what the Institutional Stress Mapper does.</p>
+
+                <p>It decomposes institutional health into five subsystems: <strong>Leadership &amp; Governance</strong>, <strong>Workforce Stability</strong>, <strong>Transparency &amp; Compliance</strong>, <strong>Organisational Climate</strong> and <strong>External Scrutiny</strong>. Each subsystem is scored on a coarse 0–3 ordinal scale per time period. Scores feed into a weighted composite index on a 0–10 scale, mapped to four severity bands: Baseline, Elevated, Acute, Chronic.</p>
+
+                <p>The design draws on OECD/JRC composite indicator methodology. The subsystem decomposition follows Reason's organisational accident model — latent failures accumulating across layers before surfacing as active failures. The severity bands borrow from Ayres and Braithwaite's responsive regulation framework: graduated escalation based on signal strength. Vaughan's normalisation of deviance explains why the timeline view matters. Each tolerated deviation resets the baseline. Stress compounds.</p>
+
+                <p>Transparency &amp; Compliance carries the highest weight (×1.3) because FOI data is the most publicly verifiable signal of governance health. OAIC quarterly statistics provide longitudinal data that anyone can check. When refusal rates spike or processing times blow out, that is a measurable signal — not an inference.</p>
+
+                <p>The tool is deliberately coarse. It scores at triage level. It does not produce findings or conclusions. It structures how a user interprets observable signals and surfaces where deeper inquiry may be warranted. Two users scoring the same institution for the same period may produce different results. That is expected. Disagreement between scorers highlights where signals are ambiguous or contested — which is itself informative.</p>
+
+                <div class="cta-box">
+                    <a href="/stress-mapper">Open the Stress Mapper</a>
+                </div>
+
+                <p>Everything stays in the browser. All data is stored locally. Nothing is transmitted to GlassCase servers. Users can export a structured JSON file with scores, justification notes, computed indices and full metadata.</p>
+
+                <p>We built this because the gap is real. Oversight practitioners, researchers and educators need structured ways to read institutional signals over time. The alternative is narrative — and narrative, without the discipline of concurrent observable data, carries legal, ethical and reputational risk. The Stress Mapper constrains that risk by anchoring every observation to a subsystem score and a time period.</p>
+
+                <p>The <a href="/stress-mapper-methodology">full methodology note</a> covers construct design, scoring logic, weighting rationale, sensitivity considerations and limitations in detail. The tool does not establish causation, intent, motive or wrongdoing. It is diagnostic and forward-looking.</p>
+
+                <p>The signals are already there. The question is whether anyone is reading them together.</p>
+            </div>
+
+            <div class="subscribe-cta">
+                Get new essays by email: <a href="https://glasscase.substack.com/" target="_blank" rel="noopener noreferrer">Subscribe on Substack</a>
+            </div>
+
+            <section class="comments" aria-label="Comments">
+                <h2>Comments</h2>
+                <script src="https://giscus.app/client.js"
+                    data-repo="nuncprotunc/glasscase"
+                    data-repo-id="R_kgDOQKqshg"
+                    data-category="General"
+                    data-category-id="DIC_kwDOQKqshs4C0Y7d"
+                    data-mapping="pathname"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="preferred_color_scheme"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+                </script>
+            </section>
+
+            <a href="/findings" class="back-link">← Back to Findings</a>
+        </article>
+    </main>
+
+    <footer>
+        <div id="shared-footer"></div>
+
+        <div class="footer-bottom">
+            <div class="footer-legal-row">
+                <span class="footer-copyright">© 2025–2026 GlassCase · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></span>
+            </div>
+            <div class="footer-disclaimer-group">
+                <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
+                <p class="footer-disclaimer">Information only. It is not a substitute for professional assessment or legal advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Logic -->
+    <script src="/js/main.js?v=2025-12-31"></script>
+    <script src="/js/components.js?v=2026-01-31"></script>
+</body>
+</html>
