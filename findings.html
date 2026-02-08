@@ -105,63 +105,116 @@
         .article-list {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
+            gap: 20px;
             margin-top: 2rem;
         }
 
         .article-card {
-            background: rgba(58, 190, 249, 0.04);
-            border: 1px solid rgba(58, 190, 249, 0.15);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: all 0.2s ease;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto auto auto auto;
+            gap: 0 24px;
+            align-items: start;
+            background: linear-gradient(135deg, rgba(26, 31, 46, 0.6), rgba(26, 31, 46, 0.3));
+            border: 1px solid rgba(74, 159, 216, 0.2);
+            border-radius: 14px;
+            padding: 24px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
         }
 
-        .article-card:hover {
-            background: rgba(58, 190, 249, 0.08);
-            border-color: rgba(58, 190, 249, 0.3);
+        .article-card:hover,
+        .article-card:focus {
+            border-color: var(--glass-blue);
+            background: linear-gradient(135deg, rgba(26, 31, 46, 0.8), rgba(26, 31, 46, 0.5));
             transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(58, 190, 249, 0.1);
+        }
+
+        .article-meta-row {
+            grid-column: 1;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .article-topic {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            background: var(--glass-blue);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .article-category {
+            font-family: var(--font-mono);
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--transparency-cyan);
+            font-weight: 600;
         }
 
         .article-card h2 {
+            grid-column: 1;
             color: var(--ice-blue);
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             font-weight: 700;
-            margin: 0 0 0.5rem 0;
+            margin: 0 0 6px 0;
             line-height: 1.3;
         }
 
-        .article-card h2 a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .article-card h2 a:hover {
-            text-decoration: underline;
-        }
-
         .article-meta {
+            grid-column: 1;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
             color: var(--slate);
-            font-size: 0.875rem;
-            margin-bottom: 0.75rem;
+            margin-bottom: 12px;
         }
 
         .article-excerpt {
+            grid-column: 1;
+            font-size: 0.95rem;
             color: var(--slate);
-            line-height: 1.6;
+            line-height: 1.7;
             margin: 0;
         }
 
-        .read-more {
-            display: inline-block;
-            margin-top: 0.75rem;
-            color: var(--ice-blue);
+        .article-cta {
+            grid-column: 2;
+            grid-row: 1 / -1;
+            align-self: center;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
             font-weight: 600;
-            text-decoration: none;
+            letter-spacing: 0.05em;
+            color: var(--transparency-cyan);
+            white-space: nowrap;
+            opacity: 0.6;
+            transition: opacity 0.2s;
         }
 
-        .read-more:hover {
-            text-decoration: underline;
+        .article-card:hover .article-cta {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .article-card {
+                grid-template-columns: 1fr;
+            }
+
+            .article-cta {
+                grid-column: 1;
+                grid-row: auto;
+                margin-top: 12px;
+            }
         }
     </style>
 </head>
@@ -177,19 +230,27 @@
         <p class="subtitle">Essays and analysis on administrative law, transparency, and civic technology.</p>
         
         <div class="article-list">
-            <article class="article-card">
-                <h2><a href="/articles/admin-decisions-fail.html">Why Administrative Decisions Fail When the Logic Was Right There</a></h2>
+            <a class="article-card" href="/articles/admin-decisions-fail.html">
+                <div class="article-meta-row">
+                    <span class="article-topic">Essay</span>
+                    <span class="article-category">Administrative Law</span>
+                </div>
+                <h2>Why Administrative Decisions Fail When the Logic Was Right There</h2>
                 <div class="article-meta">December 30, 2025 · 5 min read</div>
-                <p class="article-excerpt">Many administrative decisions fail review not because the decision-maker misunderstood the law, but because a legally required consideration never appears in the reasons. A map of what must be considered.</p>
-                <a href="/articles/admin-decisions-fail.html" class="read-more">Read more →</a>
-            </article>
+                <p class="article-excerpt">Many administrative decisions fail review because a legally required consideration never appears in the reasons. A map of what must be considered.</p>
+                <span class="article-cta">Read →</span>
+            </a>
 
-            <article class="article-card">
-                <h2><a href="/articles/redactions-chaotic.html">Why Redactions Look Chaotic When They're Not</a></h2>
+            <a class="article-card" href="/articles/redactions-chaotic.html">
+                <div class="article-meta-row">
+                    <span class="article-topic">Essay</span>
+                    <span class="article-category">FOI &amp; Transparency</span>
+                </div>
+                <h2>Why Redactions Look Chaotic When They're Not</h2>
                 <div class="article-meta">December 28, 2025 · 5 min read</div>
-                <p class="article-excerpt">Most Freedom of Information decisions look inconsistent because we never see the logic underneath them. A simple map of FOI logic and how the Redaction Taxonomy surfaces hidden decision pathways.</p>
-                <a href="/articles/redactions-chaotic.html" class="read-more">Read more →</a>
-            </article>
+                <p class="article-excerpt">Most FOI decisions look inconsistent because we never see the logic underneath them. A simple map of FOI logic and how the Redaction Taxonomy surfaces hidden decision pathways.</p>
+                <span class="article-cta">Read →</span>
+            </a>
         </div>
     </main>
 
