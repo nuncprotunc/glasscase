@@ -11,7 +11,7 @@ main {
 article {
     font-family: 'Manrope', system-ui, -apple-system, sans-serif;
     font-variant-ligatures: none;
-    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0, "calt" 0;
 }
 
 .article-header {
