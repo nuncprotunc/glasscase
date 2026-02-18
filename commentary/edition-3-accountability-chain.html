@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Accountability Chain — Three Fractures</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0F1114;
+    --surface: #16181D;
+    --surface-elevated: #1C1F26;
+    --border: #2A2D35;
+    --border-subtle: #22252C;
+    --text-primary: #E8F4F8;
+    --text-secondary: #8B8F99;
+    --text-muted: #5C6070;
+    --form-color: #4A9FD8;
+    --form-bg: rgba(74, 159, 216, 0.07);
+    --form-border: rgba(74, 159, 216, 0.22);
+    --substance-color: #C4453C;
+    --substance-bg: rgba(196, 69, 60, 0.06);
+    --substance-border: rgba(196, 69, 60, 0.2);
+    --connector: #2A2D35;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'DM Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .container {
+    width: 780px;
+    max-width: 100%;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .header-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  .header-sub {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  /* Column Headers */
+  .column-headers {
+    display: grid;
+    grid-template-columns: 72px 1fr 48px 1fr;
+    gap: 0;
+    margin-bottom: 20px;
+    padding: 0 4px;
+  }
+
+  .col-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .col-label-form {
+    color: var(--form-color);
+    grid-column: 2;
+  }
+
+  .col-label-substance {
+    color: var(--substance-color);
+    grid-column: 4;
+    text-align: left;
+  }
+
+  /* Stage */
+  .stage {
+    position: relative;
+    margin-bottom: 12px;
+  }
+
+  .stage:last-child {
+    margin-bottom: 0;
+  }
+
+  .stage-row {
+    display: grid;
+    grid-template-columns: 72px 1fr 48px 1fr;
+    gap: 0;
+    align-items: center;
+    min-height: 88px;
+  }
+
+  /* Edition marker */
+  .edition-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+  }
+
+  .edition-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .edition-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    position: relative;
+    z-index: 2;
+  }
+
+  .stage:nth-child(1) .edition-dot { border-color: #4A9FD8; }
+  .stage:nth-child(2) .edition-dot { border-color: #5A4040; }
+  .stage:nth-child(3) .edition-dot { border-color: var(--substance-color); }
+
+  /* Cards */
+  .card {
+    padding: 16px 20px;
+    border-radius: 6px;
+    border: 1px solid;
+    position: relative;
+  }
+
+  .card-form {
+    background: var(--form-bg);
+    border-color: var(--form-border);
+  }
+
+  .card-substance {
+    background: var(--substance-bg);
+    border-color: var(--substance-border);
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 5px;
+  }
+
+  .card-form .card-title {
+    color: var(--form-color);
+  }
+
+  .card-substance .card-title {
+    color: var(--substance-color);
+  }
+
+  .card-desc {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Fracture connector */
+  .fracture-zone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .fracture-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .fracture-line {
+    width: 20px;
+    height: 1.5px;
+    position: relative;
+  }
+
+  .fracture-line::before,
+  .fracture-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+
+  .fracture-line::before {
+    left: 0;
+    width: 7px;
+  }
+
+  .fracture-line::after {
+    right: 0;
+    width: 7px;
+  }
+
+  .stage:nth-child(1) .fracture-line::before,
+  .stage:nth-child(1) .fracture-line::after { background: #4A9FD8; }
+
+  .stage:nth-child(2) .fracture-line::before,
+  .stage:nth-child(2) .fracture-line::after { background: #7A4A45; }
+
+  .stage:nth-child(3) .fracture-line::before,
+  .stage:nth-child(3) .fracture-line::after { background: var(--substance-color); }
+
+  /* Vertical connector between stages */
+  .connector {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    height: 24px;
+    position: relative;
+  }
+
+  .connector-line {
+    position: absolute;
+    left: 36px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--border), var(--border-subtle));
+  }
+
+  .connector-arrow {
+    position: absolute;
+    left: 32px;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid var(--border);
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+  }
+
+  .footer-line {
+    font-family: 'DM Serif Display', serif;
+    font-size: 15px;
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .footer-attr {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="header">
+      <div class="header-label">Editions 1 – 3</div>
+      <h1>The Accountability Chain<br>Three Fractures</h1>
+      <div class="header-sub">At each stage, the system produces the formal output it requires.<br>The substance thins.</div>
+    </div>
+
+    <div class="column-headers">
+      <div></div>
+      <div class="col-label col-label-form">Formal Output</div>
+      <div></div>
+      <div class="col-label col-label-substance">Substantive Reality</div>
+    </div>
+
+    <!-- Stage 1 -->
+    <div class="stage">
+      <div class="stage-row">
+        <div class="edition-marker">
+          <span class="edition-number">Ed. 1</span>
+          <div class="edition-dot"></div>
+        </div>
+        <div class="card card-form">
+          <div class="card-title">Deemed decision</div>
+          <div class="card-desc">Statutory deadline expires. The FOI Act deems a refusal to have occurred.</div>
+        </div>
+        <div class="fracture-zone">
+          <div class="fracture-icon">
+            <div class="fracture-line"></div>
+            <div class="fracture-line"></div>
+          </div>
+        </div>
+        <div class="card card-substance">
+          <div class="card-title">No decision made</div>
+          <div class="card-desc">No assessment of the request. No exercise of judgement. No reasons.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- Stage 2 -->
+    <div class="stage">
+      <div class="stage-row">
+        <div class="edition-marker">
+          <span class="edition-number">Ed. 2</span>
+          <div class="edition-dot"></div>
+        </div>
+        <div class="card card-form">
+          <div class="card-title">Statement of reasons</div>
+          <div class="card-desc">Agency issues a decision with reasons under the FOI Act.</div>
+        </div>
+        <div class="fracture-zone">
+          <div class="fracture-icon">
+            <div class="fracture-line"></div>
+            <div class="fracture-line"></div>
+            <div class="fracture-line"></div>
+          </div>
+        </div>
+        <div class="card card-substance">
+          <div class="card-title">Reasons inadequate</div>
+          <div class="card-desc">Factors listed but not weighed. Assertion substituted for analysis.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="connector">
+      <div class="connector-line"></div>
+      <div class="connector-arrow"></div>
+    </div>
+
+    <!-- Stage 3 -->
+    <div class="stage">
+      <div class="stage-row">
+        <div class="edition-marker">
+          <span class="edition-number">Ed. 3</span>
+          <div class="edition-dot"></div>
+        </div>
+        <div class="card card-form">
+          <div class="card-title">Review queue</div>
+          <div class="card-desc">IC review application lodged. Matter enters the statutory review process.</div>
+        </div>
+        <div class="fracture-zone">
+          <div class="fracture-icon">
+            <div class="fracture-line"></div>
+            <div class="fracture-line"></div>
+            <div class="fracture-line"></div>
+            <div class="fracture-line"></div>
+          </div>
+        </div>
+        <div class="card card-substance">
+          <div class="card-title">Review cannot reach</div>
+          <div class="card-desc">Caseload pressure. Reviews dormant for years. Deficient decisions persist untested.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-line">Each stage preserves form. The substance thins.</div>
+      <div class="footer-attr">GlassCase · Accountability by Design</div>
+    </div>
+
+  </div>
+</body>
+</html>
