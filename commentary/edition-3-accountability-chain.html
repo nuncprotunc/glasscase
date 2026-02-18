@@ -10,25 +10,26 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   :root {
-    --bg: #0F1114;
-    --surface: #16181D;
-    --surface-elevated: #1C1F26;
-    --border: #2A2D35;
-    --border-subtle: #22252C;
+    --bg-start: #1A1F2E;
+    --bg-mid: #0F1730;
+    --bg-end: #070b16;
+    --surface: rgba(26, 31, 46, 0.6);
+    --border: rgba(74, 159, 216, 0.25);
+    --border-subtle: rgba(74, 159, 216, 0.12);
     --text-primary: #E8F4F8;
-    --text-secondary: #8B8F99;
-    --text-muted: #5C6070;
+    --text-secondary: #9BAFC4;
+    --text-muted: #64748B;
     --form-color: #4A9FD8;
-    --form-bg: rgba(74, 159, 216, 0.07);
-    --form-border: rgba(74, 159, 216, 0.22);
-    --substance-color: #C4453C;
-    --substance-bg: rgba(196, 69, 60, 0.06);
-    --substance-border: rgba(196, 69, 60, 0.2);
-    --connector: #2A2D35;
+    --form-bg: rgba(74, 159, 216, 0.08);
+    --form-border: rgba(74, 159, 216, 0.25);
+    --substance-color: #3ABEF9;
+    --substance-bg: rgba(58, 190, 249, 0.06);
+    --substance-border: rgba(58, 190, 249, 0.2);
+    --connector: rgba(74, 159, 216, 0.25);
   }
 
   body {
-    background: var(--bg);
+    background: linear-gradient(180deg, var(--bg-start), var(--bg-mid) 50%, var(--bg-end));
     color: var(--text-primary);
     font-family: 'DM Sans', sans-serif;
     display: flex;
@@ -149,8 +150,8 @@
   }
 
   .stage:nth-child(1) .edition-dot { border-color: #4A9FD8; }
-  .stage:nth-child(2) .edition-dot { border-color: #5A4040; }
-  .stage:nth-child(3) .edition-dot { border-color: var(--substance-color); }
+  .stage:nth-child(2) .edition-dot { border-color: #3ABEF9; }
+  .stage:nth-child(3) .edition-dot { border-color: #3ABEF9; }
 
   /* Cards */
   .card {
@@ -231,13 +232,13 @@
   }
 
   .stage:nth-child(1) .fracture-line::before,
-  .stage:nth-child(1) .fracture-line::after { background: #4A9FD8; }
+  .stage:nth-child(1) .fracture-line::after { background: rgba(74, 159, 216, 0.5); }
 
   .stage:nth-child(2) .fracture-line::before,
-  .stage:nth-child(2) .fracture-line::after { background: #7A4A45; }
+  .stage:nth-child(2) .fracture-line::after { background: rgba(74, 159, 216, 0.7); }
 
   .stage:nth-child(3) .fracture-line::before,
-  .stage:nth-child(3) .fracture-line::after { background: var(--substance-color); }
+  .stage:nth-child(3) .fracture-line::after { background: #3ABEF9; }
 
   /* Vertical connector between stages */
   .connector {
@@ -254,7 +255,7 @@
     top: 0;
     bottom: 0;
     width: 1px;
-    background: linear-gradient(to bottom, var(--border), var(--border-subtle));
+    background: linear-gradient(to bottom, rgba(74, 159, 216, 0.3), rgba(74, 159, 216, 0.1));
   }
 
   .connector-arrow {
@@ -265,7 +266,7 @@
     height: 0;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-top: 5px solid var(--border);
+    border-top: 5px solid rgba(74, 159, 216, 0.3);
   }
 
   /* Footer */
