@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <defs>
+    <radialGradient id="purpleGlow" cx="10%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#6b21a8" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#6b21a8" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="blueGlow" cx="90%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#6b21a8"/>
+      <stop offset="100%" stop-color="#3b82f6"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="200" rx="6" fill="#0a0e17"/>
+  <rect width="800" height="200" rx="6" fill="url(#purpleGlow)"/>
+  <rect width="800" height="200" rx="6" fill="url(#blueGlow)"/>
+  
+  <!-- Edition label -->
+  <text x="40" y="60" font-family="system-ui, -apple-system, sans-serif" font-size="11" letter-spacing="3" fill="#a78bfa">EDITION 3</text>
+  
+  <!-- Title -->
+  <text x="40" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" fill="#f8fafc">When Review Can't Reach</text>
+  
+  <!-- Subtitle -->
+  <text x="40" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#94a3b8">When the corrective layer cannot operate</text>
+  
+  <!-- Accent line -->
+  <rect x="40" y="168" width="120" height="2" fill="url(#lineGrad)" opacity="0.5"/>
+  
+  <!-- Logo mark right side - larger -->
+  <g transform="translate(680, 65)">
+    <path d="M 18 49.5 Q 36 27, 54 49.5" stroke="#3b82f6" stroke-width="3.6" fill="none" opacity="0.8"/>
+    <circle cx="36" cy="38.7" r="7.2" fill="#8b5cf6"/>
+    <circle cx="54" cy="49.5" r="5.4" fill="#60a5fa"/>
+  </g>
+</svg>
