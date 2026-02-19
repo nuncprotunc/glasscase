@@ -93,6 +93,26 @@
       gap: 32px;
       padding: 64px 0;
       border-bottom: 1px solid var(--line);
+      align-items: center;
+    }
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+    .hero-visual svg {
+      width: 100%;
+      height: auto;
+      max-width: 480px;
+    }
+    @media (max-width: 768px) {
+      header.hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-visual {
+        display: none;
+      }
     }
     
     .title {
@@ -640,6 +660,120 @@
       <div>
         <h1 class="title">From PDFs to <i>public maps</i></h1>
         <p class="sub">GlassCase maps how law operates in practice, identifying discretion, delay and review structure across jurisdictions. Founded by Jay Spudvilas, the lab builds civic-legal tools grounded in lived administrative data. Public-facing pathway guides are delivered through <a href="https://lightkey.org">LightKey</a>, a GlassCase initiative.</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 480 220" width="480" height="220" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="a-beamGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="transparent"/>
+              <stop offset="50%" stop-color="#4a6a90"/>
+              <stop offset="100%" stop-color="#6a8ab8"/>
+            </linearGradient>
+            <linearGradient id="a-faceFill" x1="0" y1="0" x2="0.6" y2="1">
+              <stop offset="0%" stop-color="#12151f"/>
+              <stop offset="100%" stop-color="#0a0c14"/>
+            </linearGradient>
+            <linearGradient id="a-edgeGrad" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#4a9eff" stop-opacity="0.7"/>
+              <stop offset="50%" stop-color="#6ab8ff" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#4a9eff" stop-opacity="0.7"/>
+            </linearGradient>
+            <filter id="a-glow">
+              <feGaussianBlur stdDeviation="3" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="a-softGlow">
+              <feGaussianBlur stdDeviation="5" result="b"/>
+              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <style>
+              @keyframes a-beamIn {
+                0%, 100% { opacity: 0.35; stroke-dashoffset: 0; }
+                50% { opacity: 0.9; stroke-dashoffset: -20; }
+              }
+              .a-beam { animation: a-beamIn 6s ease-in-out infinite; stroke-dasharray: 8 4; }
+              @keyframes a-prismBreath {
+                0%, 100% { filter: drop-shadow(0 0 6px rgba(74,158,255,0.1)); opacity: 0.95; }
+                50% { filter: drop-shadow(0 0 24px rgba(74,158,255,0.2)); opacity: 1; }
+              }
+              .a-prism { animation: a-prismBreath 6s ease-in-out infinite; }
+              @keyframes a-refract {
+                0%, 5% { stroke-dashoffset: 300; opacity: 0; }
+                25% { opacity: 1; }
+                55% { stroke-dashoffset: 0; opacity: 1; }
+                80% { stroke-dashoffset: 0; opacity: 0.7; }
+                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
+              }
+              .a-ray { stroke-dasharray: 300; animation: a-refract 6s ease-in-out infinite; }
+              @keyframes a-labelFade {
+                0%, 20% { opacity: 0; transform: translateX(6px); }
+                40% { opacity: 1; transform: translateX(0); }
+                75% { opacity: 1; transform: translateX(0); }
+                95%, 100% { opacity: 0; transform: translateX(-3px); }
+              }
+              .a-label { animation: a-labelFade 6s ease-in-out infinite; }
+              @keyframes a-dotPulse {
+                0%, 15% { r: 0; opacity: 0; }
+                35% { r: 2.5; opacity: 1; }
+                75% { r: 2.5; opacity: 0.8; }
+                95%, 100% { r: 0; opacity: 0; }
+              }
+              .a-dot { animation: a-dotPulse 6s ease-in-out infinite; }
+              @keyframes a-innerLine {
+                0%, 100% { opacity: 0.08; }
+                50% { opacity: 0.2; }
+              }
+              .a-inner { animation: a-innerLine 6s ease-in-out infinite; }
+            </style>
+          </defs>
+
+          <!-- Incoming beam -->
+          <line class="a-beam" x1="10" y1="110" x2="148" y2="110"
+            stroke="url(#a-beamGrad)" stroke-width="1.8"/>
+
+          <!-- Prism -->
+          <g class="a-prism">
+            <polygon points="156,42 226,178 86,178" fill="url(#a-faceFill)"
+              stroke="url(#a-edgeGrad)" stroke-width="1" stroke-linejoin="bevel"/>
+            <line class="a-inner" x1="156" y1="42" x2="170" y2="128" stroke="#4a9eff" stroke-width="0.4"/>
+            <line class="a-inner" x1="156" y1="42" x2="132" y2="140" stroke="#4a9eff" stroke-width="0.3"/>
+            <line class="a-inner" x1="110" y1="178" x2="186" y2="100" stroke="#4a9eff" stroke-width="0.25"/>
+            <circle cx="188" cy="97" r="2" fill="#4a9eff" opacity="0.25"/>
+          </g>
+
+          <!-- Spectrum rays -->
+          <line class="a-ray" x1="200" y1="74" x2="420" y2="18"
+            stroke="#4a9eff" stroke-width="1.8" filter="url(#a-glow)"
+            style="animation-delay: 0s;"/>
+          <line class="a-ray" x1="204" y1="88" x2="420" y2="60"
+            stroke="#5ec4ff" stroke-width="1.8" filter="url(#a-glow)"
+            style="animation-delay: 0.15s;"/>
+          <line class="a-ray" x1="208" y1="102" x2="420" y2="102"
+            stroke="#e0e4f0" stroke-width="1.8" filter="url(#a-glow)"
+            style="animation-delay: 0.3s;"/>
+          <line class="a-ray" x1="210" y1="116" x2="420" y2="144"
+            stroke="#f0c56e" stroke-width="1.8" filter="url(#a-glow)"
+            style="animation-delay: 0.45s;"/>
+          <line class="a-ray" x1="212" y1="130" x2="420" y2="186"
+            stroke="#e86880" stroke-width="1.8" filter="url(#a-glow)"
+            style="animation-delay: 0.6s;"/>
+
+          <!-- End dots -->
+          <circle class="a-dot" cx="420" cy="18" r="0" fill="#4a9eff" style="animation-delay: 0.6s;" filter="url(#a-softGlow)"/>
+          <circle class="a-dot" cx="420" cy="60" r="0" fill="#5ec4ff" style="animation-delay: 0.75s;" filter="url(#a-softGlow)"/>
+          <circle class="a-dot" cx="420" cy="102" r="0" fill="#e0e4f0" style="animation-delay: 0.9s;" filter="url(#a-softGlow)"/>
+          <circle class="a-dot" cx="420" cy="144" r="0" fill="#f0c56e" style="animation-delay: 1.05s;" filter="url(#a-softGlow)"/>
+          <circle class="a-dot" cx="420" cy="186" r="0" fill="#e86880" style="animation-delay: 1.2s;" filter="url(#a-softGlow)"/>
+
+          <!-- Labels -->
+          <g font-family="'DM Sans',sans-serif" font-size="9" font-weight="400">
+            <text class="a-label" x="428" y="21" fill="#4a9eff" style="animation-delay: 0.7s;">PROCESS</text>
+            <text class="a-label" x="428" y="63" fill="#5ec4ff" style="animation-delay: 0.85s;">DISCRETION</text>
+            <text class="a-label" x="428" y="105" fill="#e0e4f0" style="animation-delay: 1.0s;">DECISION</text>
+            <text class="a-label" x="428" y="147" fill="#f0c56e" style="animation-delay: 1.15s;">DELAY</text>
+            <text class="a-label" x="428" y="189" fill="#e86880" style="animation-delay: 1.3s;">REVIEW</text>
+          </g>
+        </svg>
       </div>
     </header>
 
