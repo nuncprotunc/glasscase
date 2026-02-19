@@ -28,39 +28,7 @@ const COMPONENTS = {
             <line x1="45" y1="40" x2="72" y2="40" stroke="#3ABEF9" stroke-width="2.5" opacity="0.9" class="shimmer"/>
             <line x1="45" y1="40" x2="72" y2="52" stroke="#F4C430" stroke-width="2" opacity="0.85" class="shimmer"/>
           </svg>
-          <svg viewBox="0 0 220 52" width="220" height="52" xmlns="http://www.w3.org/2000/svg" aria-label="GlassCase">
-            <defs>
-              <linearGradient id="boxFill" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#141824"/>
-                <stop offset="100%" stop-color="#0e1018"/>
-              </linearGradient>
-              <linearGradient id="boxStroke" x1="0" y1="0" x2="1" y2="1">
-                <stop offset="0%" stop-color="#3a5a80" stop-opacity="0.6"/>
-                <stop offset="50%" stop-color="#4a7aaa" stop-opacity="0.35"/>
-                <stop offset="100%" stop-color="#3a5a80" stop-opacity="0.6"/>
-              </linearGradient>
-            </defs>
-            <!-- Enclosure -->
-            <rect x="2" y="4" width="104" height="44" rx="7"
-              fill="url(#boxFill)" stroke="url(#boxStroke)" stroke-width="0.8"/>
-            <!-- Inner glow highlight -->
-            <rect x="5" y="7" width="98" height="38" rx="5"
-              fill="none" stroke="#4a7aaa" stroke-width="0.3" opacity="0.15"/>
-            <!-- Top edge shine -->
-            <line x1="16" y1="4.5" x2="94" y2="4.5" stroke="#6a9ac4" stroke-width="0.4" opacity="0.25"/>
-            <!-- Glass text -->
-            <text x="54" y="36" text-anchor="middle"
-              font-family="'Source Serif 4','Libre Baskerville','Georgia',serif" font-style="italic" font-weight="400"
-              font-size="24" fill="#c0d0e4" letter-spacing="-0.01em">Glass</text>
-            <!-- Separator -->
-            <text x="122" y="36" text-anchor="middle"
-              font-family="'DM Sans','Helvetica Neue',sans-serif" font-weight="300"
-              font-size="22" fill="#3a5a80" opacity="0.6">/</text>
-            <!-- CASE -->
-            <text x="138" y="35"
-              font-family="'DM Sans','Helvetica Neue',sans-serif" font-weight="400"
-              font-size="21" fill="#7a98b8" letter-spacing="0.12em">CASE</text>
-          </svg>
+          <p class="brand-name"><span class="glass">Glass</span><span class="divider">/</span><span class="case">Case</span></p>
         </div>
         <div class="nav-right">
           <button class="mobile-menu-button" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
