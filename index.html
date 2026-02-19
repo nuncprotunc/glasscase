@@ -706,12 +706,13 @@
               }
               .a-ray { stroke-dasharray: 300; animation: a-refract 6s ease-in-out infinite; }
               @keyframes a-refract-mid {
-                0%, 20% { opacity: 0; }
-                35% { opacity: 1; }
-                75% { opacity: 0.85; }
-                95%, 100% { opacity: 0; }
+                0%, 5% { stroke-dashoffset: 212; opacity: 0; }
+                25% { opacity: 1; }
+                55% { stroke-dashoffset: 0; opacity: 1; }
+                80% { stroke-dashoffset: 0; opacity: 0.7; }
+                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
               }
-              .a-ray-mid { animation: a-refract-mid 6s ease-in-out infinite; }
+              .a-ray-mid { stroke-dasharray: 212; animation: a-refract-mid 6s ease-in-out infinite; }
               @keyframes a-labelFade {
                 0%, 20% { opacity: 0; transform: translateX(6px); }
                 40% { opacity: 1; transform: translateX(0); }
