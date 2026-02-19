@@ -706,13 +706,12 @@
               }
               .a-ray { stroke-dasharray: 300; animation: a-refract 6s ease-in-out infinite; }
               @keyframes a-refract-mid {
-                0%, 5% { stroke-dashoffset: 212; opacity: 0; }
-                25% { opacity: 1; }
-                55% { stroke-dashoffset: 0; opacity: 1; }
-                80% { stroke-dashoffset: 0; opacity: 0.7; }
-                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
+                0%, 20% { opacity: 0; }
+                35% { opacity: 1; }
+                75% { opacity: 0.85; }
+                95%, 100% { opacity: 0; }
               }
-              .a-ray-mid { stroke-dasharray: 212; animation: a-refract-mid 6s ease-in-out infinite; }
+              .a-ray-mid { animation: a-refract-mid 6s ease-in-out infinite; }
               @keyframes a-labelFade {
                 0%, 20% { opacity: 0; transform: translateX(6px); }
                 40% { opacity: 1; transform: translateX(0); }
@@ -757,7 +756,7 @@
             stroke="#5ec4ff" stroke-width="1.8" filter="url(#a-glow)"
             style="animation-delay: 0.15s;"/>
           <line class="a-ray-mid" x1="208" y1="102" x2="420" y2="102"
-            stroke="#b0c8e8" stroke-width="2.2" filter="url(#a-glow)"
+            stroke="#9ab8d8" stroke-width="2.5"
             style="animation-delay: 0.3s;"/>
           <line class="a-ray" x1="210" y1="116" x2="420" y2="144"
             stroke="#f0c56e" stroke-width="1.8" filter="url(#a-glow)"
