@@ -37,3 +37,6 @@ yarn-error.log*
 *.tmp
 *.bak
 .cache/
+
+# Private strategy/prep docs (never push to GitHub Pages)
+private/
