@@ -495,6 +495,66 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* LightKey bridge block */
+    .lk-bridge {
+      border-top: 1px solid rgba(61, 122, 138, 0.25);
+      border-bottom: 1px solid rgba(61, 122, 138, 0.25);
+      padding: 48px 0;
+    }
+    .lk-bridge-inner {
+      max-width: 640px;
+    }
+    .lk-bridge-heading {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .lk-bridge-icon {
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      opacity: 0.9;
+    }
+    .lk-bridge-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ice-blue);
+      margin: 0 0 4px;
+      border: none;
+      padding: 0;
+    }
+    .lk-bridge-badge {
+      font-size: 0.75rem;
+      color: var(--slate);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    .lk-bridge-desc {
+      font-size: 0.95rem;
+      color: var(--white);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      opacity: 0.85;
+    }
+    .lk-bridge-cta {
+      display: inline-block;
+      background: #3D7A8A;
+      color: #F5F0E8;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 10px 22px;
+      border-radius: 6px;
+      letter-spacing: 0.02em;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .lk-bridge-cta:hover {
+      background: #2e5f6b;
+      color: #ffffff;
+    }
   </style>
 </head>
 <body>
@@ -654,11 +714,24 @@
       </div>
     </section>
 
-    <section id="lightkey">
-      <h2>LightKey</h2>
-      <p class="lead">LightKey is the public accessibility initiative of GlassCase. It publishes step-by-step pathway guides and accessible process explainers for people interacting with government systems, with particular attention to neurodivergent and disabled users.</p>
-      <div class="badges">
-        <a href="https://lightkey.org" class="badge"><b>Visit LightKey →</b> Pathway guides, process explainers, accessible navigation</a>
+    <section id="lightkey" class="lk-bridge">
+      <div class="lk-bridge-inner">
+        <div class="lk-bridge-heading">
+          <svg class="lk-bridge-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M6 32 L6 18 Q6 6 18 6 Q30 6 30 18 L30 32" stroke="#9ECFDA" stroke-width="1.5" fill="none"/>
+            <path d="M14 6 L15 2 L21 2 L22 6" stroke="#C4956A" stroke-width="1.5" fill="rgba(196,149,106,0.15)"/>
+            <circle cx="18" cy="3.5" r="0.8" fill="#C4956A"/>
+            <line x1="18" y1="4.3" x2="18" y2="5.5" stroke="#C4956A" stroke-width="0.8"/>
+            <line x1="6" y1="32" x2="30" y2="32" stroke="#9ECFDA" stroke-width="1.5"/>
+            <line x1="10" y1="31" x2="26" y2="31" stroke="#9ECFDA" stroke-width="0.6" opacity="0.6"/>
+          </svg>
+          <div>
+            <h2 class="lk-bridge-title">LightKey</h2>
+            <p class="lk-bridge-badge">Public accessibility initiative · A GlassCase project</p>
+          </div>
+        </div>
+        <p class="lk-bridge-desc">Step-by-step pathway guides and accessible process explainers for people interacting with government systems, with particular attention to neurodivergent and disabled users.</p>
+        <a href="https://lightkey.org" class="lk-bridge-cta">Visit LightKey →</a>
       </div>
     </section>
 
