@@ -503,7 +503,77 @@
       padding: 60px 0;
     }
     .lk-bridge-inner {
-      max-width: 640px;
+      max-width: 1100px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .lk-bridge-content {
+      min-width: 0;
+    }
+    .lk-bridge-preview {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .lk-browser-frame {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45), 0 2px 8px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .lk-browser-bar {
+      background: #2a2f3a;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .lk-browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+    }
+    .lk-browser-url {
+      flex: 1;
+      background: rgba(255,255,255,0.07);
+      border-radius: 4px;
+      height: 18px;
+      margin-left: 8px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+    }
+    .lk-browser-url span {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.35);
+      font-family: monospace;
+      letter-spacing: 0.02em;
+    }
+    .lk-browser-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .lk-preview-caption {
+      font-size: 0.75rem;
+      color: var(--slate);
+      opacity: 0.6;
+      font-style: italic;
+    }
+    @media (max-width: 768px) {
+      .lk-bridge-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+        max-width: 640px;
+      }
+      .lk-bridge-preview {
+        display: none;
+      }
     }
     .lk-bridge-heading {
       display: flex;
@@ -618,22 +688,36 @@
 
     <section id="lightkey" class="lk-bridge">
       <div class="lk-bridge-inner">
-        <div class="lk-bridge-heading">
-          <svg class="lk-bridge-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M6 32 L6 18 Q6 6 18 6 Q30 6 30 18 L30 32" stroke="#9ECFDA" stroke-width="1.5" fill="none"/>
-            <path d="M14 6 L15 2 L21 2 L22 6" stroke="#C4956A" stroke-width="1.5" fill="rgba(196,149,106,0.15)"/>
-            <circle cx="18" cy="3.5" r="0.8" fill="#C4956A"/>
-            <line x1="18" y1="4.3" x2="18" y2="5.5" stroke="#C4956A" stroke-width="0.8"/>
-            <line x1="6" y1="32" x2="30" y2="32" stroke="#9ECFDA" stroke-width="1.5"/>
-            <line x1="10" y1="31" x2="26" y2="31" stroke="#9ECFDA" stroke-width="0.6" opacity="0.6"/>
-          </svg>
-          <div>
-            <h2 class="lk-bridge-title">LightKey</h2>
-            <p class="lk-bridge-badge">Public accessibility initiative · A GlassCase initiative</p>
+        <div class="lk-bridge-content">
+          <div class="lk-bridge-heading">
+            <svg class="lk-bridge-icon" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6 32 L6 18 Q6 6 18 6 Q30 6 30 18 L30 32" stroke="#9ECFDA" stroke-width="1.5" fill="none"/>
+              <path d="M14 6 L15 2 L21 2 L22 6" stroke="#C4956A" stroke-width="1.5" fill="rgba(196,149,106,0.15)"/>
+              <circle cx="18" cy="3.5" r="0.8" fill="#C4956A"/>
+              <line x1="18" y1="4.3" x2="18" y2="5.5" stroke="#C4956A" stroke-width="0.8"/>
+              <line x1="6" y1="32" x2="30" y2="32" stroke="#9ECFDA" stroke-width="1.5"/>
+              <line x1="10" y1="31" x2="26" y2="31" stroke="#9ECFDA" stroke-width="0.6" opacity="0.6"/>
+            </svg>
+            <div>
+              <h2 class="lk-bridge-title">LightKey</h2>
+              <p class="lk-bridge-badge">Public accessibility initiative · A GlassCase initiative</p>
+            </div>
           </div>
+          <p class="lk-bridge-desc">Step-by-step pathway guides and accessible process explainers for people interacting with government systems. Designed with particular attention to neurodivergent people and people with disability.</p>
+          <a href="https://lightkey.org" class="lk-bridge-cta">Visit LightKey →</a>
         </div>
-        <p class="lk-bridge-desc">Step-by-step pathway guides and accessible process explainers for people interacting with government systems. Designed with particular attention to neurodivergent people and people with disability.</p>
-        <a href="https://lightkey.org" class="lk-bridge-cta">Visit LightKey →</a>
+        <div class="lk-bridge-preview" aria-hidden="true">
+          <div class="lk-browser-frame">
+            <div class="lk-browser-bar">
+              <div class="lk-browser-dot"></div>
+              <div class="lk-browser-dot"></div>
+              <div class="lk-browser-dot"></div>
+              <div class="lk-browser-url"><span>lightkey.org</span></div>
+            </div>
+            <img src="/lightkey-preview.png" alt="" width="1200" height="800" loading="lazy" decoding="async">
+          </div>
+          <p class="lk-preview-caption">lightkey.org — live site</p>
+        </div>
       </div>
     </section>
 
