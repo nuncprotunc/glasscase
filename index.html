@@ -111,7 +111,12 @@
         grid-template-columns: 1fr;
       }
       .hero-visual {
-        display: none;
+        display: flex;
+        margin-top: 8px;
+      }
+      .hero-visual svg {
+        max-width: 100%;
+        height: auto;
       }
     }
     
@@ -138,6 +143,10 @@
       font-size: clamp(16px, 3.8vw, 18px);
       max-width: min(760px, 75ch);
       line-height: 1.7;
+      margin-top: 0;
+    }
+    .sub + .sub {
+      margin-top: 1em;
     }
     
     .glass-panel {
@@ -245,6 +254,10 @@
       max-width: 880px;
       font-size: 17px;
       line-height: 1.7;
+      margin-top: 0;
+    }
+    p.lead + p.lead {
+      margin-top: 1em;
     }
 
     .founder-intro {
