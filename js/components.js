@@ -32,7 +32,6 @@ const COMPONENTS = {
         </div>
         <div class="nav-right">
           <nav class="desktop-nav">
-            <a href="https://glasscase.org/">Home</a>
             <a href="/tools">Tools</a>
             <a href="/findings">Findings</a>
             <a href="/commentary">Commentary</a>
@@ -61,7 +60,6 @@ const COMPONENTS = {
         <p class="mobile-menu-subtitle">Making Integrity Visible</p>
       </div>
       <nav>
-        <a href="https://glasscase.org/" onclick="closeMobileMenu()" data-nav="home">Home</a>
         <a href="/tools" onclick="closeMobileMenu()" data-nav="tools">Tools</a>
         <a href="/findings" onclick="closeMobileMenu()" data-nav="findings">Findings</a>
         <a href="/commentary" onclick="closeMobileMenu()" data-nav="commentary">Commentary</a>
