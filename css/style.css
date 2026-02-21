@@ -154,9 +154,15 @@ nav {
   cursor: pointer;
   transition: opacity 0.2s ease;
   /* Prevent reading mode from affecting brand */
-  line-height: 1.2;
-  letter-spacing: 0;
-  word-spacing: 0;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+  word-spacing: 0 !important;
+}
+
+.brand * {
+  line-height: 1.2 !important;
+  letter-spacing: 0.15px !important;
+  word-spacing: 0 !important;
 }
 
 .brand:hover {
