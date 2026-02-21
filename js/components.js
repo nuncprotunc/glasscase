@@ -7,7 +7,7 @@ const COMPONENTS = {
   header: `
     <nav>
       <div class="nav-inner">
-        <div class="brand">
+        <a href="https://glasscase.org/" class="brand" aria-label="GlassCase home">
           <svg width="32" height="32" viewBox="0 0 80 80" fill="none" aria-hidden="true">
             <defs>
               <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -29,7 +29,7 @@ const COMPONENTS = {
             <line x1="45" y1="40" x2="72" y2="52" stroke="#F4C430" stroke-width="2" opacity="0.85" class="shimmer"/>
           </svg>
           <p class="brand-name"><span class="glass">Glass</span><span class="divider">/</span><span class="case">Case</span></p>
-        </div>
+        </a>
         <div class="nav-right">
           <nav class="desktop-nav">
             <a href="/tools">Tools</a>
