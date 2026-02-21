@@ -174,10 +174,10 @@ nav {
   font-style: italic;
   font-weight: 700;
   font-size: 20px;
-  letter-spacing: 0.15px;
+  letter-spacing: 0.15px !important;
   display: inline-flex;
   align-items: center;
-  gap: 0.25em;
+  gap: 5px;
   margin: 0;
 }
 
@@ -186,8 +186,10 @@ nav {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 12px;
+  padding: 4px 12px !important;
   border-radius: 12px;
+  letter-spacing: 0 !important;
+  word-spacing: 0 !important;
   background: linear-gradient(145deg, rgba(74, 159, 216, 0.18), rgba(58, 190, 249, 0.08));
   border: 1px solid rgba(74, 159, 216, 0.5);
   box-shadow: 0 6px 24px rgba(58, 190, 249, 0.18);
