@@ -296,10 +296,6 @@ nav {
   .brand { justify-content: center; margin: 0 auto; }
   .nav-inner { justify-content: space-between; }
   .brand-name { font-size: clamp(18px, 5vw, 20px); }
-
-  .brand-name .glass {
-    transform: translateY(4px);
-  }
   
   .gc-reading-toggle {
     display: none !important;
