@@ -195,7 +195,7 @@ nav {
   box-shadow: 0 6px 24px rgba(58, 190, 249, 0.18);
   position: relative;
   overflow: hidden;
-  transform: translateY(-2px);
+  transform: translateY(-4px);
 }
 
 .brand-name .glass::after {
