@@ -42,6 +42,7 @@ const COMPONENTS = {
             <a href="/submissions">Submissions</a>
             <a href="/legal">Use &amp; Privacy</a>
             <a href="https://lightkey.org" target="_blank" rel="noopener">LightKey</a>
+            <a href="https://lawandlearning.com" target="_blank" rel="noopener">Law &amp; Learning</a>
           </nav>
         </div>
       </div>
@@ -61,6 +62,7 @@ const COMPONENTS = {
         <a href="/submissions" onclick="closeMobileMenu()" data-nav="submissions">Submissions</a>
         <a href="/legal" onclick="closeMobileMenu()" data-nav="legal">Use &amp; Privacy</a>
         <a href="https://lightkey.org" onclick="closeMobileMenu()" data-nav="lightkey">LightKey</a>
+        <a href="https://lawandlearning.com" onclick="closeMobileMenu()" target="_blank" rel="noopener">Law &amp; Learning</a>
       </nav>
     </div>
     <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
