@@ -1,0 +1,51 @@
+<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gct-prism" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9"/>
+    </linearGradient>
+    <linearGradient id="gct-beam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#4A9FD8" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="gct-ring" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4A9FD8"/>
+      <stop offset="100%" stop-color="#3ABEF9"/>
+    </linearGradient>
+    <linearGradient id="gct-divider" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4A9FD8"/>
+      <stop offset="100%" stop-color="#F4C430"/>
+    </linearGradient>
+  </defs>
+  <!-- Outer ring -->
+  <circle cx="150" cy="150" r="146" fill="#1A1F2E" stroke="url(#gct-ring)" stroke-width="4"/>
+  <!--
+    Canonical 80x80 prism scaled 1.5x, centred.
+    Prism: M30,20 L45,40 L30,60 → 1.5x → M45,30 L67,60 L45,90
+    Prism tip at x=67 → shift right +33 to centre at x=100 → M78,30 L100,60 L78,90
+    Shift down +40 so prism sits in upper half: M78,70 L100,100 L78,130
+    Beam: x1=8,y1=40 x2=30,y2=40 → 1.5x+shift → x1=42,y1=100 x2=78,y2=100
+    Rays from x=67+33=100: to 72,28 → 1.5x+shift → 140,82; 72,40→140,100; 72,52→140,118
+    Depth: M28,22 L42,40 L28,58 → 1.5x+shift → M75,73 L96,100 L75,127
+  -->
+  <!--
+    Mark bbox (current): x[42..140] → cx=91. Shift +59 so cx=150.
+  -->
+  <g transform="translate(43, 0)">
+    <path d="M 75 73 L 96 100 L 75 127 Z" fill="rgba(74,159,216,0.08)" stroke="rgba(74,159,216,0.15)" stroke-width="0.8" opacity="0.4"/>
+    <line x1="42" y1="100" x2="78" y2="100" stroke="url(#gct-beam)" stroke-width="3" opacity="0.6"/>
+    <path d="M 78 70 L 100 100 L 78 130 Z" fill="url(#gct-prism)" stroke="#4A9FD8" stroke-width="1.5"/>
+    <path d="M 81 82 L 96 100 L 81 118" fill="rgba(255,255,255,0.3)"/>
+    <line x1="100" y1="100" x2="140" y2="82" stroke="#4A9FD8" stroke-width="3" opacity="0.85"/>
+    <line x1="100" y1="100" x2="140" y2="100" stroke="#3ABEF9" stroke-width="3.5" opacity="0.9"/>
+    <line x1="100" y1="100" x2="140" y2="118" stroke="#F4C430" stroke-width="3" opacity="0.85"/>
+  </g>
+  <!-- Divider -->
+  <rect x="90" y="148" width="120" height="3" fill="url(#gct-divider)"/>
+  <!-- Text: JetBrains Mono -->
+  <text x="150" y="202" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="38" font-weight="700" fill="#f8fafc" text-anchor="middle">
+    <tspan fill="#f8fafc">GLASS</tspan><tspan fill="#4A9FD8">/</tspan>
+  </text>
+  <text x="150" y="244" font-family="JetBrains Mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace" font-size="38" font-weight="700" fill="#4A9FD8" text-anchor="middle">CASE</text>
+</svg>
