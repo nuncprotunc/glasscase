@@ -17,6 +17,17 @@
   --panel: rgba(26, 31, 46, 0.6);
   --line: rgba(74, 159, 216, 0.25);
   --glass-panel-bg: linear-gradient(180deg, rgba(26, 31, 46, 0.8), rgba(26, 31, 46, 0.4));
+  
+  /* Reading mode variables */
+  --lh-body: 1.6;
+  --ls-body: 0.01em;
+  --ws-body: 0.03em;
+}
+
+body.reading-relaxed {
+  --lh-body: 2.2;
+  --ls-body: 0.08em;
+  --ws-body: 0.12em;
 }
 
 * {
@@ -37,8 +48,11 @@ body {
   font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   background: linear-gradient(180deg, var(--bg-gradient-start), var(--bg-gradient-mid) 50%, var(--bg-gradient-end));
   color: var(--white);
-  line-height: 1.6;
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  word-spacing: var(--ws-body);
   min-height: 100vh;
+  transition: line-height 0.3s ease, letter-spacing 0.3s ease, word-spacing 0.3s ease;
 }
 
 a {
@@ -216,12 +230,56 @@ nav {
   color: var(--transparency-cyan);
 }
 
+/* Relaxed reading toggle button */
+.gc-reading-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--slate);
+  background: rgba(26, 31, 46, 0.6);
+  border: 1px solid rgba(74, 159, 216, 0.3);
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  white-space: nowrap;
+}
+
+.gc-reading-toggle:hover {
+  border-color: var(--transparency-cyan);
+  color: var(--transparency-cyan);
+  background: rgba(58, 190, 249, 0.1);
+}
+
+.gc-reading-toggle:focus-visible {
+  outline: 2px solid var(--transparency-cyan);
+  outline-offset: 2px;
+}
+
+.gc-reading-toggle[aria-pressed="true"] {
+  background: rgba(58, 190, 249, 0.15);
+  border-color: var(--transparency-cyan);
+  color: var(--ice-blue);
+}
+
+.gc-reading-toggle .toggle-icon {
+  font-size: 14px;
+  font-weight: 600;
+}
+
 /* Mobile responsive navigation */
 @media (max-width: 640px) {
   .nav-inner { gap: 1rem; padding: 1rem 1.5rem; }
   .brand { justify-content: center; margin: 0 auto; }
   .nav-inner { justify-content: space-between; }
   .brand-name { font-size: clamp(18px, 5vw, 20px); }
+  
+  .gc-reading-toggle {
+    display: none !important;
+  }
   
   .mobile-menu-button {
     display: flex;

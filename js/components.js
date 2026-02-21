@@ -31,9 +31,6 @@ const COMPONENTS = {
           <p class="brand-name"><span class="glass">Glass</span><span class="divider">/</span><span class="case">Case</span></p>
         </div>
         <div class="nav-right">
-          <button class="mobile-menu-button" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
           <nav class="desktop-nav">
             <a href="https://glasscase.org/">Home</a>
             <a href="/tools">Tools</a>
@@ -42,8 +39,17 @@ const COMPONENTS = {
             <a href="/submissions">Submissions</a>
             <a href="/legal">Use &amp; Privacy</a>
             <a href="https://lightkey.org" target="_blank" rel="noopener">LightKey</a>
-            <a href="https://lawandlearning.com" target="_blank" rel="noopener">Law &amp; Learning</a>
           </nav>
+          <button class="gc-reading-toggle" id="gcReadingToggle"
+                  aria-pressed="false"
+                  aria-label="Toggle relaxed reading spacing"
+                  title="Wider line spacing for easier reading">
+            <span class="toggle-icon" aria-hidden="true">Aa</span>
+            <span>Relaxed reading</span>
+          </button>
+          <button class="mobile-menu-button" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
         </div>
       </div>
     </nav>
@@ -62,7 +68,6 @@ const COMPONENTS = {
         <a href="/submissions" onclick="closeMobileMenu()" data-nav="submissions">Submissions</a>
         <a href="/legal" onclick="closeMobileMenu()" data-nav="legal">Use &amp; Privacy</a>
         <a href="https://lightkey.org" onclick="closeMobileMenu()" data-nav="lightkey">LightKey</a>
-        <a href="https://lawandlearning.com" onclick="closeMobileMenu()" target="_blank" rel="noopener">Law &amp; Learning</a>
       </nav>
     </div>
     <div class="mobile-menu-overlay" id="mobileMenuOverlay" onclick="closeMobileMenu()"></div>
@@ -109,7 +114,6 @@ const COMPONENTS = {
           <a href="/commentary">Commentary</a>
           <a href="/submissions">Submissions</a>
           <a href="https://lightkey.org">LightKey</a>
-          <a href="https://lawandlearning.com">Law &amp; Learning</a>
         </div>
       </div>
       <div class="footer-section">
@@ -149,6 +153,18 @@ function injectComponents() {
     const activeLink = document.querySelector(".mobile-menu [data-nav='" + activeNav + "']");
     if (activeLink) activeLink.classList.add('active');
   }
+
+  gcInitReadingToggle();
+}
+
+function gcInitReadingToggle() {
+  const btn = document.getElementById('gcReadingToggle');
+  if (!btn) return;
+  btn.addEventListener('click', function() {
+    const pressed = btn.getAttribute('aria-pressed') === 'true';
+    btn.setAttribute('aria-pressed', String(!pressed));
+    document.body.classList.toggle('reading-relaxed', !pressed);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', injectComponents);
