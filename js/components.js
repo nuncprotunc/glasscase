@@ -102,6 +102,7 @@ const COMPONENTS = {
           <a href="https://glasscase.org/#available-now">Available Now</a>
           <a href="https://glasscase.org/#roadmap">Roadmap</a>
           <a href="/legal">Use &amp; Privacy</a>
+          <a href="#" onclick="if(typeof resetAnalyticsConsent==='function')resetAnalyticsConsent();return false;">Cookie settings</a>
         </div>
       </div>
       <div class="footer-section">
