@@ -67,44 +67,60 @@
             padding: 0;
         }
 
-        .page-hero {
-            padding: 56px 0 40px;
-            border-bottom: none;
-        }
-        
-        h1 {
-            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            color: var(--ice-blue);
-        }
-        
-        .subtitle {
-            font-size: 1.125rem;
-            color: var(--slate);
-            margin-bottom: 1.75rem;
-            max-width: 800px;
-        }
-        
-        .content {
-            max-width: 800px;
+        .legal-hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 56px 28px 0;
+            text-align: center;
         }
 
-        .legal-sections {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 16px;
-            padding: 20px 0 40px;
+        .legal-hero-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--transparency-cyan);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .legal-hero h1 {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: clamp(26px, 5vw, 36px);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            color: var(--ice-blue);
+            margin-bottom: 14px;
+        }
+
+        .legal-hero-sub {
+            font-size: 16px;
+            color: var(--slate);
+            line-height: 1.85;
+            max-width: 880px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 8px;
+        }
+
+        .legal-updated {
+            font-size: 12.5px;
+            color: var(--slate);
+            opacity: 0.7;
+            margin-bottom: 40px;
+        }
+
+        .legal-body {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 28px 80px;
         }
 
         .legal-card {
             background: linear-gradient(180deg, rgba(26, 31, 46, 0.6), rgba(26, 31, 46, 0.3));
             border: 1px solid rgba(74, 159, 216, 0.25);
             border-radius: 14px;
-            padding: 20px;
+            padding: 2.25rem 2.5rem;
             transition: all 0.3s ease;
         }
 
@@ -113,37 +129,97 @@
             transform: translateY(-1px);
             box-shadow: 0 8px 24px rgba(58, 190, 249, 0.12);
         }
+
+        .legal-section + .legal-section {
+            margin-top: 1.75rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(74, 159, 216, 0.15);
+        }
+
+        .legal-section-num {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--slate);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
         
-        h2 {
-            font-size: 1.5rem;
+        .legal-section h2 {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            font-size: 1.0625rem;
             font-weight: 700;
             color: var(--transparency-cyan);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--line);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+            padding-bottom: 0;
+            border-bottom: none;
         }
         
-        main p {
-            margin-bottom: 1rem;
+        .legal-section p {
+            font-size: 15px;
             color: var(--white);
+            line-height: 1.85;
         }
-        
-        ul {
-            margin-left: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        li {
-            margin-bottom: 0.5rem;
-        }
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
 
-            .page-hero {
-                padding: 40px 0 28px;
+        .legal-section p + p {
+            margin-top: 0.75rem;
+        }
+        
+        .legal-section ul {
+            margin: 0.6rem 0 0.75rem 1.1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+        
+        .legal-section li {
+            font-size: 15px;
+            color: var(--white);
+            line-height: 1.75;
+        }
+
+        .legal-section a {
+            color: var(--transparency-cyan);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(74, 159, 216, 0.3);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .legal-section a:hover {
+            color: var(--ice-blue);
+            border-color: var(--ice-blue);
+        }
+
+        .legal-callout {
+            background: rgba(74, 159, 216, 0.08);
+            border: 1px solid rgba(74, 159, 216, 0.25);
+            border-radius: 8px;
+            padding: 0.9rem 1.1rem;
+            margin-top: 0.75rem;
+        }
+
+        .legal-callout p {
+            font-size: 14px;
+            color: var(--transparency-cyan);
+            line-height: 1.75;
+        }
+        
+        @media (max-width: 640px) {
+            .legal-hero {
+                padding: 40px 20px 0;
+            }
+            .legal-body {
+                padding: 0 20px 64px;
+            }
+            .legal-card {
+                padding: 1.5rem 1.25rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .legal-hero h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -152,17 +228,20 @@
     <div id="shared-header"></div>
     <div id="shared-mobile-menu"></div>
 
-    <main>
-        <div class="container">
-            <header class="page-hero">
-                <h1>Use, Privacy &amp; Legal</h1>
-                <p class="subtitle">Plain-English notes on how this site works. This page explains what the content is (and isn't), how analytics are used, and the basics on copyright, reuse and governing law.</p>
-                <p style="font-size: 0.875rem; color: var(--slate); margin-top: 0.5rem;">Last updated: 22 February 2026</p>
-            </header>
+    <div class="legal-hero">
+        <p class="legal-hero-label">glasscase.org</p>
+        <h1>Use, Privacy &amp; Legal</h1>
+        <p class="legal-hero-sub">Plain-English notes on how this site works. This page explains what the content is (and isn't), how analytics are used, and the basics on copyright, reuse and governing law.</p>
+        <p class="legal-updated">Last updated: 22 February 2026</p>
+    </div>
 
-            <div class="legal-sections">
-                <section class="legal-card">
-                    <h2>1. Information only — not legal advice</h2>
+    <main class="legal-body" aria-labelledby="legal-title">
+
+        <div class="legal-card">
+
+            <section class="legal-section" aria-labelledby="s1">
+                <p class="legal-section-num">Section 1</p>
+                <h2 id="s1">Information only &mdash; not legal advice</h2>
                     <p>GlassCase is a project of Jay Spudvilas (Jayden Spudvilas-Powell), operating in a personal capacity. References to "GlassCase" and "we" on this site refer to this project and its author. GlassCase is not a registered legal entity.</p>
                     <p>GlassCase.org is a civic-legal data lab. It publishes tools, taxonomies and guidance for analysing administrative processes, FOI redactions and transparency systems.</p>
                     <p>Nothing on this site is legal, financial or professional advice, and using this site does not create a solicitor-client or advisory relationship. This includes, but is not limited to, the <a href="/consideration-matrix">Consideration Matrix</a>, <a href="/redaction-taxonomy">Redaction Taxonomy</a>, <a href="/stress-mapper">Institutional Stress Mapper</a>, and any future tools published on this site. If you need advice, you should seek independent advice from a qualified professional in your jurisdiction.</p>
@@ -170,10 +249,11 @@
                     <p><a href="https://lightkey.org">LightKey</a> is a GlassCase initiative delivered as a separate site. Its pathway guides are educational resources only and are subject to the same limitations described on this page. <a href="https://lightkey.org/legal/">LightKey</a>, <a href="https://jayspudvilas.com/legal/">jayspudvilas.com</a> and <a href="https://lawandlearning.com/legal">Law &amp; Learning</a> have their own terms and privacy notices.</p>
                     <p>Future tools, including the FOI Process Visualiser and Procedural Fairness Simulator, are designed as educational resources, not professional advisory tools.</p>
                     <p>Unless clearly stated otherwise, all views are those of the project lead (Jay Spudvilas) and do not represent any current or past employer, agency or organisation.</p>
-                </section>
+            </section>
 
-                <section class="legal-card">
-                    <h2>2. Accuracy &amp; liability</h2>
+            <section class="legal-section" aria-labelledby="s2">
+                <p class="legal-section-num">Section 2</p>
+                <h2 id="s2">Accuracy &amp; liability</h2>
                     <p>We aim to keep information accurate and up to date, but we cannot guarantee completeness or that everything remains current over time. Law changes. Legislation is amended. Court decisions evolve the interpretation of statutory provisions. Content on this site may not reflect the most recent developments.</p>
                     <p>This page and all site content may be updated at any time without notice. The full version history of this site is publicly available on <a href="https://github.com/nuncprotunc/glasscase" target="_blank" rel="noopener">GitHub</a>, where you can review what changed and when.</p>
                     <p>All content, tools and resources on this site are provided "as is" and "as available" without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
@@ -181,19 +261,21 @@
                     <p>Tools and taxonomies are designed for comparative analysis and transparency auditing. They are not substitutes for statutory interpretation or official guidance. The <a href="https://glasscase.org/stress-mapper">Institutional Stress Mapper</a> produces diagnostic signals based on user-entered assessments. Output reflects the data entered by the user, not validated findings, and has not been independently verified. It should not be treated as evidence of institutional conduct. Statutory mappings and exemption references are provided for educational context only. They may be incomplete, simplified, or superseded by legislative amendment. Always verify against current legislation.</p>
                     <p>Materials on this site are not intended for use as evidence in legal proceedings or as a basis for formal complaints to review bodies without independent professional advice. For authoritative FOI guidance, see the <a href="https://www.oaic.gov.au/freedom-of-information/freedom-of-information-guidance-for-government-agencies/foi-guidelines">OAIC FOI Guidelines</a>.</p>
                     <p>This site links to external websites and resources. We are not responsible for the content, accuracy or privacy practices of external sites. Links do not imply endorsement.</p>
-                </section>
+            </section>
 
-                <section class="legal-card">
-                    <h2>3. Copyright &amp; reuse</h2>
+            <section class="legal-section" aria-labelledby="s3">
+                <p class="legal-section-num">Section 3</p>
+                <h2 id="s3">Copyright &amp; reuse</h2>
                     <p>Unless otherwise noted, content on this site is © 2025–2026 GlassCase (Jay Spudvilas / Jayden Spudvilas-Powell).</p>
                     <p>You are welcome to link to this site and to quote short excerpts with clear attribution. Please don't republish large sections of the content elsewhere without written permission, unless we have explicitly released that material under a different licence.</p>
                     <p>Where materials are released under open licences (such as the <a href="/consideration-matrix">Consideration Matrix</a>, <a href="/redaction-taxonomy">Redaction Taxonomy</a> and <a href="/stress-mapper">Institutional Stress Mapper</a> under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>), those licence terms apply. Code, data and other materials published on platforms such as GitHub are governed by the licences stated in those repositories.</p>
                     <p>This site reproduces and analyses legislation, court decisions and government documents. Legislative material is reproduced from authorised sources under s 182A of the <a href="https://www.legislation.gov.au/Series/C1968A00063">Copyright Act 1968 (Cth)</a>. Other Crown copyright and third-party material is used under the fair dealing provisions for research, study, criticism or review (ss 40–41), with attribution provided where practicable.</p>
                     <p>For permission to use content beyond the scope described above, contact <a href="mailto:research@glasscase.org">research@glasscase.org</a>.</p>
-                </section>
+            </section>
 
-                <section class="legal-card">
-                    <h2>4. Privacy, analytics &amp; cookies</h2>
+            <section class="legal-section" aria-labelledby="s4">
+                <p class="legal-section-num">Section 4</p>
+                <h2 id="s4">Privacy, analytics &amp; cookies</h2>
                     <p>This site uses Google Analytics and Ahrefs Analytics to understand aggregate traffic and usage patterns. We do not use these tools for advertising or behavioural profiling.</p>
                     <p>This site functions fully without cookies or JavaScript. You can block all analytics tracking through your browser settings or extensions and lose no functionality.</p>
                     <p>These services use cookies and similar technologies to collect information such as page views, referrers, approximate location, device and browser information and IP addresses. We use this information in aggregate to understand how the site is used and to improve the content. We do not sell personal data, combine analytics data with other data to profile named individuals, or attempt to re-identify people from analytics data.</p>
@@ -210,24 +292,34 @@
                     <p>Although the Notifiable Data Breaches scheme under Part IIIC of the Privacy Act may not apply to this project directly, we voluntarily commit to notifying affected users of any significant data breach that we become aware of and that is likely to affect their personal information.</p>
                     <p>This site is not directed at children under 16, and we do not knowingly collect personal information from children.</p>
                     <p>You can contact us to ask what personal information, if any, we hold about you. If you believe any personal information we hold about you is inaccurate, you can contact us to request correction. If you believe we have handled your personal information in a way that breaches your privacy, you can contact us to make a complaint and we will respond within 30 days.</p>
-                </section>
+            </section>
 
-                <section class="legal-card">
-                    <h2>5. Accessibility</h2>
+            <section class="legal-section" aria-labelledby="s5">
+                <p class="legal-section-num">Section 5</p>
+                <h2 id="s5">Accessibility</h2>
+                <div class="legal-callout">
                     <p>GlassCase publishes specialist tools and analysis. The content is necessarily detailed and assumes familiarity with administrative law concepts.</p>
-                    <p>We design for structural clarity — consistent navigation, logical hierarchy and readable typography — but we recognise that this material is complex by nature. Where we can simplify without losing precision, we do.</p>
-                    <p>For accessible, step-by-step versions of the processes GlassCase analyses, see <a href="https://lightkey.org">LightKey</a>, our public pathway initiative built with particular attention to users with dyslexia, anxiety and cognitive fatigue.</p>
-                    <p>If you encounter an accessibility barrier on either site, please contact us at <a href="mailto:research@glasscase.org">research@glasscase.org</a>.</p>
-                </section>
+                </div>
+                <p style="margin-top: 0.75rem;">
+                    We design for structural clarity — consistent navigation, logical hierarchy and readable typography — but we recognise that this material is complex by nature. Where we can simplify without losing precision, we do.
+                </p>
+                <p>
+                    For accessible, step-by-step versions of the processes GlassCase analyses, see <a href="https://lightkey.org">LightKey</a>, our public pathway initiative built with particular attention to users with dyslexia, anxiety and cognitive fatigue.
+                </p>
+                <p>
+                    If you encounter an accessibility barrier on either site, please contact us at <a href="mailto:research@glasscase.org">research@glasscase.org</a>.
+                </p>
+            </section>
 
-                <section class="legal-card">
-                    <h2>6. Governing law &amp; contact</h2>
+            <section class="legal-section" aria-labelledby="s6">
+                <p class="legal-section-num">Section 6</p>
+                <h2 id="s6">Governing law &amp; contact</h2>
                     <p>This site is operated from the <a href="http://act.gov.au/" target="_blank" rel="noopener">Australian Capital Territory</a>, Australia. The law of the Australian Capital Territory governs any disputes or issues arising out of or in connection with this site. Any disputes will be subject to the non-exclusive jurisdiction of the courts of the Australian Capital Territory. We encourage informal resolution of any concerns before formal proceedings.</p>
                     <p>Tools on this site analyse Commonwealth and state legislation (including the <a href="https://www.legislation.gov.au/C2004A02562/latest/text" target="_blank" rel="noopener">Freedom of Information Act 1982 (Cth)</a> and related instruments). References to legislation are for educational purposes only and do not constitute official guidance. Always refer to current legislation and authoritative sources such as the OAIC FOI Guidelines.</p>
                     <p>If you have questions or concerns about this notice, you can contact us at <a href="mailto:research@glasscase.org">research@glasscase.org</a>.</p>
                     <p>If any provision of this notice is found to be void or unenforceable, that provision will be severed and the remaining provisions will continue in full force and effect.</p>
-                </section>
-            </div>
+            </section>
+
         </div>
     </main>
 
