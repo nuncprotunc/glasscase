@@ -4,8 +4,7 @@
  */
 
 const COMPONENTS = {
-  header: `
-    <nav>
+  header: `<nav>
       <div class="nav-inner">
         <a href="https://glasscase.org/" class="brand" aria-label="GlassCase home">
           <svg width="32" height="32" viewBox="0 0 80 80" fill="none" aria-hidden="true">
@@ -132,9 +131,9 @@ function injectComponents() {
   const mobileMenuEl = document.getElementById('shared-mobile-menu');
   const footerEl = document.getElementById('shared-footer');
 
-  if (headerEl) headerEl.innerHTML = COMPONENTS.header;
-  if (mobileMenuEl) mobileMenuEl.innerHTML = COMPONENTS.mobileMenu;
-  if (footerEl) footerEl.innerHTML = COMPONENTS.footer;
+  if (headerEl) headerEl.outerHTML = COMPONENTS.header;
+  if (mobileMenuEl) mobileMenuEl.outerHTML = COMPONENTS.mobileMenu;
+  if (footerEl) footerEl.outerHTML = COMPONENTS.footer;
 
   // Initialize outbound links for the newly injected content
   if (typeof initOutboundLinks === 'function') {
