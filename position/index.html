@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<script src="/js/consent-gate.js" defer></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Making Integrity Visible — GlassCase Position Paper</title>
+<meta name="description" content="GlassCase maps how Australian law works in practice. This position paper explains what we do, why we exist, and how our tools make the hidden architecture of government decisions visible.">
+<meta name="keywords" content="GlassCase, civic tech, government transparency, administrative law, position paper, FOI, freedom of information, legal data, open government">
+<meta name="author" content="GlassCase — Jay Spudvilas">
+<link rel="canonical" href="https://glasscase.org/position/">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0F1218">
+<meta name="color-scheme" content="dark">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://glasscase.org/position/">
+<meta property="og:title" content="Making Integrity Visible — GlassCase Position Paper">
+<meta property="og:description" content="GlassCase maps how Australian law works in practice. Open tools. Real data. Visible architecture.">
+<meta property="og:site_name" content="GlassCase">
+<meta property="og:locale" content="en_AU">
+<meta property="og:image" content="https://glasscase.org/og-image.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Making Integrity Visible — GlassCase Position Paper">
+<meta name="twitter:description" content="GlassCase maps how Australian law works in practice. Open tools. Real data. Visible architecture.">
+<meta name="twitter:image" content="https://glasscase.org/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="/favicon-512.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css?v=2026-02-28">
+
+<style>
+  /* Position paper spread styles — GlassCase dark theme */
+  .spread {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 2rem;
+  }
+  .spread-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  /* Strand borders — prism spectrum */
+  .strand-process { border-left: 4px solid #4a9eff; padding-left: 2rem; padding-right: 2rem; }
+  .strand-transparency { border-left: 4px solid #3ABEF9; padding-left: 2rem; padding-right: 2rem; }
+  .strand-decision { border-left: 4px solid #9ab8d8; padding-left: 2rem; padding-right: 2rem; }
+  .strand-delay { border-left: 4px solid #f0c56e; padding-left: 2rem; padding-right: 2rem; }
+  .strand-review { border-left: 4px solid #e86880; padding-left: 2rem; padding-right: 2rem; }
+
+  /* Backgrounds */
+  .bg-dark { background: #0F1218; }
+  .bg-process { background: rgba(74, 158, 255, 0.06); }
+  .bg-transparency { background: rgba(58, 190, 249, 0.06); }
+  .bg-decision { background: rgba(154, 184, 216, 0.06); }
+  .bg-delay { background: rgba(240, 197, 110, 0.06); }
+  .bg-review { background: rgba(232, 104, 128, 0.06); }
+
+  /* Typography */
+  .spread h1 {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: clamp(2rem, 5vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+    color: var(--ice-blue, #D0E8F2);
+  }
+  .spread h1 i {
+    font-style: italic;
+    color: var(--transparency-cyan, #3ABEF9);
+  }
+
+  .spread h2 {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: clamp(1.3rem, 4vw, 1.65rem);
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 1.25rem;
+    color: var(--ice-blue, #D0E8F2);
+  }
+
+  .section-label {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+  }
+  .label-process { color: #4a9eff; }
+  .label-transparency { color: #3ABEF9; }
+  .label-decision { color: #9ab8d8; }
+  .label-delay { color: #f0c56e; }
+  .label-review { color: #e86880; }
+
+  .spread p {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    color: var(--white, #E8F4F8);
+    max-width: 620px;
+    line-height: 1.75;
+    opacity: 0.88;
+  }
+  .spread .lead {
+    font-size: 1.1rem;
+    color: var(--white, #E8F4F8);
+    line-height: 1.7;
+    opacity: 0.92;
+  }
+  .spread strong { color: var(--ice-blue, #D0E8F2); font-weight: 700; }
+
+  .pull-quote {
+    font-family: 'Spectral', Georgia, serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--ice-blue, #D0E8F2);
+    line-height: 1.55;
+    margin: 2rem 0;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(74, 159, 216, 0.2);
+    border-bottom: 1px solid rgba(74, 159, 216, 0.2);
+    max-width: 620px;
+  }
+
+  /* Comparison boxes */
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin: 2rem 0;
+    max-width: 620px;
+  }
+  .comparison-box {
+    padding: 1.25rem;
+    border-radius: 10px;
+    font-family: 'Manrope', system-ui, sans-serif;
+  }
+  .comparison-box h3 {
+    font-size: 0.78rem;
+    font-weight: 800;
+    margin-bottom: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .comparison-box p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+    opacity: 1;
+  }
+  .box-is {
+    background: rgba(58, 190, 249, 0.1);
+    border: 1px solid rgba(58, 190, 249, 0.3);
+    color: var(--white, #E8F4F8);
+  }
+  .box-is h3 { color: #3ABEF9; }
+  .box-isnot {
+    background: rgba(232, 104, 128, 0.08);
+    border: 1px solid rgba(232, 104, 128, 0.25);
+    color: var(--white, #E8F4F8);
+  }
+  .box-isnot h3 { color: #e86880; }
+
+  /* Principle cards */
+  .principle-row {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1.75rem;
+    max-width: 620px;
+  }
+  .principle-num {
+    min-width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #0F1218;
+    background: #3ABEF9;
+    flex-shrink: 0;
+  }
+  .principle-row strong {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+  .principle-row p {
+    margin-bottom: 0;
+    font-size: 0.92rem;
+  }
+
+  /* Tool cards */
+  .tool-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+    max-width: 620px;
+  }
+  .tool-card-pp {
+    background: rgba(26, 31, 46, 0.6);
+    border: 1px solid rgba(74, 159, 216, 0.2);
+    border-radius: 10px;
+    padding: 1.1rem;
+    transition: border-color 0.3s ease;
+  }
+  .tool-card-pp:hover {
+    border-color: rgba(58, 190, 249, 0.5);
+  }
+  .tool-card-pp h3 {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--ice-blue, #D0E8F2);
+    margin-bottom: 0.4rem;
+  }
+  .tool-card-pp .version {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: #3ABEF9;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+    display: block;
+  }
+  .tool-card-pp p {
+    font-size: 0.82rem;
+    line-height: 1.55;
+    margin-bottom: 0;
+    opacity: 0.8;
+  }
+
+  /* Ecosystem */
+  .eco-card {
+    display: flex;
+    gap: 1.1rem;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    max-width: 620px;
+  }
+  .eco-icon {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .eco-card strong {
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+  .eco-card strong a {
+    color: var(--ice-blue, #D0E8F2);
+    text-decoration: none;
+  }
+  .eco-card p {
+    font-size: 0.88rem;
+    margin-bottom: 0;
+    line-height: 1.55;
+  }
+  .eco-connector {
+    width: 2px;
+    height: 20px;
+    background: rgba(74, 159, 216, 0.2);
+    margin: -0.25rem 0 -0.25rem 24px;
+  }
+
+  /* Audience cards */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 2rem 0;
+    max-width: 620px;
+  }
+  .audience-card {
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(74, 159, 216, 0.15);
+    background: rgba(26, 31, 46, 0.5);
+  }
+  .audience-card h3 {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #3ABEF9;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+  }
+  .audience-card p {
+    font-size: 0.84rem;
+    margin-bottom: 0;
+    line-height: 1.55;
+  }
+
+  /* Safety list */
+  .safety-list {
+    max-width: 620px;
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+  }
+  .safety-list li {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 0.92rem;
+    color: var(--white, #E8F4F8);
+    opacity: 0.85;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    padding-left: 1.5rem;
+    position: relative;
+  }
+  .safety-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: #e86880;
+    font-weight: 700;
+  }
+
+  /* Contact badges */
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 2rem 0;
+    max-width: 620px;
+  }
+  .contact-badge {
+    display: inline-block;
+    background: rgba(58, 190, 249, 0.08);
+    border: 1px solid rgba(58, 190, 249, 0.25);
+    border-radius: 8px;
+    padding: 0.8rem 1.1rem;
+    text-decoration: none;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 0.85rem;
+    color: var(--white, #E8F4F8);
+    transition: border-color 0.2s ease, background 0.2s ease;
+  }
+  .contact-badge:hover {
+    border-color: #3ABEF9;
+    background: rgba(58, 190, 249, 0.14);
+  }
+  .contact-badge strong {
+    color: #3ABEF9;
+    display: block;
+    font-size: 0.78rem;
+    margin-bottom: 0.15rem;
+  }
+
+  /* Prism legend */
+  .prism-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 0.72rem;
+    color: var(--slate, #6C7A8F);
+    letter-spacing: 0.03em;
+  }
+  .legend-swatch {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    position: fixed;
+    top: 61px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    z-index: 90;
+    background: rgba(15, 18, 24, 0.92);
+    border-bottom: 1px solid rgba(74, 159, 216, 0.1);
+  }
+  .progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(74, 159, 216, 0.25);
+    background: transparent;
+    transition: all 0.3s ease;
+  }
+  .progress-dot.active {
+    background: #3ABEF9;
+    border-color: #3ABEF9;
+  }
+
+  .nav-hint {
+    font-family: 'Manrope', system-ui, sans-serif;
+    font-size: 0.72rem;
+    color: var(--slate, #6C7A8F);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 2rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .spread { padding: 2.5rem 1.25rem; }
+    .spread h1 { font-size: 1.8rem; }
+    .spread h2 { font-size: 1.25rem; }
+    .comparison, .tool-grid, .audience-grid { grid-template-columns: 1fr; }
+    .strand-process, .strand-transparency, .strand-decision, .strand-delay, .strand-review {
+      padding-left: 1rem; padding-right: 1rem;
+    }
+  }
+
+  @media print {
+    .spread { min-height: auto; page-break-inside: avoid; padding: 2rem 1rem; }
+    .progress-bar { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="shared-header"></div>
+<div id="shared-mobile-menu"></div>
+
+<nav class="progress-bar" aria-label="Reading progress">
+  <div class="progress-dot active"></div><div class="progress-dot"></div><div class="progress-dot"></div>
+  <div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div>
+  <div class="progress-dot"></div><div class="progress-dot"></div><div class="progress-dot"></div>
+  <div class="progress-dot"></div><div class="progress-dot"></div>
+</nav>
+
+<!-- COVER -->
+<section class="spread bg-dark" id="cover" data-index="0">
+  <div class="spread-inner" style="text-align:center;padding-top:2rem;">
+    <div class="section-label label-transparency" style="margin-bottom:1.5rem;">A position paper from GlassCase.org</div>
+    <h1 style="max-width:520px;margin:0 auto 1.5rem;"><strong>Making Integrity <i>Visible</i></strong></h1>
+    <p class="lead" style="max-width:500px;margin:0 auto 2.5rem;text-align:center;">
+      Government decisions affect millions of Australians.<br>But if you cannot see how those decisions are made,<br>how do you know they were made properly?
+    </p>
+    <svg viewBox="0 0 220 160" width="200" height="140" style="margin:0 auto 2rem;display:block;opacity:0.85;" aria-label="GlassCase prism">
+      <defs>
+        <linearGradient id="gc-prism" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9"/>
+          <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7"/>
+          <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9"/>
+        </linearGradient>
+      </defs>
+      <line x1="10" y1="80" x2="70" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+      <polygon points="78,30 138,130 18,130" fill="rgba(15,18,24,0.8)" stroke="url(#gc-prism)" stroke-width="1.2"/>
+      <line x1="120" y1="60" x2="210" y2="25" stroke="#4a9eff" stroke-width="1.5" opacity="0.8"/>
+      <line x1="124" y1="72" x2="210" y2="50" stroke="#3ABEF9" stroke-width="1.5" opacity="0.8"/>
+      <line x1="128" y1="84" x2="210" y2="80" stroke="#9ab8d8" stroke-width="2" opacity="0.8"/>
+      <line x1="130" y1="96" x2="210" y2="110" stroke="#f0c56e" stroke-width="1.5" opacity="0.8"/>
+      <line x1="132" y1="108" x2="210" y2="140" stroke="#e86880" stroke-width="1.5" opacity="0.8"/>
+    </svg>
+    <div class="prism-legend" style="margin-bottom:2rem;">
+      <div class="legend-item"><div class="legend-swatch" style="background:#4a9eff;"></div> Process</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#3ABEF9;"></div> Discretion</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#9ab8d8;"></div> Decision</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#f0c56e;"></div> Delay</div>
+      <div class="legend-item"><div class="legend-swatch" style="background:#e86880;"></div> Review</div>
+    </div>
+    <p style="font-size:0.82rem;color:var(--slate);text-align:center;max-width:400px;margin:0 auto;">
+      GlassCase · Civic-legal data lab<br>
+      February 2026
+    </p>
+    <div class="nav-hint" style="text-align:center;">Scroll to read ↓</div>
+  </div>
+</section>
+
+<!-- SPREAD 2: EXECUTIVE SUMMARY -->
+<section class="spread strand-transparency bg-transparency" id="summary" data-index="1">
+  <div class="spread-inner">
+    <div class="section-label label-transparency">Overview · Executive summary</div>
+    <h2><strong>From PDFs to public maps.</strong></h2>
+    <p class="lead">GlassCase is a civic-tech lab that maps how Australian law works in practice. Not how it reads in a statute — how it actually operates when someone lodges a request, challenges a decision, or waits for a response that never comes.</p>
+    <p>We build open, interactive tools that make the hidden architecture of administrative decisions visible. Where does discretion sit? Where do delays cluster? Where are redactions applied, and why?</p>
+    <p>The lab produces diagnostic frameworks, data visualisations, and research outputs — all freely available. Our tools are built from real legislative sources and tested against Australian case law.</p>
+    <p><a href="https://lightkey.org" style="color:#3ABEF9;">LightKey</a>, our public accessibility layer, converts this diagnostic work into step-by-step pathway guides for people who deal with government processes — designed with particular attention to people with disability and neurodivergent users.</p>
+  </div>
+</section>
+
+<!-- SPREAD 3: PROBLEM -->
+<section class="spread strand-process bg-process" id="problem" data-index="2">
+  <div class="spread-inner">
+    <div class="section-label label-process">Why we exist · The problem</div>
+    <h2><strong>The architecture of government decisions is invisible to the people those decisions affect.</strong></h2>
+    <p>Government decisions affect millions of Australians every year. Freedom of Information requests. Migration decisions. Licensing refusals. Disciplinary proceedings. Administrative reviews.</p>
+    <p>The law that governs these decisions exists. It is written down. In many cases, it works.</p>
+    <p>But the <em>architecture</em> of these decisions — how they are structured, where discretion lives, where mandatory considerations are applied or missed — is invisible to almost everyone outside the system.</p>
+    <p>Rules live in Acts, policies, ministerial directions, and agency manuals. There is no shared map. No shared language. No way for a researcher, journalist, or affected person to see the full picture.</p>
+    <p>The result: decisions that fail review not because the decision-maker got the law wrong, but because a required consideration never appeared in the reasons. Delays that breach statutory timelines with no practical consequence. Redaction patterns that look chaotic from the outside but follow hidden internal logic.</p>
+    <p><strong>This is not a problem of bad people. It is a problem of invisible architecture.</strong></p>
+  </div>
+</section>
+
+<!-- SPREAD 4: WHAT GLASSCASE IS -->
+<section class="spread strand-decision bg-decision" id="identity" data-index="3">
+  <div class="spread-inner">
+    <div class="section-label label-decision">Identity · What GlassCase is</div>
+    <h2><strong>A diagnostic layer for Australian civic-legal systems.</strong></h2>
+    <div class="comparison">
+      <div class="comparison-box box-is">
+        <h3>GlassCase is</h3>
+        <p>A civic-tech lab that maps real administrative and legal pathways. An open-access research platform — tools are free to use. A diagnostic layer that reveals how decisions are structured, not whether specific decisions were right or wrong.</p>
+      </div>
+      <div class="comparison-box box-isnot">
+        <h3>GlassCase is not</h3>
+        <p>A law firm or legal advice service. An advocacy organisation that campaigns for particular outcomes. A replacement for professional legal representation. An AI product — tools are built from legislation and case law, not generated by machine learning.</p>
+      </div>
+    </div>
+    <p>Founded and led by Jay Spudvilas — an education leader with twelve years of public governance experience and an administrative law researcher at ANU.</p>
+  </div>
+</section>
+
+<!-- SPREAD 5: PRINCIPLES -->
+<section class="spread strand-transparency bg-dark" id="principles" data-index="4">
+  <div class="spread-inner">
+    <div class="section-label label-transparency">What we believe · Principles</div>
+    <h2><strong>Six commitments that shape everything we build.</strong></h2>
+    <div class="principle-row">
+      <div class="principle-num">1</div>
+      <div><strong>Make what is hidden visible.</strong><p>If a process affects people, they should be able to see how it works. That includes the rules, the timelines, the discretion points, and the review options.</p></div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">2</div>
+      <div><strong>Work from real data.</strong><p>Every tool is built from legislation, case law, or publicly available administrative data. No tool is released without a traceable evidence base.</p></div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">3</div>
+      <div><strong>Open by default.</strong><p>Tools and frameworks are freely available. Research outputs are published with DOIs through Zenodo (CERN/DataCite). Policy submissions are lodged on the public record.</p></div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">4</div>
+      <div><strong>Map the system, not the person.</strong><p>GlassCase maps how decisions are structured. It does not profile individuals, track personal data, or make predictions about specific outcomes.</p></div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">5</div>
+      <div><strong>Design for the people affected.</strong><p>If a tool only makes sense to lawyers, it has not finished its job. Public-facing translations are delivered through LightKey — GlassCase's accessibility layer.</p></div>
+    </div>
+    <div class="principle-row">
+      <div class="principle-num">6</div>
+      <div><strong>Name what you don't know.</strong><p>Where evidence is limited or claims are uncertain, we say so. Placeholders are better than false confidence. We use version numbers because tools improve.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPREAD 6: WHAT WE PRODUCE -->
+<section class="spread strand-delay bg-delay" id="outputs" data-index="5">
+  <div class="spread-inner">
+    <div class="section-label label-delay">What we build · Outputs</div>
+    <h2><strong>Open tools, research, and public translations.</strong></h2>
+    <div class="tool-grid">
+      <div class="tool-card-pp">
+        <h3>Consideration Matrix</h3>
+        <span class="version">v0.1 · Administrative Law</span>
+        <p>Maps mandatory and discretionary considerations in administrative decisions. Built from <em>Peko-Wallsend</em> and <em>Li</em>. Shows what the statute required against what appeared in reasons.</p>
+      </div>
+      <div class="tool-card-pp">
+        <h3>Redaction Taxonomy</h3>
+        <span class="version">v0.2 · FOI &amp; Transparency</span>
+        <p>Coding scheme for analysing how FOI redactions are applied. Includes the Redaction Logic Visualiser for mapping exemption pathways.</p>
+      </div>
+      <div class="tool-card-pp">
+        <h3>Stress Mapper</h3>
+        <span class="version">v0.1 · Institutional Diagnostics</span>
+        <p>Maps institutional stress signals over time using observable data. Score subsystems, detect patterns, identify where deeper inquiry may be needed.</p>
+      </div>
+      <div class="tool-card-pp">
+        <h3>LightKey Guides</h3>
+        <span class="version">Public layer · Accessibility</span>
+        <p>Step-by-step pathway guides for people who deal with government processes. Designed for clarity and for people who process information differently.</p>
+      </div>
+    </div>
+    <p>We also publish <strong>essays</strong> (Findings), <strong>short-form commentary</strong> on single legal concepts, and <strong>policy submissions</strong> to parliamentary inquiries — including Senate Submission 38 on the FOI Amendment (Reform) Bill 2025.</p>
+  </div>
+</section>
+
+<!-- SPREAD 7: HOW WE WORK -->
+<section class="spread strand-process bg-process" id="method" data-index="6">
+  <div class="spread-inner">
+    <div class="section-label label-process">How we work · Method</div>
+    <h2><strong>Start with a question. Trace the pathway. Build the tool.</strong></h2>
+    <p>GlassCase starts with a question: where does this process break down, and why can't people see it?</p>
+    <p>We identify the relevant legislation. We trace the decision pathway from statute through to agency practice. We look at where discretion enters, where delays cluster, and where the review chain begins.</p>
+    <p>We build tools from what we find. Each tool version is published with a version number and a DOI. Claims are tested against Australian case law — primarily High Court and Federal Court authorities.</p>
+    <p>We do not generate tools from AI models. We do not rely on secondary summaries. Every framework traces back to a primary source.</p>
+    <p>When a tool is ready for a wider audience, the public translation moves to LightKey.</p>
+  </div>
+</section>
+
+<!-- SPREAD 8: LIGHTKEY RELATIONSHIP -->
+<section class="spread strand-transparency bg-transparency" id="lightkey" data-index="7">
+  <div class="spread-inner">
+    <div class="section-label label-transparency">The public layer · LightKey</div>
+    <h2><strong>GlassCase diagnoses. LightKey translates.</strong></h2>
+    <div class="eco-card">
+      <div class="eco-icon" style="background:rgba(74,159,216,0.15);border-radius:10px;">
+        <svg width="36" height="36" viewBox="0 0 80 80" fill="none"><g transform="translate(-7,0)"><line x1="8" y1="40" x2="30" y2="40" stroke="rgba(255,255,255,0.5)" stroke-width="2" opacity="0.6"/><path d="M 30 20 L 45 40 L 30 60 Z" fill="rgba(58,190,249,0.2)" stroke="#3ABEF9" stroke-width="1"/><line x1="45" y1="40" x2="72" y2="28" stroke="#4a9eff" stroke-width="2" opacity="0.85"/><line x1="45" y1="40" x2="72" y2="40" stroke="#3ABEF9" stroke-width="2.5" opacity="0.9"/><line x1="45" y1="40" x2="72" y2="52" stroke="#f0c56e" stroke-width="2" opacity="0.85"/></g></svg>
+      </div>
+      <div><strong><a href="https://glasscase.org">GlassCase.org</a> · The diagnostic layer</strong><p>Open tools that map how administrative decisions are made — where discretion lives, where delays cluster, where redactions are applied. For researchers and oversight bodies.</p></div>
+    </div>
+    <div class="eco-connector"></div>
+    <div class="eco-card">
+      <div class="eco-icon" style="background:rgba(61,122,138,0.2);border-radius:10px;">
+        <svg width="38" height="38" viewBox="0 0 36 36" fill="none"><path d="M6 32 L6 18 Q6 6 18 6 Q30 6 30 18 L30 32" stroke="#9ECFDA" stroke-width="1.5" fill="none"/><path d="M14 6 L15 2 L21 2 L22 6" stroke="#C4956A" stroke-width="1.5" fill="rgba(196,149,106,0.15)"/><circle cx="18" cy="3.5" r="0.8" fill="#C4956A"/><line x1="18" y1="4.3" x2="18" y2="5.5" stroke="#C4956A" stroke-width="0.8"/><line x1="6" y1="32" x2="30" y2="32" stroke="#9ECFDA" stroke-width="1.5"/></svg>
+      </div>
+      <div><strong><a href="https://lightkey.org">LightKey.org</a> · The public layer</strong><p>Step-by-step pathway guides for people who deal with government processes. Designed to be clear and easy to follow. Especially for people who process information differently.</p></div>
+    </div>
+    <div class="eco-connector"></div>
+    <div class="eco-card">
+      <div class="eco-icon" style="background:rgba(240,197,110,0.15);border-radius:10px;">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none"><line x1="19" y1="8" x2="19" y2="30" stroke="#f0c56e" stroke-width="1.5"/><line x1="8" y1="14" x2="30" y2="14" stroke="#f0c56e" stroke-width="1.5"/><circle cx="8" cy="14" r="2.5" fill="rgba(240,197,110,0.15)" stroke="#f0c56e" stroke-width="1"/><circle cx="30" cy="14" r="2.5" fill="rgba(240,197,110,0.15)" stroke="#f0c56e" stroke-width="1"/><line x1="14" y1="30" x2="24" y2="30" stroke="#f0c56e" stroke-width="1.5"/></svg>
+      </div>
+      <div><strong>Fairness by Design · The founding principle</strong><p>How a process is designed shapes whether it is fair. Making a process visible is the first step to making it fair.</p></div>
+    </div>
+    <p style="margin-top:2rem;"><strong>Transparency that only reaches professionals is not yet finished.</strong></p>
+  </div>
+</section>
+
+<!-- SPREAD 9: WHO THIS IS FOR -->
+<section class="spread strand-decision bg-decision" id="audience" data-index="8">
+  <div class="spread-inner">
+    <div class="section-label label-decision">Who we serve · Audience</div>
+    <h2><strong>Built for people who need to see how the system works.</strong></h2>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <h3>Researchers &amp; academics</h3>
+        <p>Structured diagnostic tools and published frameworks (DOI-registered) for studying administrative decision-making.</p>
+      </div>
+      <div class="audience-card">
+        <h3>Oversight bodies</h3>
+        <p>Maps of where discretion, delay, and redaction patterns cluster across agencies and jurisdictions.</p>
+      </div>
+      <div class="audience-card">
+        <h3>Policy workers</h3>
+        <p>Evidence for reform design. Senate Submission 38 demonstrates applied use in legislative consultation.</p>
+      </div>
+      <div class="audience-card">
+        <h3>Legal practitioners</h3>
+        <p>Case-law-grounded frameworks that link doctrine to procedure. Built for practice and teaching.</p>
+      </div>
+      <div class="audience-card">
+        <h3>Journalists</h3>
+        <p>Open tools for investigating how administrative decisions are structured across government agencies.</p>
+      </div>
+      <div class="audience-card">
+        <h3>General public</h3>
+        <p>Plain-language pathway guides via <a href="https://lightkey.org" style="color:#3ABEF9;">LightKey</a> that show how government processes work and what your rights are at each step.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPREAD 10: SAFETY & LIMITS -->
+<section class="spread strand-review bg-review" id="limits" data-index="9">
+  <div class="spread-inner">
+    <div class="section-label label-review">Boundaries · Safety, ethics, and limits</div>
+    <h2><strong>What GlassCase will not do.</strong></h2>
+    <p>GlassCase publishes information, not legal advice. Tools are diagnostic — they show how decisions are structured, not what you should do about a specific decision.</p>
+    <p>We do not collect personal data beyond basic analytics (with consent). We do not profile users. We do not sell data. Our tools are built from publicly available sources.</p>
+    <p>Where evidence is uncertain or limited, we say so. We use version numbers because tools improve. v0.1 means the framework is functional but early.</p>
+    <ul class="safety-list">
+      <li>We will not provide legal advice or tell you what decision to make</li>
+      <li>We will not access or store personal case information</li>
+      <li>We will not make predictions about the outcome of specific decisions</li>
+      <li>We will not claim authority beyond our evidence base</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SPREAD 11: INVITATION -->
+<section class="spread strand-transparency bg-dark" id="invitation" data-index="10">
+  <div class="spread-inner">
+    <div class="section-label label-transparency">Next steps · Invitation</div>
+    <h2><strong>GlassCase is open. The tools are free. The research is published.</strong></h2>
+    <p>If you are a researcher, oversight body, policy unit, or university interested in collaboration — get in touch.</p>
+    <p>If you want to use the tools, they are on <a href="https://glasscase.org" style="color:#3ABEF9;">glasscase.org</a>. If you want the plain-language version, it is on <a href="https://lightkey.org" style="color:#3ABEF9;">lightkey.org</a>.</p>
+    <p>If you see something we got wrong, tell us. If you have data that could make a tool better, share it.</p>
+    <div class="contact-row">
+      <a href="mailto:research@glasscase.org" class="contact-badge"><strong>Collaborate</strong> Partner on research or policy</a>
+      <a href="mailto:research@glasscase.org" class="contact-badge"><strong>Contribute</strong> Share data, code or expertise</a>
+      <a href="mailto:research@glasscase.org" class="contact-badge"><strong>Pilot</strong> Explore institutional partnerships</a>
+    </div>
+    <div class="pull-quote">GlassCase exists because the architecture of government decisions is invisible to the people those decisions affect. We make that architecture visible — not to campaign for particular outcomes, but because fairness requires it. If you cannot see how a decision is made, you cannot tell whether it was made properly. Making integrity visible is not optional. It is infrastructure.</div>
+  </div>
+</section>
+
+<footer>
+    <div id="shared-footer"></div>
+    <div class="footer-bottom">
+        <div class="footer-legal-row">
+            <span class="footer-copyright">© 2025–2026 GlassCase · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></span>
+        </div>
+        <div class="footer-disclaimer-group">
+            <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
+            <p class="footer-disclaimer">Information only, not legal advice. See <a href="/legal">Use &amp; Privacy</a> for full terms.</p>
+            <p class="footer-disclaimer"><a href="https://lightkey.org">LightKey</a> · Public accessibility initiative</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+const spreads = document.querySelectorAll('.spread');
+const dots = document.querySelectorAll('.progress-dot');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const i = Number(e.target.dataset.index);
+      dots.forEach((d, j) => d.classList.toggle('active', j <= i));
+    }
+  });
+}, { threshold: 0.4 });
+spreads.forEach(s => observer.observe(s));
+</script>
+<script src="/js/main.js?v=2025-12-31"></script>
+<script src="/js/components.js?v=2026-02-20"></script>
+</body>
+</html>
