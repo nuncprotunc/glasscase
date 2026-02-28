@@ -588,8 +588,10 @@
   }
 
   /* ══════════ LINKS ══════════ */
-  a { color: var(--gc-teal); text-decoration: none; border-bottom: 1px dotted rgba(58,190,249,0.35); }
-  a:hover { border-bottom-style: solid; }
+  .s a, .call a, .ev-box a, .closing a { color: var(--gc-teal); text-decoration: none; border-bottom: 1px dotted rgba(58,190,249,0.35); }
+  .s a:hover, .call a:hover, .ev-box a:hover, .closing a:hover { border-bottom-style: solid; }
+  .hero-meta a { color: var(--gc-teal); text-decoration: none; border-bottom: 1px dotted rgba(58,190,249,0.35); }
+  .hero-meta a:hover { border-bottom-style: solid; }
 
   /* ══════════ ANIMATIONS ══════════ */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
