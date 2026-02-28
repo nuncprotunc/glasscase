@@ -2,6 +2,13 @@
 .windsurf/
 .windsurf/rules/linkedin-outreach.md
 
+!.windsurf/
+!.windsurf/workflows/
+!.windsurf/workflows/**
+
+.windsurf/rules/
+.windsurf/rules/**
+
 # OS files
 .DS_Store
 *.swp

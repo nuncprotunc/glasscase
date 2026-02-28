@@ -32,6 +32,7 @@ const COMPONENTS = {
         </a>
         <div class="nav-right">
           <nav class="desktop-nav">
+            <a href="/position/">Position Paper</a>
             <a href="/tools">Tools</a>
             <a href="/findings">Findings</a>
             <a href="/commentary">Commentary</a>
@@ -60,6 +61,7 @@ const COMPONENTS = {
         <p class="mobile-menu-subtitle">Making Integrity Visible</p>
       </div>
       <nav>
+        <a href="/position/" onclick="closeMobileMenu()" data-nav="position">Position Paper</a>
         <a href="/tools" onclick="closeMobileMenu()" data-nav="tools">Tools</a>
         <a href="/findings" onclick="closeMobileMenu()" data-nav="findings">Findings</a>
         <a href="/commentary" onclick="closeMobileMenu()" data-nav="commentary">Commentary</a>
@@ -98,6 +100,7 @@ const COMPONENTS = {
         <h4>Site</h4>
         <div class="footer-links">
           <a href="https://glasscase.org/">Home</a>
+          <a href="/position/">Position Paper</a>
           <a href="https://glasscase.org/#problem">Problem</a>
           <a href="https://glasscase.org/#available-now">Available Now</a>
           <a href="https://glasscase.org/#roadmap">Roadmap</a>
@@ -146,6 +149,7 @@ function injectComponents() {
   else if (currentPath.includes('findings')) activeNav = 'findings';
   else if (currentPath.includes('commentary')) activeNav = 'commentary';
   else if (currentPath.includes('submissions')) activeNav = 'submissions';
+  else if (currentPath.includes('position')) activeNav = 'position';
   else if (currentPath.includes('legal')) activeNav = 'legal';
 
   if (activeNav) {
