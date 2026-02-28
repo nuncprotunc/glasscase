@@ -48,39 +48,23 @@
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; font-size: 18px; }
+  html { scroll-behavior: smooth; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
     background: linear-gradient(180deg, #1A1F2E, #0F1730 50%, #070b16);
     color: var(--gc-text);
-    line-height: 1.72;
+    line-height: var(--lh-body);
+    letter-spacing: var(--ls-body);
+    word-spacing: var(--ws-body);
     -webkit-font-smoothing: antialiased;
   }
 
-  nav { font-family: 'Manrope', system-ui, -apple-system, sans-serif; }
-  .nav-inner { padding: 24px 32px; }
-  .nav-right { gap: 32px; }
-  .desktop-nav { gap: 24px; }
-  .desktop-nav a { font-size: 14px; }
-  .gc-reading-toggle { font-size: 11px; }
-
-  footer { padding: 48px 0 32px; font-size: 14px; }
-  .footer-top { gap: 48px; padding: 0 32px 32px; }
-  .footer-tagline { font-size: 14px; }
-  .footer-section h4 { font-size: 12px; letter-spacing: 0.05em; }
-  .footer-links { gap: 8px; }
-  .footer-links a { font-size: 14px; }
-  .footer-cta { font-size: 14px; }
-  .footer-bottom { padding: 40px 32px 0; gap: 24px; }
-  .footer-legal-row { font-size: 13px; }
-  .footer-license { font-size: 11.6px; }
-  .footer-disclaimer-group { gap: 12px; }
-  .footer-disclaimer { font-size: 11.2px; }
-  .footer-disclaimer strong { font-size: 11.2px; }
-
-  @media (max-width: 640px) {
-    .nav-inner { padding: 16px 24px; }
+  #main-content {
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.72;
+    letter-spacing: 0;
+    word-spacing: 0;
   }
 
   /* ══════════ HERO ══════════ */
@@ -654,7 +638,6 @@
 
   /* ══════════ RESPONSIVE ══════════ */
   @media (max-width: 600px) {
-    html { font-size: 16px; }
     .s { padding: 3.2rem 1.2rem; }
     .diagram { flex-direction: column; padding: 1.1rem; }
     .d-arr { transform: rotate(90deg); }
@@ -1277,6 +1260,7 @@
     <div class="footer-disclaimer-group">
       <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
       <p class="footer-disclaimer">Information only, not legal advice.</p>
+      <p class="footer-disclaimer"><a href="https://lightkey.org">LightKey</a> · Public accessibility initiative</p>
     </div>
   </div>
 </footer>
