@@ -140,21 +140,26 @@
       width: 100%;
       height: auto;
       max-width: 300px;
+      display: block;
+      margin: 0 auto;
     }
     @media (max-width: 768px) {
       header.hero {
         grid-template-columns: 1fr;
+        padding: 44px 0 32px;
+        gap: 20px;
       }
       .hero-visual {
         display: flex;
         justify-content: flex-start;
-        margin-top: 8px;
+        margin-top: 2px;
         overflow: visible;
       }
       .hero-visual svg {
         width: 100%;
         max-width: 100%;
         height: auto;
+        margin: 0;
       }
     }
     
@@ -713,7 +718,7 @@
         <p class="sub">Founded by Jay Spudvilas, the lab builds civic-legal tools grounded in lived administrative data. Public-facing pathway guides are delivered through <a href="https://lightkey.org">LightKey</a>, a GlassCase initiative.</p>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <svg viewBox="0 0 360 160" width="200" height="140" style="margin:0 auto 2rem;display:block;opacity:0.85;" aria-label="GlassCase prism — light dispersed into five diagnostic rays">
+        <svg viewBox="0 0 360 160" width="200" height="140" style="display:block;opacity:0.85;" aria-label="GlassCase prism — light dispersed into five diagnostic rays">
           <defs>
             <linearGradient id="gc-prism" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9"/>
