@@ -623,11 +623,6 @@
   .hero-meta a { color: var(--gc-teal); text-decoration: none; border-bottom: 1px dotted rgba(58,190,249,0.35); }
   .hero-meta a:hover { border-bottom-style: solid; }
 
-  #shared-footer {
-    border-top: 1px solid rgba(58,190,249,0.12);
-    margin-top: 1.5rem;
-  }
-
   /* ══════════ ANIMATIONS ══════════ */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes pulse { 0%,100% { opacity: .18; } 50% { opacity: .55; } }
@@ -1247,7 +1242,19 @@
 
 </main>
 
-<div id="shared-footer"></div>
+<footer>
+  <div id="shared-footer"></div>
+
+  <div class="footer-bottom">
+    <div class="footer-legal-row">
+      <span class="footer-copyright">© 2025–2026 GlassCase · Civic-legal data lab · <a href="https://glasscase.org">glasscase.org</a></span>
+    </div>
+    <div class="footer-disclaimer-group">
+      <p class="footer-disclaimer">Led by Jay Spudvilas (Jayden Spudvilas-Powell). Built in Australia. Made for everyone who believes fairness should be visible.</p>
+      <p class="footer-disclaimer">Information only, not legal advice.</p>
+    </div>
+  </div>
+</footer>
 
 <script src="/js/components.js"></script>
 <script src="/js/main.js"></script>
