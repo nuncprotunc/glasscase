@@ -235,11 +235,21 @@
 
   .keyword-strip {
     display: flex;
-    gap: 0.45rem;
+    gap: 0.4rem;
     justify-content: center;
     flex-wrap: wrap;
     margin-bottom: 2.4rem;
     opacity: 0; animation: fadeUp .8s .85s forwards;
+  }
+  
+  @media (max-width: 640px) {
+    .keyword-strip {
+      gap: 0.3rem;
+    }
+    .kw {
+      font-size: 0.58rem;
+      padding: 0.26rem 0.6rem;
+    }
   }
 
   .kw {
@@ -826,9 +836,7 @@
   <h1>Making Integrity <em>Visible</em></h1>
 
   <p class="hero-sub">
-    Government decisions affect millions of Australians.<br>
-    But if you cannot see how those decisions are made,<br>
-    how do you know they were made properly?
+    Government decisions affect millions of Australians. But if you cannot see how those decisions are made, how do you know they were made properly?
   </p>
 
   <svg viewBox="0 0 220 160" width="200" height="140" style="margin:0 auto 2rem;display:block;opacity:0.85;" aria-label="GlassCase prism — light dispersed into five diagnostic rays">
