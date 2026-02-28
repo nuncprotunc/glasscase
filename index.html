@@ -768,46 +768,18 @@
             </style>
           </defs>
 
-          <!-- Light rays from left (static) -->
-          <line x1="90" y1="82" x2="180" y2="110" stroke="#5A6B7D" stroke-width="1.2" opacity="0.35"/>
-          <line x1="90" y1="110" x2="180" y2="110" stroke="#5A6B7D" stroke-width="1.2" opacity="0.4"/>
-          <line x1="90" y1="138" x2="180" y2="110" stroke="#5A6B7D" stroke-width="1.2" opacity="0.35"/>
+          <!-- Ray from left -->
+          <line x1="90" y1="110" x2="210" y2="110" stroke="#6B7A8A" stroke-width="2"/>
 
-          <!-- Triangle prism (position-style) -->
-          <polygon points="210,40 110,178 310,178" fill="#1A2840" stroke="#4A9FE0" stroke-width="2"/>
+          <!-- Triangle -->
+          <polygon points="240,50 130,185 350,185" fill="none" stroke="#5A9FD4" stroke-width="2.5"/>
 
-          <!-- Colored spectrum rays (animated) -->
-          <line class="a-ray" x1="260" y1="80" x2="450" y2="36"
-            stroke="#4a9eff" stroke-width="2" filter="url(#a-glow)"
-            style="animation-delay: 0s;"/>
-          <line class="a-ray" x1="262" y1="95" x2="450" y2="70"
-            stroke="#5ec4ff" stroke-width="2" filter="url(#a-glow)"
-            style="animation-delay: 0.15s;"/>
-          <line class="a-ray-mid" x1="264" y1="110" x2="450" y2="110"
-            stroke="#9ab8d8" stroke-width="2.2"
-            style="animation-delay: 0.3s;"/>
-          <line class="a-ray" x1="266" y1="130" x2="450" y2="154"
-            stroke="#E8B84E" stroke-width="2" filter="url(#a-glow)"
-            style="animation-delay: 0.45s;"/>
-          <line class="a-ray" x1="268" y1="148" x2="450" y2="194"
-            stroke="#D8587A" stroke-width="2" filter="url(#a-glow)"
-            style="animation-delay: 0.6s;"/>
-
-          <!-- End dots -->
-          <circle class="a-dot" cx="450" cy="36" r="0" fill="#4a9eff" style="animation-delay: 0.6s;" filter="url(#a-softGlow)"/>
-          <circle class="a-dot" cx="450" cy="70" r="0" fill="#5ec4ff" style="animation-delay: 0.75s;" filter="url(#a-softGlow)"/>
-          <circle class="a-dot" cx="450" cy="110" r="0" fill="#9ab8d8" style="animation-delay: 0.9s;" filter="url(#a-softGlow)"/>
-          <circle class="a-dot" cx="450" cy="154" r="0" fill="#E8B84E" style="animation-delay: 1.05s;" filter="url(#a-softGlow)"/>
-          <circle class="a-dot" cx="450" cy="194" r="0" fill="#D8587A" style="animation-delay: 1.2s;" filter="url(#a-softGlow)"/>
-
-          <!-- Labels -->
-          <g font-family="'DM Sans',sans-serif" font-size="11" font-weight="500" letter-spacing="0.5">
-            <text class="a-label" x="462" y="40" fill="#4a9eff" style="animation-delay: 0.7s;">PROCESS</text>
-            <text class="a-label" x="462" y="74" fill="#5ec4ff" style="animation-delay: 0.85s;">DISCRETION</text>
-            <text class="a-label" x="462" y="114" fill="#9ab8d8" style="animation-delay: 1.0s;">DECISION</text>
-            <text class="a-label" x="462" y="158" fill="#E8B84E" style="animation-delay: 1.15s;">DELAY</text>
-            <text class="a-label" x="462" y="198" fill="#D8587A" style="animation-delay: 1.3s;">REVIEW</text>
-          </g>
+          <!-- Rays from right -->
+          <line x1="310" y1="88" x2="480" y2="50" stroke="#5A9FD4" stroke-width="2.5"/>
+          <line x1="312" y1="105" x2="480" y2="85" stroke="#5A9FD4" stroke-width="2.5"/>
+          <line x1="315" y1="130" x2="480" y2="130" stroke="#8A9AAA" stroke-width="2.5"/>
+          <line x1="318" y1="150" x2="480" y2="165" stroke="#D4A854" stroke-width="2.5"/>
+          <line x1="320" y1="168" x2="480" y2="205" stroke="#D86880" stroke-width="2.5"/>
         </svg>
       </div>
     </header>
