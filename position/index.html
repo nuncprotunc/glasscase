@@ -183,6 +183,14 @@
     position: relative;
   }
 
+  @media (min-width: 980px) {
+    .s { max-width: 780px; }
+  }
+
+  @media (min-width: 1200px) {
+    .s { max-width: 820px; }
+  }
+
   .s + .s { border-top: 1px solid rgba(58,190,249,0.07); }
 
   .s-label {
@@ -614,6 +622,11 @@
   .s a:hover, .call a:hover, .ev-box a:hover, .closing a:hover { border-bottom-style: solid; }
   .hero-meta a { color: var(--gc-teal); text-decoration: none; border-bottom: 1px dotted rgba(58,190,249,0.35); }
   .hero-meta a:hover { border-bottom-style: solid; }
+
+  #shared-footer {
+    border-top: 1px solid rgba(58,190,249,0.12);
+    margin-top: 1.5rem;
+  }
 
   /* ══════════ ANIMATIONS ══════════ */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
