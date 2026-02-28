@@ -713,21 +713,74 @@
         <p class="sub">Founded by Jay Spudvilas, the lab builds civic-legal tools grounded in lived administrative data. Public-facing pathway guides are delivered through <a href="https://lightkey.org">LightKey</a>, a GlassCase initiative.</p>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <svg viewBox="0 0 220 160" width="200" height="140" style="margin:0 auto 2rem;display:block;opacity:0.85;" aria-label="GlassCase prism — light dispersed into five diagnostic rays">
+        <svg viewBox="0 0 320 160" width="200" height="140" style="margin:0 auto 2rem;display:block;opacity:0.85;" aria-label="GlassCase prism — light dispersed into five diagnostic rays">
           <defs>
             <linearGradient id="gc-prism" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9"/>
               <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7"/>
               <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9"/>
             </linearGradient>
+            <style>
+              @keyframes gc-refract {
+                0% { stroke-dashoffset: 220; opacity: 0; }
+                45% { opacity: 0.85; }
+                100% { stroke-dashoffset: 0; opacity: 0.85; }
+              }
+              .gc-ray {
+                stroke-dasharray: 220;
+                stroke-dashoffset: 220;
+                opacity: 0;
+                animation: gc-refract 3.4s ease-out forwards;
+              }
+              .gc-ray-mid {
+                stroke-dasharray: 220;
+                stroke-dashoffset: 220;
+                opacity: 0;
+                animation: gc-refract 3.8s ease-out forwards;
+              }
+
+              @keyframes gc-dotIn {
+                from { r: 0; opacity: 0; }
+                to { r: 2.2; opacity: 0.9; }
+              }
+              .gc-dot {
+                r: 0;
+                opacity: 0;
+                animation: gc-dotIn 900ms ease-out forwards;
+              }
+
+              @keyframes gc-labelIn {
+                from { opacity: 0; transform: translateX(6px); }
+                to { opacity: 1; transform: translateX(0); }
+              }
+              .gc-label {
+                opacity: 0;
+                animation: gc-labelIn 900ms ease-out forwards;
+              }
+            </style>
           </defs>
-          <line x1="10" y1="80" x2="70" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-          <polygon points="78,30 138,130 18,130" fill="rgba(15,23,48,0.8)" stroke="url(#gc-prism)" stroke-width="1.2"/>
-          <line x1="120" y1="60" x2="210" y2="25" stroke="#4A9FD8" stroke-width="1.5" opacity="0.8"/>
-          <line x1="124" y1="72" x2="210" y2="50" stroke="#3ABEF9" stroke-width="1.5" opacity="0.8"/>
-          <line x1="128" y1="84" x2="210" y2="80" stroke="#8B9DB8" stroke-width="2" opacity="0.8"/>
-          <line x1="130" y1="96" x2="210" y2="110" stroke="#F4C430" stroke-width="1.5" opacity="0.8"/>
-          <line x1="132" y1="108" x2="210" y2="140" stroke="#e86880" stroke-width="1.5" opacity="0.8"/>
+          <line x1="10" y1="80" x2="60" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <polygon points="68,30 128,130 8,130" fill="rgba(15,23,48,0.8)" stroke="url(#gc-prism)" stroke-width="1.2"/>
+
+          <line class="gc-ray" x1="110" y1="60" x2="270" y2="25" stroke="#4A9FD8" stroke-width="1.5" style="animation-delay: 0.15s;"/>
+          <line class="gc-ray" x1="114" y1="72" x2="270" y2="50" stroke="#3ABEF9" stroke-width="1.5" style="animation-delay: 0.35s;"/>
+          <line class="gc-ray-mid" x1="118" y1="84" x2="270" y2="80" stroke="#8B9DB8" stroke-width="2" style="animation-delay: 0.55s;"/>
+          <line class="gc-ray" x1="120" y1="96" x2="270" y2="110" stroke="#F4C430" stroke-width="1.5" style="animation-delay: 0.75s;"/>
+          <line class="gc-ray" x1="122" y1="108" x2="270" y2="140" stroke="#e86880" stroke-width="1.5" style="animation-delay: 0.95s;"/>
+
+          <circle class="gc-dot" cx="270" cy="25" fill="#4A9FD8" style="animation-delay: 2.9s;"/>
+          <circle class="gc-dot" cx="270" cy="50" fill="#3ABEF9" style="animation-delay: 3.1s;"/>
+          <circle class="gc-dot" cx="270" cy="80" fill="#8B9DB8" style="animation-delay: 3.3s;"/>
+          <circle class="gc-dot" cx="270" cy="110" fill="#F4C430" style="animation-delay: 3.5s;"/>
+          <circle class="gc-dot" cx="270" cy="140" fill="#e86880" style="animation-delay: 3.7s;"/>
+
+          <g font-family="'DM Sans',sans-serif" font-size="10" font-weight="500" letter-spacing="0.04em">
+            <text class="gc-label" x="282" y="28" fill="#4A9FD8" style="animation-delay: 3.2s;">Process</text>
+            <text class="gc-label" x="282" y="53" fill="#3ABEF9" style="animation-delay: 3.4s;">Discretion</text>
+            <text class="gc-label" x="282" y="83" fill="#8B9DB8" style="animation-delay: 3.6s;">Decision</text>
+            <text class="gc-label" x="282" y="113" fill="#F4C430" style="animation-delay: 3.8s;">Delay</text>
+            <text class="gc-label" x="282" y="143" fill="#e86880" style="animation-delay: 4.0s;">Review</text>
+          </g>
         </svg>
       </div>
     </header>
