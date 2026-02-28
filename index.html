@@ -713,73 +713,21 @@
         <p class="sub">Founded by Jay Spudvilas, the lab builds civic-legal tools grounded in lived administrative data. Public-facing pathway guides are delivered through <a href="https://lightkey.org">LightKey</a>, a GlassCase initiative.</p>
       </div>
       <div class="hero-visual" aria-hidden="true">
-        <svg viewBox="0 0 560 220" width="560" height="220" xmlns="http://www.w3.org/2000/svg">
+        <svg viewBox="0 0 220 160" width="200" height="140" style="margin:0 auto 2rem;display:block;opacity:0.85;" aria-label="GlassCase prism — light dispersed into five diagnostic rays">
           <defs>
-            <linearGradient id="a-beamGrad" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="transparent"/>
-              <stop offset="50%" stop-color="#4a6a90"/>
-              <stop offset="100%" stop-color="#6a8ab8"/>
+            <linearGradient id="gc-prism" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9"/>
+              <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7"/>
+              <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9"/>
             </linearGradient>
-            <filter id="a-glow">
-              <feGaussianBlur stdDeviation="3" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <filter id="a-softGlow">
-              <feGaussianBlur stdDeviation="5" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-            <style>
-              @keyframes a-beamIn {
-                0%, 100% { opacity: 0.35; stroke-dashoffset: 0; }
-                50% { opacity: 0.9; stroke-dashoffset: -20; }
-              }
-              .a-beam { animation: a-beamIn 6s ease-in-out infinite; stroke-dasharray: 8 4; }
-              @keyframes a-refract {
-                0%, 5% { stroke-dashoffset: 300; opacity: 0; }
-                25% { opacity: 1; }
-                55% { stroke-dashoffset: 0; opacity: 1; }
-                80% { stroke-dashoffset: 0; opacity: 0.7; }
-                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
-              }
-              .a-ray { stroke-dasharray: 300; animation: a-refract 6s ease-in-out infinite; }
-              @keyframes a-refract-mid {
-                0%, 5% { stroke-dashoffset: 212; opacity: 0; }
-                25% { opacity: 1; }
-                55% { stroke-dashoffset: 0; opacity: 1; }
-                80% { stroke-dashoffset: 0; opacity: 0.7; }
-                95%, 100% { stroke-dashoffset: 0; opacity: 0; }
-              }
-              .a-ray-mid { stroke-dasharray: 212; animation: a-refract-mid 6s ease-in-out infinite; }
-              @keyframes a-labelFade {
-                0%, 20% { opacity: 0; transform: translateX(6px); }
-                40% { opacity: 1; transform: translateX(0); }
-                75% { opacity: 1; transform: translateX(0); }
-                95%, 100% { opacity: 0; transform: translateX(-3px); }
-              }
-              .a-label { animation: a-labelFade 6s ease-in-out infinite; }
-              @keyframes a-dotPulse {
-                0%, 15% { r: 0; opacity: 0; }
-                35% { r: 2.5; opacity: 1; }
-                75% { r: 2.5; opacity: 0.8; }
-                95%, 100% { r: 0; opacity: 0; }
-              }
-              .a-dot { animation: a-dotPulse 6s ease-in-out infinite; }
-              .a-inner { opacity: 0.16; }
-            </style>
           </defs>
-
-          <!-- Ray from left -->
-          <line x1="90" y1="110" x2="210" y2="110" stroke="#6B7A8A" stroke-width="2"/>
-
-          <!-- Triangle -->
-          <polygon points="240,50 130,185 350,185" fill="none" stroke="#5A9FD4" stroke-width="2.5"/>
-
-          <!-- Rays from right -->
-          <line x1="310" y1="88" x2="480" y2="50" stroke="#5A9FD4" stroke-width="2.5"/>
-          <line x1="312" y1="105" x2="480" y2="85" stroke="#5A9FD4" stroke-width="2.5"/>
-          <line x1="315" y1="130" x2="480" y2="130" stroke="#8A9AAA" stroke-width="2.5"/>
-          <line x1="318" y1="150" x2="480" y2="165" stroke="#D4A854" stroke-width="2.5"/>
-          <line x1="320" y1="168" x2="480" y2="205" stroke="#D86880" stroke-width="2.5"/>
+          <line x1="10" y1="80" x2="70" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+          <polygon points="78,30 138,130 18,130" fill="rgba(15,23,48,0.8)" stroke="url(#gc-prism)" stroke-width="1.2"/>
+          <line x1="120" y1="60" x2="210" y2="25" stroke="#4A9FD8" stroke-width="1.5" opacity="0.8"/>
+          <line x1="124" y1="72" x2="210" y2="50" stroke="#3ABEF9" stroke-width="1.5" opacity="0.8"/>
+          <line x1="128" y1="84" x2="210" y2="80" stroke="#8B9DB8" stroke-width="2" opacity="0.8"/>
+          <line x1="130" y1="96" x2="210" y2="110" stroke="#F4C430" stroke-width="1.5" opacity="0.8"/>
+          <line x1="132" y1="108" x2="210" y2="140" stroke="#e86880" stroke-width="1.5" opacity="0.8"/>
         </svg>
       </div>
     </header>
