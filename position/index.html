@@ -567,26 +567,46 @@
   .closing {
     text-align: center;
     padding: 4rem 1.5rem 5rem;
-    max-width: 580px;
+    max-width: 640px;
     margin: 0 auto;
   }
 
   .closing p {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
+    font-size: clamp(1.02rem, 1.7vw, 1.2rem);
+    color: rgba(232, 244, 248, 0.86);
+    line-height: 1.62;
+    max-width: 52ch;
+    margin: 0.95rem auto 0;
+  }
+
+  .closing p:first-of-type { margin-top: 0; }
+
+  .closing p strong {
     color: var(--gc-text);
-    line-height: 1.6;
+    font-weight: 600;
   }
 
   .closing .note {
     font-family: 'JetBrains Mono', monospace;
     font-size: .66rem;
     color: var(--gc-muted);
-    margin-top: 1.8rem;
+    margin-top: 2.2rem;
+    padding-top: 1.3rem;
+    border-top: 1px solid rgba(58,190,249,0.08);
     line-height: 1.7;
     max-width: 46ch;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  @media (max-width: 600px) {
+    .closing {
+      padding: 3.2rem 1.2rem 4.1rem;
+    }
+    .closing p {
+      max-width: 40ch;
+    }
   }
 
   /* ══════════ LINKS ══════════ */
@@ -1195,15 +1215,15 @@
   <p>
     GlassCase exists because the architecture of government decisions is invisible to the people those decisions affect.
   </p>
-  <p style="margin-top:1rem;">
+  <p>
     We make that architecture visible — not to campaign for particular outcomes,<br>
     but because fairness requires it.
   </p>
-  <p style="margin-top:1rem;">
+  <p>
     If you cannot see how a decision is made,<br>
     you cannot tell whether it was made properly.
   </p>
-  <p style="margin-top:1.5rem;">
+  <p>
     <strong>Making integrity visible is not optional. It is infrastructure.</strong>
   </p>
 
