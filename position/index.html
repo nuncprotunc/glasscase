@@ -167,6 +167,22 @@
     --gc-glow: var(--border-subtle);
     --gc-link-border: var(--border-primary);
     --gc-soft-divider: var(--border-subtle);
+    --gc-content-lh: 1.72;
+    --gc-content-ls: 0;
+    --gc-content-ws: 0;
+  }
+
+  body.reading-relaxed {
+    --gc-content-lh: 2.2;
+    --gc-content-ls: 0.08em;
+    --gc-content-ws: 0.12em;
+  }
+
+  body.reading-relaxed #main-content p,
+  body.reading-relaxed #main-content li {
+    line-height: var(--gc-content-lh);
+    letter-spacing: var(--gc-content-ls);
+    word-spacing: var(--gc-content-ws);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -184,9 +200,9 @@
 
   #main-content {
     font-family: 'DM Sans', sans-serif;
-    line-height: 1.72;
-    letter-spacing: 0;
-    word-spacing: 0;
+    line-height: var(--gc-content-lh);
+    letter-spacing: var(--gc-content-ls);
+    word-spacing: var(--gc-content-ws);
   }
 
   /* ══════════ HERO ══════════ */
