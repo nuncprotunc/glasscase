@@ -18,17 +18,7 @@ article {
     margin-bottom: 3.5rem;
 }
 
-.newsletter-badge {
-    display: inline-block;
-    width: fit-content;
-    padding: 0.3rem 0.95rem;
-    background: #4b9fd8;
-    color: #fff;
-    font-size: 0.75rem;
-    font-weight: 700;
-    border-radius: 9999px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+.article-header .pill-primary {
     margin-bottom: 1.5rem;
 }
 

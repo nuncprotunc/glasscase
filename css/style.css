@@ -115,6 +115,31 @@ p a {
   animation: prismGlow 4s ease-in-out infinite;
 }
 
+/* Canonical pill style */
+.pill-primary {
+  display: inline-block;
+  width: fit-content;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--transparency-cyan);
+  border: 1px solid rgba(58, 190, 249, 0.35);
+  background: rgba(26, 31, 46, 0.45);
+  padding: 0.38rem 1rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.pill-primary:hover,
+.pill-primary:focus-visible {
+  color: var(--ice-blue);
+  border-color: rgba(58, 190, 249, 0.55);
+  background: rgba(26, 31, 46, 0.62);
+}
+
 /* Navigation */
 .gc-header {
   position: sticky;

@@ -115,16 +115,7 @@
             padding: 4rem 2rem;
         }
 
-        .version-tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: var(--glass-blue);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
-            border-radius: 9999px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .pill-primary {
             margin-bottom: 1rem;
         }
 
@@ -172,18 +163,9 @@
             opacity: 0.9;
         }
 
-        .matrix-pill {
-            display: inline-block;
-            padding: 4px 12px;
-            background: #3b82f6;
-            border-radius: 9999px;
-            font-size: 12px;
-            font-weight: 600;
+        .matrix-shell .pill-primary {
             margin-bottom: 16px;
-            color: #fff;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
+            opacity: 0.9;
         }
 
         .page-intro {
@@ -550,7 +532,7 @@
     <div id="shared-mobile-menu"></div>
 
     <main id="content">
-        <span class="version-tag">v0.1</span>
+        <span class="pill-primary">v0.1</span>
         <h1>Consideration Matrix</h1>
         <p class="subtitle">Mapping what must be considered against what was actually considered</p>
 
@@ -573,7 +555,7 @@
         </div>
 
         <div class="matrix-shell" id="matrix-visual">
-            <a class="matrix-pill" href="#matrix-visual">2×2 Matrix</a>
+            <a class="pill-primary" href="#matrix-visual">2×2 Matrix</a>
             <div class="matrix-key">
                 <div class="matrix-key-item">
                     <span class="matrix-key-dot green"></span>
