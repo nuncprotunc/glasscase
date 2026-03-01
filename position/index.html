@@ -807,6 +807,17 @@
   .eco-tag--public { color: var(--gold-accent); }
   .eco-tag--principle { color: var(--text-tertiary); }
 
+  [data-theme="light"] .diagram .d-step,
+  [data-theme="light"] .diagram .d-arr,
+  [data-theme="light"] .diagram .d-cap,
+  [data-theme="light"] .tl-labels {
+    color: #B8C5D8;
+  }
+
+  [data-theme="light"] .diagram .d-step:not(.on):not(.fail) {
+    border-color: rgba(184, 197, 216, 0.3);
+  }
+
   /* ══════════ ANIMATIONS ══════════ */
   @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes pulse { 0%,100% { opacity: .18; } 50% { opacity: .55; } }
