@@ -179,14 +179,14 @@ main {
   font-weight: 800;
   letter-spacing: -0.5px;
   margin-bottom: 1rem;
-  color: var(--white);
+  color: var(--text-primary);
 }
 
 .app-header .intro {
-  font-size: 1.25rem;
-  color: var(--slate);
-  max-width: 900px;
+  font-size: 1.05rem;
   line-height: 1.7;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
 }
 
 .app-header .meta {
@@ -194,10 +194,12 @@ main {
   gap: 1.5rem;
   margin-top: 1.2rem;
   font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: rgba(255,255,255,0.3);
-  letter-spacing: 0.05em;
-  flex-wrap: wrap;
+  font-size: 0.7rem;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 /* ═══ UNIT HEADER ═══ */
@@ -225,20 +227,20 @@ main {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--slate);
-  margin-bottom: 0.4rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
 }
 
 .unit-field input, .unit-field select {
   width: 100%;
-  background: rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: var(--white);
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  color: var(--text-primary);
   font-family: var(--font-body);
-  font-size: 0.88rem;
-  padding: 0.55rem 0.75rem;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.7rem;
   border-radius: 2px;
   outline: none;
   transition: border-color 0.2s;
@@ -315,7 +317,7 @@ main {
   letter-spacing: 0.06em;
   background: transparent;
   border: none;
-  color: var(--slate);
+  color: var(--text-secondary);
   padding: 0.8rem 1.2rem;
   cursor: pointer;
   transition: all 0.2s;
@@ -325,12 +327,12 @@ main {
 }
 
 .tab-btn:hover {
-  color: var(--white);
+  color: var(--accent-primary);
 }
 
 .tab-btn.active {
-  color: var(--white);
-  border-bottom-color: var(--glass-blue);
+  color: var(--text-primary);
+  border-bottom-color: var(--accent-primary);
 }
 
 .tab-btn .tab-badge {

@@ -53,7 +53,7 @@ h1 {
 .article-content {
     font-size: 1rem;
     line-height: 1.75;
-    color: rgba(232, 244, 248, 0.92);
+    color: var(--text-primary);
     font-weight: 400;
 }
 
@@ -85,20 +85,20 @@ h1 {
 
 .article-content li {
     margin-bottom: 0.75rem;
-    color: rgba(232, 244, 248, 0.85);
+    color: var(--text-primary);
 }
 
 .article-content a {
-    color: #3abffa;
+    color: var(--accent-primary);
     text-decoration: none;
 }
 
 .article-content a:hover {
-    color: var(--ice-blue);
+    color: var(--accent-hover);
 }
 
 .article-content strong {
-    color: var(--ice-blue);
+    color: var(--text-primary);
     font-weight: 700;
 }
 
@@ -109,15 +109,15 @@ h1 {
 .article-content blockquote {
     margin: 1.5rem 0;
     padding-left: 1.5rem;
-    border-left: 4px solid #4A9FD8;
-    background: rgba(58, 190, 249, 0.04);
+    border-left: 4px solid var(--accent-primary);
+    background: var(--bg-callout);
     padding: 1rem 1.5rem;
     border-radius: 4px;
 }
 
 .article-content blockquote p {
     margin-bottom: 0.75rem;
-    color: rgba(232, 244, 248, 0.88);
+    color: var(--text-primary);
     font-size: 0.95rem;
     line-height: 1.6;
 }
@@ -141,7 +141,7 @@ h1 {
     font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.2px;
-    color: var(--ice-blue);
+    color: var(--text-primary);
     margin-bottom: 1rem;
 }
 
@@ -149,21 +149,21 @@ h1 {
     margin-top: 2.5rem;
     padding: 1.25rem 1.5rem;
     border-radius: 10px;
-    background: rgba(58, 190, 249, 0.06);
-    border: 1px solid rgba(58, 190, 249, 0.18);
+    background: var(--bg-callout);
+    border: 1px solid var(--border-primary);
     font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-    color: rgba(232, 244, 248, 0.88);
+    color: var(--text-primary);
 }
 
 .subscribe-cta a {
-    color: var(--transparency-cyan);
+    color: var(--accent-primary);
     text-decoration: underline;
     text-underline-offset: 3px;
     font-weight: 700;
 }
 
 .subscribe-cta a:hover {
-    color: var(--ice-blue);
+    color: var(--accent-hover);
 }
 
 .back-link {
@@ -175,7 +175,7 @@ h1 {
 }
 
 .back-link:hover {
-    color: var(--ice-blue);
+    color: var(--accent-primary);
 }
 
 .infographic {
@@ -224,16 +224,16 @@ h1 {
 .sources li {
     margin-bottom: 0.75rem;
     font-size: 0.875rem;
-    color: var(--slate);
+    color: var(--text-secondary);
 }
 
 .sources li a {
-    color: var(--transparency-cyan);
+    color: var(--accent-primary);
     text-decoration: none;
 }
 
 .sources li a:hover {
-    color: var(--ice-blue);
+    color: var(--accent-hover);
 }
 
 @media (max-width: 768px) {

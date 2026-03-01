@@ -131,6 +131,17 @@
             box-shadow: 0 8px 24px rgba(58, 190, 249, 0.12);
         }
 
+        [data-theme="light"] .legal-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+        }
+
+        [data-theme="light"] .legal-card:hover {
+            background: var(--bg-card);
+            border-color: var(--border-primary);
+            box-shadow: none;
+        }
+
         .legal-section + .legal-section {
             margin-top: 1.75rem;
             padding-top: 1.5rem;
@@ -156,11 +167,19 @@
             padding-bottom: 0;
             border-bottom: none;
         }
+
+        [data-theme="light"] .legal-section h2 {
+            color: var(--accent-primary);
+        }
         
         .legal-section p {
             font-size: 15px;
             color: var(--white);
             line-height: 1.85;
+        }
+
+        [data-theme="light"] .legal-section p {
+            color: var(--text-primary);
         }
 
         .legal-section p + p {
@@ -180,6 +199,10 @@
             line-height: 1.75;
         }
 
+        [data-theme="light"] .legal-section li {
+            color: var(--text-primary);
+        }
+
         .legal-section a {
             color: var(--transparency-cyan);
             text-decoration: none;
@@ -190,6 +213,16 @@
         .legal-section a:hover {
             color: var(--ice-blue);
             border-color: var(--ice-blue);
+        }
+
+        [data-theme="light"] .legal-section a {
+            color: var(--accent-primary);
+            border-bottom-color: var(--border-primary);
+        }
+
+        [data-theme="light"] .legal-section a:hover {
+            color: var(--accent-hover);
+            border-color: var(--accent-hover);
         }
 
         .legal-callout {
@@ -204,6 +237,15 @@
             font-size: 14px;
             color: var(--transparency-cyan);
             line-height: 1.75;
+        }
+
+        [data-theme="light"] .legal-callout {
+            background: var(--bg-callout);
+            border-color: var(--border-primary);
+        }
+
+        [data-theme="light"] .legal-callout p {
+            color: var(--text-primary);
         }
         
         @media (max-width: 640px) {
