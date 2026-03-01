@@ -415,8 +415,8 @@ body.mobile-menu-open .gc-header {
   
   .mobile-menu-header {
     margin-bottom: 24px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--line) !important;
+    padding-bottom: 0;
+    border-bottom: 0 !important;
     text-align: center;
   }
 
@@ -440,17 +440,23 @@ body.mobile-menu-open .gc-header {
   }
   
   .mobile-menu-title {
-    display: block !important;
+    display: block;
     font-family: 'Spectral', serif;
     font-size: 20px;
     font-weight: 700;
     color: var(--ice-blue);
-    margin: 0 auto !important;
+    margin: 0 auto;
     line-height: 1.2;
     text-shadow: none;
-    border: none !important;
-    border-bottom: none !important;
-    padding-bottom: 0 !important;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-divider {
+    height: 1px;
+    background: var(--line);
+    margin: 20px 0 0;
+    width: 100%;
   }
   
   .mobile-menu nav {

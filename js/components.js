@@ -57,7 +57,8 @@ const COMPONENTS = {
     <div class="mobile-menu" id="mobileMenu">
       <button class="mobile-menu-close" type="button" onclick="closeMobileMenu()" aria-label="Close menu">×</button>
       <div class="mobile-menu-header">
-        <div class="mobile-menu-title" style="text-align:center;font-family:'Spectral',serif;font-size:20px;font-weight:700;color:#E8F4F8;line-height:1.2;">GlassCase</div>
+        <span class="mobile-menu-title">GlassCase</span>
+        <div class="mobile-menu-divider"></div>
       </div>
       <nav>
         <a href="/position/" onclick="closeMobileMenu()" data-nav="position">Position Paper</a>
