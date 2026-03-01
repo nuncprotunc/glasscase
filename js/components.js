@@ -46,10 +46,7 @@ const COMPONENTS = {
             <span class="toggle-icon" aria-hidden="true">Aa</span>
             <span>Relaxed reading</span>
           </button>
-          <button id="theme-toggle" class="gc-theme-toggle" aria-label="Toggle light mode" type="button">
-            <span class="toggle-icon" aria-hidden="true">☀️</span>
-            <span class="toggle-label">LIGHT MODE</span>
-          </button>
+          <button id="theme-toggle" class="gc-theme-toggle" aria-label="Switch to light mode" type="button">☼</button>
           <button class="mobile-menu-button" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -169,21 +166,18 @@ function gcInitThemeToggle() {
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
 
-  const label = btn.querySelector('.toggle-label');
-  const icon = btn.querySelector('.toggle-icon');
-
   function applyTheme(theme) {
     if (theme === 'light') {
       document.documentElement.setAttribute('data-theme', 'light');
-      if (label) label.textContent = 'DARK MODE';
-      if (icon) icon.textContent = '🌙';
+      btn.textContent = '☾';
+      btn.setAttribute('aria-label', 'Switch to dark mode');
       try {
         localStorage.setItem('glasscase-theme', 'light');
       } catch (_) {}
     } else {
       document.documentElement.removeAttribute('data-theme');
-      if (label) label.textContent = 'LIGHT MODE';
-      if (icon) icon.textContent = '☀️';
+      btn.textContent = '☼';
+      btn.setAttribute('aria-label', 'Switch to light mode');
       try {
         localStorage.setItem('glasscase-theme', 'dark');
       } catch (_) {}
