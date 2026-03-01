@@ -46,6 +46,10 @@ const COMPONENTS = {
             <span class="toggle-icon" aria-hidden="true">Aa</span>
             <span>Relaxed reading</span>
           </button>
+          <button id="theme-toggle" class="gc-theme-toggle" aria-label="Toggle light mode" type="button">
+            <span class="toggle-icon" aria-hidden="true">☀️</span>
+            <span class="toggle-label">LIGHT MODE</span>
+          </button>
           <button class="mobile-menu-button" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -157,7 +161,49 @@ function injectComponents() {
     if (activeLink) activeLink.classList.add('active');
   }
 
+  gcInitThemeToggle();
   gcInitReadingToggle();
+}
+
+function gcInitThemeToggle() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+
+  const label = btn.querySelector('.toggle-label');
+  const icon = btn.querySelector('.toggle-icon');
+
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      if (label) label.textContent = 'DARK MODE';
+      if (icon) icon.textContent = '🌙';
+      try {
+        localStorage.setItem('glasscase-theme', 'light');
+      } catch (_) {}
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      if (label) label.textContent = 'LIGHT MODE';
+      if (icon) icon.textContent = '☀️';
+      try {
+        localStorage.setItem('glasscase-theme', 'dark');
+      } catch (_) {}
+    }
+  }
+
+  let saved = null;
+  try {
+    saved = localStorage.getItem('glasscase-theme');
+  } catch (_) {
+    saved = null;
+  }
+
+  const initial = saved === 'light' || document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  applyTheme(initial);
+
+  btn.addEventListener('click', function() {
+    const current = document.documentElement.getAttribute('data-theme');
+    applyTheme(current === 'light' ? 'dark' : 'light');
+  });
 }
 
 function gcInitReadingToggle() {

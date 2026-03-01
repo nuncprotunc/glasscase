@@ -77,7 +77,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,700&family=Manrope:wght@400;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
     
     <!-- Shared Styles -->
-    <link rel="stylesheet" href="/css/style.css?v=2026-03-02">
+    <script>
+  (function() {
+    var t = localStorage.getItem('glasscase-theme');
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  })();
+</script>
+<link rel="stylesheet" href="/css/style.css?v=2026-03-02">
     
     <style>
         /* Article-specific styles */
@@ -339,6 +345,6 @@
 
     <!-- Shared Logic -->
     <script src="/js/main.js?v=2025-12-31"></script>
-    <script src="/js/components.js?v=2026-03-04"></script>
+    <script src="/js/components.js?v=2026-03-05"></script>
 </body>
 </html>

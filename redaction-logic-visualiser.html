@@ -27,7 +27,13 @@
   <meta name="twitter:description" content="Interactive map of the FOI redaction decision pathway (Commonwealth FOI Act)." />
   <meta name="twitter:image" content="https://glasscase.org/og-image.png" />
   <meta name="twitter:image:alt" content="FOI Redaction Logic Visualiser | GlassCase" />
-  <link rel="stylesheet" href="/css/style.css?v=2026-03-02" />
+  <script>
+  (function() {
+    var t = localStorage.getItem('glasscase-theme');
+    if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+  })();
+</script>
+<link rel="stylesheet" href="/css/style.css?v=2026-03-02" />
 
   <script type="application/ld+json">
   {
