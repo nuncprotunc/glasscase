@@ -753,7 +753,7 @@ footer a[onclick*="resetAnalyticsConsent"] {
 
 .footer-cta {
   background: var(--glass-blue);
-  color: white;
+  color: var(--white);
   padding: 8px 16px;
   border-radius: 6px;
   text-decoration: none;
@@ -765,7 +765,7 @@ footer a[onclick*="resetAnalyticsConsent"] {
 
 .footer-cta:hover {
   opacity: 0.9;
-  color: white;
+  color: var(--white);
 }
 
 .footer-bottom {

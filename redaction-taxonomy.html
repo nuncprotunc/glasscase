@@ -239,7 +239,7 @@
 
         .download-link:hover {
             background: var(--glass-blue);
-            color: white;
+            color: var(--white);
             border-color: var(--glass-blue);
         }
 
@@ -288,7 +288,7 @@
             width: 2rem;
             height: 2rem;
             background: var(--glass-blue);
-            color: white;
+            color: var(--white);
             font-weight: 700;
             font-size: 0.875rem;
             border-radius: 6px;
@@ -375,9 +375,48 @@
             color: var(--text-primary);
         }
 
+        [data-theme="light"] .mapping-table th {
+            background: #e8eef4;
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] .mapping-table td:first-child {
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] .mapping-procedural-title {
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] .mapping-procedural-summary strong,
+        [data-theme="light"] .worked-example-intro strong {
+            color: #1a5568;
+            background: #e0f0f5;
+            border-radius: 6px;
+            padding: 0.125rem 0.4rem;
+            font-weight: 600;
+        }
+
+        [data-theme="light"] .example-table th {
+            background: #e8eef4;
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] .example-meta {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="light"] .example-meta strong {
+            color: var(--text-secondary);
+        }
+
+        [data-theme="light"] .use-list li strong {
+            color: var(--text-primary);
+        }
+
         [data-theme="light"] .download-link:hover {
             background: var(--accent-primary);
-            color: white;
+            color: var(--bg-primary);
             border-color: var(--accent-primary);
         }
 
