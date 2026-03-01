@@ -76,7 +76,7 @@ const COMPONENTS = {
   footer: `
     <div class="footer-top">
       <div class="footer-brand">
-        <a href="https://glasscase.org/" class="brand" aria-label="GlassCase home" style="margin-bottom: 0.5rem;">
+        <a href="https://glasscase.org/" class="brand" aria-label="GlassCase home">
           <svg width="32" height="32" viewBox="0 0 80 80" fill="none" aria-hidden="true">
             <defs>
               <linearGradient id="footerPrismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
