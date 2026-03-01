@@ -33,7 +33,7 @@
     if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
   })();
 </script>
-<link rel="stylesheet" href="/css/style.css?v=2026-03-11" />
+<link rel="stylesheet" href="/css/style.css?v=2026-03-12" />
 
   <script type="application/ld+json">
   {
@@ -80,13 +80,80 @@
   <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js?v=2025-12-30"></script>
 
   <script type="text/babel">
-    const { useEffect, useState } = React;
+    const { useEffect, useMemo, useState } = React;
 
     const RedactionFlowVisualizer = () => {
       const [activeStep, setActiveStep] = useState(null);
       const [activePath, setActivePath] = useState(null);
+      const [theme, setTheme] = useState(
+        document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark'
+      );
 
       const [isMobile, setIsMobile] = useState(false);
+
+      const isLight = theme === 'light';
+
+      const palette = useMemo(() => {
+        if (isLight) {
+          return {
+            pageBg: 'linear-gradient(135deg, #f8fbff 0%, #f2f7fd 50%, #eef4fb 100%)',
+            textPrimary: '#1a1a2e',
+            textMuted: '#64748b',
+            headingSolid: '#1a1a2e',
+            disclaimerBg: '#eaf3ff',
+            disclaimerBorder: '#c7ddf7',
+            legendBg: '#f7fbff',
+            legendBorder: '#d9e4f0',
+            cardBg: '#f7fbff',
+            cardBorder: '#d9e4f0',
+            sectionBg: '#ffffff',
+            sectionBorder: '#d9e4f0',
+            descBg: '#eef4fb',
+            noteStrong: '#1d4ed8',
+            noteBg: '#eaf3ff',
+            noteBorder: '#c7ddf7',
+            attrBorder: '#d9e4f0',
+            attrText: '#64748b',
+            neutralArrow: '#64748b',
+            chipReleaseBg: '#dcfce7',
+            chipReleaseText: '#166534',
+            chipRefuseBg: '#fee2e2',
+            chipRefuseText: '#991b1b',
+            finalReleaseBg: '#dcfce7',
+            finalReleaseText: '#166534',
+            finalReleaseSub: '#64748b',
+          };
+        }
+
+        return {
+          pageBg: 'linear-gradient(135deg, #0a1628 0%, #0f172a 50%, #1a2744 100%)',
+          textPrimary: '#e2e8f0',
+          textMuted: '#94a3b8',
+          headingSolid: null,
+          disclaimerBg: 'rgba(74,158,255,0.07)',
+          disclaimerBorder: 'rgba(74,158,255,0.2)',
+          legendBg: 'rgba(255,255,255,0.03)',
+          legendBorder: 'rgba(255,255,255,0.1)',
+          cardBg: 'rgba(255,255,255,0.02)',
+          cardBorder: 'rgba(255,255,255,0.1)',
+          sectionBg: 'rgba(255,255,255,0.01)',
+          sectionBorder: 'rgba(255,255,255,0.08)',
+          descBg: 'rgba(0,0,0,0.3)',
+          noteStrong: '#60a5fa',
+          noteBg: 'rgba(59, 130, 246, 0.1)',
+          noteBorder: 'rgba(59, 130, 246, 0.3)',
+          attrBorder: 'rgba(255,255,255,0.1)',
+          attrText: '#64748b',
+          neutralArrow: '#64748b',
+          chipReleaseBg: 'rgba(34, 197, 94, 0.1)',
+          chipReleaseText: '#86efac',
+          chipRefuseBg: 'rgba(239, 68, 68, 0.08)',
+          chipRefuseText: '#fca5a5',
+          finalReleaseBg: 'rgba(34, 197, 94, 0.15)',
+          finalReleaseText: '#86efac',
+          finalReleaseSub: '#94a3b8',
+        };
+      }, [isLight]);
 
       useEffect(() => {
         if (typeof window === 'undefined' || !window.matchMedia) return;
@@ -102,6 +169,38 @@
 
         mq.addListener(update);
         return () => mq.removeListener(update);
+      }, []);
+
+      useEffect(() => {
+        function applyTheme(nextTheme) {
+          const safeTheme = nextTheme === 'light' ? 'light' : 'dark';
+          setTheme(safeTheme);
+          if (safeTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+          } else {
+            document.documentElement.removeAttribute('data-theme');
+          }
+        }
+
+        function onMessage(event) {
+          if (!event || !event.data) return;
+          if (event.data.type === 'glasscaseTheme') {
+            applyTheme(event.data.theme);
+          }
+        }
+
+        function onStorage(event) {
+          if (!event || event.key !== 'glasscase-theme') return;
+          applyTheme(event.newValue === 'light' ? 'light' : 'dark');
+        }
+
+        window.addEventListener('message', onMessage);
+        window.addEventListener('storage', onStorage);
+
+        return () => {
+          window.removeEventListener('message', onMessage);
+          window.removeEventListener('storage', onStorage);
+        };
       }, []);
 
       const steps = {
@@ -256,7 +355,44 @@
 
         const isActive = activeStep === step.id;
 
-        const typeStyles = {
+        const typeStyles = isLight ? {
+          'start': {
+            background: isActive ? '#dbeafe' : '#f4f8ff',
+            borderColor: '#3b82f6',
+            color: '#1e3a8a'
+          },
+          'decision': {
+            background: isActive ? '#dbeafe' : '#eff6ff',
+            borderColor: '#3b82f6',
+            color: '#1e40af',
+            transform: 'rotate(0deg)'
+          },
+          'exemption-absolute': {
+            background: isActive ? '#fee2e2' : '#fff1f1',
+            borderColor: '#ef4444',
+            color: '#991b1b'
+          },
+          'exemption-conditional': {
+            background: isActive ? '#fef3c7' : '#fff8e8',
+            borderColor: '#f59e0b',
+            color: '#92400e'
+          },
+          'process': {
+            background: isActive ? '#dbeafe' : '#eff6ff',
+            borderColor: '#60a5fa',
+            color: '#1e40af'
+          },
+          'outcome-release': {
+            background: isActive ? '#dcfce7' : '#ecfdf5',
+            borderColor: '#22c55e',
+            color: '#166534'
+          },
+          'outcome-refuse': {
+            background: isActive ? '#fee2e2' : '#fff1f1',
+            borderColor: '#ef4444',
+            color: '#991b1b'
+          }
+        } : {
           'start': {
             background: isActive ? '#1e3a5f' : '#0f172a',
             borderColor: '#3b82f6',
@@ -322,7 +458,7 @@
               fontSize: '11px',
               marginTop: '8px',
               padding: '8px',
-              background: 'rgba(0,0,0,0.3)',
+              background: palette.descBg,
               borderRadius: '4px',
               textAlign: 'left'
             }}>
@@ -367,10 +503,10 @@
 
       return (
         <div style={{
-          background: 'linear-gradient(135deg, #0a1628 0%, #0f172a 50%, #1a2744 100%)',
+          background: palette.pageBg,
           padding: '32px',
           fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-          color: '#e2e8f0'
+          color: palette.textPrimary
         }}>
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             {/* Header */}
@@ -382,13 +518,17 @@
                 fontSize: '28px',
                 fontWeight: 700,
                 marginBottom: '8px',
-                background: 'linear-gradient(135deg, #e2e8f0 0%, #60a5fa 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent'
+                ...(isLight
+                  ? { color: palette.headingSolid }
+                  : {
+                      background: 'linear-gradient(135deg, #e2e8f0 0%, #60a5fa 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent'
+                    })
               }}>
                 FOI Redaction Logic
               </h1>
-              <p style={{ color: '#94a3b8', fontSize: '16px' }}>
+              <p style={{ color: palette.textMuted, fontSize: '16px' }}>
                 The decision pathway from request to release under the FOI Act 1982 (Cth)
               </p>
             </div>
@@ -397,14 +537,14 @@
             <div style={{
               padding: '10px 16px',
               marginBottom: '24px',
-              background: 'rgba(74,158,255,0.07)',
-              border: '1px solid rgba(74,158,255,0.2)',
+              background: palette.disclaimerBg,
+              border: `1px solid ${palette.disclaimerBorder}`,
               borderRadius: '8px',
               fontSize: '13px',
-              color: '#94a3b8',
+              color: palette.textMuted,
               lineHeight: '1.5'
             }}>
-              <strong style={{ color: '#60a5fa' }}>Diagnostic tool.</strong> This visualiser maps the statutory decision pathway for educational purposes. It does not constitute legal advice or an authoritative interpretation of the FOI Act. Output should not be treated as evidence of agency conduct or exemption validity.
+              <strong style={{ color: palette.noteStrong }}>Diagnostic tool.</strong> This visualiser maps the statutory decision pathway for educational purposes. It does not constitute legal advice or an authoritative interpretation of the FOI Act. Output should not be treated as evidence of agency conduct or exemption validity.
             </div>
 
             {/* Legend */}
@@ -414,36 +554,36 @@
               marginBottom: '32px',
               flexWrap: 'wrap',
               padding: '16px',
-              background: 'rgba(255,255,255,0.03)',
+              background: palette.legendBg,
               borderRadius: '8px',
-              border: '1px solid rgba(255,255,255,0.1)'
+              border: `1px solid ${palette.legendBorder}`
             }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ width: '12px', height: '12px', borderRadius: '2px', background: '#3b82f6' }}></div>
-                <span style={{ fontSize: '12px', color: '#94a3b8' }}>Decision point</span>
+                <span style={{ fontSize: '12px', color: palette.textMuted }}>Decision point</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ width: '12px', height: '12px', borderRadius: '2px', background: '#ef4444' }}></div>
-                <span style={{ fontSize: '12px', color: '#94a3b8' }}>Absolute exemption</span>
+                <span style={{ fontSize: '12px', color: palette.textMuted }}>Absolute exemption</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ width: '12px', height: '12px', borderRadius: '2px', background: '#f59e0b' }}></div>
-                <span style={{ fontSize: '12px', color: '#94a3b8' }}>Conditional exemption</span>
+                <span style={{ fontSize: '12px', color: palette.textMuted }}>Conditional exemption</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ width: '12px', height: '12px', borderRadius: '2px', background: '#60a5fa' }}></div>
-                <span style={{ fontSize: '12px', color: '#94a3b8' }}>Process step</span>
+                <span style={{ fontSize: '12px', color: palette.textMuted }}>Process step</span>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <div style={{ width: '12px', height: '12px', borderRadius: '2px', background: '#22c55e' }}></div>
-                <span style={{ fontSize: '12px', color: '#94a3b8' }}>Release</span>
+                <span style={{ fontSize: '12px', color: palette.textMuted }}>Release</span>
               </div>
             </div>
 
             {/* Flowchart */}
             <div style={{
-              background: 'rgba(255,255,255,0.02)',
-              border: '1px solid rgba(255,255,255,0.1)',
+              background: palette.cardBg,
+              border: `1px solid ${palette.cardBorder}`,
               borderRadius: '12px',
               padding: isMobile ? '20px' : '32px',
               overflowX: isMobile ? 'hidden' : 'auto'
@@ -455,7 +595,7 @@
                   </div>
 
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Arrow direction="down" color="#64748b" />
+                    <Arrow direction="down" color={palette.neutralArrow} />
                   </div>
 
                   <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '16px' }}>
@@ -463,14 +603,14 @@
                   </div>
 
                   <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                    <div style={{ padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.01)' }}>
+                    <div style={{ padding: '12px', borderRadius: '12px', border: `1px solid ${palette.sectionBorder}`, background: palette.sectionBg }}>
                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <Arrow direction="down" label="No exemption" color="#22c55e" />
                         <StepBox step={steps.release} />
                       </div>
                     </div>
 
-                    <div style={{ padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.01)' }}>
+                    <div style={{ padding: '12px', borderRadius: '12px', border: `1px solid ${palette.sectionBorder}`, background: palette.sectionBg }}>
                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <Arrow direction="down" label="Absolute (Div 2)" color="#ef4444" />
                         <StepBox step={steps.division2} />
@@ -478,7 +618,7 @@
                       </div>
                     </div>
 
-                    <div style={{ padding: '12px', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.01)' }}>
+                    <div style={{ padding: '12px', borderRadius: '12px', border: `1px solid ${palette.sectionBorder}`, background: palette.sectionBg }}>
                       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                         <Arrow direction="down" label="Conditional (Div 3)" color="#f59e0b" />
                         <StepBox step={steps.division3} />
@@ -490,10 +630,10 @@
                             <Arrow direction="down" label="Favours access" color="#22c55e" />
                             <div style={{
                               padding: '8px 16px',
-                              background: 'rgba(34, 197, 94, 0.1)',
+                              background: palette.chipReleaseBg,
                               border: '2px solid #22c55e',
                               borderRadius: '8px',
-                              color: '#86efac',
+                              color: palette.chipReleaseText,
                               fontSize: '12px',
                               fontWeight: 600
                             }}>
@@ -505,10 +645,10 @@
                             <Arrow direction="down" label="Contrary to access" color="#ef4444" />
                             <div style={{
                               padding: '8px 16px',
-                              background: 'rgba(239, 68, 68, 0.08)',
+                              background: palette.chipRefuseBg,
                               border: '2px solid #ef4444',
                               borderRadius: '8px',
-                              color: '#fca5a5',
+                              color: palette.chipRefuseText,
                               fontSize: '12px',
                               fontWeight: 600
                             }}>
@@ -539,15 +679,15 @@
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div style={{
                       padding: '16px 24px',
-                      background: 'rgba(34, 197, 94, 0.15)',
+                      background: palette.finalReleaseBg,
                       border: '2px solid #22c55e',
                       borderRadius: '8px',
                       textAlign: 'center'
                     }}>
-                      <div style={{ fontWeight: 700, color: '#86efac', fontSize: '16px' }}>
+                      <div style={{ fontWeight: 700, color: palette.finalReleaseText, fontSize: '16px' }}>
                         Release edited copy
                       </div>
-                      <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '4px' }}>
+                      <div style={{ fontSize: '12px', color: palette.finalReleaseSub, marginTop: '4px' }}>
                         s 11A(3), s 22
                       </div>
                     </div>
@@ -560,7 +700,7 @@
                   </div>
 
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    <Arrow direction="down" color="#64748b" />
+                    <Arrow direction="down" color={palette.neutralArrow} />
                   </div>
 
                   <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '8px' }}>
@@ -617,10 +757,10 @@
                         <Arrow direction="down" label="Favours access" color="#22c55e" />
                         <div style={{
                           padding: '8px 16px',
-                          background: 'rgba(34, 197, 94, 0.1)',
+                          background: palette.chipReleaseBg,
                           border: '2px solid #22c55e',
                           borderRadius: '8px',
-                          color: '#86efac',
+                          color: palette.chipReleaseText,
                           fontSize: '12px',
                           fontWeight: 600
                         }}>
@@ -631,10 +771,10 @@
                         <Arrow direction="down" label="Contrary to access" color="#ef4444" />
                         <div style={{
                           padding: '8px 16px',
-                          background: 'rgba(239, 68, 68, 0.08)',
+                          background: palette.chipRefuseBg,
                           border: '2px solid #ef4444',
                           borderRadius: '8px',
-                          color: '#fca5a5',
+                          color: palette.chipRefuseText,
                           fontSize: '12px',
                           fontWeight: 600
                         }}>
@@ -663,15 +803,15 @@
                   <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <div style={{
                       padding: '16px 24px',
-                      background: 'rgba(34, 197, 94, 0.15)',
+                      background: palette.finalReleaseBg,
                       border: '2px solid #22c55e',
                       borderRadius: '8px',
                       textAlign: 'center'
                     }}>
-                      <div style={{ fontWeight: 700, color: '#86efac', fontSize: '16px' }}>
+                      <div style={{ fontWeight: 700, color: palette.finalReleaseText, fontSize: '16px' }}>
                         Release edited copy
                       </div>
-                      <div style={{ fontSize: '12px', color: '#94a3b8', marginTop: '4px' }}>
+                      <div style={{ fontSize: '12px', color: palette.finalReleaseSub, marginTop: '4px' }}>
                         s 11A(3), s 22
                       </div>
                     </div>
@@ -684,13 +824,13 @@
             <div style={{
               marginTop: '24px',
               padding: '16px',
-              background: 'rgba(59, 130, 246, 0.1)',
-              border: '1px solid rgba(59, 130, 246, 0.3)',
+              background: palette.noteBg,
+              border: `1px solid ${palette.noteBorder}`,
               borderRadius: '8px',
               fontSize: '13px',
-              color: '#94a3b8'
+              color: palette.textMuted
             }}>
-              <strong style={{ color: '#60a5fa' }}>Note:</strong> Click any box to view the relevant section on AustLII.
+              <strong style={{ color: palette.noteStrong }}>Note:</strong> Click any box to view the relevant section on AustLII.
               This visualiser shows the standard pathway; actual decisions may involve multiple exemptions,
               partial redactions, and iterative assessment of individual documents within a release pack.
             </div>
@@ -699,9 +839,9 @@
             <div style={{
               marginTop: '24px',
               paddingTop: '24px',
-              borderTop: '1px solid rgba(255,255,255,0.1)',
+              borderTop: `1px solid ${palette.attrBorder}`,
               fontSize: '12px',
-              color: '#64748b'
+              color: palette.attrText
             }}>
               GlassCase ·
               FOI Redaction Logic Visualiser ·

@@ -113,7 +113,7 @@
     if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
   })();
 </script>
-<link rel="stylesheet" href="/css/style.css?v=2026-03-11">
+<link rel="stylesheet" href="/css/style.css?v=2026-03-12">
     <style>
         /* Page-specific styles for Redaction Taxonomy */
         main {
@@ -725,7 +725,7 @@
                 class="visualiser-frame"
                 title="FOI Redaction Logic Visualiser"
                 loading="lazy"
-                src="/redaction-logic-visualiser.html?v=0.2.3"
+                src="/redaction-logic-visualiser.html?v=0.2.4"
                 style="height: 860px;"
             ></iframe>
         </div>
@@ -747,12 +747,25 @@
                     if (px) iframe.style.height = px + 'px';
                 }
 
+                function postTheme() {
+                    if (!iframe.contentWindow) return;
+                    const theme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+                    iframe.contentWindow.postMessage({ type: 'glasscaseTheme', theme: theme }, '*');
+                }
+
                 window.addEventListener('message', (event) => {
                     if (!event || !event.data) return;
                     if (event.data.type === 'visualiserHeight') {
                         setHeight(event.data.height);
                     }
                 });
+
+                iframe.addEventListener('load', postTheme);
+
+                const observer = new MutationObserver(postTheme);
+                observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+                setTimeout(postTheme, 80);
             })();
         </script>
 
