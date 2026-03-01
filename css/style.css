@@ -420,16 +420,6 @@ body.mobile-menu-open .gc-header {
     text-align: center;
   }
 
-  .mobile-menu-header::before {
-    content: 'GlassCase';
-    display: block;
-    font-family: 'Spectral', serif;
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--ice-blue);
-    line-height: 1.2;
-  }
-
   .mobile-menu-close {
     position: absolute;
     top: 14px;
@@ -450,12 +440,13 @@ body.mobile-menu-open .gc-header {
   }
   
   .mobile-menu-title {
-    display: none;
+    display: block !important;
     font-family: 'Spectral', serif;
     font-size: 20px;
     font-weight: 700;
     color: var(--ice-blue);
-    margin: 0 !important;
+    margin: 0 auto !important;
+    line-height: 1.2;
     text-shadow: none;
     border: none !important;
     border-bottom: none !important;
