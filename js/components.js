@@ -28,6 +28,10 @@
  * 5. Theme toggle must call gcInitThemeToggle() after injection.
  *    All elements with [data-theme-toggle] will be wired up automatically.
  *
+ * 6. Giscus comments must be theme-synced from site theme via
+ *    gcInitGiscusThemeBridge()/gcSyncGiscusTheme().
+ *    Light mode uses "light_high_contrast" to keep metadata text readable.
+ *
  * ─────────────────────────────────────────────────────────────────────────
  */
 
@@ -164,6 +168,47 @@ const COMPONENTS = {
   `
 };
 
+function gcGetGiscusTheme() {
+  return document.documentElement.getAttribute('data-theme') === 'light'
+    ? 'light_high_contrast'
+    : 'dark';
+}
+
+function gcSyncGiscusTheme() {
+  const giscusScript = document.querySelector('script[src="https://giscus.app/client.js"]');
+  if (!giscusScript) return;
+
+  const theme = gcGetGiscusTheme();
+  if (giscusScript.getAttribute('data-theme') !== theme) {
+    giscusScript.setAttribute('data-theme', theme);
+  }
+
+  const giscusFrame = document.querySelector('iframe.giscus-frame');
+  if (giscusFrame && giscusFrame.contentWindow) {
+    giscusFrame.contentWindow.postMessage(
+      { giscus: { setConfig: { theme: theme } } },
+      'https://giscus.app'
+    );
+  }
+}
+
+function gcInitGiscusThemeBridge() {
+  const giscusScript = document.querySelector('script[src="https://giscus.app/client.js"]');
+  if (!giscusScript) return;
+
+  gcSyncGiscusTheme();
+
+  // Giscus iframe is async; retry briefly so the first render picks up site theme.
+  let attempts = 0;
+  const retryTimer = setInterval(function() {
+    attempts += 1;
+    gcSyncGiscusTheme();
+    if (document.querySelector('iframe.giscus-frame') || attempts >= 20) {
+      clearInterval(retryTimer);
+    }
+  }, 150);
+}
+
 function injectComponents() {
   const headerEl = document.getElementById('shared-header');
   const mobileMenuEl = document.getElementById('shared-mobile-menu');
@@ -196,6 +241,7 @@ function injectComponents() {
 
   gcInitThemeToggle();
   gcInitReadingToggle();
+  gcInitGiscusThemeBridge();
 }
 
 function gcInitThemeToggle() {
@@ -238,6 +284,8 @@ function gcInitThemeToggle() {
         root.removeAttribute('data-theme-transitioning');
       }, 400);
     }
+
+    gcSyncGiscusTheme();
   }
 
   let saved = null;
