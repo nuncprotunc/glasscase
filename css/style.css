@@ -116,31 +116,28 @@ p a {
 }
 
 /* Navigation */
-nav {
+.gc-header {
   position: sticky;
   top: 0;
   background: rgba(26, 31, 46, 0.95);
   border-bottom: 1px solid var(--line);
   z-index: 100;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-  transition: background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
   padding: 0 !important;
   margin: 0 !important;
   border-top: none !important;
 }
 
-nav.menu-open {
+body.mobile-menu-open .gc-header {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-}
-
-body.mobile-menu-open > nav {
-  display: none;
+  transform: translateY(-8px);
 }
 
 @supports (backdrop-filter: blur(10px)) {
-  nav {
+  .gc-header {
     -webkit-backdrop-filter: saturate(130%) blur(10px);
     backdrop-filter: saturate(130%) blur(10px);
   }
@@ -390,7 +387,7 @@ body.mobile-menu-open > nav {
     opacity: 0.3;
   }
   
-  .mobile-menu.active {
+  body.mobile-menu-open .mobile-menu {
     left: 0;
   }
   
@@ -504,11 +501,13 @@ body.mobile-menu-open > nav {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
     z-index: 200;
+    pointer-events: none;
   }
-  
-  .mobile-menu-overlay.active {
+
+  body.mobile-menu-open .mobile-menu-overlay {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
 }
 

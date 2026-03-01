@@ -4,7 +4,7 @@
  */
 
 const COMPONENTS = {
-  header: `<nav>
+  header: `<nav class="gc-header">
       <div class="nav-inner">
         <a href="https://glasscase.org/" class="brand" aria-label="GlassCase home">
           <svg width="32" height="32" viewBox="0 0 80 80" fill="none" aria-hidden="true">
