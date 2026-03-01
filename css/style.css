@@ -693,7 +693,13 @@ footer a[onclick*="resetAnalyticsConsent"] {
 .footer-brand {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.footer-brand .brand {
+  margin: 0;
+  padding: 0;
 }
 
 .footer-brand-name {
@@ -709,6 +715,8 @@ footer a[onclick*="resetAnalyticsConsent"] {
   font-size: 14px;
   color: var(--text-footer);
   line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
 
 .footer-section h4 {
