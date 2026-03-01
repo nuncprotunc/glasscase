@@ -610,6 +610,39 @@ main {
   margin-bottom: 0.25rem;
 }
 
+/* ═══ LIGHT MODE OVERRIDES ═══ */
+[data-theme="light"] .score-btn.selected[data-score="0"] {
+  background: #d1fae5;
+  color: #065f46;
+  border-color: #059669;
+}
+
+[data-theme="light"] .score-btn.selected[data-score="1"] {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #d97706;
+}
+
+[data-theme="light"] .score-btn.selected[data-score="2"] {
+  background: #fee2e2;
+  color: #991b1b;
+  border-color: #dc2626;
+}
+
+[data-theme="light"] .score-btn.selected[data-score="3"] {
+  background: #fde8e8;
+  color: #7f1d1d;
+  border-color: #991b1b;
+}
+
+[data-theme="light"] .scorer-gauge .gauge-val {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .scorer-method strong {
+  color: var(--text-primary);
+}
+
 /* ═══ TOOL 3: SUBSYSTEM GRID ═══ */
 .grid-controls {
   display: flex;
