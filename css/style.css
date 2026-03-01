@@ -386,7 +386,7 @@ body.mobile-menu-open .gc-header {
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 201;
-    padding: 56px 24px 24px;
+    padding: 80px 24px 24px;
     overflow-y: auto;
   }
   
@@ -414,9 +414,9 @@ body.mobile-menu-open .gc-header {
   }
   
   .mobile-menu-header {
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    border-bottom: none !important;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--line) !important;
     text-align: center;
   }
 
@@ -441,23 +441,13 @@ body.mobile-menu-open .gc-header {
   
   .mobile-menu-title {
     font-family: 'Spectral', serif;
-    font-style: italic;
-    font-size: 28px;
+    font-size: 20px;
+    font-weight: 700;
     color: var(--ice-blue);
-    margin-top: 0 !important;
-    margin-bottom: 8px;
-    text-shadow: 0 2px 8px rgba(58, 190, 249, 0.3);
+    margin: 0 !important;
+    text-shadow: none;
     border: none !important;
     border-bottom: none !important;
-    padding-bottom: 0 !important;
-  }
-  
-  .mobile-menu-subtitle {
-    font-size: 14px;
-    color: var(--slate);
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    margin: 0 !important;
     padding-bottom: 0 !important;
   }
   
