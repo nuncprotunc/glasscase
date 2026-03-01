@@ -46,7 +46,7 @@ const COMPONENTS = {
             <span class="toggle-icon" aria-hidden="true">Aa</span>
             <span>Relaxed reading</span>
           </button>
-          <button id="theme-toggle" class="gc-theme-toggle" aria-label="Switch to light mode" type="button">☼</button>
+          <button id="theme-toggle" class="gc-theme-toggle" data-theme-toggle aria-label="Switch to light mode" type="button">☼</button>
           <button class="mobile-menu-button" onclick="toggleMobileMenu()" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -60,6 +60,9 @@ const COMPONENTS = {
       <div class="mobile-menu-header">
         <span class="mobile-menu-title">GlassCase</span>
         <div class="mobile-menu-divider"></div>
+      </div>
+      <div class="mobile-menu-theme-wrap">
+        <button class="gc-theme-toggle mobile-menu-theme-toggle" data-theme-toggle aria-label="Switch to light mode" type="button">☼</button>
       </div>
       <nav>
         <a href="/position/" onclick="closeMobileMenu()" data-nav="position">Position Paper</a>
@@ -168,8 +171,8 @@ function injectComponents() {
 }
 
 function gcInitThemeToggle() {
-  const btn = document.getElementById('theme-toggle');
-  if (!btn) return;
+  const btns = Array.from(document.querySelectorAll('[data-theme-toggle]'));
+  if (!btns.length) return;
 
   let transitionTimer = null;
 
@@ -184,15 +187,19 @@ function gcInitThemeToggle() {
 
     if (theme === 'light') {
       root.setAttribute('data-theme', 'light');
-      btn.textContent = '☾';
-      btn.setAttribute('aria-label', 'Switch to dark mode');
+      btns.forEach(function(btn) {
+        btn.textContent = '☾';
+        btn.setAttribute('aria-label', 'Switch to dark mode');
+      });
       try {
         localStorage.setItem('glasscase-theme', 'light');
       } catch (_) {}
     } else {
       root.removeAttribute('data-theme');
-      btn.textContent = '☼';
-      btn.setAttribute('aria-label', 'Switch to light mode');
+      btns.forEach(function(btn) {
+        btn.textContent = '☼';
+        btn.setAttribute('aria-label', 'Switch to light mode');
+      });
       try {
         localStorage.setItem('glasscase-theme', 'dark');
       } catch (_) {}
@@ -215,9 +222,11 @@ function gcInitThemeToggle() {
   const initial = saved === 'light' || document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
   applyTheme(initial, false);
 
-  btn.addEventListener('click', function() {
-    const current = document.documentElement.getAttribute('data-theme');
-    applyTheme(current === 'light' ? 'dark' : 'light', true);
+  btns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      const current = document.documentElement.getAttribute('data-theme');
+      applyTheme(current === 'light' ? 'dark' : 'light', true);
+    });
   });
 }
 
