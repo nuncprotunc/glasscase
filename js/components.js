@@ -166,21 +166,37 @@ function gcInitThemeToggle() {
   const btn = document.getElementById('theme-toggle');
   if (!btn) return;
 
-  function applyTheme(theme) {
+  let transitionTimer = null;
+
+  function applyTheme(theme, animate) {
+    const root = document.documentElement;
+    if (animate) {
+      root.setAttribute('data-theme-transitioning', '');
+      if (transitionTimer) clearTimeout(transitionTimer);
+    } else {
+      root.removeAttribute('data-theme-transitioning');
+    }
+
     if (theme === 'light') {
-      document.documentElement.setAttribute('data-theme', 'light');
+      root.setAttribute('data-theme', 'light');
       btn.textContent = '☾';
       btn.setAttribute('aria-label', 'Switch to dark mode');
       try {
         localStorage.setItem('glasscase-theme', 'light');
       } catch (_) {}
     } else {
-      document.documentElement.removeAttribute('data-theme');
+      root.removeAttribute('data-theme');
       btn.textContent = '☼';
       btn.setAttribute('aria-label', 'Switch to light mode');
       try {
         localStorage.setItem('glasscase-theme', 'dark');
       } catch (_) {}
+    }
+
+    if (animate) {
+      transitionTimer = setTimeout(function() {
+        root.removeAttribute('data-theme-transitioning');
+      }, 400);
     }
   }
 
@@ -192,11 +208,11 @@ function gcInitThemeToggle() {
   }
 
   const initial = saved === 'light' || document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
-  applyTheme(initial);
+  applyTheme(initial, false);
 
   btn.addEventListener('click', function() {
     const current = document.documentElement.getAttribute('data-theme');
-    applyTheme(current === 'light' ? 'dark' : 'light');
+    applyTheme(current === 'light' ? 'dark' : 'light', true);
   });
 }
 

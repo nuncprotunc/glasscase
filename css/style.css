@@ -68,6 +68,18 @@
   --ws-body: 0.03em;
 }
 
+/* -- Theme transition -- */
+html[data-theme-transitioning] *,
+html[data-theme-transitioning] *::before,
+html[data-theme-transitioning] *::after {
+  transition: background-color 0.35s ease-in-out,
+              color 0.35s ease-in-out,
+              border-color 0.35s ease-in-out,
+              box-shadow 0.35s ease-in-out,
+              fill 0.35s ease-in-out,
+              stroke 0.35s ease-in-out !important;
+}
+
 [data-theme="light"] {
   color-scheme: light;
   --ice-blue: #1a1a2e;
@@ -120,17 +132,6 @@ body.reading-relaxed {
   padding: 0;
 }
 
-html,
-body {
-  transition: background-color 0.6s ease, color 0.6s ease;
-}
-
-body *,
-body *::before,
-body *::after {
-  transition: background-color 0.6s ease, color 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease;
-}
-
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -153,7 +154,6 @@ body {
 a {
   color: var(--accent-primary);
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
 a:hover {
@@ -243,7 +243,7 @@ p a {
   border-bottom: 1px solid var(--line);
   z-index: 100;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-  transition: background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
   padding: 0 !important;
   margin: 0 !important;
   border-top: none !important;
@@ -375,7 +375,6 @@ body.mobile-menu-open .gc-header {
   font-size: 0.8rem !important;
   font-weight: 500;
   padding-inline: 0.6rem;
-  transition: color 0.2s;
 }
 
 .desktop-nav a:hover {
@@ -396,7 +395,6 @@ body.mobile-menu-open .gc-header {
   border-radius: 6px;
   padding: 0.3rem 0.6rem;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
   white-space: nowrap;
 }
 
@@ -732,7 +730,6 @@ footer a[onclick*="resetAnalyticsConsent"] {
   color: var(--text-footer);
   text-decoration: none;
   font-size: 14px;
-  transition: color 0.2s;
 }
 
 .footer-links a:hover {
