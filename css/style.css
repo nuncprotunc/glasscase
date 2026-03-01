@@ -122,11 +122,17 @@ nav {
   background: rgba(26, 31, 46, 0.95);
   border-bottom: 1px solid var(--line);
   z-index: 100;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
-  letter-spacing: 0 !important;
-  word-spacing: 0 !important;
-  line-height: 1.6;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+  transition: background 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-top: none !important;
+}
+
+nav.menu-open {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 @supports (backdrop-filter: blur(10px)) {
@@ -353,7 +359,7 @@ nav {
     border-right: 1px solid var(--line);
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 50;
+    z-index: 201;
     padding: 56px 24px 24px;
     overflow-y: auto;
   }
@@ -474,7 +480,7 @@ nav {
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
-    z-index: 49;
+    z-index: 200;
   }
   
   .mobile-menu-overlay.active {
