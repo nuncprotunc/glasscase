@@ -395,6 +395,77 @@
             margin-bottom: 1rem;
         }
 
+        .mapping-intro {
+            margin-bottom: 1rem;
+            color: var(--slate);
+            font-size: 0.9375rem;
+        }
+
+        .mapping-procedural {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--line);
+        }
+
+        .mapping-procedural-title {
+            color: var(--white);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .mapping-procedural-summary {
+            color: var(--slate);
+            font-size: 0.875rem;
+            margin-bottom: 0.75rem;
+            padding: 0.75rem;
+            background: var(--panel);
+            border-radius: 6px;
+        }
+
+        .mapping-procedural-summary strong,
+        .worked-example-intro strong {
+            color: var(--white);
+        }
+
+        .mapping-procedural-item {
+            color: var(--slate);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .mapping-procedural-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .mapping-footnote {
+            margin-top: 1rem;
+            color: var(--slate);
+            font-size: 0.875rem;
+        }
+
+        .worked-example-intro {
+            color: var(--slate);
+            margin-bottom: 0.5rem;
+        }
+
+        .meta-text {
+            color: var(--slate);
+            font-size: 0.875rem;
+        }
+
+        .meta-text-top {
+            margin-top: 1rem;
+        }
+
+        .meta-text-tight {
+            margin-top: 0.5rem;
+        }
+
+        .pattern-flags-intro {
+            color: var(--slate);
+            margin-bottom: 1.5rem;
+        }
+
         .mapping-table {
             width: 100%;
             border-collapse: collapse;
@@ -708,7 +779,7 @@
         </div>
 
         <h2>Pattern Flags</h2>
-        <p style="color: var(--slate); margin-bottom: 1.5rem;">These are not reasons for redaction—they're signals of potential decision quality issues worth tracking.</p>
+        <p class="pattern-flags-intro">These are not reasons for redaction—they're signals of potential decision quality issues worth tracking.</p>
 
         <div class="pattern-flag">
             <div class="pattern-flag-header">
@@ -754,7 +825,7 @@
 
         <div class="mapping-note">
             <h3>FOI Act 1982 (Cth) — Section Reference</h3>
-            <p style="margin-bottom: 1rem; color: var(--slate); font-size: 0.9375rem;">This table maps taxonomy categories to the most commonly invoked exemption sections. The FOI Act distinguishes between absolute exemptions (Division 2, Part IV) and conditional exemptions (Division 3, Part IV). Conditional exemptions require a public interest test under <code>s 11A(5)</code> and <code>s 11B</code>.</p>
+            <p class="mapping-intro">This table maps taxonomy categories to the most commonly invoked exemption sections. The FOI Act distinguishes between absolute exemptions (Division 2, Part IV) and conditional exemptions (Division 3, Part IV). Conditional exemptions require a public interest test under <code>s 11A(5)</code> and <code>s 11B</code>.</p>
 
             <div class="table-scroll">
             <table class="mapping-table">
@@ -795,36 +866,36 @@
             </table>
             </div>
 
-            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line);">
-                <p style="color: var(--white); font-weight: 500; margin-bottom: 0.5rem;">Key procedural sections</p>
-                <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 0.75rem; padding: 0.75rem; background: var(--panel); border-radius: 6px;">
-                    <strong style="color: var(--white);">Redaction logic in practice:</strong> apply an exemption (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/index.html#p4">Part IV</a>), apply the public interest test for conditional exemptions (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11a.html">s 11A(5)</a>, <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11b.html">s 11B</a>), then release an edited copy where reasonably practicable (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s22.html">s 22</a>), with reasons (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s26.html">s 26</a>).
+            <div class="mapping-procedural">
+                <p class="mapping-procedural-title">Key procedural sections</p>
+                <p class="mapping-procedural-summary">
+                    <strong>Redaction logic in practice:</strong> apply an exemption (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/index.html#p4">Part IV</a>), apply the public interest test for conditional exemptions (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11a.html">s 11A(5)</a>, <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11b.html">s 11B</a>), then release an edited copy where reasonably practicable (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s22.html">s 22</a>), with reasons (<a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s26.html">s 26</a>).
                 </p>
-                <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                <p class="mapping-procedural-item">
                     <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11a.html"><code>s 11A</code></a> — Mandatory access rule. Conditionally exempt documents must be released unless access would be "contrary to the public interest."
                 </p>
-                <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                <p class="mapping-procedural-item">
                     <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s11b.html"><code>s 11B</code></a> — Public interest factors. Lists factors favouring access (e.g., oversight of expenditure, informing public debate) and irrelevant factors that must not be considered (e.g., embarrassment to government).
                 </p>
-                <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                <p class="mapping-procedural-item">
                     <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s22.html"><code>s 22</code></a> — Access to edited copies with exempt matter deleted. Agencies must provide edited copies where reasonably practicable, with notice of grounds for deletion.
                 </p>
-                <p style="color: var(--slate); font-size: 0.875rem; margin-bottom: 0.5rem;">
+                <p class="mapping-procedural-item">
                     <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s26.html"><code>s 26</code></a> — Reasons for decision. Refusals must state findings on material questions of fact and reasons, including public interest factors for conditional exemptions.
                 </p>
-                <p style="color: var(--slate); font-size: 0.875rem;">
+                <p class="mapping-procedural-item">
                     <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s47.html"><code>s 47</code></a> — Trade secrets and commercially valuable information. Commonly invoked alongside s 47G for commercial matters; s 47 is an absolute exemption while s 47G is conditional.
                 </p>
             </div>
 
-            <p style="margin-top: 1rem; color: var(--slate); font-size: 0.875rem;"><strong>Victoria mapping:</strong> State jurisdiction adapter coming in a future release.</p>
+            <p class="mapping-footnote"><strong>Victoria mapping:</strong> State jurisdiction adapter coming in a future release.</p>
         </div>
 
         <h2>Worked Example</h2>
 
         <div class="worked-example">
             <h3>Coding a release pack in 6 minutes</h3>
-            <p style="color: var(--slate); margin-bottom: 0.5rem;"><strong style="color: var(--white);">Illustrative example.</strong> Synthetic ministerial briefing package (12 pages, partial release) modelled on typical disclosure log material.</p>
+            <p class="worked-example-intro"><strong>Illustrative example.</strong> Synthetic ministerial briefing package (12 pages, partial release) modelled on typical disclosure log material.</p>
 
             <div class="table-scroll">
             <table class="example-table">
@@ -920,9 +991,9 @@
         </div>
 
         <div style="height: 1.5rem;"></div>
-        <p style="margin-top: 1rem; color: var(--slate); font-size: 0.875rem;"><strong>How to cite (APA 7):</strong> GlassCase. (2025, December). <em>Redaction Taxonomy</em> (Version 0.2). https://glasscase.org/redaction-taxonomy.html</p>
-        <p style="margin-top: 0.5rem; color: var(--slate); font-size: 0.875rem;"><strong>CSV coding sheet available:</strong> <a href="glasscase-redaction-coding-sheet.csv" download>Download CSV</a></p>
-        <p style="margin-top: 0.5rem; color: var(--slate); font-size: 0.875rem;"><strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Not legal advice.</p>
+        <p class="meta-text meta-text-top"><strong>How to cite (APA 7):</strong> GlassCase. (2025, December). <em>Redaction Taxonomy</em> (Version 0.2). https://glasscase.org/redaction-taxonomy.html</p>
+        <p class="meta-text meta-text-tight"><strong>CSV coding sheet available:</strong> <a href="glasscase-redaction-coding-sheet.csv" download>Download CSV</a></p>
+        <p class="meta-text meta-text-tight"><strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Not legal advice.</p>
 
     </main>
 

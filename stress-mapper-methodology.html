@@ -224,6 +224,11 @@
         [data-theme="light"] main li strong {
             color: var(--text-primary);
         }
+
+        .band-label-baseline { color: #3a7d5c; }
+        .band-label-elevated { color: #c49a3c; }
+        .band-label-acute { color: #c45a3c; }
+        .band-label-chronic { color: #8b2e2e; }
     </style>
 </head>
 <body>
@@ -382,10 +387,10 @@
         <h3>Severity bands</h3>
         <p>The 0–10 Stress Index is mapped to four severity bands:</p>
         <ul>
-            <li><strong style="color:#3a7d5c">Baseline</strong> (0–2.5) — Normal operational range</li>
-            <li><strong style="color:#c49a3c">Elevated</strong> (2.5–5) — Detectable strain; monitoring warranted</li>
-            <li><strong style="color:#c45a3c">Acute</strong> (5–7.5) — Active stress; intervention may be warranted</li>
-            <li><strong style="color:#8b2e2e">Chronic</strong> (7.5–10) — Sustained systemic stress</li>
+            <li><strong class="band-label-baseline">Baseline</strong> (0–2.5) — Normal operational range</li>
+            <li><strong class="band-label-elevated">Elevated</strong> (2.5–5) — Detectable strain; monitoring warranted</li>
+            <li><strong class="band-label-acute">Acute</strong> (5–7.5) — Active stress; intervention may be warranted</li>
+            <li><strong class="band-label-chronic">Chronic</strong> (7.5–10) — Sustained systemic stress</li>
         </ul>
         <p>These bands are evenly distributed across the 0–10 scale. They are communicative scaffolding. We have not empirically validated the cutpoints. The graduated escalation borrows from Ayres and Braithwaite's responsive regulation framework (1992), essentially the enforcement pyramid turned sideways into a diagnostic scale. Each band implies a different posture: monitor, pay active attention, consider intervention or recognise sustained systemic concern.</p>
 

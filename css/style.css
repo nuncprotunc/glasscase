@@ -728,6 +728,13 @@ footer a[onclick*="resetAnalyticsConsent"] {
   margin-bottom: 16px;
 }
 
+.footer-community-note {
+  font-size: 0.875rem;
+  color: var(--slate);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
 .footer-links {
   display: flex;
   flex-direction: column;

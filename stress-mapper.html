@@ -523,6 +523,7 @@ main {
   font-family: var(--font-display);
   font-size: 3.5rem;
   line-height: 1;
+  color: var(--tone, var(--text-primary));
 }
 
 .scorer-gauge .gauge-label {
@@ -541,6 +542,9 @@ main {
   font-size: 0.65rem;
   letter-spacing: 0.08em;
   border-radius: 1px;
+  background: var(--tone-bg, transparent);
+  color: var(--tone, var(--text-primary));
+  border: 1px solid var(--tone-border, transparent);
 }
 
 .scorer-breakdown {
@@ -590,6 +594,7 @@ main {
   font-size: 0.68rem;
   min-width: 24px;
   text-align: right;
+  color: var(--tone, var(--text-primary));
 }
 
 .scorer-method {
@@ -650,6 +655,12 @@ main {
   margin-bottom: 1.5rem;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.grid-hint {
+  font-size: 0.68rem;
+  color: var(--slate);
+  margin-left: 0.5rem;
 }
 
 .grid-controls .period-add-group {
@@ -1022,6 +1033,7 @@ main {
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-bottom: 0.2rem;
+  color: var(--tone, var(--text-primary));
 }
 
 .nt-event .ev-title {
@@ -1051,6 +1063,8 @@ main {
   border: 1px solid;
   margin-top: 0.4rem;
   border-radius: 1px;
+  color: var(--tone, var(--text-primary));
+  border-color: var(--tone-border, var(--line));
 }
 
 .nt-guardrail {
@@ -1114,6 +1128,179 @@ main {
 .dash-stat:last-child { border: none; }
 .dash-stat .sl { color: var(--slate); }
 .dash-stat .sv { font-family: var(--font-mono); font-weight: 500; }
+.dash-stat .sv { color: var(--tone, var(--text-primary)); }
+
+.meta-section {
+  margin-top: 3rem;
+}
+
+.meta-heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--transparency-cyan);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.meta-heading-spaced {
+  margin-top: 3rem;
+}
+
+.meta-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+}
+
+.meta-card + .meta-card {
+  margin-top: 1rem;
+}
+
+.meta-card-related {
+  margin-bottom: 2rem;
+}
+
+.meta-card-version {
+  margin-bottom: 1rem;
+}
+
+.meta-card p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.meta-spacer {
+  height: 1.5rem;
+}
+
+.meta-citation {
+  margin-top: 1rem;
+  color: var(--slate);
+  font-size: 0.875rem;
+}
+
+.meta-citation-tight {
+  margin-top: 0.5rem;
+}
+
+.note-preview {
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.7rem;
+  border-left: 3px solid var(--note-accent, var(--line));
+  background: rgba(255,255,255,0.02);
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+
+.note-list-wrap {
+  margin-top: 1.5rem;
+}
+
+.note-list-title {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 0.8rem;
+}
+
+.note-list-item {
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid var(--note-accent, var(--line));
+  background: rgba(255,255,255,0.02);
+  border-radius: 0 6px 6px 0;
+  cursor: pointer;
+}
+
+.note-list-meta {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--tone, var(--text-primary));
+  margin-bottom: 0.2rem;
+}
+
+.note-list-body {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.5;
+}
+
+.dash-center {
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+.dash-index-value {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--tone, var(--text-primary));
+  line-height: 1;
+}
+
+.dash-index-band {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  color: var(--tone, var(--text-primary));
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+.dash-index-context {
+  font-size: 0.72rem;
+  color: var(--slate);
+  margin-top: 0.5rem;
+}
+
+.dash-index-footnote {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: 0.3rem;
+}
+
+.dash-subsystem-row {
+  margin-bottom: 0.7rem;
+}
+
+.dash-subsystem-label {
+  font-size: 0.7rem;
+  color: var(--slate);
+  margin-bottom: 0.25rem;
+}
+
+.dash-trend-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--tone, var(--text-primary));
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.4rem;
+}
+
+.dash-trend-body {
+  font-size: 0.78rem;
+  color: var(--slate);
+  margin-top: 0.6rem;
+  line-height: 1.6;
+}
+
+.dash-trend-footnote {
+  font-size: 0.58rem;
+  color: rgba(255,255,255,0.2);
+  margin-top: 0.6rem;
+  font-style: italic;
+}
+
+.nt-event {
+  border-left-color: var(--tone-left, transparent);
+}
 
 /* ═══ EXPORT ═══ */
 .export-bar {
@@ -1338,7 +1525,7 @@ main {
         <input type="text" id="grid-period-input" placeholder="e.g. 2023" onkeydown="if(event.key==='Enter')addPeriodFromGrid()">
         <button class="btn btn-small btn-accent" onclick="addPeriodFromGrid()">+ Period</button>
       </div>
-      <span style="font-size:0.68rem; color:var(--slate); margin-left:0.5rem">Click cells to cycle 0→1→2→3. Right-click to add a note.</span>
+      <span class="grid-hint">Click cells to cycle 0→1→2→3. Right-click to add a note.</span>
     </div>
     <div class="grid-wrapper">
       <table class="stress-grid" id="stress-grid"></table>
@@ -1371,10 +1558,10 @@ main {
   </section>
 
   <!-- ── META: Related / Version / Cite ── -->
-  <div style="margin-top: 3rem;">
-    <h2 style="font-size:1.5rem; font-weight:700; color:var(--transparency-cyan); margin-bottom:1.5rem; padding-bottom:0.5rem; border-bottom:1px solid var(--line);">Related Tools</h2>
-    <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:1.5rem 2rem; margin-bottom:2rem;">
-      <p style="margin:0; line-height:1.6;">
+  <div class="meta-section">
+    <h2 class="meta-heading">Related Tools</h2>
+    <div class="meta-card meta-card-related">
+      <p>
         <strong><a href="/consideration-matrix">Consideration Matrix</a></strong> — 2×2 diagnostic framework for administrative law decision-making.<br>
         <strong><a href="/redaction-taxonomy">FOI Redaction Taxonomy</a></strong> — Practical coding scheme for analysing FOI redactions across Australian jurisdictions.<br>
         <strong><a href="/stress-mapper-methodology">Stress Mapper Methodology</a></strong> — Technical note on construct design, scoring logic, weighting rationale and limitations.<br>
@@ -1382,14 +1569,14 @@ main {
       </p>
     </div>
 
-    <h2 style="font-size:1.5rem; font-weight:700; color:var(--transparency-cyan); margin-top:3rem; margin-bottom:1.5rem; padding-bottom:0.5rem; border-bottom:1px solid var(--line);">Version History</h2>
-    <div style="background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:1.5rem 2rem; margin-bottom:1rem;">
-      <p style="margin:0;"><strong>v0.1</strong> (February 2026): Initial release. Five-subsystem triage model with weighted composite index, ordinal scoring, heat-bar timeline and narrative demonstration.</p>
+    <h2 class="meta-heading meta-heading-spaced">Version History</h2>
+    <div class="meta-card meta-card-version">
+      <p><strong>v0.1</strong> (February 2026): Initial release. Five-subsystem triage model with weighted composite index, ordinal scoring, heat-bar timeline and narrative demonstration.</p>
     </div>
 
-    <div style="height:1.5rem;"></div>
-    <p style="margin-top:1rem; color:var(--slate); font-size:0.875rem;"><strong>How to cite (APA 7):</strong> GlassCase. (2026, February). <em>Institutional Stress Mapper</em> (Version 0.1). https://glasscase.org/stress-mapper.html</p>
-    <p style="margin-top:0.5rem; color:var(--slate); font-size:0.875rem;"><strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Not legal advice.</p>
+    <div class="meta-spacer"></div>
+    <p class="meta-citation"><strong>How to cite (APA 7):</strong> GlassCase. (2026, February). <em>Institutional Stress Mapper</em> (Version 0.1). https://glasscase.org/stress-mapper.html</p>
+    <p class="meta-citation meta-citation-tight"><strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Not legal advice.</p>
   </div>
 
 </main>
@@ -1600,7 +1787,7 @@ function renderScorer() {
         ${[0,1,2,3].map(s => `<button class="score-btn ${val === s ? 'selected' : ''}" data-score="${s}" onclick="setScore('${esc(period)}','${sub.id}',${s})">${s}</button>`).join('')}
       </div>
       <div class="score-labels"><span>Baseline</span><span>Elevated</span><span>Acute</span><span>Chronic</span></div>
-      ${noteText ? `<div style="margin-top:0.6rem; padding:0.5rem 0.7rem; border-left:3px solid ${noteColor}; background:rgba(255,255,255,0.02); border-radius:0 6px 6px 0; cursor:pointer; font-size:0.75rem; color:rgba(255,255,255,0.5); line-height:1.5" onclick="openNote('${esc(period)}','${sub.id}')">📝 ${noteText}</div>` : `<div style="margin-top:0.4rem"><button class="btn btn-small" style="font-size:0.55rem; opacity:0.4" onclick="openNote('${esc(period)}','${sub.id}')">+ Add note</button></div>`}
+      ${noteText ? `<div class="note-preview" style="--note-accent:${noteColor}" onclick="openNote('${esc(period)}','${sub.id}')">📝 ${noteText}</div>` : `<div style="margin-top:0.4rem"><button class="btn btn-small" style="font-size:0.55rem; opacity:0.4" onclick="openNote('${esc(period)}','${sub.id}')">+ Add note</button></div>`}
     </div>`;
   });
   form.innerHTML = formHTML;
@@ -1637,15 +1824,15 @@ function renderScorerOutput(period) {
     breakdownHTML += `<div class="breakdown-row">
       <span class="br-label">${sub.name}</span>
       <div class="br-bar-track"><div class="br-bar-fill" style="width:${pct}%; background:${color}"></div></div>
-      <span class="br-val" style="color:${color}">${val}</span>
+      <span class="br-val" style="--tone:${color}">${val}</span>
     </div>`;
   });
   
   container.innerHTML = `<div class="scorer-output">
     <div class="scorer-gauge">
-      <div class="gauge-val" style="color:${band.color}">${index.toFixed(1)}</div>
+      <div class="gauge-val" style="--tone:${band.color}">${index.toFixed(1)}</div>
       <div class="gauge-label">Stress Index</div>
-      <div class="gauge-band" style="background:${band.color}22; color:${band.color}; border:1px solid ${band.color}55">${band.name}</div>
+      <div class="gauge-band" style="--tone:${band.color}; --tone-bg:${band.color}22; --tone-border:${band.color}55">${band.name}</div>
     </div>
     <div class="scorer-breakdown">
       <h4>Subsystem Breakdown — ${period}</h4>
@@ -1715,15 +1902,15 @@ function renderGrid() {
     return store.periods.includes(period);
   });
   if (noteEntries.length > 0) {
-    let noteHtml = `<div style="margin-top:1.5rem"><div style="font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.1em; text-transform:uppercase; color:var(--slate); margin-bottom:0.8rem">Justification Notes</div>`;
+    let noteHtml = `<div class="note-list-wrap"><div class="note-list-title">Justification Notes</div>`;
     noteEntries.forEach(([key, text]) => {
       const [period, subId] = key.split(':');
       const sub = SUBSYSTEMS.find(s => s.id === subId);
       const score = (store.scores[period] && store.scores[period][subId]) ?? 0;
       const color = BAND_COLORS_BY_SCORE[score];
-      noteHtml += `<div style="padding:0.6rem 0.8rem; margin-bottom:0.5rem; border-left:3px solid ${color}; background:rgba(255,255,255,0.02); border-radius:0 6px 6px 0; cursor:pointer" onclick="openNote('${esc(period)}','${subId}')">
-        <div style="font-family:var(--font-mono); font-size:0.62rem; color:${color}; margin-bottom:0.2rem">${sub ? sub.name : subId} · ${period} · ${BAND_NAMES_BY_SCORE[score]}</div>
-        <div style="font-size:0.78rem; color:rgba(255,255,255,0.6); line-height:1.5">${text}</div>
+      noteHtml += `<div class="note-list-item" style="--note-accent:${color}" onclick="openNote('${esc(period)}','${subId}')">
+        <div class="note-list-meta" style="--tone:${color}">${sub ? sub.name : subId} · ${period} · ${BAND_NAMES_BY_SCORE[score]}</div>
+        <div class="note-list-body">${text}</div>
       </div>`;
     });
     noteHtml += `</div>`;
@@ -1844,12 +2031,12 @@ function renderNarrative() {
   let html = '<div class="narrative-timeline">';
   events.forEach(ev => {
     const band = BANDS[ev.band];
-    html += `<div class="nt-event" style="border-left-color:${band.color}33">
-      <div class="ev-date" style="color:${band.color}">${ev.date}</div>
+    html += `<div class="nt-event" style="--tone-left:${band.color}33">
+      <div class="ev-date" style="--tone:${band.color}">${ev.date}</div>
       <div class="ev-title">${ev.title}</div>
       <div class="ev-desc">${ev.desc}</div>
       <div class="ev-subs">Affected subsystems: ${ev.subs}</div>
-      <span class="ev-tag" style="color:${band.color}; border-color:${band.color}55">${ev.tag} · ${band.name}</span>
+      <span class="ev-tag" style="--tone:${band.color}; --tone-border:${band.color}55">${ev.tag} · ${band.name}</span>
     </div>`;
   });
   html += '</div>';
@@ -1910,18 +2097,18 @@ function renderDashboard() {
   // Panel 1: Current index
   html += `<div class="dash-panel">
     <h4>Current Stress Index${hasData ? '' : ' (Exemplar — fictional data)'}</h4>
-    <div style="text-align:center; padding:0.5rem 0">
-      <div style="font-family:var(--font-display); font-size:3rem; color:${latestBand.color}; line-height:1">${latestIndex.toFixed(1)}</div>
-      <div style="font-family:var(--font-mono); font-size:0.68rem; letter-spacing:0.1em; color:${latestBand.color}; text-transform:uppercase; margin-top:0.3rem">${latestBand.name}</div>
-      <div style="font-size:0.72rem; color:var(--slate); margin-top:0.5rem">${unitLabel} · ${latestPeriod}</div>
-      <div style="font-size:0.6rem; color:rgba(255,255,255,0.25); margin-top:0.3rem">Informed by OECD/JRC composite indicator principles · ${SUBSYSTEMS.length} subsystems</div>
+    <div class="dash-center">
+      <div class="dash-index-value" style="--tone:${latestBand.color}">${latestIndex.toFixed(1)}</div>
+      <div class="dash-index-band" style="--tone:${latestBand.color}">${latestBand.name}</div>
+      <div class="dash-index-context">${unitLabel} · ${latestPeriod}</div>
+      <div class="dash-index-footnote">Informed by OECD/JRC composite indicator principles · ${SUBSYSTEMS.length} subsystems</div>
     </div>
   </div>`;
   
   // Panel 2: Sparklines
   html += `<div class="dash-panel"><h4>Subsystem Trends (${periods[0]}–${periods[periods.length-1]})</h4>`;
   SUBSYSTEMS.forEach(sub => {
-    html += `<div style="margin-bottom:0.7rem"><div style="font-size:0.7rem; color:var(--slate); margin-bottom:0.25rem">${sub.name}</div><div class="dash-sparkline">`;
+    html += `<div class="dash-subsystem-row"><div class="dash-subsystem-label">${sub.name}</div><div class="dash-sparkline">`;
     periods.forEach(p => {
       const val = (getDashScores(p)[sub.id]) ?? 0;
       const pct = Math.max(12, (val / 3) * 100);
@@ -1939,16 +2126,16 @@ function renderDashboard() {
   
   html += `<div class="dash-panel">
     <h4>Trajectory</h4>
-    <div style="text-align:center; padding:0.5rem 0">
+    <div class="dash-center">
       <div style="font-size:2.5rem; line-height:1; opacity:0.6">${trendIcon}</div>
-      <div style="font-family:var(--font-mono); font-size:0.72rem; color:${latestBand.color}; letter-spacing:0.08em; text-transform:uppercase; margin-top:0.4rem">${trendLabel}</div>
-      <div style="font-size:0.78rem; color:var(--slate); margin-top:0.6rem; line-height:1.6">
+      <div class="dash-trend-label" style="--tone:${latestBand.color}">${trendLabel}</div>
+      <div class="dash-trend-body">
         ${latestIndex >= 7.5 ? 'Pattern consistent with sustained multi-subsystem stress. Multiple signal domains affected simultaneously.' :
           latestIndex >= 5 ? 'Active stress signals detected across subsystems. Pattern suggests compounding rather than isolated strain.' :
           latestIndex >= 2.5 ? 'Detectable strain in some subsystems. No evidence of cross-subsystem spread at this stage.' :
           'Operating within baseline parameters.'}
       </div>
-      <div style="font-size:0.58rem; color:rgba(255,255,255,0.2); margin-top:0.6rem; font-style:italic">
+      <div class="dash-trend-footnote">
         This is a diagnostic signal. It identifies where deeper inquiry may be warranted.
       </div>
     </div>
@@ -1959,7 +2146,7 @@ function renderDashboard() {
   periods.forEach(p => {
     const idx = getDashIndex(p);
     const b = getBand(idx);
-    html += `<div class="dash-stat"><span class="sl">${p}</span><span class="sv" style="color:${b.color}">${idx.toFixed(1)} · ${b.name}</span></div>`;
+    html += `<div class="dash-stat"><span class="sl">${p}</span><span class="sv" style="--tone:${b.color}">${idx.toFixed(1)} · ${b.name}</span></div>`;
   });
   html += '</div>';
   

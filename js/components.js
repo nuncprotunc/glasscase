@@ -126,7 +126,7 @@ const COMPONENTS = {
       </div>
       <div class="footer-section">
         <h4>Join the Community</h4>
-        <p style="font-size: 0.875rem; color: var(--slate); margin-bottom: 1rem; line-height: 1.5;">Updates on evidence systems and civic-legal data/tech.</p>
+        <p class="footer-community-note">Updates on evidence systems and civic-legal data/tech.</p>
         <a href="https://linkedin.com/company/glasscase-org" class="footer-cta">Follow on LinkedIn</a>
       </div>
     </div>
