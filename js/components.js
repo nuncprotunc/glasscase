@@ -1,6 +1,34 @@
 /**
  * Component System for GlassCase.org
  * Ensures Header, Footer, and Mobile Menu are consistent across all pages.
+ *
+ * ── THEME LINTING RULES FOR THIS FILE ────────────────────────────────────
+ *
+ * All HTML injected by this file is shared across EVERY page in both
+ * dark mode (default) and light mode.  Violating these rules will break
+ * the theme on every page simultaneously.
+ *
+ * 1. NO hardcoded colours in template literals.
+ *    WRONG:  style="color:#fff"
+ *    WRONG:  style="background:#1A1F2E"
+ *    RIGHT:  Use a CSS class defined in style.css with var() properties.
+ *
+ * 2. NO inline style attributes on any injected element.
+ *    Inline styles cannot be overridden by [data-theme="light"] selectors.
+ *
+ * 3. ALL colours must come from CSS custom properties in style.css.
+ *    Dark defaults live in :root {}
+ *    Light overrides live in [data-theme="light"] {}
+ *
+ * 4. When adding new injected elements:
+ *    - Add the dark-mode style to :root / the base class in style.css.
+ *    - Add a [data-theme="light"] override in style.css if colours differ.
+ *    - Never assume "it looks fine in dark mode" means light mode is safe.
+ *
+ * 5. Theme toggle must call gcInitThemeToggle() after injection.
+ *    All elements with [data-theme-toggle] will be wired up automatically.
+ *
+ * ─────────────────────────────────────────────────────────────────────────
  */
 
 const COMPONENTS = {

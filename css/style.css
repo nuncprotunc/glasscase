@@ -1,3 +1,51 @@
+/*
+ * ══════════════════════════════════════════════════════════
+ * GLASSCASE THEME SYSTEM — RULES FOR ALL PAGES
+ * ══════════════════════════════════════════════════════════
+ *
+ * Every page on this site supports dark mode (default) and light mode.
+ * Follow these rules or the page WILL break in one theme.
+ *
+ * RULE 1: Use shared components
+ *   <div id="shared-header"></div>
+ *   <div id="shared-mobile-menu"></div>
+ *   <!-- your content -->
+ *   <div id="shared-footer"></div>
+ *   <script src="/js/components.js"></script>
+ *
+ * RULE 2: Never hardcode colours
+ *   WRONG:  color: #fff;
+ *   WRONG:  background: #1A1F2E;
+ *   WRONG:  style="color: white"
+ *   RIGHT:  color: var(--text-primary);
+ *   RIGHT:  background: var(--bg-card);
+ *
+ * RULE 3: Never use inline style="color:..." or style="background:..."
+ *   Inline styles cannot be overridden by theme switches.
+ *   Always use CSS classes with var() custom properties.
+ *
+ * RULE 4: Coloured UI elements (pills, badges, table headers)
+ *   Dark mode:  saturated bg + white text
+ *   Light mode: pale tinted bg + dark text
+ *   Always add [data-theme="light"] overrides for coloured elements.
+ *
+ * RULE 5: Load style.css with cache-buster
+ *   <link rel="stylesheet" href="/css/style.css?v=YYYY-MM-DD">
+ *
+ * RULE 6: Include the anti-flash script in <head>
+ *   This prevents white flash on dark-mode page load.
+ *   Copy from any existing page's <head>.
+ *
+ * Available custom properties (see :root and [data-theme="light"] below):
+ *   Backgrounds: --bg-primary, --bg-secondary, --bg-card, --bg-footer, --bg-nav
+ *   Text:        --text-primary, --text-secondary, --text-muted, --text-footer
+ *   Accents:     --accent-primary, --accent-hover
+ *   Borders:     --border-primary, --border-subtle
+ *   Shadows:     --shadow-card, --shadow-elevated
+ *
+ * ══════════════════════════════════════════════════════════
+ */
+
 :root {
   color-scheme: dark;
   /* Glass/Case Brand Colors */

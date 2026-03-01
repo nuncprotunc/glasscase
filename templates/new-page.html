@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Title | GlassCase</title>
+
+  <!-- RULE 6: Anti-flash script — must be first in <head>, before any stylesheet -->
+  <script>
+    (function() {
+      var t = localStorage.getItem('glasscase-theme');
+      if (t === 'light') document.documentElement.setAttribute('data-theme', 'light');
+    })();
+  </script>
+
+  <!-- RULE 5: Cache-busted stylesheet — update the date when making CSS changes -->
+  <link rel="stylesheet" href="/css/style.css?v=YYYY-MM-DD">
+
+  <!-- Page-specific styles (if needed) — use var() custom properties, no hardcoded colours -->
+  <style>
+    /* Page-specific styles here */
+  </style>
+</head>
+<body>
+
+  <!-- RULE 1: Shared header — do not replace with hardcoded <nav> or <header> -->
+  <div id="shared-header"></div>
+  <div id="shared-mobile-menu"></div>
+
+  <!-- ═══════════════════════════ PAGE CONTENT ════════════════════════════ -->
+  <main id="content">
+    <!-- Your page content goes here -->
+  </main>
+  <!-- ════════════════════════════════════════════════════════════════════ -->
+
+  <!-- RULE 1: Shared footer — do not replace with hardcoded <footer> -->
+  <div id="shared-footer"></div>
+
+  <!-- RULE 1: components.js injects shared-header, shared-mobile-menu, shared-footer -->
+  <script src="/js/main.js"></script>
+  <script src="/js/components.js"></script>
+
+</body>
+</html>
