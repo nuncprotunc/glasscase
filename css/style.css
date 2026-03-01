@@ -356,7 +356,7 @@ body.mobile-menu-open .gc-header {
     left: -320px;
     width: 300px;
     height: 100vh;
-    background: #111b2e !important;
+    background: #111d32 !important;
     border-right: 1px solid var(--line);
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
     transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -368,11 +368,8 @@ body.mobile-menu-open .gc-header {
   .mobile-menu::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(74, 159, 216, 0.06) 0%, transparent 50%, rgba(58, 190, 249, 0.04) 100%);
+    inset: 0;
+    background: #111d32;
     pointer-events: none;
   }
   
