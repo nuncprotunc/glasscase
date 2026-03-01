@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  var GA_ID = 'G-GWST0FY0NR';
+  var GA_ID = 'G-NQYBDXY248';
   var AHREFS_KEY = '5ak5S54IdTWG1s2khqZLcg';
   var STORE = 'analytics_consent';
 
