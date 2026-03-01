@@ -693,7 +693,7 @@ footer a[onclick*="resetAnalyticsConsent"] {
 .footer-brand {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 4px;
 }
 
 .footer-brand-name {
