@@ -145,6 +145,18 @@
             box-shadow: 0 8px 24px rgba(58, 190, 249, 0.1);
         }
 
+        [data-theme="light"] .submission-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-primary);
+        }
+
+        [data-theme="light"] .submission-card:hover,
+        [data-theme="light"] .submission-card:focus {
+            background: var(--bg-card);
+            border-color: var(--border-primary);
+            box-shadow: none;
+        }
+
         .submission-meta-row {
             grid-column: 1;
             display: flex;
