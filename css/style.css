@@ -357,6 +357,11 @@ body.mobile-menu-open .gc-header {
   text-shadow: 0 3px 12px rgba(10, 22, 38, 0.35);
 }
 
+[data-theme="light"] .brand-name .case {
+  color: var(--steel-blue);
+  text-shadow: none;
+}
+
 .nav-right {
   display: flex;
   align-items: center;
