@@ -698,7 +698,7 @@ footer a[onclick*="resetAnalyticsConsent"] {
 }
 
 .footer-brand .brand {
-  margin: 0;
+  margin: 0 0 -6px 0;
   padding: 0;
 }
 
