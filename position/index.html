@@ -480,8 +480,8 @@
     flex-wrap: wrap;
     margin: 2.2rem 0;
     padding: 1.8rem 1rem;
-    background: var(--gc-surface);
-    border: 1px solid var(--gc-border);
+    background: rgba(26, 31, 46, 0.6);
+    border: 1px solid rgba(42, 157, 143, 0.18);
     border-radius: 10px;
   }
 
@@ -491,17 +491,17 @@
     font-size: .7rem;
     font-family: 'JetBrains Mono', monospace;
     border-radius: 6px;
-    background: var(--gc-surface-2);
-    border: 1px solid var(--gc-border);
+    background: rgba(26, 31, 46, 0.85);
+    border: 1px solid rgba(42, 157, 143, 0.18);
     min-width: 85px;
     color: var(--gc-muted);
   }
 
-  .d-step.on { border-color: var(--gc-teal); color: var(--gc-teal); box-shadow: var(--shadow-card); }
-  .d-step.fail { border-color: var(--gc-coral); color: var(--gc-coral); box-shadow: var(--shadow-card); }
+  .d-step.on { border-color: #3ABEF9; color: #3ABEF9; box-shadow: 0 0 10px rgba(58,190,249,0.12); }
+  .d-step.fail { border-color: #E86880; color: #E86880; box-shadow: 0 0 10px rgba(232,104,128,0.1); }
 
   .d-arr { font-size: .85rem; color: var(--gc-muted); opacity: .35; }
-  .d-brk { font-size: 1.1rem; color: var(--gc-coral); font-weight: 700; }
+  .d-brk { font-size: 1.1rem; color: #E86880; font-weight: 700; }
 
   .d-cap {
     width: 100%;
@@ -533,12 +533,12 @@
   .b-desc { font-size: .68rem; color: var(--gc-muted); font-family: 'JetBrains Mono', monospace; }
 
   /* ══════════ TIMELINE BAR ══════════ */
-  .tl { margin: 2.2rem 0; padding: 1.4rem; background: var(--gc-surface); border: 1px solid var(--gc-border); border-radius: 10px; }
+  .tl { margin: 2.2rem 0; padding: 1.4rem; background: rgba(26, 31, 46, 0.6); border: 1px solid rgba(42, 157, 143, 0.18); border-radius: 10px; }
 
   .tl-bar {
     position: relative;
     height: 44px;
-    background: var(--gc-surface-2);
+    background: rgba(26, 31, 46, 0.85);
     border-radius: 6px;
     overflow: hidden;
     margin-bottom: .9rem;
@@ -556,12 +556,12 @@
     font-weight: 500;
   }
 
-  .tl-vis { width: 35%; background: var(--bg-secondary); color: var(--gc-teal); border-right: 2px solid var(--gc-teal); }
+  .tl-vis { width: 35%; background: rgba(58,190,249,0.18); color: #3ABEF9; border-right: 2px solid #3ABEF9; }
 
   .tl-hid {
     width: 65%;
-    background: var(--bg-tertiary);
-    color: var(--gc-coral);
+    background: repeating-linear-gradient(-45deg, transparent, transparent 4px, rgba(232,104,128,0.05) 4px, rgba(232,104,128,0.05) 8px);
+    color: #E86880;
     opacity: .7;
   }
 
@@ -859,18 +859,18 @@
   <svg viewBox="0 0 220 160" width="200" height="140" style="margin:0 auto 2rem;display:block;opacity:0.85;" aria-label="GlassCase prism — light dispersed into five diagnostic rays">
     <defs>
       <linearGradient id="gc-prism" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="var(--text-primary)" stop-opacity="0.9"/>
-        <stop offset="50%" stop-color="var(--glass-blue)" stop-opacity="0.7"/>
-        <stop offset="100%" stop-color="var(--accent-primary)" stop-opacity="0.9"/>
+        <stop offset="0%" stop-color="#E8F4F8" stop-opacity="0.9"/>
+        <stop offset="50%" stop-color="#4A9FD8" stop-opacity="0.7"/>
+        <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0.9"/>
       </linearGradient>
     </defs>
-    <line x1="10" y1="80" x2="70" y2="80" stroke="var(--text-primary)" stroke-opacity="0.3" stroke-width="1.5"/>
-    <polygon points="78,30 138,130 18,130" fill="var(--bg-tertiary)" fill-opacity="0.8" stroke="url(#gc-prism)" stroke-width="1.2"/>
-    <line x1="120" y1="60" x2="210" y2="25" stroke="var(--glass-blue)" stroke-width="1.5" opacity="0.8"/>
-    <line x1="124" y1="72" x2="210" y2="50" stroke="var(--accent-primary)" stroke-width="1.5" opacity="0.8"/>
-    <line x1="128" y1="84" x2="210" y2="80" stroke="var(--text-secondary)" stroke-width="2" opacity="0.8"/>
-    <line x1="130" y1="96" x2="210" y2="110" stroke="var(--gold-accent)" stroke-width="1.5" opacity="0.8"/>
-    <line x1="132" y1="108" x2="210" y2="140" stroke="var(--text-tertiary)" stroke-width="1.5" opacity="0.8"/>
+    <line x1="10" y1="80" x2="70" y2="80" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <polygon points="78,30 138,130 18,130" fill="rgba(15,23,48,0.8)" stroke="url(#gc-prism)" stroke-width="1.2"/>
+    <line x1="120" y1="60" x2="210" y2="25" stroke="#4A9FD8" stroke-width="1.5" opacity="0.8"/>
+    <line x1="124" y1="72" x2="210" y2="50" stroke="#3ABEF9" stroke-width="1.5" opacity="0.8"/>
+    <line x1="128" y1="84" x2="210" y2="80" stroke="#8B9DB8" stroke-width="2" opacity="0.8"/>
+    <line x1="130" y1="96" x2="210" y2="110" stroke="#F4C430" stroke-width="1.5" opacity="0.8"/>
+    <line x1="132" y1="108" x2="210" y2="140" stroke="#E86880" stroke-width="1.5" opacity="0.8"/>
   </svg>
 
   <div class="keyword-strip">
