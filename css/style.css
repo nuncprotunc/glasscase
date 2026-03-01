@@ -698,7 +698,7 @@ footer a[onclick*="resetAnalyticsConsent"] {
   gap: 12px;
 }
 
-.footer-brand .brand {
+.footer-brand .brand { margin-bottom: 8px;
   margin: 0 0 -20px 0;
   padding: 0;
 }
