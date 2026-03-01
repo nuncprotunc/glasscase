@@ -135,6 +135,10 @@ nav.menu-open {
   pointer-events: none;
 }
 
+body.mobile-menu-open > nav {
+  display: none;
+}
+
 @supports (backdrop-filter: blur(10px)) {
   nav {
     -webkit-backdrop-filter: saturate(130%) blur(10px);
@@ -395,6 +399,25 @@ nav.menu-open {
     padding-bottom: 16px;
     border-bottom: none !important;
     text-align: center;
+  }
+
+  .mobile-menu-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    color: rgba(232,244,248,0.9);
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 202;
   }
   
   .mobile-menu-title {

@@ -55,6 +55,7 @@ const COMPONENTS = {
   `,
   mobileMenu: `
     <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-menu-close" type="button" onclick="closeMobileMenu()" aria-label="Close menu">×</button>
       <div class="mobile-menu-header">
         <h2 class="mobile-menu-title">Glass/Case</h2>
         <p class="mobile-menu-subtitle">Making Integrity Visible</p>

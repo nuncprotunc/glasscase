@@ -7,7 +7,6 @@ function toggleMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('mobileMenuOverlay');
     const button = document.querySelector('.mobile-menu-button');
-    const nav = document.querySelector('nav');
     if (!menu || !overlay || !button) return;
 
     const isOpen = menu.classList.contains('active');
@@ -18,7 +17,7 @@ function toggleMobileMenu() {
         menu.classList.add('active');
         overlay.classList.add('active');
         button.setAttribute('aria-expanded', 'true');
-        if (nav) nav.classList.add('menu-open');
+        document.body.classList.add('mobile-menu-open');
         document.body.style.overflow = 'hidden';
     }
 }
@@ -27,13 +26,12 @@ function closeMobileMenu() {
     const menu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('mobileMenuOverlay');
     const button = document.querySelector('.mobile-menu-button');
-    const nav = document.querySelector('nav');
-    if (!menu || !overlay || !button) return;
+    if (!menu || !overlay) return;
     
     menu.classList.remove('active');
     overlay.classList.remove('active');
-    button.setAttribute('aria-expanded', 'false');
-    if (nav) nav.classList.remove('menu-open');
+    if (button) button.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('mobile-menu-open');
     document.body.style.overflow = '';
 }
 
