@@ -90,12 +90,14 @@ const COMPONENTS = {
     <div class="mobile-menu" id="mobileMenu">
       <button class="mobile-menu-close" type="button" onclick="closeMobileMenu()" aria-label="Close menu">×</button>
       <div class="mobile-menu-header">
-        <span class="mobile-menu-title">GlassCase</span>
-        <div class="mobile-menu-divider"></div>
+        <a href="/" class="mobile-menu-brand" onclick="closeMobileMenu()" aria-label="GlassCase home">
+          <p class="brand-name"><span class="glass">Glass</span><span class="divider">/</span><span class="case">Case</span></p>
+        </a>
       </div>
       <div class="mobile-menu-theme-wrap">
         <button class="gc-theme-toggle mobile-menu-theme-toggle" data-theme-toggle aria-label="Switch to light mode" type="button">☼</button>
       </div>
+      <div class="mobile-menu-divider"></div>
       <nav>
         <a href="/position/" onclick="closeMobileMenu()" data-nav="position">Position Paper</a>
         <a href="/tools" onclick="closeMobileMenu()" data-nav="tools">Tools</a>

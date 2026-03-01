@@ -598,10 +598,21 @@ body.mobile-menu-open .gc-header {
   }
   
   .mobile-menu-header {
-    margin-bottom: 24px;
-    padding-bottom: 0;
+    margin-bottom: 10px;
+    padding: 0 6px;
     border-bottom: 0 !important;
-    text-align: center;
+    text-align: left;
+  }
+
+  .mobile-menu-brand {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .mobile-menu-brand .brand-name {
+    font-size: 22px;
   }
 
   .mobile-menu-close {
@@ -654,9 +665,10 @@ body.mobile-menu-open .gc-header {
 
   .mobile-menu-divider {
     height: 1px;
-    background: var(--border-primary);
-    margin: 20px 0 0;
-    width: 100%;
+    background: var(--line);
+    opacity: 0.65;
+    margin: 10px 6px 0;
+    width: auto;
   }
   
   .mobile-menu nav {
