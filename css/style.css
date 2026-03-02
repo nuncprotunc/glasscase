@@ -283,6 +283,39 @@ p a {
   background: var(--pill-bg-hover);
 }
 
+/* Canonical download button style */
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.62rem 1.05rem;
+  border-radius: 9999px;
+  border: 1px solid var(--pill-border);
+  background: var(--pill-bg);
+  color: var(--pill-text);
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.download-btn:hover {
+  transform: translateY(-1px);
+  background: var(--pill-bg-hover);
+  border-color: var(--pill-border-hover);
+}
+
+.download-btn svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.9;
+}
+
 /* Navigation */
 .gc-header {
   position: sticky;
