@@ -31,11 +31,4 @@
   
   <!-- Accent line -->
   <rect x="40" y="168" width="120" height="2" fill="url(#lineGrad)" opacity="0.5"/>
-  
-  <!-- Logo mark right side -->
-  <g transform="translate(700, 65)">
-    <path d="M 18 49.5 Q 36 27, 54 49.5" stroke="#3b82f6" stroke-width="3.6" fill="none" opacity="0.8"/>
-    <circle cx="36" cy="38.7" r="7.2" fill="#8b5cf6"/>
-    <circle cx="54" cy="49.5" r="5.4" fill="#60a5fa"/>
-  </g>
 </svg>
