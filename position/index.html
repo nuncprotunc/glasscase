@@ -313,8 +313,9 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.68rem;
     color: var(--gc-muted);
-    letter-spacing: 0.07em;
+    letter-spacing: 0.08em;
     opacity: 0; animation: fadeUp .8s .95s forwards;
+    margin-bottom: 3rem;
   }
 
   .hero-meta a { color: var(--gc-teal); text-decoration: none; }
@@ -364,11 +365,14 @@
   .scroll-cue {
     position: absolute;
     bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.62rem;
     color: var(--gc-muted);
     letter-spacing: 0.1em;
     opacity: 0; animation: fadeUp .8s 1.1s forwards;
+    z-index: 10;
   }
 
   .scroll-cue::after {
