@@ -4,7 +4,7 @@
 <script src="/js/consent-gate.js" defer></script>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FOI Redaction Taxonomy (Australia) v0.2 | GlassCase</title>
+    <title>FOI Redaction Taxonomy (Australia) v0.3 | GlassCase</title>
     <meta name="description" content="Practical coding scheme for analysing FOI redactions across Australian jurisdictions and tracking transparency trends.">
     <meta name="keywords" content="FOI, freedom of information, redaction analysis, transparency, administrative law, GlassCase, Jay Spudvilas, Australia">
     <meta name="author" content="Jay Spudvilas (Jayden Spudvilas-Powell)">
@@ -13,7 +13,7 @@
     <link rel="me" href="https://glasscase.substack.com/" />
     
     <!-- Open Graph -->
-    <meta property="og:title" content="FOI Redaction Taxonomy (Australia) v0.2 | GlassCase">
+    <meta property="og:title" content="FOI Redaction Taxonomy (Australia) v0.3 | GlassCase">
     <meta property="og:description" content="Practical coding scheme for analysing FOI redactions across Australian jurisdictions.">
     <meta property="og:site_name" content="GlassCase">
     <meta property="og:locale" content="en_AU">
@@ -26,7 +26,7 @@
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="FOI Redaction Taxonomy (Australia) v0.2 | GlassCase">
+    <meta name="twitter:title" content="FOI Redaction Taxonomy (Australia) v0.3 | GlassCase">
     <meta name="twitter:description" content="Practical coding scheme for analysing FOI redactions across Australian jurisdictions.">
     <meta name="twitter:image" content="https://glasscase.org/og-image.png">
     
@@ -39,7 +39,7 @@
           "@type": "WebPage",
           "@id": "https://glasscase.org/redaction-taxonomy.html",
           "url": "https://glasscase.org/redaction-taxonomy.html",
-          "name": "FOI Redaction Taxonomy (Australia) v0.2",
+          "name": "FOI Redaction Taxonomy (Australia) v0.3",
           "description": "Practical coding scheme for analysing FOI redactions across Australian jurisdictions. Compare redaction patterns, assess decision quality, and track transparency trends.",
           "inLanguage": "en-AU",
           "isPartOf": {
@@ -67,9 +67,9 @@
           },
           "about": {
             "@type": "CreativeWork",
-            "name": "GlassCase Redaction Taxonomy v0.2",
+            "name": "GlassCase Redaction Taxonomy v0.3",
             "description": "A practical coding scheme for analysing FOI redactions across Australian jurisdictions. Designed for comparative analysis of redaction patterns and decision quality.",
-            "version": "0.2",
+            "version": "0.3",
             "datePublished": "2024-12-01",
             "dateModified": "2024-12-15",
             "inLanguage": "en-AU",
@@ -665,7 +665,7 @@
 
     <main>
         <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
-            <span class="pill-primary">v0.2</span>
+            <span class="pill-primary">v0.3</span>
             <a href="https://doi.org/10.5281/zenodo.18066229" target="_blank" rel="noopener" style="display: flex; align-items: center;">
                 <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.18066229.svg" alt="DOI: 10.5281/zenodo.18066229" style="display: block; transform: translateY(-8px);">
             </a>
@@ -683,7 +683,7 @@
         </a>
 
         <div class="intro">
-            <p><strong>GlassCase Redaction Taxonomy v0.2</strong> is a practical coding scheme for analysing FOI releases across Australian jurisdictions. It is designed for comparative analysis of redaction patterns and decision quality, not as a substitute for statutory exemption categories.</p>
+            <p><strong>GlassCase Redaction Taxonomy v0.3</strong> is a practical coding scheme for analysing FOI releases across Australian jurisdictions. It is designed for comparative analysis of redaction patterns and decision quality, not as a substitute for statutory exemption categories.</p>
             <p>Optional statutory mapping is provided for Commonwealth FOI to support jurisdiction-specific reporting (see <a href="#statutory-mapping">Statutory Mapping</a> below).</p>
             <p><strong>Diagnostic tool.</strong> This taxonomy is an analyst's coding scheme, not a substitute for statutory interpretation or legal advice. Codes reflect analytical categories, not legal findings. Output should not be treated as evidence of exemption validity or agency conduct.</p>
         </div>
@@ -788,7 +788,8 @@
             </div>
             <ul class="category-items">
                 <li><strong>D1 Drafting and iteration:</strong> working drafts, tracked changes</li>
-                <li><strong>D2 Deliberation material:</strong> options, advice, internal debate</li>
+                <li><strong>D2 Deliberation material:</strong> opinions, advice, recommendations or internal debate forming part of a deliberative process (FOI Act s 47C). Purely factual material is excluded under s 47C(2)(b) unless intertwined with deliberative content.</li>
+                <li class="sub-items"><strong>D2a</strong> Opinion or recommendation · <strong>D2b</strong> Policy advice or options · <strong>D2c</strong> Consultation between officials</li>
                 <li><strong>D3 Legal material:</strong> advice, privilege claims, litigation posture</li>
             </ul>
         </div>
@@ -796,11 +797,12 @@
         <div class="category-block">
             <div class="category-header">
                 <span class="category-code">E</span>
-                <span class="category-title">Enforcement and Compliance</span>
+                <span class="category-title">Enforcement and Operations</span>
             </div>
             <ul class="category-items">
-                <li><strong>E1 Ongoing investigations:</strong> integrity bodies, HR processes, audits</li>
-                <li><strong>E2 Law enforcement overlap:</strong> offences, intelligence, methods</li>
+                <li><strong>E1 Active investigations:</strong> integrity processes, HR investigations, ongoing audits</li>
+                <li><strong>E2 Law enforcement methods:</strong> offences, intelligence, policing methods (FOI Act s 37)</li>
+                <li><strong>E3 Operational methods:</strong> complaint triage, audit triggers, risk scoring, compliance systems (FOI Act s 47E)</li>
             </ul>
         </div>
 
@@ -847,6 +849,22 @@
             <p class="pattern-flag-example">Entire paragraphs blacked out where only one sentence contains sensitive detail.</p>
         </div>
 
+        <div class="pattern-flag">
+            <div class="pattern-flag-header">
+                <span class="pattern-flag-code">P6</span>
+                <span class="pattern-flag-title">Factual material removed under deliberative exemption</span>
+            </div>
+            <p class="pattern-flag-example">Briefing statistics, background summaries or chronological facts redacted under FOI Act s 47C despite being purely factual material excluded by s 47C(2)(b).</p>
+        </div>
+
+        <div class="pattern-flag">
+            <div class="pattern-flag-header">
+                <span class="pattern-flag-code">P7</span>
+                <span class="pattern-flag-title">Public interest test absent</span>
+            </div>
+            <p class="pattern-flag-example">Decision states document is conditionally exempt but no public interest balancing reasoning appears, as required by FOI Act s 11A(5).</p>
+        </div>
+
         <h2 id="statutory-mapping">Statutory Mapping (Commonwealth)</h2>
 
         <div class="mapping-note">
@@ -884,9 +902,9 @@
                         <td>Deliberative processes (FOI Act s 47C, conditional); legal professional privilege (FOI Act s 42, absolute)</td>
                     </tr>
                     <tr>
-                        <td>E — Enforcement</td>
-                        <td><a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s37.html"><code>FOI Act ss 37, 47E</code></a></td>
-                        <td>Law enforcement (FOI Act s 37); operations of agencies (FOI Act s 47E, conditional)</td>
+                        <td>E — Enforcement and Operations</td>
+                        <td><a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s37.html"><code>FOI Act ss 37</code></a>, <a href="http://classic.austlii.edu.au/au/legis/cth/consol_act/foia1982222/s47e.html"><code>47E</code></a></td>
+                        <td>Law enforcement (FOI Act s 37, absolute); operations of agencies including testing, auditing, personnel and operational methods (FOI Act s 47E, conditional)</td>
                     </tr>
                 </tbody>
             </table>
@@ -992,7 +1010,7 @@
         
         <ul class="use-list">
             <li><strong>Audit:</strong> Code releases to compare patterns across agencies or time. Identify which categories cluster, which flags recur, and where practice diverges from OAIC guidance or FOI Act s 26 decision-letter obligations.</li>
-            <li><strong>Review:</strong> Use flags to identify over-redaction or inconsistency for internal review requests or OAIC IC review preparation. Flag P3 (mosaic risk without explanation) and P4 (category drift) are particularly useful for challenging weak decisions.</li>
+            <li><strong>Review:</strong> Use flags to identify over-redaction or inconsistency for internal review requests or OAIC IC review preparation. Flags P3 (mosaic risk without explanation), P4 (category drift), P6 (factual material under deliberative exemption) and P7 (public interest test absent) are particularly useful for challenging weak decisions.</li>
         </ul>
         
         <p class="use-note">This taxonomy is also suitable for training FOI officers and law students—it provides a shared vocabulary for discussing redaction practice across jurisdictions.</p>
@@ -1009,6 +1027,10 @@
         <h2>Version History</h2>
         
         <div class="category-block" style="margin-bottom: 1rem;">
+            <p style="margin: 0;"><strong>v0.3</strong> (June 2025): Doctrinal refinements — D2 sub-codes for deliberative material (s 47C), E category expanded to cover operational methods (s 47E), new pattern flags P6 (factual material under deliberative exemption) and P7 (public interest test absent).</p>
+        </div>
+
+        <div class="category-block" style="margin-bottom: 1rem;">
             <p style="margin: 0;"><strong>v0.2</strong> (December 2025): Added FOI Redaction Logic Visualiser and improved mobile usability (embedded visualiser + scrollable tables).</p>
         </div>
 
@@ -1017,7 +1039,7 @@
         </div>
 
         <div style="height: 1.5rem;"></div>
-        <p class="meta-text meta-text-top"><strong>How to cite (APA 7):</strong> GlassCase. (2025, December). <em>Redaction Taxonomy</em> (Version 0.2). https://glasscase.org/redaction-taxonomy.html</p>
+        <p class="meta-text meta-text-top"><strong>How to cite (APA 7):</strong> GlassCase. (2025, December). <em>Redaction Taxonomy</em> (Version 0.3). https://glasscase.org/redaction-taxonomy.html</p>
         <p class="meta-text meta-text-tight"><strong>CSV coding sheet available:</strong> <a href="glasscase-redaction-coding-sheet.csv" download>Download CSV</a></p>
         <p class="meta-text meta-text-tight"><strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Not legal advice.</p>
 
