@@ -432,6 +432,49 @@
             margin: 1.25rem 0 0.5rem;
         }
 
+        .case-citation {
+            padding: 0.75rem 1rem;
+            background: rgba(58, 190, 249, 0.06);
+            border: 1px solid rgba(58, 190, 249, 0.2);
+            border-radius: 10px;
+            margin: 0.75rem 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .case-citation-title {
+            font-style: italic;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .case-citation-ref {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .case-citation-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            color: var(--ice-blue);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .case-citation-link:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .case-citation-link svg {
+            width: 14px;
+            height: 14px;
+            opacity: 0.7;
+        }
+
         .diagnostic-result {
             display: flex;
             align-items: center;
@@ -1126,6 +1169,18 @@
             <h3>Worked example: <em>Peko-Wallsend</em> (Mandatory consideration failure)</h3>
             <div class="example-context">
                 The Minister for Aboriginal Affairs decided to grant land to a Land Trust without considering material showing that a $280 million uranium deposit lay within the grant area — contrary to the factual assumption in the Commissioner's report. The Minister relied on a departmental brief that omitted this information.
+            </div>
+            <div class="case-citation">
+                <div class="case-citation-title">Minister for Aboriginal Affairs v Peko-Wallsend Ltd</div>
+                <div class="case-citation-ref">(1986) 162 CLR 24</div>
+                <a href="https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/cth/HCA/1986/40.html" target="_blank" rel="noopener" class="case-citation-link">
+                    <span>Read the judgment on AustLII</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                </a>
             </div>
             <div class="example-items">
                 <div class="example-item">
