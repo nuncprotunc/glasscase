@@ -442,12 +442,35 @@
         }
 
         .case-citation {
+            display: grid;
+            grid-template-columns: 42px 1fr;
+            gap: 0.75rem;
+            align-items: start;
             padding: 0.75rem 1rem;
             background: rgba(58, 190, 249, 0.06);
             border: 1px solid rgba(58, 190, 249, 0.2);
             border-radius: 10px;
             margin: 0.75rem 0 1rem;
             font-size: 0.9rem;
+        }
+
+        .case-citation-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            border: 1px solid rgba(58, 190, 249, 0.22);
+            background: rgba(58, 190, 249, 0.06);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .case-citation-icon svg {
+            width: 20px;
+            height: 20px;
+            stroke: var(--transparency-cyan);
+            opacity: 0.9;
         }
 
         .case-citation-title {
@@ -953,14 +976,28 @@
             }
 
             .example-item {
-                grid-template-columns: auto 1fr;
+                grid-template-columns: 12px 1fr;
                 grid-template-areas:
                     "dot desc"
-                    "tag tag";
+                    ". tag";
+                gap: 0.35rem 0.6rem;
+                align-items: start;
             }
 
-            .example-item .description { grid-area: desc; }
-            .example-item .dot { grid-area: dot; }
+            .case-citation {
+                grid-template-columns: 1fr;
+            }
+
+            .case-citation-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .example-item .description {
+                grid-area: desc;
+                line-height: 1.5;
+                min-width: 0;
+            }
             .example-item .quadrant { grid-area: tag; justify-self: flex-start; }
         }
     </style>
@@ -1189,16 +1226,26 @@
                 The Minister for Aboriginal Affairs decided to grant land to a Land Trust without considering material showing that a $280 million uranium deposit lay within the grant area — contrary to the factual assumption in the Commissioner's report. The Minister relied on a departmental brief that omitted this information.
             </div>
             <div class="case-citation">
-                <div class="case-citation-title">Minister for Aboriginal Affairs v Peko-Wallsend Ltd</div>
-                <div class="case-citation-ref">(1986) 162 CLR 24</div>
-                <a href="https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/cth/HCA/1986/40.html" target="_blank" rel="noopener" class="case-citation-link">
-                    <span>Read the judgment on AustLII</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                        <polyline points="15 3 21 3 21 9"/>
-                        <line x1="10" y1="14" x2="21" y2="3"/>
+                <div class="case-citation-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7" rx="1"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1"/>
                     </svg>
-                </a>
+                </div>
+                <div class="case-citation-body">
+                    <div class="case-citation-title">Minister for Aboriginal Affairs v Peko-Wallsend Ltd</div>
+                    <div class="case-citation-ref">(1986) 162 CLR 24</div>
+                    <a href="https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/cth/HCA/1986/40.html" target="_blank" rel="noopener" class="case-citation-link">
+                        <span>Read the judgment on AustLII</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
             <div class="example-items">
                 <div class="example-item">
