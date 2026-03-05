@@ -332,6 +332,17 @@
     max-width: 520px;
   }
 
+  .hero-doi {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .hero-doi img {
+    display: block;
+  }
+
   .pdf-btn {
     display: inline-flex;
     align-items: center;
@@ -365,8 +376,10 @@
   .scroll-cue {
     position: absolute;
     bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.62rem;
     color: var(--gc-muted);
@@ -932,6 +945,12 @@
   <div class="pdf-downloads" aria-label="Download position paper PDF">
     <a class="pdf-btn pdf-btn--primary" href="/position/GlassCase_Position_Paper_Dark.pdf" download>Download PDF (Dark)</a>
     <a class="pdf-btn" href="/position/GlassCase_Position_Paper_Light.pdf" download>Download PDF (Light)</a>
+  </div>
+
+  <div class="hero-doi">
+    <a href="https://doi.org/10.5281/zenodo.18814499" target="_blank" rel="noopener">
+      <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.18814499.svg" alt="DOI: 10.5281/zenodo.18814499">
+    </a>
   </div>
 
   <p class="hero-meta">
