@@ -848,18 +848,28 @@
   .hero-meta a { color: var(--gc-teal); text-decoration: none; border-bottom: 1px dotted var(--gc-link-border); }
   .hero-meta a:hover { border-bottom-style: solid; }
 
-  .meta-text {
+  .pre-footer-meta {
+    max-width: 700px;
+    margin: 1.5rem auto 2.25rem;
+    padding: 0 1.5rem;
+  }
+
+  .pre-footer-meta .meta-text {
     color: var(--slate);
     font-size: 0.875rem;
     line-height: 1.6;
+    margin: 0;
   }
 
-  .meta-text-top {
-    margin-top: 1rem;
-  }
-
-  .meta-text-tight {
+  .pre-footer-meta .meta-text + .meta-text {
     margin-top: 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .pre-footer-meta {
+      margin: 1.25rem auto 2rem;
+      padding: 0 1.2rem;
+    }
   }
 
   .eco-item--diag { border-color: var(--accent-primary); }
@@ -1524,9 +1534,10 @@
   </div>
 </section>
 
-<div style="height: 1rem;"></div>
-<p class="meta-text meta-text-top"><strong>How to cite (APA 7):</strong> GlassCase. (2026, February). <em>Making Integrity Visible: A Position Paper from GlassCase</em> (Version 1.0). https://glasscase.org/position/</p>
-<p class="meta-text meta-text-tight"><strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Not legal advice.</p>
+<section class="pre-footer-meta" aria-label="Citation and licence">
+  <p class="meta-text"><strong>How to cite (APA 7):</strong> GlassCase. (2026, February). <em>Making Integrity Visible: A Position Paper from GlassCase</em> (Version 1.0). https://glasscase.org/position/</p>
+  <p class="meta-text"><strong>Licence:</strong> <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Not legal advice.</p>
+</section>
 
 </main>
 
