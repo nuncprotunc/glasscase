@@ -236,6 +236,37 @@ h1 {
     color: var(--accent-hover);
 }
 
+.update-box {
+    margin: 2rem 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--accent-primary);
+    border-radius: 6px;
+    background: rgba(58, 190, 249, 0.06);
+    border-top: 1px solid rgba(58, 190, 249, 0.12);
+    border-right: 1px solid rgba(58, 190, 249, 0.12);
+    border-bottom: 1px solid rgba(58, 190, 249, 0.12);
+}
+
+.update-box-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--accent-primary);
+    margin-bottom: 0.5rem;
+}
+
+.update-box p {
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-primary);
+}
+
+.update-box p:last-child {
+    margin-bottom: 0;
+}
+
 @media (max-width: 768px) {
     main {
         padding: 2rem 1.5rem;
