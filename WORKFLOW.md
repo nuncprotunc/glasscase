@@ -15,3 +15,5 @@ Default rule for this repo: whenever a change is made, commit and push immediate
 
 - If `git push` fails due to GitHub authentication, resolve auth (SSH recommended, or HTTPS token) and retry.
 - Keep commits small and scoped to the change just made.
+- `/Users/jsp-16/github-projects/private` is the canonical private workspace for JD/private material.
+- Do not move/copy private study content into this repo unless explicitly requested.
