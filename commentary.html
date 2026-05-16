@@ -209,6 +209,35 @@
             opacity: 1;
         }
 
+        /* Victorian Special edition modifier */
+        .commentary-card.vic-special {
+            border-top: 2px solid rgba(244, 196, 48, 0.55);
+        }
+
+        [data-theme="light"] .commentary-card.vic-special {
+            border-top: 2px solid rgba(180, 130, 20, 0.65);
+        }
+
+        .pill-vic {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold-accent);
+            border: 1px solid rgba(244, 196, 48, 0.4);
+            background: rgba(244, 196, 48, 0.08);
+            padding: 4px 10px;
+            border-radius: 999px;
+        }
+
+        [data-theme="light"] .pill-vic {
+            color: #a67800;
+            border-color: rgba(180, 130, 20, 0.45);
+            background: rgba(244, 196, 48, 0.12);
+        }
+
         @media (max-width: 768px) {
             .commentary-grid {
                 grid-template-columns: 1fr;
@@ -229,6 +258,18 @@
         <p class="subtitle" style="margin-top: 0; margin-bottom: 2rem;">For the full evidence base and argument, see the <a href="/position/">position paper</a>. Commentary below addresses individual concepts and developments.</p>
         
         <div class="commentary-grid">
+            <a class="commentary-card vic-special" href="/commentary/edition-5-record-vs-decision">
+                <div class="commentary-meta-row">
+                    <span class="pill-primary">Edition 5</span>
+                    <span class="pill-vic">VIC &middot; Special</span>
+                    <span class="commentary-topic">Victorian FOI &middot; Case Note</span>
+                </div>
+                <h2>The Line Between Record Correction and Collateral Attack</h2>
+                <div class="commentary-date">May 2026</div>
+                <p class="commentary-excerpt">A Victorian case-note on Smeaton. Section 39 of the FOI Act can correct a record. It does not reopen the decision the record is said to have shaped. The doctrinal line — and why it matters for administrative process design.</p>
+                <span class="commentary-cta">Read →</span>
+            </a>
+
             <a class="commentary-card" href="/commentary/edition-4-design-missing-layer">
                 <div class="commentary-meta-row">
                     <span class="pill-primary">Edition 4</span>

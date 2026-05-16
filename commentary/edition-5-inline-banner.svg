@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="200" viewBox="0 0 800 200">
+  <defs>
+    <radialGradient id="goldGlow" cx="10%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#F4C430" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#F4C430" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cyanGlow" cx="90%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#3ABEF9" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F4C430"/>
+      <stop offset="100%" stop-color="#3ABEF9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="200" rx="6" fill="#0a0e17"/>
+  <rect width="800" height="200" rx="6" fill="url(#goldGlow)"/>
+  <rect width="800" height="200" rx="6" fill="url(#cyanGlow)"/>
+
+  <!-- Edition label -->
+  <text x="40" y="60" font-family="system-ui, -apple-system, sans-serif" font-size="11" letter-spacing="3" fill="#F4C430">EDITION 5 &#183; VICTORIAN SPECIAL</text>
+
+  <!-- Title -->
+  <text x="40" y="110" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" fill="#f8fafc">Where Section 39 Stops</text>
+
+  <!-- Subtitle -->
+  <text x="40" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#94a3b8">A Victorian case-note on Smeaton, s 39 and the doctrinal line</text>
+
+  <!-- Accent line -->
+  <rect x="40" y="168" width="120" height="2" fill="url(#lineGrad)" opacity="0.6"/>
+</svg>

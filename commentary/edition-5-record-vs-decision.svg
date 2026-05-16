@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-labelledby="t d">
+  <title id="t">Edition 5 — Where Section 39 Stops</title>
+  <desc id="d">A two-column doctrinal diagram contrasting record notation under Part V of the Victorian FOI Act in Smeaton v VWA [2009] VCAT 1977 with collateral attack limits in Smeaton v ACCS [2010] VCAT 1236. Records can be made transparent; decisions remain untouched; consequences flow on.</desc>
+
+  <defs>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@700&family=Manrope:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+      .eyebrow      { font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 14px; letter-spacing: 3px; fill: #3ABEF9; opacity: 0.85; }
+      .title        { font-family: 'Spectral', Georgia, 'Times New Roman', serif; font-size: 56px; font-weight: 700; fill: #E8F4F8; }
+      .subtitle     { font-family: 'Manrope', -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; fill: #8B9DB8; }
+      .seclabel     { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 3px; fill: #8B9DB8; }
+      .cite         { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 1.5px; fill: #3ABEF9; }
+      .cite-dim     { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 1.5px; fill: #64748B; }
+      .ch           { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 18px; letter-spacing: 2px; font-weight: 600; fill: #3ABEF9; }
+      .ch-dim       { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 18px; letter-spacing: 2px; font-weight: 600; fill: #8B9DB8; }
+      .csub         { font-family: 'Manrope', -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; fill: #E8F4F8; }
+      .csub-dim     { font-family: 'Manrope', -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: 15px; font-weight: 600; fill: #8B9DB8; }
+      .bul          { font-family: 'Manrope', -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; fill: #B6C5D8; }
+      .bul-dim      { font-family: 'Manrope', -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; fill: #8B9DB8; }
+      .dot          { fill: #3ABEF9; }
+      .dot-dim      { fill: #64748B; }
+      .mark         { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 22px; font-weight: 700; fill: #3ABEF9; }
+      .callout-lbl  { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 3px; fill: #8B9DB8; }
+      .callout-body { font-family: 'Spectral', Georgia, 'Times New Roman', serif; font-size: 24px; fill: #E8F4F8; }
+      .accent       { fill: #3ABEF9; }
+      .footer       { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 11px; letter-spacing: 3px; fill: #5B7C99; }
+    ]]></style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A1F2E" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#0F1730" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#070b16" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1200" fill="#070b16"/>
+  <rect width="1200" height="1200" fill="url(#bgGrad)"/>
+
+  <!-- Eyebrow -->
+  <text class="eyebrow" x="600" y="92" text-anchor="middle">EDITION 5 &#183; GOVERNANCE BY DESIGN</text>
+
+  <!-- Title -->
+  <text class="title" x="600" y="170" text-anchor="middle">Where Section 39 Stops</text>
+
+  <!-- Subtitle -->
+  <text class="subtitle" x="600" y="218" text-anchor="middle">Section 39 can correct a record. It does not reopen the decision the</text>
+  <text class="subtitle" x="600" y="246" text-anchor="middle">record is said to have shaped. The Smeaton litigation maps that gap.</text>
+
+  <!-- Inner Panel -->
+  <rect x="80" y="300" width="1040" height="820" rx="18" ry="18" fill="rgba(26,31,46,0.45)" stroke="rgba(74,159,216,0.25)" stroke-width="1"/>
+
+  <!-- Top divider w/ label -->
+  <line x1="120" y1="358" x2="455" y2="358" stroke="rgba(74,159,216,0.18)" stroke-width="1"/>
+  <text class="seclabel" x="600" y="363" text-anchor="middle">RECORD vs DECISION</text>
+  <line x1="745" y1="358" x2="1080" y2="358" stroke="rgba(74,159,216,0.18)" stroke-width="1"/>
+
+  <!-- LEFT card: Record Correction (active) -->
+  <rect x="120" y="410" width="460" height="320" rx="12" ry="12" fill="rgba(26,31,46,0.55)" stroke="rgba(74,159,216,0.22)" stroke-width="1"/>
+  <rect x="120" y="410" width="4" height="320" fill="#3ABEF9" rx="2"/>
+
+  <text class="cite" x="148" y="450">[2009] VCAT 1977 &#183; notation</text>
+  <text class="ch"   x="148" y="490">RECORD CORRECTION</text>
+  <text class="csub" x="148" y="514">Notation on the file</text>
+
+  <g transform="translate(148, 562)">
+    <circle class="dot" cx="4" cy="-5" r="3"/>
+    <text class="bul" x="20" y="0">Notation added</text>
+  </g>
+  <g transform="translate(148, 596)">
+    <circle class="dot" cx="4" cy="-5" r="3"/>
+    <text class="bul" x="20" y="0">Original preserved</text>
+  </g>
+  <g transform="translate(148, 630)">
+    <circle class="dot" cx="4" cy="-5" r="3"/>
+    <text class="bul" x="20" y="0">Disagreement documented</text>
+  </g>
+  <g transform="translate(148, 664)">
+    <circle class="dot" cx="4" cy="-5" r="3"/>
+    <text class="bul" x="20" y="0">Future readers informed</text>
+  </g>
+
+  <!-- Centre marker between cards -->
+  <line x1="600" y1="430" x2="600" y2="540" stroke="rgba(100,116,139,0.3)" stroke-dasharray="2 6" stroke-width="1"/>
+  <circle cx="600" cy="570" r="22" fill="#0F1730" stroke="rgba(58,190,249,0.4)" stroke-width="1"/>
+  <text class="mark" x="600" y="579" text-anchor="middle">&#215;</text>
+  <text class="seclabel" x="600" y="615" text-anchor="middle">S 39 STOPS</text>
+  <line x1="600" y1="628" x2="600" y2="710" stroke="rgba(100,116,139,0.3)" stroke-dasharray="2 6" stroke-width="1"/>
+
+  <!-- RIGHT card: Decision Correction (blocked) -->
+  <rect x="620" y="410" width="460" height="320" rx="12" ry="12" fill="rgba(26,31,46,0.32)" stroke="rgba(100,116,139,0.28)" stroke-width="1" stroke-dasharray="4 4"/>
+  <rect x="620" y="410" width="4" height="320" fill="#64748B" opacity="0.65" rx="2"/>
+
+  <text class="cite-dim" x="648" y="450">[2010] VCAT 1236 &#183; s 39</text>
+  <text class="ch-dim"   x="648" y="490">COLLATERAL ATTACK</text>
+  <text class="csub-dim" x="648" y="514">Decision consequences out of reach</text>
+
+  <g transform="translate(648, 562)">
+    <circle class="dot-dim" cx="4" cy="-5" r="3"/>
+    <text class="bul-dim" x="20" y="0">Merits untouched</text>
+  </g>
+  <g transform="translate(648, 596)">
+    <circle class="dot-dim" cx="4" cy="-5" r="3"/>
+    <text class="bul-dim" x="20" y="0">Outcome stands</text>
+  </g>
+  <g transform="translate(648, 630)">
+    <circle class="dot-dim" cx="4" cy="-5" r="3"/>
+    <text class="bul-dim" x="20" y="0">Consequences flow on</text>
+  </g>
+  <g transform="translate(648, 664)">
+    <circle class="dot-dim" cx="4" cy="-5" r="3"/>
+    <text class="bul-dim" x="20" y="0">No collateral attack</text>
+  </g>
+
+  <!-- Mid divider w/ label -->
+  <line x1="120" y1="788" x2="450" y2="788" stroke="rgba(74,159,216,0.18)" stroke-width="1"/>
+  <text class="seclabel" x="600" y="793" text-anchor="middle">THE DOCTRINAL LINE</text>
+  <line x1="750" y1="788" x2="1080" y2="788" stroke="rgba(74,159,216,0.18)" stroke-width="1"/>
+
+  <!-- Bottom callout -->
+  <rect x="120" y="830" width="960" height="240" rx="12" ry="12" fill="rgba(58,190,249,0.06)" stroke="rgba(58,190,249,0.3)" stroke-width="1"/>
+  <rect x="120" y="830" width="4" height="240" fill="#3ABEF9" rx="2"/>
+
+  <text class="callout-lbl" x="600" y="870" text-anchor="middle">THE LINE</text>
+  <text class="callout-body" x="600" y="920" text-anchor="middle">Records can be made <tspan class="accent">transparent</tspan>.</text>
+  <text class="callout-body" x="600" y="960" text-anchor="middle">Decisions remain <tspan class="accent">untouched</tspan>.</text>
+  <text class="callout-body" x="600" y="1000" text-anchor="middle">Future readers inherit the gap.</text>
+
+  <!-- Footer -->
+  <text class="footer" x="600" y="1170" text-anchor="middle">GLASSCASE &#183; GOVERNANCE BY DESIGN</text>
+</svg>
