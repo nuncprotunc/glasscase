@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-labelledby="t d">
+  <title id="t">Edition 4 — The FOI Failure Chain</title>
+  <desc id="d">A four-stage horizontal flow showing one FOI failure expressed four ways. Deemed refusal, statement of reasons, IC review and system output. At each stage the statute's formal trigger fires. The corrective force weakens downstream. The statute prescribes outputs but not decision architecture; that gap is where accountability decays.</desc>
+
+  <defs>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@700&family=Manrope:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+      .eyebrow      { font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 14px; letter-spacing: 3px; fill: #3ABEF9; opacity: 0.85; }
+      .title        { font-family: 'Spectral', Georgia, 'Times New Roman', serif; font-size: 44px; font-weight: 700; fill: #E8F4F8; }
+      .subtitle     { font-family: 'Manrope', -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; fill: #8B9DB8; }
+      .seclabel     { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 3px; fill: #8B9DB8; }
+      .chip-on      { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 1.5px; fill: #3ABEF9; font-weight: 600; }
+      .chip         { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 1.5px; fill: #8B9DB8; font-weight: 600; }
+      .chip-dim     { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 1.5px; fill: #64748B; font-weight: 600; }
+      .stage-name-on  { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 700; fill: #3ABEF9; }
+      .stage-name     { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 700; fill: #8B9DB8; }
+      .stage-name-dim { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 700; fill: #64748B; }
+      .stage-desc     { font-family: 'Manrope', sans-serif; font-size: 14px; fill: #8B9DB8; }
+      .arrow          { fill: #64748B; font-family: 'Manrope', sans-serif; font-size: 22px; }
+      .callout-lbl    { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 3px; fill: #8B9DB8; }
+      .callout-body   { font-family: 'Manrope', sans-serif; font-size: 19px; font-weight: 600; fill: #E8F4F8; }
+      .accent         { fill: #3ABEF9; }
+      .footer         { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 3px; fill: #5B7C99; }
+    ]]></style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A1F2E" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#0F1730" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#070b16" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="decayBar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3ABEF9" stop-opacity="0.9"/>
+      <stop offset="55%" stop-color="#3ABEF9" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#64748B" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#070b16"/>
+  <rect width="1200" height="1200" fill="url(#bgGrad)"/>
+
+  <text class="eyebrow" x="600" y="92" text-anchor="middle">EDITION 4 &#183; GOVERNANCE BY DESIGN</text>
+  <text class="title" x="600" y="170" text-anchor="middle">The FOI Failure Chain</text>
+  <text class="subtitle" x="600" y="218" text-anchor="middle">One failure expressed four ways. At each stage the statute's</text>
+  <text class="subtitle" x="600" y="246" text-anchor="middle">formal trigger fires. The corrective force thins.</text>
+
+  <rect x="80" y="300" width="1040" height="780" rx="18" ry="18" fill="rgba(26,31,46,0.45)" stroke="rgba(74,159,216,0.25)" stroke-width="1"/>
+
+  <!-- Top divider w/ label -->
+  <line x1="120" y1="365" x2="350" y2="365" stroke="rgba(74,159,216,0.18)" stroke-width="1"/>
+  <text class="seclabel" x="600" y="370" text-anchor="middle">STATUTORY TRIGGER FIRES AT EVERY STAGE</text>
+  <line x1="850" y1="365" x2="1080" y2="365" stroke="rgba(74,159,216,0.18)" stroke-width="1"/>
+
+  <!-- Stage 1 (Ed. 1) -->
+  <rect x="195" y="425" width="60" height="22" rx="11" fill="rgba(26,31,46,0.7)" stroke="rgba(58,190,249,0.45)" stroke-width="1"/>
+  <text class="chip-on" x="225" y="441" text-anchor="middle">Ed. 1</text>
+  <circle cx="225" cy="480" r="9" fill="#3ABEF9"/>
+  <text class="stage-name-on" x="225" y="545" text-anchor="middle">Deemed refusal</text>
+  <text class="stage-desc" x="225" y="582" text-anchor="middle">No decision made.</text>
+  <text class="stage-desc" x="225" y="603" text-anchor="middle">Silence treated as "no".</text>
+
+  <!-- Arrow 1 -->
+  <text class="arrow" x="345" y="488" text-anchor="middle">&#8594;</text>
+
+  <!-- Stage 2 (Ed. 2) -->
+  <rect x="445" y="425" width="60" height="22" rx="11" fill="rgba(26,31,46,0.7)" stroke="rgba(58,190,249,0.45)" stroke-width="1"/>
+  <text class="chip-on" x="475" y="441" text-anchor="middle">Ed. 2</text>
+  <circle cx="475" cy="480" r="9" fill="#3ABEF9" opacity="0.85"/>
+  <text class="stage-name-on" x="475" y="545" text-anchor="middle">Statement of reasons</text>
+  <text class="stage-desc" x="475" y="582" text-anchor="middle">Reasoning reconstructed</text>
+  <text class="stage-desc" x="475" y="603" text-anchor="middle">after the fact.</text>
+
+  <!-- Arrow 2 -->
+  <text class="arrow" x="595" y="488" text-anchor="middle">&#8594;</text>
+
+  <!-- Stage 3 (Ed. 3) -->
+  <rect x="695" y="425" width="60" height="22" rx="11" fill="rgba(26,31,46,0.6)" stroke="rgba(100,116,139,0.35)" stroke-width="1"/>
+  <text class="chip" x="725" y="441" text-anchor="middle">Ed. 3</text>
+  <circle cx="725" cy="480" r="9" fill="#0F1730" stroke="#8B9DB8" stroke-width="2"/>
+  <text class="stage-name" x="725" y="545" text-anchor="middle">IC review</text>
+  <text class="stage-desc" x="725" y="582" text-anchor="middle">Retrospective correction.</text>
+  <text class="stage-desc" x="725" y="603" text-anchor="middle">Years in queue.</text>
+
+  <!-- Arrow 3 -->
+  <text class="arrow" x="845" y="488" text-anchor="middle">&#8594;</text>
+
+  <!-- Stage 4 (Ed. 4) -->
+  <rect x="945" y="425" width="60" height="22" rx="11" fill="rgba(26,31,46,0.5)" stroke="rgba(100,116,139,0.25)" stroke-width="1"/>
+  <text class="chip-dim" x="975" y="441" text-anchor="middle">Ed. 4</text>
+  <circle cx="975" cy="480" r="9" fill="#0F1730" stroke="#64748B" stroke-width="2"/>
+  <text class="stage-name-dim" x="975" y="545" text-anchor="middle">System output</text>
+  <text class="stage-desc" x="975" y="582" text-anchor="middle">Formal compliance.</text>
+  <text class="stage-desc" x="975" y="603" text-anchor="middle">Substance collapsed.</text>
+
+  <!-- Bottom divider w/ label -->
+  <line x1="120" y1="685" x2="365" y2="685" stroke="rgba(74,159,216,0.15)" stroke-width="1"/>
+  <text class="seclabel" x="600" y="690" text-anchor="middle">CORRECTIVE FORCE WEAKENS DOWNSTREAM</text>
+  <line x1="835" y1="685" x2="1080" y2="685" stroke="rgba(74,159,216,0.15)" stroke-width="1"/>
+
+  <!-- Decay gradient bar -->
+  <rect x="120" y="720" width="960" height="5" rx="2.5" fill="url(#decayBar)"/>
+
+  <!-- Bottom callout -->
+  <rect x="120" y="790" width="960" height="240" rx="12" ry="12" fill="rgba(58,190,249,0.06)" stroke="rgba(58,190,249,0.3)" stroke-width="1"/>
+  <rect x="120" y="790" width="4" height="240" fill="#3ABEF9" rx="2"/>
+  <text class="callout-lbl" x="600" y="830" text-anchor="middle">THE GAP</text>
+  <text class="callout-body" x="600" y="900" text-anchor="middle">The statute prescribes outputs.</text>
+  <text class="callout-body" x="600" y="935" text-anchor="middle">It does not prescribe <tspan class="accent">decision architecture</tspan>.</text>
+  <text class="callout-body" x="600" y="985" text-anchor="middle">That gap is where accountability decays.</text>
+
+  <text class="footer" x="600" y="1170" text-anchor="middle">GLASSCASE &#183; GOVERNANCE BY DESIGN</text>
+</svg>

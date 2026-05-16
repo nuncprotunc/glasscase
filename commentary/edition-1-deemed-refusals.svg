@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-labelledby="t d">
+  <title id="t">Edition 1 — The Deemed Refusal Trigger</title>
+  <desc id="d">A three-stage timeline. Request received, the 30 working day processing window, and the deemed refusal once the window expires. The FOI Act treats silence as a refusal and the applicant may seek IC review as if the agency had refused.</desc>
+
+  <defs>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@700&family=Manrope:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+      .eyebrow      { font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 14px; letter-spacing: 3px; fill: #3ABEF9; opacity: 0.85; }
+      .title        { font-family: 'Spectral', Georgia, 'Times New Roman', serif; font-size: 44px; font-weight: 700; fill: #E8F4F8; }
+      .subtitle     { font-family: 'Manrope', -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; fill: #8B9DB8; }
+      .stage-lbl-on  { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 2.5px; fill: #3ABEF9; font-weight: 600; }
+      .stage-lbl     { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 2.5px; fill: #8B9DB8; font-weight: 600; }
+      .stage-name-on { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 700; fill: #E8F4F8; }
+      .stage-name    { font-family: 'Manrope', sans-serif; font-size: 22px; font-weight: 700; fill: #8B9DB8; }
+      .stage-desc    { font-family: 'Manrope', sans-serif; font-size: 15px; fill: #8B9DB8; }
+      .seclabel      { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 3px; fill: #8B9DB8; }
+      .trigger-body  { font-family: 'Manrope', sans-serif; font-size: 20px; font-weight: 600; fill: #E8F4F8; }
+      .accent        { fill: #3ABEF9; }
+      .barlabel      { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 2px; fill: #8B9DB8; }
+      .caption-line  { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 2px; fill: #5B7C99; }
+      .footer        { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 3px; fill: #5B7C99; }
+    ]]></style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A1F2E" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#0F1730" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#070b16" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#070b16"/>
+  <rect width="1200" height="1200" fill="url(#bgGrad)"/>
+
+  <text class="eyebrow" x="600" y="92" text-anchor="middle">EDITION 1 &#183; GOVERNANCE BY DESIGN</text>
+  <text class="title" x="600" y="170" text-anchor="middle">The Deemed Refusal Trigger</text>
+  <text class="subtitle" x="600" y="218" text-anchor="middle">When an agency doesn't respond within 30 working days,</text>
+  <text class="subtitle" x="600" y="246" text-anchor="middle">the FOI Act treats silence as a refusal.</text>
+
+  <rect x="80" y="300" width="1040" height="820" rx="18" ry="18" fill="rgba(26,31,46,0.45)" stroke="rgba(74,159,216,0.25)" stroke-width="1"/>
+
+  <!-- Stage labels (top) -->
+  <text class="stage-lbl-on" x="290" y="390" text-anchor="middle">REQUEST RECEIVED</text>
+  <text class="stage-lbl"    x="600" y="390" text-anchor="middle">WORKING DAYS 1-30</text>
+  <text class="stage-lbl"    x="910" y="390" text-anchor="middle">WORKING DAY 31+</text>
+
+  <!-- Stage names -->
+  <text class="stage-name-on" x="290" y="430" text-anchor="middle">Request received</text>
+  <text class="stage-name"    x="600" y="430" text-anchor="middle">Processing window</text>
+  <text class="stage-name"    x="910" y="430" text-anchor="middle">Deemed refusal</text>
+
+  <!-- Timeline -->
+  <line x1="290" y1="510" x2="910" y2="510" stroke="rgba(74,159,216,0.22)" stroke-width="2"/>
+  <circle cx="290" cy="510" r="15" fill="#3ABEF9"/>
+  <circle cx="290" cy="510" r="22" fill="none" stroke="#3ABEF9" stroke-width="1" opacity="0.35"/>
+  <circle cx="600" cy="510" r="12" fill="#0F1730" stroke="#64748B" stroke-width="2"/>
+  <circle cx="910" cy="510" r="12" fill="#0F1730" stroke="#64748B" stroke-width="2"/>
+
+  <!-- Descriptions -->
+  <text class="stage-desc" x="290" y="580" text-anchor="middle">Clock starts next working day</text>
+  <text class="stage-desc" x="600" y="572" text-anchor="middle">Agency must respond</text>
+  <text class="stage-desc" x="600" y="596" text-anchor="middle">or request extension</text>
+  <text class="stage-desc" x="910" y="572" text-anchor="middle">Silence is treated</text>
+  <text class="stage-desc" x="910" y="596" text-anchor="middle">as a "no"</text>
+
+  <!-- Progress bar -->
+  <rect x="120" y="700" width="900" height="5" rx="2.5" fill="rgba(74,159,216,0.15)"/>
+  <rect x="120" y="700" width="780" height="5" rx="2.5" fill="#3ABEF9"/>
+  <text class="barlabel" x="1015" y="708" text-anchor="start">30 WORKING DAYS</text>
+
+  <!-- Statutory trigger divider -->
+  <line x1="120" y1="790" x2="475" y2="790" stroke="rgba(74,159,216,0.18)" stroke-width="1"/>
+  <text class="seclabel" x="600" y="795" text-anchor="middle">STATUTORY TRIGGER</text>
+  <line x1="725" y1="790" x2="1080" y2="790" stroke="rgba(74,159,216,0.18)" stroke-width="1"/>
+
+  <!-- Bottom callout -->
+  <rect x="120" y="830" width="960" height="170" rx="12" ry="12" fill="rgba(58,190,249,0.06)" stroke="rgba(58,190,249,0.3)" stroke-width="1"/>
+  <rect x="120" y="830" width="4" height="170" fill="#3ABEF9" rx="2"/>
+  <text class="trigger-body" x="600" y="925" text-anchor="middle">Applicant can seek <tspan class="accent">IC review</tspan> as if agency refused</text>
+
+  <!-- Caption -->
+  <text class="caption-line" x="600" y="1080" text-anchor="middle">FOI ACT 1982 (CTH) S 15AC &#183; FREEDOM OF INFORMATION AMENDMENT BILL 2025</text>
+
+  <text class="footer" x="600" y="1170" text-anchor="middle">GLASSCASE &#183; GOVERNANCE BY DESIGN</text>
+</svg>

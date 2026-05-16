@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-labelledby="t d">
+  <title id="t">Edition 2 — The YF Decision Anatomy</title>
+  <desc id="d">A doctrinal table comparing what the agency provided against what the law required in YF and Services Australia [2025] AICmr 59. Five rows map agency assertions to the specific obligations of s 47E(d), with paragraph references. The agency failed to discharge the s 55D onus.</desc>
+
+  <defs>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@700&family=Manrope:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+      .eyebrow      { font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 14px; letter-spacing: 3px; fill: #3ABEF9; opacity: 0.85; }
+      .title        { font-family: 'Spectral', Georgia, 'Times New Roman', serif; font-size: 44px; font-weight: 700; fill: #E8F4F8; }
+      .subtitle     { font-family: 'Manrope', -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; fill: #8B9DB8; }
+      .colhead      { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 3px; fill: #8B9DB8; font-weight: 600; }
+      .agency       { font-family: 'Manrope', sans-serif; font-size: 17px; fill: #B6C5D8; }
+      .law          { font-family: 'Manrope', sans-serif; font-size: 17px; font-weight: 600; fill: #E8F4F8; }
+      .arrow        { fill: #3ABEF9; font-family: 'Manrope', sans-serif; font-size: 17px; font-weight: 600; }
+      .ref          { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 0.5px; fill: #64748B; }
+      .callout-mark { font-family: 'JetBrains Mono', monospace; font-size: 22px; font-weight: 700; fill: #3ABEF9; }
+      .callout-body { font-family: 'Manrope', sans-serif; font-size: 19px; font-weight: 600; fill: #E8F4F8; }
+      .callout-ref  { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 0.5px; fill: #8B9DB8; }
+      .caption-line { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 2px; fill: #5B7C99; }
+      .footer       { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 3px; fill: #5B7C99; }
+    ]]></style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A1F2E" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#0F1730" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#070b16" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#070b16"/>
+  <rect width="1200" height="1200" fill="url(#bgGrad)"/>
+
+  <text class="eyebrow" x="600" y="92" text-anchor="middle">EDITION 2 &#183; GOVERNANCE BY DESIGN</text>
+  <text class="title" x="600" y="170" text-anchor="middle">The YF Decision Anatomy</text>
+  <text class="subtitle" x="600" y="218" text-anchor="middle">What the agency provided versus what the law required —</text>
+  <text class="subtitle" x="600" y="246" text-anchor="middle">mapped against the IC's findings.</text>
+
+  <rect x="80" y="300" width="1040" height="820" rx="18" ry="18" fill="rgba(26,31,46,0.45)" stroke="rgba(74,159,216,0.25)" stroke-width="1"/>
+
+  <!-- Column headers -->
+  <text class="colhead" x="140" y="370">AGENCY PROVIDED</text>
+  <text class="colhead" x="510" y="370">LAW REQUIRED</text>
+  <text class="colhead" x="1060" y="370" text-anchor="end">[AICMR 59]</text>
+  <line x1="120" y1="390" x2="1080" y2="390" stroke="rgba(74,159,216,0.15)" stroke-width="1"/>
+
+  <!-- Row 1 -->
+  <text class="agency" x="140" y="440">s 47E(d) claimed</text>
+  <text class="arrow"  x="510" y="440">&#8594;</text>
+  <text class="law"    x="540" y="440">Document-specific analysis</text>
+  <text class="ref"    x="1060" y="440" text-anchor="end">[66]-[69], [78]-[83]</text>
+
+  <!-- Row 2 (multi-line) -->
+  <text class="agency" x="140" y="510">"Disclosure would allow</text>
+  <text class="agency" x="140" y="534">members of the public to</text>
+  <text class="agency" x="140" y="558">circumvent established channels"</text>
+  <text class="arrow"  x="510" y="510">&#8594;</text>
+  <text class="law"    x="540" y="510">Which documents?</text>
+  <text class="law"    x="540" y="534">Which staff details?</text>
+  <text class="law"    x="540" y="558">What evidence of harm?</text>
+  <text class="ref"    x="1060" y="510" text-anchor="end">[68], [78]-[83]</text>
+
+  <!-- Row 3 -->
+  <text class="agency" x="140" y="640">Generic assertion</text>
+  <text class="arrow"  x="510" y="640">&#8594;</text>
+  <text class="law"    x="540" y="640">Particular adverse effect</text>
+  <text class="ref"    x="1060" y="640" text-anchor="end">[67]-[69], [83]-[85]</text>
+
+  <!-- Row 4 -->
+  <text class="agency" x="140" y="710">"In all circumstances"</text>
+  <text class="arrow"  x="510" y="710">&#8594;</text>
+  <text class="law"    x="540" y="710">For these documents</text>
+  <text class="ref"    x="1060" y="710" text-anchor="end">[78]-[80]</text>
+
+  <!-- Row 5 -->
+  <text class="agency" x="140" y="780">Class claim</text>
+  <text class="arrow"  x="510" y="780">&#8594;</text>
+  <text class="law"    x="540" y="780">Case-by-case weighing</text>
+  <text class="ref"    x="1060" y="780" text-anchor="end">[78], [79], Guidelines [6.28]</text>
+
+  <!-- Bottom callout -->
+  <rect x="120" y="850" width="960" height="120" rx="12" ry="12" fill="rgba(58,190,249,0.06)" stroke="rgba(58,190,249,0.3)" stroke-width="1"/>
+  <rect x="120" y="850" width="4" height="120" fill="#3ABEF9" rx="2"/>
+  <text x="600" y="918" text-anchor="middle">
+    <tspan class="callout-mark">&#215;</tspan><tspan class="callout-body" dx="14">Agency fails to discharge s 55D onus</tspan><tspan class="callout-ref" dx="14">[71]-[85]</tspan>
+  </text>
+
+  <!-- Caption -->
+  <text class="caption-line" x="600" y="1080" text-anchor="middle">"YF" AND SERVICES AUSTRALIA [2025] AICMR 59</text>
+
+  <text class="footer" x="600" y="1170" text-anchor="middle">GLASSCASE &#183; GOVERNANCE BY DESIGN</text>
+</svg>

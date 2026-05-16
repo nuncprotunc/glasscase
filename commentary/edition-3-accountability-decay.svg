@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-labelledby="t d">
+  <title id="t">Edition 3 — Accountability Decay</title>
+  <desc id="d">A declining curve diagram showing how the corrective value of FOI review collapses the longer the system takes to reach a decision. The curve declines steeply between agency decision and IC review, anchored to Patrick v Australian Information Commissioner. Two callouts state the problem and the argument: oversight cannot be retrofitted.</desc>
+
+  <defs>
+    <style type="text/css"><![CDATA[
+      @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@700&family=Manrope:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
+      .eyebrow      { font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 14px; letter-spacing: 3px; fill: #3ABEF9; opacity: 0.85; }
+      .title        { font-family: 'Spectral', Georgia, 'Times New Roman', serif; font-size: 44px; font-weight: 700; fill: #E8F4F8; }
+      .subtitle     { font-family: 'Manrope', -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; fill: #8B9DB8; }
+      .axislabel    { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 3px; fill: #8B9DB8; font-weight: 600; }
+      .axistick     { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 2px; fill: #64748B; }
+      .stage-name-on  { font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 700; fill: #3ABEF9; }
+      .stage-name     { font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 700; fill: #8B9DB8; }
+      .stage-name-dim { font-family: 'Manrope', sans-serif; font-size: 18px; font-weight: 700; fill: #64748B; }
+      .stage-sub      { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 1.5px; fill: #5B7C99; }
+      .annot          { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; letter-spacing: 3px; fill: #3ABEF9; font-weight: 600; }
+      .annot-it       { font-family: 'Spectral', Georgia, serif; font-size: 16px; font-style: italic; fill: #E8F4F8; }
+      .callout-lbl    { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 3px; fill: #8B9DB8; }
+      .callout-body   { font-family: 'Manrope', sans-serif; font-size: 15px; fill: #B6C5D8; }
+      .callout-body-on{ font-family: 'Manrope', sans-serif; font-size: 15px; fill: #3ABEF9; }
+      .footer         { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 3px; fill: #5B7C99; }
+    ]]></style>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1A1F2E" stop-opacity="0.55"/>
+      <stop offset="60%" stop-color="#0F1730" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#070b16" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="curveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3ABEF9" stop-opacity="1"/>
+      <stop offset="60%" stop-color="#3ABEF9" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#64748B" stop-opacity="0.65"/>
+    </linearGradient>
+    <linearGradient id="curveFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#3ABEF9" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#3ABEF9" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="1200" fill="#070b16"/>
+  <rect width="1200" height="1200" fill="url(#bgGrad)"/>
+
+  <text class="eyebrow" x="600" y="92" text-anchor="middle">EDITION 3 &#183; GOVERNANCE BY DESIGN</text>
+  <text class="title" x="600" y="170" text-anchor="middle">Accountability Decay</text>
+  <text class="subtitle" x="600" y="218" text-anchor="middle">The corrective value of review collapses the longer the system</text>
+  <text class="subtitle" x="600" y="246" text-anchor="middle">takes to reach a decision.</text>
+
+  <!-- Chart panel -->
+  <rect x="80" y="300" width="1040" height="540" rx="18" ry="18" fill="rgba(26,31,46,0.45)" stroke="rgba(74,159,216,0.25)" stroke-width="1"/>
+
+  <!-- Y axis label (rotated) -->
+  <text class="axislabel" transform="translate(120,580) rotate(-90)" text-anchor="middle">CORRECTIVE FORCE</text>
+  <text class="axistick" x="170" y="380">HIGH</text>
+  <text class="axistick" x="170" y="755">LOW</text>
+
+  <!-- Plot area baseline -->
+  <line x1="200" y1="755" x2="1060" y2="755" stroke="rgba(74,159,216,0.15)" stroke-width="1"/>
+  <line x1="200" y1="370" x2="200" y2="755" stroke="rgba(74,159,216,0.15)" stroke-width="1"/>
+
+  <!-- Area under curve (translucent fill) -->
+  <path d="M 220 395 C 320 395 380 410 470 435 C 560 460 620 530 720 615 C 800 680 880 720 970 730 L 970 755 L 220 755 Z" fill="url(#curveFill)"/>
+
+  <!-- Curve -->
+  <path d="M 220 395 C 320 395 380 410 470 435 C 560 460 620 530 720 615 C 800 680 880 720 970 730" stroke="url(#curveGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Curve start dot -->
+  <circle cx="220" cy="395" r="6" fill="#3ABEF9"/>
+  <!-- Patrick marker dot -->
+  <circle cx="820" cy="673" r="5" fill="#3ABEF9"/>
+
+  <!-- STEEP DECLINE annotation -->
+  <text class="annot" x="600" y="500" text-anchor="middle">STEEP DECLINE</text>
+
+  <!-- Patrick annotation -->
+  <line x1="820" y1="660" x2="820" y2="630" stroke="rgba(58,190,249,0.55)" stroke-width="1"/>
+  <text class="annot-it" x="820" y="618" text-anchor="middle">Patrick</text>
+
+  <!-- X-axis stages -->
+  <text class="stage-name-on"  x="220" y="790" text-anchor="middle">FOI Request</text>
+  <text class="stage-sub"      x="220" y="810" text-anchor="middle">s 15</text>
+
+  <text class="stage-name"     x="470" y="790" text-anchor="middle">Agency Decision</text>
+  <text class="stage-sub"      x="470" y="810" text-anchor="middle">Ed. 1 &amp; 2</text>
+
+  <text class="stage-name"     x="720" y="790" text-anchor="middle">IC Review</text>
+  <text class="stage-sub"      x="720" y="810" text-anchor="middle">Ed. 3</text>
+
+  <text class="stage-name-dim" x="970" y="790" text-anchor="middle">ART / Court</text>
+  <text class="stage-sub"      x="970" y="810" text-anchor="middle">rarely reached</text>
+
+  <!-- Bottom callout boxes (side by side) -->
+  <rect x="80" y="880" width="495" height="200" rx="12" ry="12" fill="rgba(26,31,46,0.5)" stroke="rgba(74,159,216,0.22)" stroke-width="1"/>
+  <text class="callout-lbl"  x="105" y="915">THE PROBLEM</text>
+  <text class="callout-body" x="105" y="955">By the time IC review reaches a matter,</text>
+  <text class="callout-body" x="105" y="980">documents are stale, applicants have</text>
+  <text class="callout-body" x="105" y="1005">moved on, and the corrective value of</text>
+  <text class="callout-body" x="105" y="1030">oversight has collapsed.</text>
+
+  <rect x="625" y="880" width="495" height="200" rx="12" ry="12" fill="rgba(58,190,249,0.06)" stroke="rgba(58,190,249,0.3)" stroke-width="1"/>
+  <rect x="625" y="880" width="4" height="200" fill="#3ABEF9" rx="2"/>
+  <text class="callout-lbl"     x="650" y="915">THE ARGUMENT</text>
+  <text class="callout-body-on" x="650" y="955">Oversight cannot be retrofitted.</text>
+  <text class="callout-body-on" x="650" y="980">Decision quality must be built at the</text>
+  <text class="callout-body-on" x="650" y="1005">point of decision — not years later</text>
+  <text class="callout-body-on" x="650" y="1030">under review.</text>
+
+  <text class="footer" x="600" y="1170" text-anchor="middle">GLASSCASE &#183; GOVERNANCE BY DESIGN</text>
+</svg>
