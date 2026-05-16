@@ -7,6 +7,7 @@
     <style type="text/css"><![CDATA[
       @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@700&family=Manrope:wght@400;600;700&family=JetBrains+Mono:wght@500;600&display=swap');
       .eyebrow      { font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 14px; letter-spacing: 3px; fill: #3ABEF9; opacity: 0.85; }
+      .special      { font-family: 'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size: 12px; letter-spacing: 3px; fill: #F4C430; opacity: 0.9; }
       .title        { font-family: 'Spectral', Georgia, 'Times New Roman', serif; font-size: 44px; font-weight: 700; fill: #E8F4F8; }
       .subtitle     { font-family: 'Manrope', -apple-system, 'Helvetica Neue', Arial, sans-serif; font-size: 18px; fill: #8B9DB8; }
       .seclabel     { font-family: 'JetBrains Mono', ui-monospace, Menlo, monospace; font-size: 12px; letter-spacing: 3px; fill: #8B9DB8; }
@@ -38,7 +39,8 @@
   <rect width="1200" height="1200" fill="url(#bgGrad)"/>
 
   <!-- Eyebrow -->
-  <text class="eyebrow" x="600" y="92" text-anchor="middle">EDITION 5 &#183; GOVERNANCE BY DESIGN</text>
+  <text class="eyebrow" x="600" y="82" text-anchor="middle">EDITION 5 &#183; GOVERNANCE BY DESIGN</text>
+  <text class="special" x="600" y="110" text-anchor="middle">VICTORIAN SPECIAL &#183; FOI ACT 1982 (VIC)</text>
 
   <!-- Title -->
   <text class="title" x="600" y="170" text-anchor="middle">Where Section 39 Stops</text>
