@@ -103,6 +103,7 @@ h1 {
 }
 
 .article-content em {
+    font-family: 'Spectral', Georgia, serif;
     font-style: italic;
 }
 
